@@ -1,0 +1,295 @@
+#+TITLE:       Operating record in emacs(history record)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* shell 脚本的执行方式
+** ./*.sh
+在子shell内执行。无法改变父shell。
+** . *.sh or source *.sh
+在当前shell执行，改变会保留。
+* make
+** 选项
+-C：
+** makefile
+*** 后缀和模式规则
+*** 宏赋值
+1.:= 是立即展开式的(simply expanded variables)
+    允许使用变量原有的值来重新定义自己.
+    不可以引用在其之后定义的变量.
+2.= 是递归式展开的(recursively expanded variable)
+    特点：这种类型的变量所引用的其它变量在定义时是不会被展开的，
+          只有在make程序在生成某个目标使用到这个变量时，
+          其中的变量引用才会被递归地全部展开，直到没有任何变量引用为止。
+    可以引用在其之后定义的变量.
+    如果引用自身就会导致递归死循环.
+3.?= 称为条件赋值操作符.
+     只有在变量没有定义的情况下才会对变量进行定义并赋值.
+4.+= 追加赋值操作符,
+     来给变量追加值.
+     "+="操作符会继承变量的类型(立即展开 or 递归展开)(即不会改变变量的属性)
+*** 标识符
+.PHONY修饰的目标就是只有规则没有依赖
+* 环境变量
+env：查看所有
+unset PATH：删除PATH变量
+export：只有用了export，子shell才能继承该环境变量
+* 换行符
+# dos2unix test.sh
+去除'\r'的后缀。避免bash执行有问题
+* ftp站点下载文件目录
+wget ftp://ftp.ora.com/pub/examples/linux/drivers/2nd_edition/* -r
+
+* shell移动目录
+mv ./ldd2-samples-1.0.1/* /home/lawrence/
+* shell 复制文件夹
+Linux下拷贝一个目录：
+比如要把/home/user拷贝到/mnt/temp
+cp -R /home/user/* /mnt/temp
+但是这样有一个问题，/home/usera下的隐藏文件都不会被拷贝，子目录下的隐藏文件倒是会的。
+正确方法：
+cp -R /home/user/. /mnt/temp
+
+* find选取文件名
+find . -name "*" | grep "main"
+
+* find查找文件grep搜索文件内容
+find . -name "*" -exec grep "main" {} \;
+
+* grep对当前目录文件内容搜索
+# grep -R "DATE" ./ //
+# grep -R 'DATE' ./ //单引号避免变量拓展
+-r：表示递归查找子目录
+*：当前目录所有文件
+grep -R "DATE" kernel/
+kernel:当前目录的kernel子目录。
+# -n :line number
+# -s:不要输出错误信息
+# grep -rns "" ./
+* zip操作
+1. 我想把一个文件abc.txt和一个目录dir1压缩成为yasuo.zip：
+   # zip -r yasuo.zip abc.txt dir1
+2.我下载了一个yasuo.zip文件，想解压缩：
+   # unzip yasuo.zip
+3.我当前目录下有abc1.zip，abc2.zip和abc3.zip，我想一起解压缩它们：
+   # unzip abc\?.zip
+注释：?表示一个字符，如果用*表示任意多个字符。
+4.我有一个很大的压缩文件large.zip，我不想解压缩，只想看看它里面有什么：
+   # unzip -v large.zip
+5.我下载了一个压缩文件large.zip，想验证一下这个压缩文件是否下载完全了
+   # unzip -t large.zip
+6.我用-v选项发现music.zip压缩文件里面有很多目录和子目录，并且子目录中其实都是歌曲mp3文件，我想把这些文件都下载到第一级目录，而不是一层一层建目录：
+   # unzip -j music.zip
+* 打包压缩与解压
+** zip
+zip文件的解压和压缩
+*** 解压：
+unzip file1.zip 解压一个zip格式压缩包
+bunzip2 file1.bz2 解压一个叫做 ‘file1.bz2’的文件
+gunzip file1.gz 解压一个叫做 ‘file1.gz’的文件
+*** 压缩：
+zip file1.zip file1 创建一个zip格式的压缩包
+zip -r file1.zip file1 file2 dir1 将几个文件和目录同时压缩成一个zip格式的压缩包
+bzip2 file1 压缩一个叫做 ‘file1’ 的文件
+gzip file1 压缩一个叫做 ‘file1’的文件
+gzip -9 file1 最大程度压缩
+** tar
+.tar文件的解压和压缩
+*** 解压：
+tar –xvf file.tar 解压 tar包
+tar -zxvf file.tar.gz 解压tar.gz
+tar -xjvf file.tar.bz2 解压 tar.bz2
+tar –xZvf file.tar.Z 解压tar.Z
+tar -xvfj archive.tar.bz2 解压一个bzip2格式的压缩包
+*** 压缩：
+tar -zcvf 压缩文件名.tar.gz 被压缩文件名 可先切换到当前目录下。压缩文件名和被压缩文件名都可加入路径。
+tar -cvfz archive.tar.gz dir1 创建一个gzip格式的压缩包
+** rar
+.rar文件的解压和压缩
+*** 解压：
+rar x file1.rar 解压rar包
+unrar x file1.rar 解压rar包
+*** 压缩：
+rar a file1.rar test_file 创建一个叫做 ‘file1.rar’ 的包
+rar a file1.rar file1 file2 dir1 同时压缩 ‘file1’, ‘file2’ 以及目录 ‘dir1’
+
+* diff比较文件/目录，制作补丁文件
+diff -urwNB linux-2.6 linux-2.6-ok > linux-2.6-ok.diff
+原始目录在前，修改过后目录在后。
+-u:输出一些相同行
+-r：递归
+-N：将不存在文件当作空文件
+-w：忽略对 ~空格~ 的比较
+-B：忽略对 ~空行~ 的比较
+* patch用来打补丁
+cd linux-2.6
+patch -p1 < ../linux-2.6-ok.diff
+-pn:表示忽略路径中第n个斜线之前的目录。
+* git
+http://www.xbc.me/git-commands/
+1.取得Git仓库
+ git init
+2.Clone远程版本库
+ git clone git@xxxx
+3.添加远程版本库origin，语法为 git remote add [shortname] [url]
+	git remote add origin git@xxxx
+4.查看远程仓库
+	git remote -v
+5.添加当前修改的文件到暂存区
+	git add .
+6.如果你自动追踪文件，包括你已经手动删除的，状态为Deleted的文件
+	git add -u
+7.提交修改
+	git commit -m &注释
+8.推送你的更新到远程服务器,语法为 git push [远程名] [本地分支]:[远程分支]
+	git push origin master
+9.查看文件状态
+	 git status
+10.跟踪新文件
+	git add readme.txt
+11.从当前跟踪列表移除文件，并完全删除
+	git rm readme.txt
+12. 仅在暂存区删除，保留文件在当前目录，不再跟踪
+	git rm –cached readme.txt
+13.重命名文件
+	git mv reademe.txt readme
+14.查看提交的历史记录
+	git log
+15.修改最后一次提交注释的，利用–amend参数
+	git commit --amend
+16.忘记提交某些修改，下面的三条命令只会得到一个提交
+	git commit –m &quot;add readme.txt&quot;
+	git add readme_forgotten
+	git commit –amend
+17.假设你已经使用git add .，将修改过的文件a、b加到暂存区
+   现在你只想提交a文件，不想提交b文件，应该这样
+   git reset HEAD b
+18.取消对文件的修改
+	git checkout --readme.txt	
+/********************************************************************/
+/*********************************************************************/	
+	基本的分支管理
+/*******************************************************************/
+/*******************************************************************/
+1.	创建一个分支
+	git branch xxxx
+2.切换工作目录到xxxx
+	git checkout xxxx
+3.将上面的命令合在一起，创建xxx分支并切换到xxxx
+	git checkout -b xxxx
+  合并xxx分支，当前工作目录为Master
+	git merge xxxx
+  合并完成后，没有出现冲突，删除xxx分支
+	git branch -d xxxx	
+4.拉去远程仓库的数据，语法为 git fetch [remote-name]
+	git fetch
+5.fetch 会拉去最新的远程仓库数据，但不会自动到当前目录下，要自动合并
+	git pull
+6.查看远程仓库的信息
+	gir remote show origin
+7.建立本地的dev分支追踪远程仓库的develop分支
+	git checkout -b dev origin/develop
+	git fetch
+	git rebase origin/develop
+	本地未修改前同步服务器端
+	git pull --rebase
+	获取远程数据前需保持现场修改
+	git stash
+	git stash list
+	Git提交流程
+	C1---废弃修改。直接同步服务器
+			1.废弃本地修改。直接同步服务器
+			git checkout xxx
+			git pull --rebase	
+			2.废弃本地配置库修改（本地工作区修改保留）修改。直接同步服务器
+			git log 查看需要废弃的本地配置库的提交记录的版本号
+			git reset --mixed 版本号
+			3.废弃本地配置库修改及工作区的修改
+			git log 查看需要废弃的本地配置库的提交记录的版本号
+			git reset --hard 版本号
+	C2---修改过程中（暂不需要提交）但是需要下载服务器上最新数据
+			1,本地未修改前同步服务器端
+			  git pull --rebase
+			2.本地修改代码
+			3.获取远程数据前需保存现场修改
+				git stash
+				git stash list
+			4.获取服务器数据
+				git fetch
+				git rebase origin/develop
+				git log查看日志信息
+			5.合并本地已保存的数据与服务器上数据
+				git stash list
+				git stash pop (若有多次保存可使用Tab键选择确定从哪次保存的数据中恢复)
+			6.若有冲突。解决冲突，若无冲突，直接进入7
+				git status
+				手动解决冲突，解决完成后，通知git
+				git add -u
+				git rebase --continue
+				git status
+			7.继续修改代码（重复至2步）
+			提交至gerrit审核
+			git push origin HEAD:refs/for/分支名
+	C3---已修改完成需提交，需要同步服务器数据
+			1,本地未修改前同步服务器端
+			  git pull --rebase
+			2.本地修改代码
+			3.提交本地修改内容
+				git add 文件或目录
+				git commit -m "日志信息" （--amend选项是与前一次提交形成同一审核记录）
+			4.获取服务器数据合并
+				git fetch
+				git rebase origin/develop
+				git status
+			5.若有冲突。解决冲突，若无冲突，直接进入6
+				git status
+				手动解决冲突，解决完成后，通知git
+				git add -u
+				git status
+			6.提交至gerrit审核
+				git push origin HEAD:refs/for/分支名
+				
+* 查看二进制文件
+xxd （2进制）
+hexdump  (16进制)
+
+* dd获取磁盘信息
+dd if=/dev/block/mtdblock12 of=/sdcard/kernel bs=512 count=10
+# dd if=/mnt/hi_kernel.bin of=/dev/mtdblock12  烧写内核
+
+
+
+
+
+
+
+* TODO 以下为emacs记录，要同步至operation-record.org
+- State "TODO"       from ""           [2017-03-28 周二 14:03]
+
+* emacs-gtags
+你也可以先用find命令生成一个文件列表，叫gtags.files，
+然后再执行gtags，就会只索引gtags.files里的文件。
+example：
+代码:
+$ cd project/
+$ find . -name "*.[ch]" > gtags.files
+$ gtags
+可以只添加自己想要的目录。
+
+* emacs块注释
+** 注释
+多行注释： 
+1. 选中一段区域到最后一行行首（！很重要！）；
+2. 按 C-x r t ；
+3. 输入注释内容；
+** 取消注释
+反多行注释： 
+1. 选中一段区域到最后一行，紧挨着注释字符之后的位置（！很重要！）；
+2. 按 c-x r k；
+   

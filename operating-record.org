@@ -1,0 +1,293 @@
+#+TITLE:       Operating record in emacs(history record)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* emacs-install
+use M-x package-list-packages from elpa to down.
+** gtags
+/usr/local/share/emacs/24.5/lisp/gtags.el
+* emacs-config
+** helm
+*** helm-gtags
+
+** 显示括号匹配
+#+BEGIN_COMMENT
+(show-paren-mode t)
+;;use backward-sexp(C-M-b) and forward-sexp(C-M-f) to jump match parent. 
+#+END_COMMENT
+
+** 语法高亮模式
+#+BEGIN_QUOTE
+(global-font-lock-mode t) 
+#+END_QUOTE
+* dired-mode
+** make-directory
++:
+** delete-file && directory
+d:mark delete flag
+x:do-flagged-delete execute
+* org-mode
+Emacs学习笔记(9):org-mode，最好的文档编辑利器，没有之一
+http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html#sec-3-3
+Emacs学习笔记(10):Org-mode,最强的任务管理利器，没有之一
+http://www.cnblogs.com/holbrook/archive/2012/04/14/2447754.html
+Emacs学习笔记(11):用Org-mode实现GTD
+http://www.cnblogs.com/holbrook/archive/2012/04/17/2454619.html
+
+** org-remeber
+#+BEGIN_VERSE
+don't support in new version.use org-capture to do. -- org 6.0
+#+END_VERSE
+
+** 内部链接
+#+BEGIN_COMMENT
+    定义锚点 #<<my-anchor>>
+    [[my-anchor][内部链接] ](如果没有空格，显示会有变化)
+脚注可以看作是一种特殊的内部链接，但是要求具有"fn:"前缀：
+    添加脚注链接 [[fn:footprint1][脚注1] ]
+    定义脚注 [fn:footprint1]
+#+END_COMMENT
+** 显示图片
+#+BEGIN_COMMENT
+下载 iimage.el 文件扔到 Emacs 的目录里，然后在 .emacs 里添加下面的代码：
+;; iimage mode
+(autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
+(autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
+然后就可以用命令
+M-x iimage-mode RET
+在当前模式里启动 iimage 这个 minor mode。
+iimage-mode目前只能显示以文件方式链接的图片。
+#+END_COMMENT
+** 字体显示
+#+BEGIN_COMMENT
+*粗体*
+/斜体/
++删除线+
+_下划线_
+下标： H_2 O
+上标： E=mc^2
+等宽字：  =git=  或者 ~git~
+#+END_COMMENT
+** 表格
+#+BEGIN_COMMENT
+| Name  | Pone | Age |
+|-------+------+-----|
+| Peter | 1234 | 17  |
+| Anna  | 4321 | 25  |
+按C-c RET,就可以生成整个表格的结构
+按C-c C-c自动重建表格
+按TAB切换到下一个区域
+#+END_COMMENT
+** 列表
+#+BEGIN_COMMENT
+无序列表项以‘-’、‘+’或者‘*‘开头。
+有序列表项以‘1.’或者‘1)’开头。
+描述列表用‘::’将项和描述分开。
+有序列表和无序列表都以缩进表示层级。只要对齐缩进，不管是换行还是分块都认为是处于当前列表项。
+后面有两个空行时，列表就结束了.
+#+END_COMMENT
+** 分割线
+#+BEGIN_COMMENT
+五条短线或以上显示为分隔线。
+-----
+#+END_COMMENT
+** 标签tag
+#+BEGIN_COMMENT
+即子标题自动继承父标题的标签。比如：
+  * Meeting with the French group     :work:
+  ** Summary by Frank                 :boss:notes:
+  *** TODO Prepare slides for him     :action:
+则最后一行标题具有 work, boss, notes, action 四个标签。
+#+END_COMMENT
+** 内容元数据
+#+BEGIN_COMMENT
+注释区块
+以‘#‘开头的行被看作注释
+#+END_COMMENT
+#+BEGIN_VERSE
+分行区块
+#+END_VERSE
+#+BEGIN_QUOTE
+缩进区块
+#+END_QUOTE
+#+BEGIN_CENTER
+区中区块
+#+END_CENTER
+#+BEGIN_SRC ruby
+代码区块
+#+END_SRC
+#+BEGIN_EXAMPLE
+例子区块
+: 单行的例子以冒号开头
+#+END_EXAMPLE
+** 任务状态
+#+BEGIN_COMMENT
+可以定义多组状态序列，每个“#+SEQTODO”行定义一组
+状态之间用空格分隔
+可以在（）中定义附加选项，包括：
+字符：该状态的快捷键
+！：切换到该状态时会自动增加时间戳
+@ ：切换到该状态时要求输入文字说明
+如果同时设定@和！，使用“@/!”
+用“|”分隔未完成状态和已完成状态。未完成状态在查询待办事项时会列出。
+#+END_COMMENT
+** 复选框标记子任务
+#+BEGIN_COMMENT
+对于以”[ ]“开头的列表， 会被当作复选框
+ *** 一个任务 [0/2]
+该任务包含几个步骤：
+- [-] 步骤1 [1/2]
+  - [X] 步骤1.1
+  - [ ] 步骤1.2
+- [-] 步骤2 [1/2]
+  - [X] 步骤2.1
+  - [ ] 步骤2.2
+步骤的状态变化会改变上级步骤/任务的完成情况
+#+END_COMMENT
+* C/C++mode
+** auto-complete
+#+BEGIN_COMMENT
+查找资料，配置C语言的自动匹配TAG，方便输入函数名和变量名。
+#+END_COMMENT
+
+* vc-mode
+** 概述
+backends
+worktree
+lock-based && merge-based:
+file-based && changeset-based:
+centralized && decentralized:
+commit && update:
+check in && check out:
+repositories:
+VC log file && changelog file:
+** vc
+*** diff form two version
+In opening file,use ~vc-version-diff~,come to diff from spec version.
+** cvs
+*** *cvs* buffer
+use ~cvs-status~,come to *cvs*.
+
+*** *cvs-info* buffer
+use ~cvs-mode-tree~,come to *cvs-info*.
+
+*** =diff= buffer
+In be modified ,check diff use ~cvs-mode-ediff~.
+
+*** file-status and commit
+In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~. 
+
+* evil-mode
+** 操作模式
+   switch in evil-mode and emacs-mode.
+
+* package-archives
+** melpa
+   http://melpa.org/packages/
+** gun
+   http://elpa.gnu.org/packages/
+** marmalade
+   http://marmalade-repo.org/packages/
+
+* 环境变量(区分emacs变量)
+  getenv
+  setenv
+* gtags
+** 文件集合
+   You can customize a set of candidate files to be tagged.
+    $ find . -type f -print > /tmp/list     # make a file set
+    $ vi /tmp/list                         # customize the file set
+    $ gtags -f /tmp/list
+** tag文件保存另外路径
+   If your source files are on a read-only device, such as CDROM, 
+   then you cannot make tag files at the root of the source tree. 
+   In such case, you can make tag files in another place using GTAGSROOT environment variable.
+    $ mkdir /var/dbpath
+    $ cd /cdrom/src                 # the root of source tree
+    $ gtags /var/dbpath             # make tag files in /var/dbpath
+    $ export GTAGSROOT=`pwd`
+    $ export GTAGSDBPATH=/var/dbpath
+    $ global func
+    The ‘-O, --objdir’ option does it automatically for you.
+*** 例子(注意目录后面/的含义)
+    find ./apps_soundbox-a/ ./include_lib -type f -print > file_lists
+    gtags -f file_lists ./apps_soundbox-a
+    export GTAGSROOT=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set
+    export GTAGSDBPATH=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a
+** 记录
+   必须调用setenv，设置好路径之后，才能使用
+   GTAGSDBPATH=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a
+   GTAGSROOT=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set
+   可以在每个工程目录中，保存好，环境变量的值，使用load-file，加载即可。
+** 工程路径配置文件
+   (setenv "GTAGSROOT" "D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set")
+   (setenv "GTAGSDBPATH" "D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a")
+   使用load-file加载。
+   即可用getenv函数参看。
+
+* 跳转光标
+  C-x C-x
+
+* 切换buffer
+  C-x C-right 
+  C-x C-left 
+  C-x right 
+  C-x left 
+
+* 搜索文件内容，生成列表
+  list-matching-lines
+
+* 在一个目录中查找文件
+  find-name-dired 
+
+* 显示kill-ring
+  M-y helm-show-kill-ring
+* C模式下删除空白至最近一个字符
+  C-c backspace  向上
+  C-c DEL        向下
+* 选择区域
+  shift + 方向键
+  shift + C-a/C-e
+  shift + home
+  shift + end
+
+* org-mode缩进到和上一行对齐
+  Ctrl + tab
+
+  
+* spacemacs第一次启动
+  网络问题引起的，估计是bind这个词比较邪恶
+  解决办法是启动Emacs时加命令来禁用HTTPS协议 
+  emacs --insecure
+* C文件函数-折叠-展开
+  z m    evil-close-folds
+  z o    evil-open-fold
+* 逗号后自动加空格
+  (global-set-key (kbd ",")
+      #'(lambda ()
+          (interactive)
+          (insert ", ")))
+* 到处pdf文档
+  提供一个解决办法：
+  在org文件中加入以下代码：
+  #+LATEX_HEADER: \usepackage{xeCJK}
+  #+LATEX_HEADER: \setCJKmainfont{SimSun}
+  在.emacs文件或者是init.el文件中加入以下代码： 
+  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+  "xelatex -interaction nonstopmode %f"))
+  (setq org-latex-default-packages-alist
+  (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+  配置好后，在最新的emacs中可以将中文导出到PDF文件。
+
+
+
+
+
+
