@@ -1,0 +1,24 @@
+#+TITLE:       常用软件设置记录
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+* SourceInsight
+** 安装sourceinsight4.0.0086版本
+** 文件编码--防止乱码
+   Options -> Preferences -> Files -> Default encoding
+*** Windows中文
+    GB2312  CP:936
+*** linux中文
+    UTF-8
+** 匹配名高亮
+   Options -> File Type Options -> Highlight references to selected symbol
+
+
+

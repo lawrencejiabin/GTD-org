@@ -1,0 +1,41 @@
+#+TITLE:       cygwin install record
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+
+* 安装镜像网址
+   http://mirrors.163.com 
+
+* 安装包
+** emacs
+   安装emacs版本？？？
+** Python
+   全部安装，安装至Python3.6版本
+** vim
+   默认自带的，很难用
+   搜索vi，安装所有，主要vim和vi-expand等包
+   cp  /usr/share/vim/vim80/vimrc_example.vim   ~/.vimrc
+*** vi .vimrc   
+**** 显示行号 
+     set nu
+**** tab为4，TAB替换为空格
+     :set ts=4
+     :set expandtab
+     :%retab!
+
+** make
+*** automake
+*** cmake
+*** make:GUN utils
+** tree
+
+* shell
+** vi .bashrc
+

@@ -1,0 +1,25 @@
+#+TITLE:       Android Studio --- APP开发
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+* 安装
+** JDK
+   先安装JDK，配置好JAVA_HOME变量
+** Android Stduio
+*** NDK
+*** example&&demos
+
+* 概述
+
+* 技巧
+** 管理依赖关系
+   Android Studio 配置项目时默认使用 Maven 中央存储库。
+** 搜索文件夹
+   要搜索文件夹，但不搜索文件，请在表达式末尾添加“/”。
