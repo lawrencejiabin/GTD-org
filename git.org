@@ -1,0 +1,58 @@
+#+TITLE:       Git use record
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+* 下载
+  网页上按F12，看源代码，找下载网址URL
+  如https://github.com/git-for-windows/git/releases/download/v2.15.0.windows.1/Git-2.15.0-64-bit.exe
+  使用迅雷下载。
+
+* 安装
+  看网络教程，使用git bash即可。
+
+* 配置
+** SSH
+*** $ ssh-keygen -t rsa -C "lawrencejiabin@163.com"
+   open C:\Users\Administrator.PCOS-1707211525\.ssh\id_rsa.pub 文件
+   将文件内容添加到github。
+*** $ ssh -T git@github.com
+   验证是否连通。
+*** C:\Users\Administrator.PCOS-1707211525\.gitconfig
+    [credential]
+	      helper = store
+
+** git本地账户配置 
+   $ git config --global user.name "lawrencejiabin"
+   $ git config --global user.email "lawrencejiabin@163.com"
+   $ git config --list
+
+* 本地仓库
+** $ git init
+   新建本地仓库。
+** $ git remote add origin https://github.com/lawrencejiabin/GTD-org.git
+   将本地仓库和远程仓库，建立同步。
+
+* 远程仓库
+  在github自己建仓库。
+  记住仓库URL：https://github.com/lawrencejiabin/GTD-org.git
+** README
+   每个仓库，最好在根目录保留README文件。
+
+* 同步文件
+** $ git status
+   查看本地仓库，修改记录
+** $ git add operating-record.org
+   添加要同步的文件
+** $ git commit -m "create repositories"
+   提交到暂存区
+** $ git push origin master
+   推送到远程仓库
+** $ git log
+   查看log信息。
