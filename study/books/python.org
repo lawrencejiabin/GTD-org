@@ -1,0 +1,43 @@
+#+TITLE:       The Standard C Library(C标准库)(study record)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    stdio.h C/C++ C
+#+LANGUAGE:    ANSI/ISO C语言标准 库函数
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* 查看所有模块
+>>>help("modules")
+>>>import sys
+>>>sys.modules
+
+* 查看对象内所有属于及方法
+>>>dir(sys)
+
+* 查看Python内置函数
+>>>import sys
+>>>print dir(sys.modules['__builtin__'])
+>>>dir(__builtins__)
+
+* 查看模块中函数用法
+>>>import sys
+>>>help(dict)
+
+* 查看数据对象的类型
+>>>a=[1,2,3]
+>>>help(a)         # class list(object)
+>>>help(a.append)
+>>>help(123)       # class int(object)
+
+* 查看对象支持的方法
+>>>b={1:2,2:3}
+>>> help(b)        # 可查看 dict object 支持的方法
+
+* 查看对象类型
+>>>d=2
+>>>type(d)
+
+* 查看模块自定义的类
+>>>help('unittest')     # help('module_name')
