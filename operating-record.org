@@ -1,9 +1,9 @@
 #+TITLE:       Operating record in emacs(history record)
-#+AUTHOR:      ĞÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
-#+LANGUAGE:    language for HTML, e.g. ¡®en¡¯ (org-export-default-language)
+#+LANGUAGE:    language for HTML, e.g. â€˜enâ€™ (org-export-default-language)
 #+TODO:        TODO
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
@@ -17,13 +17,13 @@ use M-x package-list-packages from elpa to down.
 ** helm
 *** helm-gtags
 
-** ÏÔÊ¾À¨ºÅÆ¥Åä
+** æ˜¾ç¤ºæ‹¬å·åŒ¹é…
 #+BEGIN_COMMENT
 (show-paren-mode t)
 ;;use backward-sexp(C-M-b) and forward-sexp(C-M-f) to jump match parent. 
 #+END_COMMENT
 
-** Óï·¨¸ßÁÁÄ£Ê½
+** è¯­æ³•é«˜äº®æ¨¡å¼
 #+BEGIN_QUOTE
 (global-font-lock-mode t) 
 #+END_QUOTE
@@ -34,11 +34,11 @@ use M-x package-list-packages from elpa to down.
 d:mark delete flag
 x:do-flagged-delete execute
 * org-mode
-EmacsÑ§Ï°±Ê¼Ç(9):org-mode£¬×îºÃµÄÎÄµµ±à¼­ÀûÆ÷£¬Ã»ÓĞÖ®Ò»
+Emacså­¦ä¹ ç¬”è®°(9):org-modeï¼Œæœ€å¥½çš„æ–‡æ¡£ç¼–è¾‘åˆ©å™¨ï¼Œæ²¡æœ‰ä¹‹ä¸€
 http://www.cnblogs.com/holbrook/archive/2012/04/12/2444992.html#sec-3-3
-EmacsÑ§Ï°±Ê¼Ç(10):Org-mode,×îÇ¿µÄÈÎÎñ¹ÜÀíÀûÆ÷£¬Ã»ÓĞÖ®Ò»
+Emacså­¦ä¹ ç¬”è®°(10):Org-mode,æœ€å¼ºçš„ä»»åŠ¡ç®¡ç†åˆ©å™¨ï¼Œæ²¡æœ‰ä¹‹ä¸€
 http://www.cnblogs.com/holbrook/archive/2012/04/14/2447754.html
-EmacsÑ§Ï°±Ê¼Ç(11):ÓÃOrg-modeÊµÏÖGTD
+Emacså­¦ä¹ ç¬”è®°(11):ç”¨Org-modeå®ç°GTD
 http://www.cnblogs.com/holbrook/archive/2012/04/17/2454619.html
 
 ** org-remeber
@@ -46,119 +46,119 @@ http://www.cnblogs.com/holbrook/archive/2012/04/17/2454619.html
 don't support in new version.use org-capture to do. -- org 6.0
 #+END_VERSE
 
-** ÄÚ²¿Á´½Ó
+** å†…éƒ¨é“¾æ¥
 #+BEGIN_COMMENT
-    ¶¨ÒåÃªµã #<<my-anchor>>
-    [[my-anchor][ÄÚ²¿Á´½Ó] ](Èç¹ûÃ»ÓĞ¿Õ¸ñ£¬ÏÔÊ¾»áÓĞ±ä»¯)
-½Å×¢¿ÉÒÔ¿´×÷ÊÇÒ»ÖÖÌØÊâµÄÄÚ²¿Á´½Ó£¬µ«ÊÇÒªÇó¾ßÓĞ"fn:"Ç°×º£º
-    Ìí¼Ó½Å×¢Á´½Ó [[fn:footprint1][½Å×¢1] ]
-    ¶¨Òå½Å×¢ [fn:footprint1]
+    å®šä¹‰é”šç‚¹ #<<my-anchor>>
+    [[my-anchor][å†…éƒ¨é“¾æ¥] ](å¦‚æœæ²¡æœ‰ç©ºæ ¼ï¼Œæ˜¾ç¤ºä¼šæœ‰å˜åŒ–)
+è„šæ³¨å¯ä»¥çœ‹ä½œæ˜¯ä¸€ç§ç‰¹æ®Šçš„å†…éƒ¨é“¾æ¥ï¼Œä½†æ˜¯è¦æ±‚å…·æœ‰"fn:"å‰ç¼€ï¼š
+    æ·»åŠ è„šæ³¨é“¾æ¥ [[fn:footprint1][è„šæ³¨1] ]
+    å®šä¹‰è„šæ³¨ [fn:footprint1]
 #+END_COMMENT
-** ÏÔÊ¾Í¼Æ¬
+** æ˜¾ç¤ºå›¾ç‰‡
 #+BEGIN_COMMENT
-ÏÂÔØ iimage.el ÎÄ¼şÈÓµ½ Emacs µÄÄ¿Â¼Àï£¬È»ºóÔÚ .emacs ÀïÌí¼ÓÏÂÃæµÄ´úÂë£º
+ä¸‹è½½ iimage.el æ–‡ä»¶æ‰”åˆ° Emacs çš„ç›®å½•é‡Œï¼Œç„¶ååœ¨ .emacs é‡Œæ·»åŠ ä¸‹é¢çš„ä»£ç ï¼š
 ;; iimage mode
 (autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
 (autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
-È»ºó¾Í¿ÉÒÔÓÃÃüÁî
+ç„¶åå°±å¯ä»¥ç”¨å‘½ä»¤
 M-x iimage-mode RET
-ÔÚµ±Ç°Ä£Ê½ÀïÆô¶¯ iimage Õâ¸ö minor mode¡£
-iimage-modeÄ¿Ç°Ö»ÄÜÏÔÊ¾ÒÔÎÄ¼ş·½Ê½Á´½ÓµÄÍ¼Æ¬¡£
+åœ¨å½“å‰æ¨¡å¼é‡Œå¯åŠ¨ iimage è¿™ä¸ª minor modeã€‚
+iimage-modeç›®å‰åªèƒ½æ˜¾ç¤ºä»¥æ–‡ä»¶æ–¹å¼é“¾æ¥çš„å›¾ç‰‡ã€‚
 #+END_COMMENT
-** ×ÖÌåÏÔÊ¾
+** å­—ä½“æ˜¾ç¤º
 #+BEGIN_COMMENT
-*´ÖÌå*
-/Ğ±Ìå/
-+É¾³ıÏß+
-_ÏÂ»®Ïß_
-ÏÂ±ê£º H_2 O
-ÉÏ±ê£º E=mc^2
-µÈ¿í×Ö£º  =git=  »òÕß ~git~
+*ç²—ä½“*
+/æ–œä½“/
++åˆ é™¤çº¿+
+_ä¸‹åˆ’çº¿_
+ä¸‹æ ‡ï¼š H_2 O
+ä¸Šæ ‡ï¼š E=mc^2
+ç­‰å®½å­—ï¼š  =git=  æˆ–è€… ~git~
 #+END_COMMENT
-** ±í¸ñ
+** è¡¨æ ¼
 #+BEGIN_COMMENT
 | Name  | Pone | Age |
 |-------+------+-----|
 | Peter | 1234 | 17  |
 | Anna  | 4321 | 25  |
-°´C-c RET,¾Í¿ÉÒÔÉú³ÉÕû¸ö±í¸ñµÄ½á¹¹
-°´C-c C-c×Ô¶¯ÖØ½¨±í¸ñ
-°´TABÇĞ»»µ½ÏÂÒ»¸öÇøÓò
+æŒ‰C-c RET,å°±å¯ä»¥ç”Ÿæˆæ•´ä¸ªè¡¨æ ¼çš„ç»“æ„
+æŒ‰C-c C-cè‡ªåŠ¨é‡å»ºè¡¨æ ¼
+æŒ‰TABåˆ‡æ¢åˆ°ä¸‹ä¸€ä¸ªåŒºåŸŸ
 #+END_COMMENT
-** ÁĞ±í
+** åˆ—è¡¨
 #+BEGIN_COMMENT
-ÎŞĞòÁĞ±íÏîÒÔ¡®-¡¯¡¢¡®+¡¯»òÕß¡®*¡®¿ªÍ·¡£
-ÓĞĞòÁĞ±íÏîÒÔ¡®1.¡¯»òÕß¡®1)¡¯¿ªÍ·¡£
-ÃèÊöÁĞ±íÓÃ¡®::¡¯½«ÏîºÍÃèÊö·Ö¿ª¡£
-ÓĞĞòÁĞ±íºÍÎŞĞòÁĞ±í¶¼ÒÔËõ½ø±íÊ¾²ã¼¶¡£Ö»Òª¶ÔÆëËõ½ø£¬²»¹ÜÊÇ»»ĞĞ»¹ÊÇ·Ö¿é¶¼ÈÏÎªÊÇ´¦ÓÚµ±Ç°ÁĞ±íÏî¡£
-ºóÃæÓĞÁ½¸ö¿ÕĞĞÊ±£¬ÁĞ±í¾Í½áÊøÁË.
+æ— åºåˆ—è¡¨é¡¹ä»¥â€˜-â€™ã€â€˜+â€™æˆ–è€…â€˜*â€˜å¼€å¤´ã€‚
+æœ‰åºåˆ—è¡¨é¡¹ä»¥â€˜1.â€™æˆ–è€…â€˜1)â€™å¼€å¤´ã€‚
+æè¿°åˆ—è¡¨ç”¨â€˜::â€™å°†é¡¹å’Œæè¿°åˆ†å¼€ã€‚
+æœ‰åºåˆ—è¡¨å’Œæ— åºåˆ—è¡¨éƒ½ä»¥ç¼©è¿›è¡¨ç¤ºå±‚çº§ã€‚åªè¦å¯¹é½ç¼©è¿›ï¼Œä¸ç®¡æ˜¯æ¢è¡Œè¿˜æ˜¯åˆ†å—éƒ½è®¤ä¸ºæ˜¯å¤„äºå½“å‰åˆ—è¡¨é¡¹ã€‚
+åé¢æœ‰ä¸¤ä¸ªç©ºè¡Œæ—¶ï¼Œåˆ—è¡¨å°±ç»“æŸäº†.
 #+END_COMMENT
-** ·Ö¸îÏß
+** åˆ†å‰²çº¿
 #+BEGIN_COMMENT
-ÎåÌõ¶ÌÏß»òÒÔÉÏÏÔÊ¾Îª·Ö¸ôÏß¡£
+äº”æ¡çŸ­çº¿æˆ–ä»¥ä¸Šæ˜¾ç¤ºä¸ºåˆ†éš”çº¿ã€‚
 -----
 #+END_COMMENT
-** ±êÇ©tag
+** æ ‡ç­¾tag
 #+BEGIN_COMMENT
-¼´×Ó±êÌâ×Ô¶¯¼Ì³Ğ¸¸±êÌâµÄ±êÇ©¡£±ÈÈç£º
+å³å­æ ‡é¢˜è‡ªåŠ¨ç»§æ‰¿çˆ¶æ ‡é¢˜çš„æ ‡ç­¾ã€‚æ¯”å¦‚ï¼š
   * Meeting with the French group     :work:
   ** Summary by Frank                 :boss:notes:
   *** TODO Prepare slides for him     :action:
-Ôò×îºóÒ»ĞĞ±êÌâ¾ßÓĞ work, boss, notes, action ËÄ¸ö±êÇ©¡£
+åˆ™æœ€åä¸€è¡Œæ ‡é¢˜å…·æœ‰ work, boss, notes, action å››ä¸ªæ ‡ç­¾ã€‚
 #+END_COMMENT
-** ÄÚÈİÔªÊı¾İ
+** å†…å®¹å…ƒæ•°æ®
 #+BEGIN_COMMENT
-×¢ÊÍÇø¿é
-ÒÔ¡®#¡®¿ªÍ·µÄĞĞ±»¿´×÷×¢ÊÍ
+æ³¨é‡ŠåŒºå—
+ä»¥â€˜#â€˜å¼€å¤´çš„è¡Œè¢«çœ‹ä½œæ³¨é‡Š
 #+END_COMMENT
 #+BEGIN_VERSE
-·ÖĞĞÇø¿é
+åˆ†è¡ŒåŒºå—
 #+END_VERSE
 #+BEGIN_QUOTE
-Ëõ½øÇø¿é
+ç¼©è¿›åŒºå—
 #+END_QUOTE
 #+BEGIN_CENTER
-ÇøÖĞÇø¿é
+åŒºä¸­åŒºå—
 #+END_CENTER
 #+BEGIN_SRC ruby
-´úÂëÇø¿é
+ä»£ç åŒºå—
 #+END_SRC
 #+BEGIN_EXAMPLE
-Àı×ÓÇø¿é
-: µ¥ĞĞµÄÀı×ÓÒÔÃ°ºÅ¿ªÍ·
+ä¾‹å­åŒºå—
+: å•è¡Œçš„ä¾‹å­ä»¥å†’å·å¼€å¤´
 #+END_EXAMPLE
-** ÈÎÎñ×´Ì¬
+** ä»»åŠ¡çŠ¶æ€
 #+BEGIN_COMMENT
-¿ÉÒÔ¶¨Òå¶à×é×´Ì¬ĞòÁĞ£¬Ã¿¸ö¡°#+SEQTODO¡±ĞĞ¶¨ÒåÒ»×é
-×´Ì¬Ö®¼äÓÃ¿Õ¸ñ·Ö¸ô
-¿ÉÒÔÔÚ£¨£©ÖĞ¶¨Òå¸½¼ÓÑ¡Ïî£¬°üÀ¨£º
-×Ö·û£º¸Ã×´Ì¬µÄ¿ì½İ¼ü
-£¡£ºÇĞ»»µ½¸Ã×´Ì¬Ê±»á×Ô¶¯Ôö¼ÓÊ±¼ä´Á
-@ £ºÇĞ»»µ½¸Ã×´Ì¬Ê±ÒªÇóÊäÈëÎÄ×ÖËµÃ÷
-Èç¹ûÍ¬Ê±Éè¶¨@ºÍ£¡£¬Ê¹ÓÃ¡°@/!¡±
-ÓÃ¡°|¡±·Ö¸ôÎ´Íê³É×´Ì¬ºÍÒÑÍê³É×´Ì¬¡£Î´Íê³É×´Ì¬ÔÚ²éÑ¯´ı°ìÊÂÏîÊ±»áÁĞ³ö¡£
+å¯ä»¥å®šä¹‰å¤šç»„çŠ¶æ€åºåˆ—ï¼Œæ¯ä¸ªâ€œ#+SEQTODOâ€è¡Œå®šä¹‰ä¸€ç»„
+çŠ¶æ€ä¹‹é—´ç”¨ç©ºæ ¼åˆ†éš”
+å¯ä»¥åœ¨ï¼ˆï¼‰ä¸­å®šä¹‰é™„åŠ é€‰é¡¹ï¼ŒåŒ…æ‹¬ï¼š
+å­—ç¬¦ï¼šè¯¥çŠ¶æ€çš„å¿«æ·é”®
+ï¼ï¼šåˆ‡æ¢åˆ°è¯¥çŠ¶æ€æ—¶ä¼šè‡ªåŠ¨å¢åŠ æ—¶é—´æˆ³
+@ ï¼šåˆ‡æ¢åˆ°è¯¥çŠ¶æ€æ—¶è¦æ±‚è¾“å…¥æ–‡å­—è¯´æ˜
+å¦‚æœåŒæ—¶è®¾å®š@å’Œï¼ï¼Œä½¿ç”¨â€œ@/!â€
+ç”¨â€œ|â€åˆ†éš”æœªå®ŒæˆçŠ¶æ€å’Œå·²å®ŒæˆçŠ¶æ€ã€‚æœªå®ŒæˆçŠ¶æ€åœ¨æŸ¥è¯¢å¾…åŠäº‹é¡¹æ—¶ä¼šåˆ—å‡ºã€‚
 #+END_COMMENT
-** ¸´Ñ¡¿ò±ê¼Ç×ÓÈÎÎñ
+** å¤é€‰æ¡†æ ‡è®°å­ä»»åŠ¡
 #+BEGIN_COMMENT
-¶ÔÓÚÒÔ¡±[ ]¡°¿ªÍ·µÄÁĞ±í£¬ »á±»µ±×÷¸´Ñ¡¿ò
- *** Ò»¸öÈÎÎñ [0/2]
-¸ÃÈÎÎñ°üº¬¼¸¸ö²½Öè£º
-- [-] ²½Öè1 [1/2]
-  - [X] ²½Öè1.1
-  - [ ] ²½Öè1.2
-- [-] ²½Öè2 [1/2]
-  - [X] ²½Öè2.1
-  - [ ] ²½Öè2.2
-²½ÖèµÄ×´Ì¬±ä»¯»á¸Ä±äÉÏ¼¶²½Öè/ÈÎÎñµÄÍê³ÉÇé¿ö
+å¯¹äºä»¥â€[ ]â€œå¼€å¤´çš„åˆ—è¡¨ï¼Œ ä¼šè¢«å½“ä½œå¤é€‰æ¡†
+ *** ä¸€ä¸ªä»»åŠ¡ [0/2]
+è¯¥ä»»åŠ¡åŒ…å«å‡ ä¸ªæ­¥éª¤ï¼š
+- [-] æ­¥éª¤1 [1/2]
+  - [X] æ­¥éª¤1.1
+  - [ ] æ­¥éª¤1.2
+- [-] æ­¥éª¤2 [1/2]
+  - [X] æ­¥éª¤2.1
+  - [ ] æ­¥éª¤2.2
+æ­¥éª¤çš„çŠ¶æ€å˜åŒ–ä¼šæ”¹å˜ä¸Šçº§æ­¥éª¤/ä»»åŠ¡çš„å®Œæˆæƒ…å†µ
 #+END_COMMENT
 * C/C++mode
 ** auto-complete
 #+BEGIN_COMMENT
-²éÕÒ×ÊÁÏ£¬ÅäÖÃCÓïÑÔµÄ×Ô¶¯Æ¥ÅäTAG£¬·½±ãÊäÈëº¯ÊıÃûºÍ±äÁ¿Ãû¡£
+æŸ¥æ‰¾èµ„æ–™ï¼Œé…ç½®Cè¯­è¨€çš„è‡ªåŠ¨åŒ¹é…TAGï¼Œæ–¹ä¾¿è¾“å…¥å‡½æ•°åå’Œå˜é‡åã€‚
 #+END_COMMENT
 
 * vc-mode
-** ¸ÅÊö
+** æ¦‚è¿°
 backends
 worktree
 lock-based && merge-based:
@@ -185,7 +185,7 @@ In be modified ,check diff use ~cvs-mode-ediff~.
 In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~. 
 
 * evil-mode
-** ²Ù×÷Ä£Ê½
+** æ“ä½œæ¨¡å¼
    switch in evil-mode and emacs-mode.
 
 * package-archives
@@ -196,16 +196,16 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
 ** marmalade
    http://marmalade-repo.org/packages/
 
-* »·¾³±äÁ¿(Çø·Öemacs±äÁ¿)
+* ç¯å¢ƒå˜é‡(åŒºåˆ†emacså˜é‡)
   getenv
   setenv
 * gtags
-** ÎÄ¼ş¼¯ºÏ
+** æ–‡ä»¶é›†åˆ
    You can customize a set of candidate files to be tagged.
     $ find . -type f -print > /tmp/list     # make a file set
     $ vi /tmp/list                         # customize the file set
     $ gtags -f /tmp/list
-** tagÎÄ¼ş±£´æÁíÍâÂ·¾¶
+** tagæ–‡ä»¶ä¿å­˜å¦å¤–è·¯å¾„
    If your source files are on a read-only device, such as CDROM, 
    then you cannot make tag files at the root of the source tree. 
    In such case, you can make tag files in another place using GTAGSROOT environment variable.
@@ -215,79 +215,86 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
     $ export GTAGSROOT=`pwd`
     $ export GTAGSDBPATH=/var/dbpath
     $ global func
-    The ¡®-O, --objdir¡¯ option does it automatically for you.
-*** Àı×Ó(×¢ÒâÄ¿Â¼ºóÃæ/µÄº¬Òå)
+    The â€˜-O, --objdirâ€™ option does it automatically for you.
+*** ä¾‹å­(æ³¨æ„ç›®å½•åé¢/çš„å«ä¹‰)
     find ./apps_soundbox-a/ ./include_lib -type f -print > file_lists
     gtags -f file_lists ./apps_soundbox-a
     export GTAGSROOT=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set
     export GTAGSDBPATH=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a
-** ¼ÇÂ¼
-   ±ØĞëµ÷ÓÃsetenv£¬ÉèÖÃºÃÂ·¾¶Ö®ºó£¬²ÅÄÜÊ¹ÓÃ
+** è®°å½•
+   å¿…é¡»è°ƒç”¨setenvï¼Œè®¾ç½®å¥½è·¯å¾„ä¹‹åï¼Œæ‰èƒ½ä½¿ç”¨
    GTAGSDBPATH=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a
    GTAGSROOT=D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set
-   ¿ÉÒÔÔÚÃ¿¸ö¹¤³ÌÄ¿Â¼ÖĞ£¬±£´æºÃ£¬»·¾³±äÁ¿µÄÖµ£¬Ê¹ÓÃload-file£¬¼ÓÔØ¼´¿É¡£
-** ¹¤³ÌÂ·¾¶ÅäÖÃÎÄ¼ş
+   å¯ä»¥åœ¨æ¯ä¸ªå·¥ç¨‹ç›®å½•ä¸­ï¼Œä¿å­˜å¥½ï¼Œç¯å¢ƒå˜é‡çš„å€¼ï¼Œä½¿ç”¨load-fileï¼ŒåŠ è½½å³å¯ã€‚
+** å·¥ç¨‹è·¯å¾„é…ç½®æ–‡ä»¶
    (setenv "GTAGSROOT" "D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set")
    (setenv "GTAGSDBPATH" "D:/cygwin64/home/Administrator/emacs/ac69_sdk_v2012_p2-gtags-files-set/apps_soundbox-a")
-   Ê¹ÓÃload-file¼ÓÔØ¡£
-   ¼´¿ÉÓÃgetenvº¯Êı²Î¿´¡£
+   ä½¿ç”¨load-fileåŠ è½½ã€‚
+   å³å¯ç”¨getenvå‡½æ•°å‚çœ‹ã€‚
 
-* Ìø×ª¹â±ê
+* è·³è½¬å…‰æ ‡
   C-x C-x
 
-* ÇĞ»»buffer
+* åˆ‡æ¢buffer
   C-x C-right 
   C-x C-left 
   C-x right 
   C-x left 
 
-* ËÑË÷ÎÄ¼şÄÚÈİ£¬Éú³ÉÁĞ±í
+* æœç´¢æ–‡ä»¶å†…å®¹ï¼Œç”Ÿæˆåˆ—è¡¨
   list-matching-lines
 
-* ÔÚÒ»¸öÄ¿Â¼ÖĞ²éÕÒÎÄ¼ş
+* åœ¨ä¸€ä¸ªç›®å½•ä¸­æŸ¥æ‰¾æ–‡ä»¶
   find-name-dired 
 
-* ÏÔÊ¾kill-ring
+* æ˜¾ç¤ºkill-ring
   M-y helm-show-kill-ring
-* CÄ£Ê½ÏÂÉ¾³ı¿Õ°×ÖÁ×î½üÒ»¸ö×Ö·û
-  C-c backspace  ÏòÉÏ
-  C-c DEL        ÏòÏÂ
-* Ñ¡ÔñÇøÓò
-  shift + ·½Ïò¼ü
+* Cæ¨¡å¼ä¸‹åˆ é™¤ç©ºç™½è‡³æœ€è¿‘ä¸€ä¸ªå­—ç¬¦
+  C-c backspace  å‘ä¸Š
+  C-c DEL        å‘ä¸‹
+* é€‰æ‹©åŒºåŸŸ
+  shift + æ–¹å‘é”®
   shift + C-a/C-e
   shift + home
   shift + end
 
-* org-modeËõ½øµ½ºÍÉÏÒ»ĞĞ¶ÔÆë
+* org-modeç¼©è¿›åˆ°å’Œä¸Šä¸€è¡Œå¯¹é½
   Ctrl + tab
 
   
-* spacemacsµÚÒ»´ÎÆô¶¯
-  ÍøÂçÎÊÌâÒıÆğµÄ£¬¹À¼ÆÊÇbindÕâ¸ö´Ê±È½ÏĞ°¶ñ
-  ½â¾ö°ì·¨ÊÇÆô¶¯EmacsÊ±¼ÓÃüÁîÀ´½ûÓÃHTTPSĞ­Òé 
+* spacemacsç¬¬ä¸€æ¬¡å¯åŠ¨
+  ç½‘ç»œé—®é¢˜å¼•èµ·çš„ï¼Œä¼°è®¡æ˜¯bindè¿™ä¸ªè¯æ¯”è¾ƒé‚ªæ¶
+  è§£å†³åŠæ³•æ˜¯å¯åŠ¨Emacsæ—¶åŠ å‘½ä»¤æ¥ç¦ç”¨HTTPSåè®® 
   emacs --insecure
-* CÎÄ¼şº¯Êı-ÕÛµş-Õ¹¿ª
+* Cæ–‡ä»¶å‡½æ•°-æŠ˜å -å±•å¼€
   z m    evil-close-folds
   z o    evil-open-fold
-* ¶ººÅºó×Ô¶¯¼Ó¿Õ¸ñ
+* é€—å·åè‡ªåŠ¨åŠ ç©ºæ ¼
   (global-set-key (kbd ",")
       #'(lambda ()
           (interactive)
           (insert ", ")))
-* µ½´¦pdfÎÄµµ
-  Ìá¹©Ò»¸ö½â¾ö°ì·¨£º
-  ÔÚorgÎÄ¼şÖĞ¼ÓÈëÒÔÏÂ´úÂë£º
+* åˆ°å¤„pdfæ–‡æ¡£
+  æä¾›ä¸€ä¸ªè§£å†³åŠæ³•ï¼š
+  åœ¨orgæ–‡ä»¶ä¸­åŠ å…¥ä»¥ä¸‹ä»£ç ï¼š
   #+LATEX_HEADER: \usepackage{xeCJK}
   #+LATEX_HEADER: \setCJKmainfont{SimSun}
-  ÔÚ.emacsÎÄ¼ş»òÕßÊÇinit.elÎÄ¼şÖĞ¼ÓÈëÒÔÏÂ´úÂë£º 
+  åœ¨.emacsæ–‡ä»¶æˆ–è€…æ˜¯init.elæ–‡ä»¶ä¸­åŠ å…¥ä»¥ä¸‹ä»£ç ï¼š 
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
   "xelatex -interaction nonstopmode %f"))
   (setq org-latex-default-packages-alist
   (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
-  ÅäÖÃºÃºó£¬ÔÚ×îĞÂµÄemacsÖĞ¿ÉÒÔ½«ÖĞÎÄµ¼³öµ½PDFÎÄ¼ş¡£
+  é…ç½®å¥½åï¼Œåœ¨æœ€æ–°çš„emacsä¸­å¯ä»¥å°†ä¸­æ–‡å¯¼å‡ºåˆ°PDFæ–‡ä»¶ã€‚
 
 
 
 
 
+
+* æ”¹å˜æ–‡ä»¶ç¼–ç 
+  1.æŸ¥çœ‹å½“å‰bufferçš„ç¼–ç ï¼šM-x describe-current-coding-system
+  2.åˆ—å‡ºæ‰€æœ‰ç¼–ç ï¼šC-x <RET> r <TAB>
+  3.ä»¥æŒ‡å®šç¼–ç é‡è¯»å½“å‰bufferï¼šC-x <RET> r utf-8ï¼Œï¼ˆrevert-buffer-with-coding-systemï¼‰
+  4.æ”¹å˜å½“å‰bufferçš„ç¼–ç ï¼šC-x <RET> f utf-8ï¼Œï¼ˆset-buffer-file-coding-systemï¼‰
+  5.è®¾å®šä¸‹ä¸€æ­¥æ“ä½œçš„ç¼–ç æ ¼å¼ï¼šC-x <RET> cï¼Œï¼ˆuniversal-coding-system-argumentï¼‰
 

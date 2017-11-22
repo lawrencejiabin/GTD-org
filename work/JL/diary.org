@@ -1,43 +1,48 @@
 #+TITLE:       JL work diary record
-#+AUTHOR:      ÐÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
-#+LANGUAGE:    language for HTML, e.g. ¡®en¡¯ (org-export-default-language)
+#+LANGUAGE:    language for HTML, e.g. â€˜enâ€™ (org-export-default-language)
 #+TODO:        TODO
 
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
+* 20171122
+* 20171121
+** æ±‰æ™®è½¦å……
+   SDå’ŒIICå¤ç”¨ï¼Œåœ¨SDæ’­æ”¾é«˜ç çŽ‡çš„æ–‡ä»¶ï¼Œä¼šæœ‰æŽ‰çº¿æƒ…å†µï¼Œæ­¤æ—¶è¦é™åˆ¶å‘é€æ¶ˆæ¯çš„æ•°é‡ã€‚
+   é¿å…ä¸€ä¸‹å­å‘é€å¤ªå¤šï¼Œç´¯ç§¯åœ¨æ¶ˆæ¯æ± ä¸­ã€‚
 * 20171120
-** ººÆÕ³µ³ä
-   6902AµÄSDºÍiic¸´ÓÃ£¬µ±ÔÚsd²¥·ÅµÄÊ±ºò£¬²Ù×÷iicÊ±£¬ÒªµÈ´ýsd¿ÕÏÐºó£¬²ÅÄÜ¹Ø±Õsd¿ØÖÆÆ÷£¬²Å²Ù×÷iic¡£
+** æ±‰æ™®è½¦å……
+   6902Açš„SDå’Œiicå¤ç”¨ï¼Œå½“åœ¨sdæ’­æ”¾çš„æ—¶å€™ï¼Œæ“ä½œiicæ—¶ï¼Œè¦ç­‰å¾…sdç©ºé—²åŽï¼Œæ‰èƒ½å…³é—­sdæŽ§åˆ¶å™¨ï¼Œæ‰æ“ä½œiicã€‚
 * 20171117
-** ººÆÕ³µ³ä
-   12V¼ì²â£¬×î¶àÖ»ÄÜ×öµ½0.1VµÄ¾«¶È¡£
+** æ±‰æ™®è½¦å……
+   12Væ£€æµ‹ï¼Œæœ€å¤šåªèƒ½åšåˆ°0.1Vçš„ç²¾åº¦ã€‚
 * 20171116
-** BLE·¢ËÍÊý¾ÝÁ¿
+** BLEå‘é€æ•°æ®é‡
    static u32 app_data_send(u8 *data,u16 len)
-   µ×²ã»áÓÐ2KµÄ¿Õ¼ä£¬½øÐÐ·Ö°ü·¢ËÍ£¬Ã¿°ü20×Ö½Ú¡£
-   µ«ÊÇ²»½¨ÒéÊ¹ÓÃÌ«´óÊý¾ÝÁ¿¡£
-   ·¢ËÍËÙ¶È£¬¸úÊ±¼ä¼ä¸ôÓÐ¹Ø¡£
+   åº•å±‚ä¼šæœ‰2Kçš„ç©ºé—´ï¼Œè¿›è¡Œåˆ†åŒ…å‘é€ï¼Œæ¯åŒ…20å­—èŠ‚ã€‚
+   ä½†æ˜¯ä¸å»ºè®®ä½¿ç”¨å¤ªå¤§æ•°æ®é‡ã€‚
+   å‘é€é€Ÿåº¦ï¼Œè·Ÿæ—¶é—´é—´éš”æœ‰å…³ã€‚
 * 20171115
-** ººÆÕ³µ³ä
-   ÔÚµ÷ÆµµãµÄÊ±ºò£¬ÔÝÍ£ÒôÀÖ²¥·Å¡£
+** æ±‰æ™®è½¦å……
+   åœ¨è°ƒé¢‘ç‚¹çš„æ—¶å€™ï¼Œæš‚åœéŸ³ä¹æ’­æ”¾ã€‚
 * 20171114
-** ººÆÕ³µ³ä
-   SD¿¨ºÍIIC¸´ÓÃ£¬´ý´¦Àí¡£
-** ·¢ÉäÆ÷SDK
-   C°æ¾§Ô²ÐèÒª´ò²¹¶¡£¬²ÅÄÜÖ§³ÖÎÞÏßÉý¼¶¡£
+** æ±‰æ™®è½¦å……
+   SDå¡å’ŒIICå¤ç”¨ï¼Œå¾…å¤„ç†ã€‚
+** å‘å°„å™¨SDK
+   Cç‰ˆæ™¶åœ†éœ€è¦æ‰“è¡¥ä¸ï¼Œæ‰èƒ½æ”¯æŒæ— çº¿å‡çº§ã€‚
 * 20171113
-** Êµ½ÝC26S·¢ÉäÃ»ÉùÒô
-   QN8027ÓÐÒ»·ÖÖÓ×Ô¶¯¹Ø±Õ·¢ÉäµÄ¹¦ÄÜ£¬ÔÚ³õÊ¼»¯µÄÊ±ºò»áÓÐ¹Ø±Õ´Ë¹¦ÄÜ¡£
-   µ«ÊÇÓÉÓÚI2CÍ¬Ê±Íâ¹ÒQN8027ºÍAD2523£¬·¢ËÍ¸øQN8027µÄÊý¾Ý´æÔÚAD2523µÄÃüÁî×ÖÊ±£¬
-   data»á±»AD2523¿ØÖÆµ½£¬µ¼ÖÂ·¢ËÍ¸øQN8027µÄÊý¾Ý³ö´í£¬Ð´´í¼Ä´æÆ÷¡£
+** å®žæ·C26Så‘å°„æ²¡å£°éŸ³
+   QN8027æœ‰ä¸€åˆ†é’Ÿè‡ªåŠ¨å…³é—­å‘å°„çš„åŠŸèƒ½ï¼Œåœ¨åˆå§‹åŒ–çš„æ—¶å€™ä¼šæœ‰å…³é—­æ­¤åŠŸèƒ½ã€‚
+   ä½†æ˜¯ç”±äºŽI2CåŒæ—¶å¤–æŒ‚QN8027å’ŒAD2523ï¼Œå‘é€ç»™QN8027çš„æ•°æ®å­˜åœ¨AD2523çš„å‘½ä»¤å­—æ—¶ï¼Œ
+   dataä¼šè¢«AD2523æŽ§åˆ¶åˆ°ï¼Œå¯¼è‡´å‘é€ç»™QN8027çš„æ•°æ®å‡ºé”™ï¼Œå†™é”™å¯„å­˜å™¨ã€‚
 * 20171108
-** DAB°¸×Ó
-   ÇÐ»»lineinÍ¨µÀ£¬»áÓÐÉÏÒ»¸öÍ¨µÀµÄÎ²Òô£¬¿ÉÄÜµ×²ãÓÐ¸öbufÃ»ÓÐÇå³ý¡£
-   Ä¿Ç°¸Ä³É£¬ÔÚÇÐ»»Í¨µÀÏÈ·¢Ò»¶Î¾²ÒôµÄbuf¡£
+** DABæ¡ˆå­
+   åˆ‡æ¢lineiné€šé“ï¼Œä¼šæœ‰ä¸Šä¸€ä¸ªé€šé“çš„å°¾éŸ³ï¼Œå¯èƒ½åº•å±‚æœ‰ä¸ªbufæ²¡æœ‰æ¸…é™¤ã€‚
+   ç›®å‰æ”¹æˆï¼Œåœ¨åˆ‡æ¢é€šé“å…ˆå‘ä¸€æ®µé™éŸ³çš„bufã€‚
    #+BEGIN_SRC C
    void ladc_isr_callback(void *ladc_buf,u32 buf_flag,u32 buf_len)
    {
@@ -53,21 +58,21 @@
       }
    }
    #+END_SRC
-** ÍþÒæµÂËÀ»ú
+** å¨ç›Šå¾·æ­»æœº
    __attribute__((aligned(4)));
-   Ç¿ÖÆµØÖ·¶ÔÆë£¬·½±ãµ×²ãÖ¸Õë×ª»»¡£
+   å¼ºåˆ¶åœ°å€å¯¹é½ï¼Œæ–¹ä¾¿åº•å±‚æŒ‡é’ˆè½¬æ¢ã€‚
 
 * 20171107
-** Â×´Äº£¿Æ46µãÑÌÆ÷Í¨»°µ÷ÊÔ
-   46Åä8007£¬ÔÚÍ¨»°Ë«·½Í¬Ê±Ëµ»°µÄÊ±ºò£¬»ØÉùÑ¹ÖÆ²»×¡£¬»áÓÐÂ©Òô£¬ÌýÆðÀ´ÓÐµã¿¨¶ÙµÄ¸Ð¾õ¡£
-   Í¨»°»ØÉù²ÎÊý£¬Åä3ºÍ1400£¬Ð§¹ûOK
-   ÓÐÒ»¸öÊÖ»ú£¬Ô¶¶ËÄÜÌýµ½»ØÉùÎ²Òô£¬ÆäËûÊÖ»ú¾ÍÃ»ÊÂ£¬´ËÎÊÌâ¿Í»§ºöÂÔ´¦Àí¡£
+** ä¼¦èŒ¨æµ·ç§‘46ç‚¹çƒŸå™¨é€šè¯è°ƒè¯•
+   46é…8007ï¼Œåœ¨é€šè¯åŒæ–¹åŒæ—¶è¯´è¯çš„æ—¶å€™ï¼Œå›žå£°åŽ‹åˆ¶ä¸ä½ï¼Œä¼šæœ‰æ¼éŸ³ï¼Œå¬èµ·æ¥æœ‰ç‚¹å¡é¡¿çš„æ„Ÿè§‰ã€‚
+   é€šè¯å›žå£°å‚æ•°ï¼Œé…3å’Œ1400ï¼Œæ•ˆæžœOK
+   æœ‰ä¸€ä¸ªæ‰‹æœºï¼Œè¿œç«¯èƒ½å¬åˆ°å›žå£°å°¾éŸ³ï¼Œå…¶ä»–æ‰‹æœºå°±æ²¡äº‹ï¼Œæ­¤é—®é¢˜å®¢æˆ·å¿½ç•¥å¤„ç†ã€‚
 * 20171106
-** DAB°¸×Ó
-   IIS½ÓÊÕ»¹ÊÇ²»ÐÐ¡£
+** DABæ¡ˆå­
+   IISæŽ¥æ”¶è¿˜æ˜¯ä¸è¡Œã€‚
 * 20171103
-** ººÆÕÒôÏä
-   ²âÊÔMIX2910¹¦·Å£¬3.3VÖ±Á÷Æ«ÖÃÕý³££¬Ã»ÓÐµôµçÇé¿ö¡£
+** æ±‰æ™®éŸ³ç®±
+   æµ‹è¯•MIX2910åŠŸæ”¾ï¼Œ3.3Vç›´æµåç½®æ­£å¸¸ï¼Œæ²¡æœ‰æŽ‰ç”µæƒ…å†µã€‚
 ** USB-HID
    #+BEGIN_SRC C
    typedef enum
@@ -89,66 +94,66 @@
        MAX_STRING = 14,
    }USB_DES;
    u32 user_set_descriptor(USB_DES index, void * pstring, u32 len);
-   ///Ä¬ÈÏHID°´¼üÊÇµ÷ÓÃÒÔÏÂº¯Êý£º
+   ///é»˜è®¤HIDæŒ‰é”®æ˜¯è°ƒç”¨ä»¥ä¸‹å‡½æ•°ï¼š
    {
        os_mutex_pend(&mass_mutex, 0);
        usb_hid_control((u32)*((u32 *)parm));
        os_mutex_post(&mass_mutex);
    } 
-   ///º¯ÊýÌåÊÇ£º
+   ///å‡½æ•°ä½“æ˜¯ï¼š
    void usb_hid_control(u32 key)
    {
-       usb_hid_key(key);//Ä¬ÈÏ·¢ËÍ2byte ÂëÖµ
+       usb_hid_key(key);//é»˜è®¤å‘é€2byte ç å€¼
        usb_hid_key(0);
    }
-   ½á¹¹ÌåÉùÃ÷£º
+   ç»“æž„ä½“å£°æ˜Žï¼š
    extern OS_MUTEX mass_mutex AT(.usb_buf);
    #+END_SRC
 
 * 20171102
 ** ARGUN
-   Ð­ÒéÓÐ¸Ä¶¯£¬¸ü¸Ä³ÌÐò£¬ÒÑ·¢³ö
-** ººÆÕÒôÏä
-   ´¥Ãþ°´¼üÔö¼Óµç»°¿ØÖÆ¹¦ÄÜ£¬µçÁ¿»ñÈ¡»»Ëã³É°Ù·Ö±È£¬´¥Ãþ°´¼üÁéÃô¶Èµ÷µ½300¡£
+   åè®®æœ‰æ”¹åŠ¨ï¼Œæ›´æ”¹ç¨‹åºï¼Œå·²å‘å‡º
+** æ±‰æ™®éŸ³ç®±
+   è§¦æ‘¸æŒ‰é”®å¢žåŠ ç”µè¯æŽ§åˆ¶åŠŸèƒ½ï¼Œç”µé‡èŽ·å–æ¢ç®—æˆç™¾åˆ†æ¯”ï¼Œè§¦æ‘¸æŒ‰é”®çµæ•åº¦è°ƒåˆ°300ã€‚
 * 20171101
-** ººÆÕÒôÏä
-   MIX2909¹¦·Å»áÓÐàÛàÛÉù£¬ÊÇÔÚIN½Å£¬Î¬³Ö3.3VµÄÊ±ºò£¬»áÓÐ1V×óÓÒµÄµôµç£¬ºóÓÖÉý»Ø3.3Vµ¼ÖÂ¡£
-   ¹¦·Å²úÉÌ¼Ä2910µÄÐ¾Æ¬À´²âÊÔ¡£
+** æ±‰æ™®éŸ³ç®±
+   MIX2909åŠŸæ”¾ä¼šæœ‰å™—å™—å£°ï¼Œæ˜¯åœ¨INè„šï¼Œç»´æŒ3.3Vçš„æ—¶å€™ï¼Œä¼šæœ‰1Vå·¦å³çš„æŽ‰ç”µï¼ŒåŽåˆå‡å›ž3.3Vå¯¼è‡´ã€‚
+   åŠŸæ”¾äº§å•†å¯„2910çš„èŠ¯ç‰‡æ¥æµ‹è¯•ã€‚
 * 20171031
-** DAB·¢ÉäÆ÷
-   ³ö²îÊµ½Ý£¬µ÷ÊÔ¹¦ÄÜ£¬»ù±¾¹¦ÄÜ¶¼ÓÐÁË£¬Ï¸½ÚÎÊÌâ´¦Àí»¹Î´½â¾ö¡£
-*** ÇÐ»»Ä£Ê½»áÓÐàÛÉù
-    ÇÐ»»µ½DABÄ£Ê½£¬»áÓÐ3ÉùàÛÉù£¬ÇÐ»»µ½FMÄ£Ê½£¬Ò²»áÓÐàÛÉù£¬ÐèÒªÈí¼þ´¦Àímuteµô¡£
-*** À¶ÑÀ·¢ÉäÍ»È»Ã»ÓÐÉùÒô£¬Ö»ÄÜÖØÆô
-    ¸ÅÂÊºÜµÍ£¬ºÜÄÑ²âÊÔµ½£¬ÆäËû²Ù×÷¶¼Õý³££¬ÇÐ»»Í¨µÀ¶¼²»ÐÐ¡£
-*** 46µÄ»ú×Ó»ØÁ¬Ê±£¬link-key»á¶ªÊ§£¬µ¼ÖÂ»ØÁ¬²»ÉÏ
-    Ä¿Ç°×ö·¨ÊÇ£¬¿ª»úµÄ»ØÁ¬£¬×ö³É5´Î¡£µ«ÊÇ»áµ¼ÖÂ½øÈëËÑË÷Éè±¸±äÂý¡£
+** DABå‘å°„å™¨
+   å‡ºå·®å®žæ·ï¼Œè°ƒè¯•åŠŸèƒ½ï¼ŒåŸºæœ¬åŠŸèƒ½éƒ½æœ‰äº†ï¼Œç»†èŠ‚é—®é¢˜å¤„ç†è¿˜æœªè§£å†³ã€‚
+*** åˆ‡æ¢æ¨¡å¼ä¼šæœ‰å™—å£°
+    åˆ‡æ¢åˆ°DABæ¨¡å¼ï¼Œä¼šæœ‰3å£°å™—å£°ï¼Œåˆ‡æ¢åˆ°FMæ¨¡å¼ï¼Œä¹Ÿä¼šæœ‰å™—å£°ï¼Œéœ€è¦è½¯ä»¶å¤„ç†muteæŽ‰ã€‚
+*** è“ç‰™å‘å°„çªç„¶æ²¡æœ‰å£°éŸ³ï¼Œåªèƒ½é‡å¯
+    æ¦‚çŽ‡å¾ˆä½Žï¼Œå¾ˆéš¾æµ‹è¯•åˆ°ï¼Œå…¶ä»–æ“ä½œéƒ½æ­£å¸¸ï¼Œåˆ‡æ¢é€šé“éƒ½ä¸è¡Œã€‚
+*** 46çš„æœºå­å›žè¿žæ—¶ï¼Œlink-keyä¼šä¸¢å¤±ï¼Œå¯¼è‡´å›žè¿žä¸ä¸Š
+    ç›®å‰åšæ³•æ˜¯ï¼Œå¼€æœºçš„å›žè¿žï¼Œåšæˆ5æ¬¡ã€‚ä½†æ˜¯ä¼šå¯¼è‡´è¿›å…¥æœç´¢è®¾å¤‡å˜æ…¢ã€‚
 
 * 20171030
 ** ARGUN
-   Çø·ÖÅä¶Ô×´Ì¬ºÍÁ¬½Ó×´Ì¬µÄ¹ã²¥°ü£¬ÐÞ¸ÄÀ¶ÑÀÃûºÍMACµØÖ·¡£
-   Ò¡¸ËÊý¾Ý£¬Ã»·´Ó¦£¬¿Í»§¸üÐÂAPP£¬ÒÑOK¡£
-   º¯Êýapp_data_send()Éæ¼°ÐÅºÅÁ¿£¬ÔÚÃ»ÓÐÁ¬½ÓµÄÇé¿öÏÂ£¬»áµ¼ÖÂµ÷ÓÃ¸Ãº¯ÊýµÄÏß³Ì¹ÒÆð¡£
-** DABÀ¶ÑÀ·¢ÉäÆ÷
-   Ñ¡È¡Éè±¸ÁÐ±í£¬¶Ï¿ªÖØÁ¬µÈ¹¦ÄÜ£¬»¹Ã»µ÷ÊÔ¡£
+   åŒºåˆ†é…å¯¹çŠ¶æ€å’Œè¿žæŽ¥çŠ¶æ€çš„å¹¿æ’­åŒ…ï¼Œä¿®æ”¹è“ç‰™åå’ŒMACåœ°å€ã€‚
+   æ‘‡æ†æ•°æ®ï¼Œæ²¡ååº”ï¼Œå®¢æˆ·æ›´æ–°APPï¼Œå·²OKã€‚
+   å‡½æ•°app_data_send()æ¶‰åŠä¿¡å·é‡ï¼Œåœ¨æ²¡æœ‰è¿žæŽ¥çš„æƒ…å†µä¸‹ï¼Œä¼šå¯¼è‡´è°ƒç”¨è¯¥å‡½æ•°çš„çº¿ç¨‹æŒ‚èµ·ã€‚
+** DABè“ç‰™å‘å°„å™¨
+   é€‰å–è®¾å¤‡åˆ—è¡¨ï¼Œæ–­å¼€é‡è¿žç­‰åŠŸèƒ½ï¼Œè¿˜æ²¡è°ƒè¯•ã€‚
 * 20171027
 ** ARGUN
-   connect_intervalµÄµ¥Î»ÊÇ1.25ms£¬Èç¹û·¢ËÍÌ«¿ì£¬¿ÉÄÜ»áµ¼ÖÂµ×²ã»ýÑ¹Êý¾Ý°ü£¬µÈµ½¼ä¸ôÊ±¼äµ½ÁË£¬²ÅÒ»Æð·¢ËÍ³öÈ¥¡£
-   adv_intervalµÄµ¥Î»ÊÇ0.625ms£¬
-** ººÆÕBLEÒôÏä
-   Ìæ»»À¶ÑÀ¿âbluetooth_lib.a£¬²»»áËÀ»ú£¬µ«ÊÇ»ØÁ¬²»ÉÏ£¬ÊÖ»úÖ÷¶¯Á¬½Ó£¬»á¿¨ËÀ£¬È¡ÏûÁ¬½Ó£¬ÖØÐÂÁ¬£¬ÄÜÕý³£¡£
-   Ìæ»»ÒÔÇ°¶ÔÏäµÄ¿âcpu_lib_ac690x.a£¬½â¾ö»ØÁ¬²»ÉÏÎÊÌâ¡£
+   connect_intervalçš„å•ä½æ˜¯1.25msï¼Œå¦‚æžœå‘é€å¤ªå¿«ï¼Œå¯èƒ½ä¼šå¯¼è‡´åº•å±‚ç§¯åŽ‹æ•°æ®åŒ…ï¼Œç­‰åˆ°é—´éš”æ—¶é—´åˆ°äº†ï¼Œæ‰ä¸€èµ·å‘é€å‡ºåŽ»ã€‚
+   adv_intervalçš„å•ä½æ˜¯0.625msï¼Œ
+** æ±‰æ™®BLEéŸ³ç®±
+   æ›¿æ¢è“ç‰™åº“bluetooth_lib.aï¼Œä¸ä¼šæ­»æœºï¼Œä½†æ˜¯å›žè¿žä¸ä¸Šï¼Œæ‰‹æœºä¸»åŠ¨è¿žæŽ¥ï¼Œä¼šå¡æ­»ï¼Œå–æ¶ˆè¿žæŽ¥ï¼Œé‡æ–°è¿žï¼Œèƒ½æ­£å¸¸ã€‚
+   æ›¿æ¢ä»¥å‰å¯¹ç®±çš„åº“cpu_lib_ac690x.aï¼Œè§£å†³å›žè¿žä¸ä¸Šé—®é¢˜ã€‚
 * 20171025
-** ººÆÕBLEÒôÏä
-*** ººÆÕÒôÏäÔÚEDRºÍBLEÍ¬Ê±Á¬ÉÏºóÇÐÄ£Ê½»Øµ½À¶ÑÀÄ£Ê½ËÀ»ú
-   ÔÚ³õÊ¼»¯À¶ÑÀºó£¬·¢ËÍÀ¶ÑÀ»ØÁ¬ÃüÁîËÀ»ú¡£
-*** ´¥ÃþÎó´¥
-    Ìá¸ß´¥Ãþ°´ÏÂÃÅ¼÷£¬±ÜÃâ¸ÉÈÅ¡£
+** æ±‰æ™®BLEéŸ³ç®±
+*** æ±‰æ™®éŸ³ç®±åœ¨EDRå’ŒBLEåŒæ—¶è¿žä¸ŠåŽåˆ‡æ¨¡å¼å›žåˆ°è“ç‰™æ¨¡å¼æ­»æœº
+   åœ¨åˆå§‹åŒ–è“ç‰™åŽï¼Œå‘é€è“ç‰™å›žè¿žå‘½ä»¤æ­»æœºã€‚
+*** è§¦æ‘¸è¯¯è§¦
+    æé«˜è§¦æ‘¸æŒ‰ä¸‹é—¨æ§›ï¼Œé¿å…å¹²æ‰°ã€‚
 * 20171024
-** Êµ½ÝDAB°¸×Ó
-*** À¶ÑÀÔÙ´ÎËÑË÷Òì³£
-    __set_inquiry_again_flag(0);///´Ëº¯Êýµ×²ãÃ»×öºÃ£¬Ö»ÄÜÖÃ0
-    ÔÚÓ¦ÓÃ²ã×Ô¼ºÌí¼Ó£¬BT_STATUS_INQUIRY_COMPLETE£¬·´À¡Ê±£¬ÔÙ´ÎËÑË÷¾ÍÐÐ¡£
+** å®žæ·DABæ¡ˆå­
+*** è“ç‰™å†æ¬¡æœç´¢å¼‚å¸¸
+    __set_inquiry_again_flag(0);///æ­¤å‡½æ•°åº•å±‚æ²¡åšå¥½ï¼Œåªèƒ½ç½®0
+    åœ¨åº”ç”¨å±‚è‡ªå·±æ·»åŠ ï¼ŒBT_STATUS_INQUIRY_COMPLETEï¼Œåé¦ˆæ—¶ï¼Œå†æ¬¡æœç´¢å°±è¡Œã€‚
     #+BEGIN_SRC
     case BT_STATUS_INQUIRY_COMPLETE:
 		   puts("BT_STATUS_INQUIRY_COMPLETE\n");
@@ -159,144 +164,144 @@
        } 
 		break;
     #+END_SRC
-** ººÆÕ³µ³ä
-*** ÔÚ14V¹©µçµÄÇé¿öÏÂ´òµç»°Ê±ËÀ»ú
-    Ó¦¸ÃÊÇLDO½µÑ¹Ä£¿é£¬Ñ¹²îÌ«´ó£¬´Ó14V½µµ½5V£¬µ¼ÖÂ²»ÎÈ¶¨¡£
+** æ±‰æ™®è½¦å……
+*** åœ¨14Vä¾›ç”µçš„æƒ…å†µä¸‹æ‰“ç”µè¯æ—¶æ­»æœº
+    åº”è¯¥æ˜¯LDOé™åŽ‹æ¨¡å—ï¼ŒåŽ‹å·®å¤ªå¤§ï¼Œä»Ž14Vé™åˆ°5Vï¼Œå¯¼è‡´ä¸ç¨³å®šã€‚
 * 20171023
-** Êµ½ÝDAB°¸×Ó
-*** À¶ÑÀËÑË÷Á¬½Ólink-key¶ªÊ§
-    µÚÒ»´ÎÁ¬½ÓÉÏºó£¬ÔÙ´ÎËÑË÷Åä¶ÔÁ¬½ÓÊ±£¬¾Í»á³öÏÖ£¬ÖØÐÂÏÂÔØ³ÌÐò£¬Ò²²»ÐÐ¡£
-    ¸üÐÂÕñÈÙ·¢µÄbluetooth_lib.a£¬¿É½â¾ö¡£
-** ººÆÕbleÒôÏä
-*** ´¥Ãþ°´¼üºÍAD°´¼ü·Ö¿ª¼ì²â·¢ËÍ
-    ´¥Ãþ°´¼ü£¬Ê±²»Ê±»á·´À¡£¬µ¼ÖÂAD°´¼ü¼ì²â²»×¼¡£
-** ·ÉÁéÌØARGUN
-   ¸üÐÂproduct-key£¬Éú³ÉÊ±ÓÃ£¬¿ÉÓÃÓÚ·¢ÐÐ°æAPP
+** å®žæ·DABæ¡ˆå­
+*** è“ç‰™æœç´¢è¿žæŽ¥link-keyä¸¢å¤±
+    ç¬¬ä¸€æ¬¡è¿žæŽ¥ä¸ŠåŽï¼Œå†æ¬¡æœç´¢é…å¯¹è¿žæŽ¥æ—¶ï¼Œå°±ä¼šå‡ºçŽ°ï¼Œé‡æ–°ä¸‹è½½ç¨‹åºï¼Œä¹Ÿä¸è¡Œã€‚
+    æ›´æ–°æŒ¯è£å‘çš„bluetooth_lib.aï¼Œå¯è§£å†³ã€‚
+** æ±‰æ™®bleéŸ³ç®±
+*** è§¦æ‘¸æŒ‰é”®å’ŒADæŒ‰é”®åˆ†å¼€æ£€æµ‹å‘é€
+    è§¦æ‘¸æŒ‰é”®ï¼Œæ—¶ä¸æ—¶ä¼šåé¦ˆï¼Œå¯¼è‡´ADæŒ‰é”®æ£€æµ‹ä¸å‡†ã€‚
+** é£žçµç‰¹ARGUN
+   æ›´æ–°product-keyï¼Œç”Ÿæˆæ—¶ç”¨ï¼Œå¯ç”¨äºŽå‘è¡Œç‰ˆAPP
    #+BEGIN_SRC
-   NAME  £ºARGunPro
-   VID   £º0xFFFC
+   NAME  ï¼šARGunPro
+   VID   ï¼š0xFFFC
    KEY   : 0x3e, 0x9b, 0x7d, 0xb9, 0xbe, 0x69, 0xc2, 0xa5, 0x7c, 0x6c, 0x18, 0x34, 0xb, 0xd9, 0xdf, 0xfe
-   MAC   £ºFF:FF:00:00:00:01~FF:FF:00:00:00:FF
+   MAC   ï¼šFF:FF:00:00:00:01~FF:FF:00:00:00:FF
    #+END_SRC
 * 20171020
-** ººÆÕbleÒôÏä
-*** Æ»¹ûËÑË÷bleÃû×ÖÏÔÊ¾unknown
-    ÓÉÓÚ¹ã²¥°üµÄÊý¾Ý£¬²»Õý³£µ¼ÖÂ¡£
-** Êµ½ÝDAB°¸×Ó
-*** IISÍ¨ÐÅÉùÒô²»Õý³£
-    ²Î¿¼£º¼«ÐÔCPOLºÍÏàÎ»CPHA£¬ÐÞ¸ÄIISµÄÉèÖÃ¡£
+** æ±‰æ™®bleéŸ³ç®±
+*** è‹¹æžœæœç´¢bleåå­—æ˜¾ç¤ºunknown
+    ç”±äºŽå¹¿æ’­åŒ…çš„æ•°æ®ï¼Œä¸æ­£å¸¸å¯¼è‡´ã€‚
+** å®žæ·DABæ¡ˆå­
+*** IISé€šä¿¡å£°éŸ³ä¸æ­£å¸¸
+    å‚è€ƒï¼šæžæ€§CPOLå’Œç›¸ä½CPHAï¼Œä¿®æ”¹IISçš„è®¾ç½®ã€‚
 * 20171019
-** Êµ½ÝDAB°¸×Ó
-*** IISÍ¨ÐÅÉùÒô±äµ÷
-    ÓÉÓÚÈ±Ê§MSCK£¬DAB×Ô¼ºÍâ¹Ò¾§Õñ£¬ºÍÖ÷¿Ø×Ô¼º²úÉúµÄMSCK£¬»áÓÐÏàÎ»²î£¬µ¼ÖÂÉùÒô²»Í¬²½¡£
-    DABÐ¾Æ¬¸ÄÓÃ£¬´ÓÖ÷¿Ø24MÒýÏß£¬»¹ÊÇ²»ÐÐ¡£
+** å®žæ·DABæ¡ˆå­
+*** IISé€šä¿¡å£°éŸ³å˜è°ƒ
+    ç”±äºŽç¼ºå¤±MSCKï¼ŒDABè‡ªå·±å¤–æŒ‚æ™¶æŒ¯ï¼Œå’Œä¸»æŽ§è‡ªå·±äº§ç”Ÿçš„MSCKï¼Œä¼šæœ‰ç›¸ä½å·®ï¼Œå¯¼è‡´å£°éŸ³ä¸åŒæ­¥ã€‚
+    DABèŠ¯ç‰‡æ”¹ç”¨ï¼Œä»Žä¸»æŽ§24Må¼•çº¿ï¼Œè¿˜æ˜¯ä¸è¡Œã€‚
 
 * 20171018
-** Êµ½ÝDAB°¸×Ó
-*** IIS´Ó»ú½ÓÊÕ²»Õý³£
-    69ÏµÁÐIIS×ö´Ó»ú£¬±ØÐëÊä³öSCLK¡¢LRSCKÊ±ÖÓ¸øÆäËûÐ¾Æ¬£¬²»Ö§³ÖÊäÈëÊ±ÖÓ£¬
-    ¿ÉÀí½âÎªÖ»ÄÜÖ÷¶¯½ÓÊÕÊý¾Ý£¬²»Ö§³Ö±»¶¯½ÓÊÕÊý¾Ý¡£
-** µÂ¿Æ´´ble²¿·ÖÊÖ»ú»áµôÏß
-   Æ»¹ûµÄ5¡¢5s¡¢6¡¢6p¡¢ºìÃ×1s¡¢oppo r11£¬ÔÚÁ¬½ÓÁË2.1ºó£¬bleµÄ4.2Á¬½Ó»áÈÝÒ×µôÏß¡£
+** å®žæ·DABæ¡ˆå­
+*** IISä»ŽæœºæŽ¥æ”¶ä¸æ­£å¸¸
+    69ç³»åˆ—IISåšä»Žæœºï¼Œå¿…é¡»è¾“å‡ºSCLKã€LRSCKæ—¶é’Ÿç»™å…¶ä»–èŠ¯ç‰‡ï¼Œä¸æ”¯æŒè¾“å…¥æ—¶é’Ÿï¼Œ
+    å¯ç†è§£ä¸ºåªèƒ½ä¸»åŠ¨æŽ¥æ”¶æ•°æ®ï¼Œä¸æ”¯æŒè¢«åŠ¨æŽ¥æ”¶æ•°æ®ã€‚
+** å¾·ç§‘åˆ›bleéƒ¨åˆ†æ‰‹æœºä¼šæŽ‰çº¿
+   è‹¹æžœçš„5ã€5sã€6ã€6pã€çº¢ç±³1sã€oppo r11ï¼Œåœ¨è¿žæŽ¥äº†2.1åŽï¼Œbleçš„4.2è¿žæŽ¥ä¼šå®¹æ˜“æŽ‰çº¿ã€‚
 
 * 20171017
-** ººÆÕ´¥ÃþÒôÏä
-   º¸µãÒýÏßµ½Íâ¿Ç£¬ÐèÒªÌù¿éÍ­Æ¤£¬Ôö´óµçÈÝÐ§Ó¦µÄÃæ»ý£¬ÔöÇ¿¿¹¸ÉÈÅÄÜÁ¦¡£
-** Êµ½ÝDABÀ¶ÑÀ·¢Éä
-*** ·¢Éä°éËæßÕßÕÉù
-    ÓÉÓÚ´®¿Ú·¢ËÍÊý¾ÝÌ«¶àÌ«¹ý¼¯ÖÐ£¬whileÑ­»·Ê±¼ä¹ý³¤£¬µ¼ÖÂ·¢ÉäÊý¾Ý¿¨¶Ù¡£
-*** À¶ÑÀËÑË÷Ê±»ñÈ¡À¶ÑÀÃû°ü³ö´í
-    ÓÐÐ©·½°¸£¬ÔÚËÑË÷µÄÊ±ºò£¬Î´Á¬½ÓÊ±£¬»ñÈ¡µÄÀ¶ÑÀÃû°ü²»Õý³££¬ÕñÈÙ´¦ÀíÖÐ¡£
-*** IISÊä³ö°å×ÓÓÖÓÐÄ£ÄâÊä³ö
+** æ±‰æ™®è§¦æ‘¸éŸ³ç®±
+   ç„Šç‚¹å¼•çº¿åˆ°å¤–å£³ï¼Œéœ€è¦è´´å—é“œçš®ï¼Œå¢žå¤§ç”µå®¹æ•ˆåº”çš„é¢ç§¯ï¼Œå¢žå¼ºæŠ—å¹²æ‰°èƒ½åŠ›ã€‚
+** å®žæ·DABè“ç‰™å‘å°„
+*** å‘å°„ä¼´éšå“’å“’å£°
+    ç”±äºŽä¸²å£å‘é€æ•°æ®å¤ªå¤šå¤ªè¿‡é›†ä¸­ï¼Œwhileå¾ªçŽ¯æ—¶é—´è¿‡é•¿ï¼Œå¯¼è‡´å‘å°„æ•°æ®å¡é¡¿ã€‚
+*** è“ç‰™æœç´¢æ—¶èŽ·å–è“ç‰™ååŒ…å‡ºé”™
+    æœ‰äº›æ–¹æ¡ˆï¼Œåœ¨æœç´¢çš„æ—¶å€™ï¼Œæœªè¿žæŽ¥æ—¶ï¼ŒèŽ·å–çš„è“ç‰™ååŒ…ä¸æ­£å¸¸ï¼ŒæŒ¯è£å¤„ç†ä¸­ã€‚
+*** IISè¾“å‡ºæ¿å­åˆæœ‰æ¨¡æ‹Ÿè¾“å‡º
 * 20171016
-** Êµ½ÝDABÀ¶ÑÀ·¢ÉäÅäÆäËû·½°¸ÒôÏä»áÓÐßÕßÕÉù
-   ¼Ä¸øÕñÈÙ·ÖÎö
-*** IISÍ¨ÐÅµÄÊ±ÖÓÊä³ö
-    Ä¿Ç°Îªstm32Êä³ö¡£¿ÉÄÜÖ÷¿ØÕâ±ß²»ÄÜÆ¥Åä¡£16bitsÊý¾Ý¡£
-** ººÆÕ6905BÀ¶ÑÀÒôÏä´ø´¥Ãþ
-   ´¥ÃþµÄÒýÏß£¬¾­¹ýÀ®°ÈºÍµç³Ø£¬ÁéÃô¶È»áÊÜµ½Ó°Ïì¡£
-   °´¼üÓÐÒ»¸öº¸ÅÌ£¬Ó¦¸ÃÐü¿Õ£¬µ«ÊÇ½ÓµØ£¬Òª¸Ä°å
-   Ô­ÀíÍ¼ÓÃ³É6905AµÄÒý½ÅÍ¼£¬DACR¶ÔÓ¦PA1¡£
-   512KµÄ¿Õ¼ä²»¹»£¬¿ÉÒÔÐÞ¸ÄÌáÊ¾ÒôÎªµ¥ÉùµÀ£¬ÌáÐÑ¿Í»§ºóÆÚÓïÒô£¬²»ÄÜÌ«³¤¡£
+** å®žæ·DABè“ç‰™å‘å°„é…å…¶ä»–æ–¹æ¡ˆéŸ³ç®±ä¼šæœ‰å“’å“’å£°
+   å¯„ç»™æŒ¯è£åˆ†æž
+*** IISé€šä¿¡çš„æ—¶é’Ÿè¾“å‡º
+    ç›®å‰ä¸ºstm32è¾“å‡ºã€‚å¯èƒ½ä¸»æŽ§è¿™è¾¹ä¸èƒ½åŒ¹é…ã€‚16bitsæ•°æ®ã€‚
+** æ±‰æ™®6905Bè“ç‰™éŸ³ç®±å¸¦è§¦æ‘¸
+   è§¦æ‘¸çš„å¼•çº¿ï¼Œç»è¿‡å–‡å­å’Œç”µæ± ï¼Œçµæ•åº¦ä¼šå—åˆ°å½±å“ã€‚
+   æŒ‰é”®æœ‰ä¸€ä¸ªç„Šç›˜ï¼Œåº”è¯¥æ‚¬ç©ºï¼Œä½†æ˜¯æŽ¥åœ°ï¼Œè¦æ”¹æ¿
+   åŽŸç†å›¾ç”¨æˆ6905Açš„å¼•è„šå›¾ï¼ŒDACRå¯¹åº”PA1ã€‚
+   512Kçš„ç©ºé—´ä¸å¤Ÿï¼Œå¯ä»¥ä¿®æ”¹æç¤ºéŸ³ä¸ºå•å£°é“ï¼Œæé†’å®¢æˆ·åŽæœŸè¯­éŸ³ï¼Œä¸èƒ½å¤ªé•¿ã€‚
 * 20171014
-** ÖÐÏè´ï69À¶ÑÀ¶ú»úÍ¨»°Ð§¹û
-   ö¦Ó±µç×Ó4¿îÀ¶ÑÀ¶ú»úÍ¨»°Ð§¹û£¬ºÍ½¨ÈÙµÄ¶Ô±È¡£
-   ±È½Ï×¢ÖØÇåÎú¶È£¬ÒôÉ«±È½¨ÈÙ½Ï²î¡£
+** ä¸­ç¿”è¾¾69è“ç‰™è€³æœºé€šè¯æ•ˆæžœ
+   é“é¢–ç”µå­4æ¬¾è“ç‰™è€³æœºé€šè¯æ•ˆæžœï¼Œå’Œå»ºè£çš„å¯¹æ¯”ã€‚
+   æ¯”è¾ƒæ³¨é‡æ¸…æ™°åº¦ï¼ŒéŸ³è‰²æ¯”å»ºè£è¾ƒå·®ã€‚
 * 20171013
-** »ã½ÜÐ¾À¶ÑÀ¶ÔÏäÁ¬½ÓÎÊÌâ
-   Î´Á¬½ÓÊ±£¬ÒªÒ»Ö±´¦ÓÚÄÜ±³ËÑË÷µÄ×´Ì¬¡£
-   ÔÚÆ¥Åä¹ýÀ¶ÑÀ¶ÔÏäºó£¬º¯Êýget_total_connect_dev()»áÒ»Ö±·µ»Ø1£¬µ¼ÖÂÀ¶ÑÀ²»ÄÜ±»ËÑË÷µ½£¬
-   ¿É¸Ä³ÉÅÐ¶Ïget_bt_connect_status()µÄÀ¶ÑÀ×´Ì¬¡£
+** æ±‡æ°èŠ¯è“ç‰™å¯¹ç®±è¿žæŽ¥é—®é¢˜
+   æœªè¿žæŽ¥æ—¶ï¼Œè¦ä¸€ç›´å¤„äºŽèƒ½èƒŒæœç´¢çš„çŠ¶æ€ã€‚
+   åœ¨åŒ¹é…è¿‡è“ç‰™å¯¹ç®±åŽï¼Œå‡½æ•°get_total_connect_dev()ä¼šä¸€ç›´è¿”å›ž1ï¼Œå¯¼è‡´è“ç‰™ä¸èƒ½è¢«æœç´¢åˆ°ï¼Œ
+   å¯æ”¹æˆåˆ¤æ–­get_bt_connect_status()çš„è“ç‰™çŠ¶æ€ã€‚
 * 20171012
-** ººÆÕ³µ³ä6905C
-   ÔÚapp_server_read_callback()ÖÐ£¬»áµ÷ÓÃ2´Î£¬µÚÒ»´Îµ÷ÓÃbuffer = 0£¬buffer_size = 0£¬Òª·µ»Øbuffer_sizeµÄ´óÐ¡¡£
-   µÚ¶þ´Îµ÷ÓÃ»áÒÔÉÏ´ÎµÄbuffer_size£¬Ìî³äbufferµÄÄÚÈÝ¡£
-** ¿ñÈÈÕßAPP¿ª·¢
-   ´øÊ±ÖÓ¡¢ÄÖÖÓ¹¦ÄÜµÄAPP¡£ÎÒÃÇÌá¹©Êý¾Ý¶Ô½Ó£¬APP¿ª·¢ÓÉ¿Í»§´¦Àí¡£
-   Ê¹ÓÃTI BLE USB DongleÐ­Òé·ÖÎö×¥°ü£¬ÅäºÏµçÄÔ¶ËSmartRF Packet Sniffer½øÐÐÏÔÊ¾¡£
+** æ±‰æ™®è½¦å……6905C
+   åœ¨app_server_read_callback()ä¸­ï¼Œä¼šè°ƒç”¨2æ¬¡ï¼Œç¬¬ä¸€æ¬¡è°ƒç”¨buffer = 0ï¼Œbuffer_size = 0ï¼Œè¦è¿”å›žbuffer_sizeçš„å¤§å°ã€‚
+   ç¬¬äºŒæ¬¡è°ƒç”¨ä¼šä»¥ä¸Šæ¬¡çš„buffer_sizeï¼Œå¡«å……bufferçš„å†…å®¹ã€‚
+** ç‹‚çƒ­è€…APPå¼€å‘
+   å¸¦æ—¶é’Ÿã€é—¹é’ŸåŠŸèƒ½çš„APPã€‚æˆ‘ä»¬æä¾›æ•°æ®å¯¹æŽ¥ï¼ŒAPPå¼€å‘ç”±å®¢æˆ·å¤„ç†ã€‚
+   ä½¿ç”¨TI BLE USB Dongleåè®®åˆ†æžæŠ“åŒ…ï¼Œé…åˆç”µè„‘ç«¯SmartRF Packet Snifferè¿›è¡Œæ˜¾ç¤ºã€‚
 
 * 20171011
-** ·ÉÁéÌØ6909BÓÃ3.3VÍÆµÆ
-   Ö÷¿Ø3.3VÇý¶¯ÄÜÁ¦½ÏÈõ£¬½ÓÈý¼«¹ÜÍÆµÆ£¬¿ÉÄÜ»áÓ°Ïìµ½µçÔ´¡£
-** ººÆÕ³µ³ä6905C
-   ²ÉÓÃÐÂµÄBLEÐ­Òé£¬´øÆµµãµÄÉèÖÃºÍ¶ÁÈ¡£¬µçÁ¿¼ì²âµÈ¹¦ÄÜ¡£
+** é£žçµç‰¹6909Bç”¨3.3VæŽ¨ç¯
+   ä¸»æŽ§3.3Vé©±åŠ¨èƒ½åŠ›è¾ƒå¼±ï¼ŒæŽ¥ä¸‰æžç®¡æŽ¨ç¯ï¼Œå¯èƒ½ä¼šå½±å“åˆ°ç”µæºã€‚
+** æ±‰æ™®è½¦å……6905C
+   é‡‡ç”¨æ–°çš„BLEåè®®ï¼Œå¸¦é¢‘ç‚¹çš„è®¾ç½®å’Œè¯»å–ï¼Œç”µé‡æ£€æµ‹ç­‰åŠŸèƒ½ã€‚
 * 20171010
-** ¾§¿ÆUSBÃèÊö·û
-   Çø·Ö¶Á¿¨Æ÷Ãû³ÆºÍÉù¿¨Ãû³Æ
-   ÊôÐÔ--×ÜÏßÒÑ±¨¸æÉè±¸ÃèÊö--Öµ
-   Èç¹ûÖ®Ç°Ê¶±ð¹ý£¬ÐèÒªÏÈ°Ñbr17Ð¶ÔØµô£¬ÔÙÖØÆôµçÄÔ£¬²Å¾ÍÄÜÖØÐÂ¹ÒÔØ£¬ÏÔÊ¾³ö×Ö·û´®À´¡£
-** ººÆÕ³µ³ä
-   ²ÉÓÃAC6905C + QN8027,´øBLEÐ­Òé¡£
-   ¶ú»ú¼ì²â£¬µç×è¸ÄÓÃ0R¡£
-** ÖÐÏè´ïi7-6904C¶Ô¶úÀ¶ÑÀ¾àÀë¶Ì
-   ³äµç×ùµÄµçÏß»á´©¹ýÀ¶ÑÀÌìÏß£¬ÐèÒªÓÃ½ºÖ½£¬½«µçÏß½ôÌùÔÚ°å×ÓÉÏ¡£
-   ÌùÖ½¸ÕºÃ¸Ç×¡À¶ÑÀÌìÏßÉÏ£¬²»ÒªÌùÔÚÔª¼þÉÏÃæ¡£
+** æ™¶ç§‘USBæè¿°ç¬¦
+   åŒºåˆ†è¯»å¡å™¨åç§°å’Œå£°å¡åç§°
+   å±žæ€§--æ€»çº¿å·²æŠ¥å‘Šè®¾å¤‡æè¿°--å€¼
+   å¦‚æžœä¹‹å‰è¯†åˆ«è¿‡ï¼Œéœ€è¦å…ˆæŠŠbr17å¸è½½æŽ‰ï¼Œå†é‡å¯ç”µè„‘ï¼Œæ‰å°±èƒ½é‡æ–°æŒ‚è½½ï¼Œæ˜¾ç¤ºå‡ºå­—ç¬¦ä¸²æ¥ã€‚
+** æ±‰æ™®è½¦å……
+   é‡‡ç”¨AC6905C + QN8027,å¸¦BLEåè®®ã€‚
+   è€³æœºæ£€æµ‹ï¼Œç”µé˜»æ”¹ç”¨0Rã€‚
+** ä¸­ç¿”è¾¾i7-6904Cå¯¹è€³è“ç‰™è·ç¦»çŸ­
+   å……ç”µåº§çš„ç”µçº¿ä¼šç©¿è¿‡è“ç‰™å¤©çº¿ï¼Œéœ€è¦ç”¨èƒ¶çº¸ï¼Œå°†ç”µçº¿ç´§è´´åœ¨æ¿å­ä¸Šã€‚
+   è´´çº¸åˆšå¥½ç›–ä½è“ç‰™å¤©çº¿ä¸Šï¼Œä¸è¦è´´åœ¨å…ƒä»¶ä¸Šé¢ã€‚
 * 20171009
-** ¾§¿Æ¶à¹úÓïÑÔ
-   69ÏµÁÐÌí¼Ó¶à¹úÓïÑÔ£¬ÈÕÓï¡¢·±Ìå¶¼¿ÉÒÔ¡£
-   µ«ÊÇÎ÷°àÑÀ¡¢°¢À­²®µÄ£¬²»ÐÐ£¬³õÊ¼»¯³É¹¦£¬µ«ÊÇÆÁÄ»É¶¶¼Ã»ÏÔÊ¾¡£
-   Ìæ»»¹úì¿·¢µÄfont_lib.a£¬ÒÑ½â¾ö¡£
-   Ó¢ÓïÖ®ºóµÄÓïÑÔ£¬²ÉÓÃµÄ¶¼ÊÇUnicodeÐ¡¶Ë±àÂë¡£
+** æ™¶ç§‘å¤šå›½è¯­è¨€
+   69ç³»åˆ—æ·»åŠ å¤šå›½è¯­è¨€ï¼Œæ—¥è¯­ã€ç¹ä½“éƒ½å¯ä»¥ã€‚
+   ä½†æ˜¯è¥¿ç­ç‰™ã€é˜¿æ‹‰ä¼¯çš„ï¼Œä¸è¡Œï¼Œåˆå§‹åŒ–æˆåŠŸï¼Œä½†æ˜¯å±å¹•å•¥éƒ½æ²¡æ˜¾ç¤ºã€‚
+   æ›¿æ¢å›½ç‚œå‘çš„font_lib.aï¼Œå·²è§£å†³ã€‚
+   è‹±è¯­ä¹‹åŽçš„è¯­è¨€ï¼Œé‡‡ç”¨çš„éƒ½æ˜¯Unicodeå°ç«¯ç¼–ç ã€‚
 * 20170930
-** ·ÉÁéÌØARGUN
-   µ÷ÊÔOK
-** ·ÉÁéÌØSuperAR
-   Ôö¼Ó·´À¡»úÖÆ
+** é£žçµç‰¹ARGUN
+   è°ƒè¯•OK
+** é£žçµç‰¹SuperAR
+   å¢žåŠ åé¦ˆæœºåˆ¶
 * 20170929
-** ·ÉÁéÌØARGUN
-   BLE·¢ËÍÊÇÒì²½²Ù×÷µÄ£¬¼ÓÁË¸ö¶ÓÁÐ·¢ËÍ£¬ÉÏÒ»¸ö·¢ËÍ³É¹¦²Å·¢ËÍÏÂÒ»¸ö¡£
-   Ò¡¸ËÊý¾Ý²ÉÓÃAD¼ì²â£¬Êý¾Ý²»ÖªµÀÈçºÎ×éÖ¯£¬·¢ËÍ¸øAPP¡£
-   È¡Öµ0µ½0xff£¬Ò¡¸ËÃ»¶¯µÄÊ±ºò£¬·¢µÄÊÇ0x7f¡£
-   ²ÉÓÃIOÉÏÀ­µç×è10k,Îó²î±È½Ï´ó¡£
+** é£žçµç‰¹ARGUN
+   BLEå‘é€æ˜¯å¼‚æ­¥æ“ä½œçš„ï¼ŒåŠ äº†ä¸ªé˜Ÿåˆ—å‘é€ï¼Œä¸Šä¸€ä¸ªå‘é€æˆåŠŸæ‰å‘é€ä¸‹ä¸€ä¸ªã€‚
+   æ‘‡æ†æ•°æ®é‡‡ç”¨ADæ£€æµ‹ï¼Œæ•°æ®ä¸çŸ¥é“å¦‚ä½•ç»„ç»‡ï¼Œå‘é€ç»™APPã€‚
+   å–å€¼0åˆ°0xffï¼Œæ‘‡æ†æ²¡åŠ¨çš„æ—¶å€™ï¼Œå‘çš„æ˜¯0x7fã€‚
+   é‡‡ç”¨IOä¸Šæ‹‰ç”µé˜»10k,è¯¯å·®æ¯”è¾ƒå¤§ã€‚
 * 20170928
-** Êµ½ÝDABµÄIIS´Ó»ú½ÓÊÕ
-   ¿Í»§stm32»¹Ã»ÓÐ×öºÃ£¬ÎÞ·¨µ÷ÊÔ
-** ¹«Ë¾±àÒëÆ÷´¦ÀíÖÐÎÄ
-   ¸ù¾Ý.cÎÄ¼þµÄ±àÂë¸ñÊ½£¬»áÒÔÎÄ¼þµÄ±àÂë¸ñÊ½£¬Ìî³äÊý×é¡£
-   ¿ÉÐÂ½¨ÎÄ¼þ£¬±£´æÎªUnicode±àÂë£¬ÔÙ¶¨ÒåÖÐÎÄÊý×é£¬¾Í»áÒÔUnicodeÌî³ä¸ÃÊý×é¡£
+** å®žæ·DABçš„IISä»ŽæœºæŽ¥æ”¶
+   å®¢æˆ·stm32è¿˜æ²¡æœ‰åšå¥½ï¼Œæ— æ³•è°ƒè¯•
+** å…¬å¸ç¼–è¯‘å™¨å¤„ç†ä¸­æ–‡
+   æ ¹æ®.cæ–‡ä»¶çš„ç¼–ç æ ¼å¼ï¼Œä¼šä»¥æ–‡ä»¶çš„ç¼–ç æ ¼å¼ï¼Œå¡«å……æ•°ç»„ã€‚
+   å¯æ–°å»ºæ–‡ä»¶ï¼Œä¿å­˜ä¸ºUnicodeç¼–ç ï¼Œå†å®šä¹‰ä¸­æ–‡æ•°ç»„ï¼Œå°±ä¼šä»¥Unicodeå¡«å……è¯¥æ•°ç»„ã€‚
 * 20170927
-** ·ÉÁéÌØARGUN
-   ARGUNÐ­Òé£¬Ã»ÓÐ°´ÕÕÀ¶ÑÀ±ê×¼£¬·¢ËÍenable notify¸ø´Ó»ú£¬µ¼ÖÂÎÒÃÇµ×²ãnotifyÍ¨µÀÃ»ÓÐ´ò¿ª¡£
-   ¶ø¿Í»§ÓÃtelinkÖ÷¿Ø£¬Ö§³ÖÕâÑùµÄ²Ù×÷¡£
+** é£žçµç‰¹ARGUN
+   ARGUNåè®®ï¼Œæ²¡æœ‰æŒ‰ç…§è“ç‰™æ ‡å‡†ï¼Œå‘é€enable notifyç»™ä»Žæœºï¼Œå¯¼è‡´æˆ‘ä»¬åº•å±‚notifyé€šé“æ²¡æœ‰æ‰“å¼€ã€‚
+   è€Œå®¢æˆ·ç”¨telinkä¸»æŽ§ï¼Œæ”¯æŒè¿™æ ·çš„æ“ä½œã€‚
 *** descriptors
     CHARACTERISTIC_USER_DESCRIPTION     -->0x2901
     CLIENT_CHARACTERISTIC_CONFIGURATION -->0x2902
     SERVER_CHARACTERISTIC_CONFIGURATION -->0x2903
 
 * 20170926
-** ÏÂÔØ¹¤¾ßÎÞ·¨Éý¼¶
-   ÏÂÔØ¹¤¾ßÐèÒª5V¹©µç£¬±Ê¼Ç±¾µçÑ¹¿ÉÄÜ´ï²»µ½5V¡£
-   ÏÂÔØ¹¤¾ß¹ÒÒ»¸ö´óµçÈÝ£¬µç×è¸Ä´ó2.7R£¬¿É·ÀÖ¹°å×Ó³¶µ½µçÔ´¡£
-** Êµ½ÝDAB°¸×Ó
-*** IIS´Ó»úÊäÈë
-** ·ÉÁéÌØARGUN
-   ÎÞ·¨»ñÈ¡notifyµÄ¾ä±ú£¬ÎÞ·¨·¢ËÍÊý¾Ý
+** ä¸‹è½½å·¥å…·æ— æ³•å‡çº§
+   ä¸‹è½½å·¥å…·éœ€è¦5Vä¾›ç”µï¼Œç¬”è®°æœ¬ç”µåŽ‹å¯èƒ½è¾¾ä¸åˆ°5Vã€‚
+   ä¸‹è½½å·¥å…·æŒ‚ä¸€ä¸ªå¤§ç”µå®¹ï¼Œç”µé˜»æ”¹å¤§2.7Rï¼Œå¯é˜²æ­¢æ¿å­æ‰¯åˆ°ç”µæºã€‚
+** å®žæ·DABæ¡ˆå­
+*** IISä»Žæœºè¾“å…¥
+** é£žçµç‰¹ARGUN
+   æ— æ³•èŽ·å–notifyçš„å¥æŸ„ï¼Œæ— æ³•å‘é€æ•°æ®
 * 20170925
-** BLE¶Á»Øµ÷Ö´ÐÐ2´Î
-   app_server_read_callback()µ÷ÓÃ2´ÎÊÇÐèÒªµÄ£¬
-   µÚÒ»´ÎÐèÒª·µ»ØÕýÈ·µÄ³¤¶È»ØÈ¥£¬
-   µÚ¶þ´ÎÅÐ¶ÏbufferÖ¸ÕëÊÇ·ñÎª¿Õ£¬²»Îª¿Õ²Å¸øbuffer¸³Öµ¡£
-** ¶¯Ì¬ÐÞ¸ÄpinÂëºÍÀ¶ÑÀÃû
+** BLEè¯»å›žè°ƒæ‰§è¡Œ2æ¬¡
+   app_server_read_callback()è°ƒç”¨2æ¬¡æ˜¯éœ€è¦çš„ï¼Œ
+   ç¬¬ä¸€æ¬¡éœ€è¦è¿”å›žæ­£ç¡®çš„é•¿åº¦å›žåŽ»ï¼Œ
+   ç¬¬äºŒæ¬¡åˆ¤æ–­bufferæŒ‡é’ˆæ˜¯å¦ä¸ºç©ºï¼Œä¸ä¸ºç©ºæ‰ç»™bufferèµ‹å€¼ã€‚
+** åŠ¨æ€ä¿®æ”¹pinç å’Œè“ç‰™å
    #+BEGIN_SRC c
    static void bredr_name_custom_handle(char *name)
    {
@@ -309,113 +314,113 @@
        __set_pin_code("3693");
    }
    #+END_SRC
-** APP·¢ÆðÁ¬½ÓÀ¶ÑÀ2.1 
-   ÓÃÁËÒ»¸ö·´ÉäµÄ·½·¨ÊµÏÖ¡£
-   Õâ¸ö·½·¨ÔÚ¹úÍâµÄÌù×ÓÉÏÕÒµ½µÄ£¬¿ÉÒÔÈÃ¿Í»§ÏÈÉÏÍøÕÒÒ»ÕÒ¡£
-** 69_V2012_p2°æ±¾SDK¶ÔÏäÁ¬½Ó
-*** ¿ª»ú×Ô¶¯Á¬½Ó´Ó»ú
+** APPå‘èµ·è¿žæŽ¥è“ç‰™2.1 
+   ç”¨äº†ä¸€ä¸ªåå°„çš„æ–¹æ³•å®žçŽ°ã€‚
+   è¿™ä¸ªæ–¹æ³•åœ¨å›½å¤–çš„è´´å­ä¸Šæ‰¾åˆ°çš„ï¼Œå¯ä»¥è®©å®¢æˆ·å…ˆä¸Šç½‘æ‰¾ä¸€æ‰¾ã€‚
+** 69_V2012_p2ç‰ˆæœ¬SDKå¯¹ç®±è¿žæŽ¥
+*** å¼€æœºè‡ªåŠ¨è¿žæŽ¥ä»Žæœº
     void bt_discon_complete_handle(u8 *addr , int reason)
     ----reason == 0x04
-        ----user_send_cmd_prepare(USER_CTRL_START_CONNEC_VIA_ADDR_STEREO,0,NULL);×¢ÊÍ´Ë¾ä£¬¼´¿É²»×Ô¶¯Á¬½Ó
-*** ¸ÅÂÊÐÔÁ¬½Ó²»ÁË´Ó»ú
-    Ã¿¸ô12Ãë£¬·¢ËÍMSG_BT_STEREO_SEARCH_DEVICEÏûÏ¢£¬¼´¿É¡£
-    ËÑË÷Ê±¼ä×î³¤Îª12Ãë¡£
+        ----user_send_cmd_prepare(USER_CTRL_START_CONNEC_VIA_ADDR_STEREO,0,NULL);æ³¨é‡Šæ­¤å¥ï¼Œå³å¯ä¸è‡ªåŠ¨è¿žæŽ¥
+*** æ¦‚çŽ‡æ€§è¿žæŽ¥ä¸äº†ä»Žæœº
+    æ¯éš”12ç§’ï¼Œå‘é€MSG_BT_STEREO_SEARCH_DEVICEæ¶ˆæ¯ï¼Œå³å¯ã€‚
+    æœç´¢æ—¶é—´æœ€é•¿ä¸º12ç§’ã€‚
 
 * 20170922
-** ·ÉÁéÌØARGUN
-   AES128 ECB¼Ó½âÃÜ£¬Ìæ»»br16_ccm_aes.a£¬Ìí¼Óaes_ecb_encrypt.cÎÄ¼þ¡£
+** é£žçµç‰¹ARGUN
+   AES128 ECBåŠ è§£å¯†ï¼Œæ›¿æ¢br16_ccm_aes.aï¼Œæ·»åŠ aes_ecb_encrypt.cæ–‡ä»¶ã€‚
 * 20170921
-** ººÆÕÀÖ·ÅÒôÏäbleÐ­Òé
-   bleÐ­ÒéÒÑµ÷Í¨£¬ÒôÏä¹¦ÄÜÎ´È·ÈÏ
-** Êµ½ÝDAB°¸×ÓBT_ES
-   ºÍstm32²ÉÓÃ´®¿Ú1Í¨ÐÅ£¬¶¨ÒåÁËÒ»¸öÍ¨ÐÅµÄ¼ò»¯°æ±¾¡£
-   ÊÕÒô»¹ÊÇÃ»ÓÐÉùÒô¡£
-** ·ÉÁéÌØARGUN
-   ÊÖ¶¯ÐÞ¸Äprofile_data[]£¬Ã¿ÐÐµÚÒ»×Ö½ÚÎª³¤¶È£¬
-   Èç¹ûÐèÒªvalue£¬¿ÉÒÔÔÚÐÐÎ²×Ô¼º¼ÓÊ®Áù½øÖÆÖµ£¬Í¬Ê±ÐÞ¸ÄÃ¿ÐÐµÚÒ»¸ö×Ö½ÚÎªÏàÓ¦³¤¶È¡£
+** æ±‰æ™®ä¹æ”¾éŸ³ç®±bleåè®®
+   bleåè®®å·²è°ƒé€šï¼ŒéŸ³ç®±åŠŸèƒ½æœªç¡®è®¤
+** å®žæ·DABæ¡ˆå­BT_ES
+   å’Œstm32é‡‡ç”¨ä¸²å£1é€šä¿¡ï¼Œå®šä¹‰äº†ä¸€ä¸ªé€šä¿¡çš„ç®€åŒ–ç‰ˆæœ¬ã€‚
+   æ”¶éŸ³è¿˜æ˜¯æ²¡æœ‰å£°éŸ³ã€‚
+** é£žçµç‰¹ARGUN
+   æ‰‹åŠ¨ä¿®æ”¹profile_data[]ï¼Œæ¯è¡Œç¬¬ä¸€å­—èŠ‚ä¸ºé•¿åº¦ï¼Œ
+   å¦‚æžœéœ€è¦valueï¼Œå¯ä»¥åœ¨è¡Œå°¾è‡ªå·±åŠ åå…­è¿›åˆ¶å€¼ï¼ŒåŒæ—¶ä¿®æ”¹æ¯è¡Œç¬¬ä¸€ä¸ªå­—èŠ‚ä¸ºç›¸åº”é•¿åº¦ã€‚
 
 * 20170920
-** ººÆÕÀÖ·ÅÒôÏäbleÐ­Òé
-   bleÍ¨ÐÅµ÷Í¨¡£
-*** º¯Êýapp_server_read_callback() 
-   Ã¿´Î»ñÈ¡»áÖ´ÐÐ2´Î£¬
-   µÚÒ»´Îbuffer_sizeÎª0£¬Êµ¼ÊÃ»ÓÐ·¢ËÍÊý¾Ý£¬
-   µÚ¶þ´Îbuffer_sizeÎªÉÏÒ»´ÎreturnµÄÖµ£¬Êµ¼Ê·¢ËÍÊý¾Ý
-** Êµ½ÝDAB°¸×ÓBT_ES
-*** SPI2ÖÐ¶ÏºÅ #define IRQ_SPI2_IDX       44
-    Ã»ÓÐSPIÍ¨ÐÅ£¬Êµ¼ÊÓÃ´®¿ÚÍ¨ÐÅ
-    ÊÕÒô»¹ÊÇÃ»ÉùÒô
+** æ±‰æ™®ä¹æ”¾éŸ³ç®±bleåè®®
+   bleé€šä¿¡è°ƒé€šã€‚
+*** å‡½æ•°app_server_read_callback() 
+   æ¯æ¬¡èŽ·å–ä¼šæ‰§è¡Œ2æ¬¡ï¼Œ
+   ç¬¬ä¸€æ¬¡buffer_sizeä¸º0ï¼Œå®žé™…æ²¡æœ‰å‘é€æ•°æ®ï¼Œ
+   ç¬¬äºŒæ¬¡buffer_sizeä¸ºä¸Šä¸€æ¬¡returnçš„å€¼ï¼Œå®žé™…å‘é€æ•°æ®
+** å®žæ·DABæ¡ˆå­BT_ES
+*** SPI2ä¸­æ–­å· #define IRQ_SPI2_IDX       44
+    æ²¡æœ‰SPIé€šä¿¡ï¼Œå®žé™…ç”¨ä¸²å£é€šä¿¡
+    æ”¶éŸ³è¿˜æ˜¯æ²¡å£°éŸ³
 
 * 20170919
-** ººÆÕÀÖ·ÅÒôÏäGattÐ­Òé
-   ¶¨ÒåºÃÐ­Òé£¬×¥ÁËprofile½ØÍ¼¸ø¿Í»§
-** Êµ½ÝDAB°¸×ÓBT_ES
-   ²ÉÓÃSTM32+SI4684+AC6901A×öÀ¶ÑÀ·¢ÉäÆ÷´øDABÊý×Ö¹ã²¥
-   µ÷Í¨2¸ölineinÍ¨µÀµÄ·¢Éä£¬À¶ÑÀÁ¬½Ó¹¦ÄÜ
-   lineinÀ¶ÑÀ·¢Éä£¬Èç¹ûÒ»¸öÍ¨µÀÃ»ÉùÒô£¬»áµ¼ÖÂ·¢ÉäÍêÈ«Ã»ÉùÒô
-   °å×ÓÊÕÒôÓÐÎÊÌâ
+** æ±‰æ™®ä¹æ”¾éŸ³ç®±Gattåè®®
+   å®šä¹‰å¥½åè®®ï¼ŒæŠ“äº†profileæˆªå›¾ç»™å®¢æˆ·
+** å®žæ·DABæ¡ˆå­BT_ES
+   é‡‡ç”¨STM32+SI4684+AC6901Aåšè“ç‰™å‘å°„å™¨å¸¦DABæ•°å­—å¹¿æ’­
+   è°ƒé€š2ä¸ªlineiné€šé“çš„å‘å°„ï¼Œè“ç‰™è¿žæŽ¥åŠŸèƒ½
+   lineinè“ç‰™å‘å°„ï¼Œå¦‚æžœä¸€ä¸ªé€šé“æ²¡å£°éŸ³ï¼Œä¼šå¯¼è‡´å‘å°„å®Œå…¨æ²¡å£°éŸ³
+   æ¿å­æ”¶éŸ³æœ‰é—®é¢˜
 
 * 20170918
-** ¶ÔÏäÁ¬½ÓÊÖ»ú²¥¸èºóÎÞ·¨Åä¶Ô´Ó»ú
-   V2012-p2°æ±¾£¬ÓÐ´ËÎÊÌâ
-   Ìæ»»Í­ö°·¢µÄcpu_lib_ac690x.a£¬¿É½â¾ö
-** ººÆÕ¿á×ß³µ»úBLEÒôÏä
-   ²»ÄÜ°´ÕÕÐ¡¾«ÁéµÄÐ­Òé¿ª·¢
-   ÒªÖØÐÂÉè¼ÆÐÂµÄÐ­Òé£¬´ýÑéÖ¤
-** ¶Ô¶úÀ¶ÑÀ¾àÀë¶Ì
-   ¼õµÍsbcµÄÂëÂÊ£¬¿ÉÊÊµ±Ìá¸ß
-** ÄÚÖÃ³äµçIC³ä²»Âú
-   Ìæ»»¿âÎÄ¼þ£¬Ìæ»»charge.cÎÄ¼þ
+** å¯¹ç®±è¿žæŽ¥æ‰‹æœºæ’­æ­ŒåŽæ— æ³•é…å¯¹ä»Žæœº
+   V2012-p2ç‰ˆæœ¬ï¼Œæœ‰æ­¤é—®é¢˜
+   æ›¿æ¢é“œéœ­å‘çš„cpu_lib_ac690x.aï¼Œå¯è§£å†³
+** æ±‰æ™®é…·èµ°è½¦æœºBLEéŸ³ç®±
+   ä¸èƒ½æŒ‰ç…§å°ç²¾çµçš„åè®®å¼€å‘
+   è¦é‡æ–°è®¾è®¡æ–°çš„åè®®ï¼Œå¾…éªŒè¯
+** å¯¹è€³è“ç‰™è·ç¦»çŸ­
+   å‡ä½Žsbcçš„ç çŽ‡ï¼Œå¯é€‚å½“æé«˜
+** å†…ç½®å……ç”µICå……ä¸æ»¡
+   æ›¿æ¢åº“æ–‡ä»¶ï¼Œæ›¿æ¢charge.cæ–‡ä»¶
 * 20170916
-** IIS²¥µÚÒ»¸öÌáÊ¾ÒôàÛÒ»Éù
-   ÓÉÓÚIIS´«Êä£¬ÐèÒª±ä²ÉÑù£¬±ä²ÉÑùµÄ¿ªÊ¼½×¶Î£¬bufÊý¾ÝÒì³£¡£
-   IISÄ¬ÈÏ44.1kHZ
-** ¿á×ß³µ»úBLE
-   Èí¼þ²»ÈÏÎÒÃÇµÄÉè±¸£¬Á¬½Ó²»ÉÏ
+** IISæ’­ç¬¬ä¸€ä¸ªæç¤ºéŸ³å™—ä¸€å£°
+   ç”±äºŽIISä¼ è¾“ï¼Œéœ€è¦å˜é‡‡æ ·ï¼Œå˜é‡‡æ ·çš„å¼€å§‹é˜¶æ®µï¼Œbufæ•°æ®å¼‚å¸¸ã€‚
+   IISé»˜è®¤44.1kHZ
+** é…·èµ°è½¦æœºBLE
+   è½¯ä»¶ä¸è®¤æˆ‘ä»¬çš„è®¾å¤‡ï¼Œè¿žæŽ¥ä¸ä¸Š
 * 20170915
-** Ô´´´½Ü69¶ÔÏóÅä¶Ô
-   v2012-p2°æ±¾£¬Á¬½Ó²¥¸èºó£¬ÎÞ·¨ÔÙÅä¶Ô´Ó»ú£¬ÐèÒªÇÐ»»Ä£Ê½²ÅÐÐ
-   v2011°æ±¾ÎÞ´Ëbug
+** æºåˆ›æ°69å¯¹è±¡é…å¯¹
+   v2012-p2ç‰ˆæœ¬ï¼Œè¿žæŽ¥æ’­æ­ŒåŽï¼Œæ— æ³•å†é…å¯¹ä»Žæœºï¼Œéœ€è¦åˆ‡æ¢æ¨¡å¼æ‰è¡Œ
+   v2011ç‰ˆæœ¬æ— æ­¤bug
 * 20170914
-** ººÆÕ--¿á×ß³µ»ú--BLE¿ØÖÆ
-** ·ÆÁÖÌØARGUN
-*** Æô¸³superAR
-*** ÏÈÖÇARGUN
+** æ±‰æ™®--é…·èµ°è½¦æœº--BLEæŽ§åˆ¶
+** è²æž—ç‰¹ARGUN
+*** å¯èµ‹superAR
+*** å…ˆæ™ºARGUN
 * 20170913
-** ÓÀÊ¤Ì©6904¶ú»úÀ¶ÑÀ¶Ï¿ª£¬µÆ×´Ì¬Ã»¸Ä±ä
-   µ÷ÕûÉèÖÃµÆµÄº¯Êý£¬ÔÚÃ¿¸öÏûÏ¢µÄºóÃæ£¬Á¢ÂíÖ´ÐÐ¡£
-   ¿ÉÄÜÓÉÓÚÈÎÎñÇÐ»»¡¢ÖÐ¶Ï£¬µ¼ÖÂÖ´ÐÐ¶ªÊ§¡£
-** öÎÎÅ´ï6905»ú×Ólinein¼ì²â²»µ½
-   ²»Í¬Ð¾Æ¬VDDIOÔÚ3.3V-3.6VÖ®¼ä£¬Ò»ÖÂÐÔ²»µ½¡£
-   LDO_refµÄµçÑ¹ÓÀÔ¶Îª1.24V×óÓÒ£¬¶øVDDIOµçÑ¹Îª£¬ADÂúÖµ£¬¼´0x3FF
-   ¿ÉÍ¨¹ýÅÐ¶Ï LDO_ref µÄÖµ´óÐ¡£¬¼´¿ÉÍÆ³öVDDIOµçÑ¹´óÐ¡¡£
-   VDDIOÎª3.3V£¬LDO_refÎª0x178×óÓÒ¡£
-   VDDIOÎª3.6V£¬LDO_refÎª0x160×óÓÒ¡£
-   AD¸´ÓÃlinein¼ì²âÊ±£¬×îºÃ¶ÔLDO_ref·Ö4¸öÇø¼äÅÐ¶Ï¡£
+** æ°¸èƒœæ³°6904è€³æœºè“ç‰™æ–­å¼€ï¼Œç¯çŠ¶æ€æ²¡æ”¹å˜
+   è°ƒæ•´è®¾ç½®ç¯çš„å‡½æ•°ï¼Œåœ¨æ¯ä¸ªæ¶ˆæ¯çš„åŽé¢ï¼Œç«‹é©¬æ‰§è¡Œã€‚
+   å¯èƒ½ç”±äºŽä»»åŠ¡åˆ‡æ¢ã€ä¸­æ–­ï¼Œå¯¼è‡´æ‰§è¡Œä¸¢å¤±ã€‚
+** é‘«é—»è¾¾6905æœºå­lineinæ£€æµ‹ä¸åˆ°
+   ä¸åŒèŠ¯ç‰‡VDDIOåœ¨3.3V-3.6Vä¹‹é—´ï¼Œä¸€è‡´æ€§ä¸åˆ°ã€‚
+   LDO_refçš„ç”µåŽ‹æ°¸è¿œä¸º1.24Vå·¦å³ï¼Œè€ŒVDDIOç”µåŽ‹ä¸ºï¼ŒADæ»¡å€¼ï¼Œå³0x3FF
+   å¯é€šè¿‡åˆ¤æ–­ LDO_ref çš„å€¼å¤§å°ï¼Œå³å¯æŽ¨å‡ºVDDIOç”µåŽ‹å¤§å°ã€‚
+   VDDIOä¸º3.3Vï¼ŒLDO_refä¸º0x178å·¦å³ã€‚
+   VDDIOä¸º3.6Vï¼ŒLDO_refä¸º0x160å·¦å³ã€‚
+   ADå¤ç”¨lineinæ£€æµ‹æ—¶ï¼Œæœ€å¥½å¯¹LDO_refåˆ†4ä¸ªåŒºé—´åˆ¤æ–­ã€‚
 * 20170912
-** ÌìµØºê69ÏµÁÐRGBµÆÓ°ÏìºìÍâ
-   RGBµÆÓÃ2msÆµÂÊpwm²¨£¬ÍÆ¶¯ºìµÆÊ±£¬»áÓ°Ïìµ½ºìÍâ½ÓÊÕ¡£
+** å¤©åœ°å®69ç³»åˆ—RGBç¯å½±å“çº¢å¤–
+   RGBç¯ç”¨2msé¢‘çŽ‡pwmæ³¢ï¼ŒæŽ¨åŠ¨çº¢ç¯æ—¶ï¼Œä¼šå½±å“åˆ°çº¢å¤–æŽ¥æ”¶ã€‚
 
 * 20170911
-** ¾§¿Æ46ÏµÁÐPB9ÔÚ¿ª»úÊ±ÓÐÊý¸öÂö³å
-    ´òVMÌáÊ¾Òô²¹¶¡£¬¿ÉÒÔ½â¾ö¡£
-** Â×´Ä¶ú»ú¿ª»úµÆ²»ÁÁ
-   ²ÉÓÃoutputchannel0£¬Ã»ÓÐÉèÖÃDIE¼Ä´æÆ÷£¬Ä¬ÈÏÖµÓÐÊ±»á²»Ò»ÖÂµ¼ÖÂ¡£
-** ¾§¿Æ69»ñÈ¡ÎÄ¼þ¼ÐÊýÄ¿
-   ³¢ÊÔÊ¹ÓÃÑ­»·ÏÂ¸öÎÄ¼þ¼Ð£¬ÀÛ¼ÆÎÄ¼þ¼ÐÊýÄ¿¡£
-*** µ±Ç°ÎÄ¼þ¼ÐµÄÐòºÅ
+** æ™¶ç§‘46ç³»åˆ—PB9åœ¨å¼€æœºæ—¶æœ‰æ•°ä¸ªè„‰å†²
+    æ‰“VMæç¤ºéŸ³è¡¥ä¸ï¼Œå¯ä»¥è§£å†³ã€‚
+** ä¼¦èŒ¨è€³æœºå¼€æœºç¯ä¸äº®
+   é‡‡ç”¨outputchannel0ï¼Œæ²¡æœ‰è®¾ç½®DIEå¯„å­˜å™¨ï¼Œé»˜è®¤å€¼æœ‰æ—¶ä¼šä¸ä¸€è‡´å¯¼è‡´ã€‚
+** æ™¶ç§‘69èŽ·å–æ–‡ä»¶å¤¹æ•°ç›®
+   å°è¯•ä½¿ç”¨å¾ªçŽ¯ä¸‹ä¸ªæ–‡ä»¶å¤¹ï¼Œç´¯è®¡æ–‡ä»¶å¤¹æ•°ç›®ã€‚
+*** å½“å‰æ–‡ä»¶å¤¹çš„åºå·
     ../../tff.h
     ((*(FIL *)((_FIL_HDL *)(music_operate_mapi->fop_api->cur_lgdev_info->lg_hdl->file_hdl))->hdl).fs_msg.musicdir_counter)
 
 * 20170908
-** Êä³öPLL-12MÊ±ÖÓ
+** è¾“å‡ºPLL-12Mæ—¶é’Ÿ
     JL_IOMAP->CON1 &= ~(BIT(10)|BIT(9)|BIT(8));
     JL_IOMAP->CON1 |=  (BIT(10)|BIT(9));
 	  JL_PORTB->DIR &= ~BIT(0);
 	  JL_PORTB->PD  |=  BIT(0);
 	  JL_PORTB->PU  |=  BIT(0);
 	  JL_PORTB->DIE &= ~BIT(0);
-** ¶¯Ì¬ÐÞ¸ÄÀ¶ÑÀÃû
+** åŠ¨æ€ä¿®æ”¹è“ç‰™å
    static void bredr_name_custom_handle(char *name)
    {
 	     printf("bredr name:%s, len:%d\n",name,strlen(name));
@@ -424,135 +429,135 @@
        name[2] = 'N';
        name[3] = '\0';
    } 
-** ·ÆÁÖÌØARÇ¹Ð­Òé
-*** Ð­Òé1£ºsuper AR
+** è²æž—ç‰¹ARæžªåè®®
+*** åè®®1ï¼šsuper AR
 
-*** Ð­Òé2£ºAR GUN
+*** åè®®2ï¼šAR GUN
 
 * 20170907
-** ¿ÆÆÕºÀ6905C
-   UÅÌºÍSD¿¨¸´ÓÃ£¬ÓÐ²¿·Ö¿¨²»¶Á£¬ÈÝÒ×µôÏß
-*** ÓÅ»¯·½·¨
-    ¼ì²âÇ°¿ªSD-CLK½Å ~ÏÂÀ­~,ÐÞ¸ÄËÙÂÊÎª4(Ô­ÏÈÎª5)¡£
-    Ó²¼þÉÏ ~¸´ÓÃ½Å¼Ó¶ÔµØ30p~,CLK½Å¶ÔµØ10p£¬¾ù¿É¡£
-*** ¿Í»§²ÉÓÃ¸´ÓÃ½Å¼Ó33pµçÈÝ¶ÔµØ
+** ç§‘æ™®è±ª6905C
+   Uç›˜å’ŒSDå¡å¤ç”¨ï¼Œæœ‰éƒ¨åˆ†å¡ä¸è¯»ï¼Œå®¹æ˜“æŽ‰çº¿
+*** ä¼˜åŒ–æ–¹æ³•
+    æ£€æµ‹å‰å¼€SD-CLKè„š ~ä¸‹æ‹‰~,ä¿®æ”¹é€ŸçŽ‡ä¸º4(åŽŸå…ˆä¸º5)ã€‚
+    ç¡¬ä»¶ä¸Š ~å¤ç”¨è„šåŠ å¯¹åœ°30p~,CLKè„šå¯¹åœ°10pï¼Œå‡å¯ã€‚
+*** å®¢æˆ·é‡‡ç”¨å¤ç”¨è„šåŠ 33pç”µå®¹å¯¹åœ°
 
 * 20170906
-** ººÐÀÅµµç»°±¾ËÀ»ú
-*** Ìæ»»Í­ö°¸üÐÂµÄbluetooth_lib.a£¬²âÊÔÒÑOK
-** °Í´ïÄ¾EQµ÷ÊÔÃ»Ð§¹û
-   uart_init(UART_BAUD_RAE);²»ÄÜÔÚaudio_init();Ö®ºóµ÷ÓÃ£¬»áµ¼ÖÂÎÞ·¨ÖÐ¶Ï½ÓÊÕ¡£
+** æ±‰æ¬£è¯ºç”µè¯æœ¬æ­»æœº
+*** æ›¿æ¢é“œéœ­æ›´æ–°çš„bluetooth_lib.aï¼Œæµ‹è¯•å·²OK
+** å·´è¾¾æœ¨EQè°ƒè¯•æ²¡æ•ˆæžœ
+   uart_init(UART_BAUD_RAE);ä¸èƒ½åœ¨audio_init();ä¹‹åŽè°ƒç”¨ï¼Œä¼šå¯¼è‡´æ— æ³•ä¸­æ–­æŽ¥æ”¶ã€‚
 
 * 20170905
-** ººÐÀÅµ
-*** »ñÈ¡µç»°±¾³öÏÖËÀ»úºÍÂÒÂë
-    Ö»Òª¸Ä¶¯user_ctrl_prompt_tone_play()¾Í»á³öÏÖ£¬Í­ö°´¦ÀíÖÐ
+** æ±‰æ¬£è¯º
+*** èŽ·å–ç”µè¯æœ¬å‡ºçŽ°æ­»æœºå’Œä¹±ç 
+    åªè¦æ”¹åŠ¨user_ctrl_prompt_tone_play()å°±ä¼šå‡ºçŽ°ï¼Œé“œéœ­å¤„ç†ä¸­
 
 * 20170904
-** ÄÚÖÃ³äµçICÍâ¹Ò´óÈÝÁ¿µç³Ø
-*** ¸Ä¾«¶È£¬µ÷ãÐÖµ£¬²»Æð×÷ÓÃ
+** å†…ç½®å……ç”µICå¤–æŒ‚å¤§å®¹é‡ç”µæ± 
+*** æ”¹ç²¾åº¦ï¼Œè°ƒé˜ˆå€¼ï¼Œä¸èµ·ä½œç”¨
     #define BUILD_POINT_THRESHOLD_VALUE   2
     #define CHARGE_MAX_CNT                110 * 60 * 2
-*** ¸ÄÓÃ³äÂú¼ÆÊý£¬¼ÆÊý5´ÎÒÔÉÏ£¬²ÅÈÏÎª³äÂú
-    ¿ÉÄÜµç³Ø³äµç£¬µçÑ¹ÉÏÉý²»ÏßÐÔµ¼ÖÂ
-    ¶Ôcharge_full_deal();º¯ÊýµÄÖ´ÐÐ£¬½øÐÐ¼ÆÊý5´ÎÒÔÉÏ£¬²ÅÄÜÖ´ÐÐ
-** ººÐÀÅµ6901³µ»ú
-*** À¶ÑÀ»ñÈ¡µç»°±¾³öÏÖËÀ»úºÍÂÒÂë
-*** TODO »ñÈ¡ÊÖ»ú²¦´òµç»°³öÈ¥µÄºÅÂë
-     - State "TODO"       from ""           [2017-09-04 ÖÜÒ» 19:24]
+*** æ”¹ç”¨å……æ»¡è®¡æ•°ï¼Œè®¡æ•°5æ¬¡ä»¥ä¸Šï¼Œæ‰è®¤ä¸ºå……æ»¡
+    å¯èƒ½ç”µæ± å……ç”µï¼Œç”µåŽ‹ä¸Šå‡ä¸çº¿æ€§å¯¼è‡´
+    å¯¹charge_full_deal();å‡½æ•°çš„æ‰§è¡Œï¼Œè¿›è¡Œè®¡æ•°5æ¬¡ä»¥ä¸Šï¼Œæ‰èƒ½æ‰§è¡Œ
+** æ±‰æ¬£è¯º6901è½¦æœº
+*** è“ç‰™èŽ·å–ç”µè¯æœ¬å‡ºçŽ°æ­»æœºå’Œä¹±ç 
+*** TODO èŽ·å–æ‰‹æœºæ‹¨æ‰“ç”µè¯å‡ºåŽ»çš„å·ç 
+     - State "TODO"       from ""           [2017-09-04 å‘¨ä¸€ 19:24]
 
 * 20170831
-** ±Ê¼Ç±¾µçÄÔwin8win10À¶ÑÀÁ¬²»ÉÏ
-** Ï´Ë¢Ë¢LSM6DS3Çý¶¯
-*** ¾²Ö¹Ê±µÄÊý¾Ý£¬ºÍÑù»ú»ù±¾Ò»Ñù
-*** Ò¡¶¯µÄÊý¾Ý£¬ÄÑ¶Ô±È
+** ç¬”è®°æœ¬ç”µè„‘win8win10è“ç‰™è¿žä¸ä¸Š
+** æ´—åˆ·åˆ·LSM6DS3é©±åŠ¨
+*** é™æ­¢æ—¶çš„æ•°æ®ï¼Œå’Œæ ·æœºåŸºæœ¬ä¸€æ ·
+*** æ‘‡åŠ¨çš„æ•°æ®ï¼Œéš¾å¯¹æ¯”
 
 * 20170830
-** °®ÈðÉù6907CÄÚÖÃ³äµçÍâ¹Ò´óÈÝÁ¿µç³Ø
-Èí¼þ°´¹Ì¶¨¼ä¸ô¼ì²âµçÑ¹±ä»¯£¬´óÈÝÁ¿µç³ØµÄµçÑ¹±ä»¯ºÜÂý£¬µ÷ÕûµçÑ¹¼ì²â·Ö±æÂÊ
-** À¶ÑÀµç¸ÐÁÏ£¬»áÓ°Ïìµ½sniffµÄ¹¦ºÄ
+** çˆ±ç‘žå£°6907Cå†…ç½®å……ç”µå¤–æŒ‚å¤§å®¹é‡ç”µæ± 
+è½¯ä»¶æŒ‰å›ºå®šé—´éš”æ£€æµ‹ç”µåŽ‹å˜åŒ–ï¼Œå¤§å®¹é‡ç”µæ± çš„ç”µåŽ‹å˜åŒ–å¾ˆæ…¢ï¼Œè°ƒæ•´ç”µåŽ‹æ£€æµ‹åˆ†è¾¨çŽ‡
+** è“ç‰™ç”µæ„Ÿæ–™ï¼Œä¼šå½±å“åˆ°sniffçš„åŠŸè€—
 
 * 20170829
-** »ª¾æÐ¾6904A¶ú»ú
-*** ½øpower downËÀ»úÎÊÌâ
-PR1×ö³äµç»½ÐÑ£¬PR2×ö°´¼ü»½ÐÑ£¬Í¬Ê±¿ª2¸ö»½ÐÑ½Å£¬
-»áµ¼ÖÂÓÐÐ©Ð¾Æ¬³öÏÖ½øpower downËÀ»ú
-*** ¿ª»úÖ¨Éù
-ÕñÈÙÐÞ¸Äcpu_lib_ac690x.a½â¾ö
-*** TODO low_pwr_dealº¯ÊýÔÚÀ¶ÑÀÃ»Á¬½ÓÊ±»áÖ´ÐÐ
-- State "TODO"       from ""           [2017-08-30 ÖÜÈý 18:54]
-µ«ÊÇ¹«°æSDK²âÊÔ£¬²»»áÖ´ÐÐµ½
+** åŽç‚¬èŠ¯6904Aè€³æœº
+*** è¿›power downæ­»æœºé—®é¢˜
+PR1åšå……ç”µå”¤é†’ï¼ŒPR2åšæŒ‰é”®å”¤é†’ï¼ŒåŒæ—¶å¼€2ä¸ªå”¤é†’è„šï¼Œ
+ä¼šå¯¼è‡´æœ‰äº›èŠ¯ç‰‡å‡ºçŽ°è¿›power downæ­»æœº
+*** å¼€æœºå±å£°
+æŒ¯è£ä¿®æ”¹cpu_lib_ac690x.aè§£å†³
+*** TODO low_pwr_dealå‡½æ•°åœ¨è“ç‰™æ²¡è¿žæŽ¥æ—¶ä¼šæ‰§è¡Œ
+- State "TODO"       from ""           [2017-08-30 å‘¨ä¸‰ 18:54]
+ä½†æ˜¯å…¬ç‰ˆSDKæµ‹è¯•ï¼Œä¸ä¼šæ‰§è¡Œåˆ°
 
 * 20170828
-** »ª¾æÐ¾6904¶ú»úËÀ»ú¡¢¿ª»úÖ¨Éù
-*** ËÀ»úÊÇÒòÎª *BT_LOW_POWER_MODE* Ä£Ê½ÒýÆð
-*** ¿ª»úÖ¨Éù£¬¿ª»ú³õÊ¼»¯ *dac_init_api* µÄµçÔ´Ê±ÒýÆð
+** åŽç‚¬èŠ¯6904è€³æœºæ­»æœºã€å¼€æœºå±å£°
+*** æ­»æœºæ˜¯å› ä¸º *BT_LOW_POWER_MODE* æ¨¡å¼å¼•èµ·
+*** å¼€æœºå±å£°ï¼Œå¼€æœºåˆå§‹åŒ– *dac_init_api* çš„ç”µæºæ—¶å¼•èµ·
 
 
 * 20170817
-** Áª¾ÞÐË£ºÈËÉùÏû³ý£¬µ¼ÖÂµÍÒôÏûÊ§
+** è”å·¨å…´ï¼šäººå£°æ¶ˆé™¤ï¼Œå¯¼è‡´ä½ŽéŸ³æ¶ˆå¤±
 
 * 20170818
-** öÎÎÅ´ï£ºQN8035ÊÕÒôÐ§¹û²î£¬¹¦·ÅDÀàÓ°Ïì£¬¾§ÕñÒýÊ±ÖÓ15p
-** ¿ÆÆÕºÀ£º1621ÍÆÆÁ£¬Ä£ÄâSPI£¬Ê±ÐòÑÓÊ±Òª¼Ó´ó
-** TODO TODO£º
-- State "TODO"       from ""           [2017-08-19 ÖÜÁù 11:03]
-Áª¾ÞÐË£ºÈËÉùÏû³ýÐ§¹ûÈ·ÈÏ£¿
-µçÓ°Ð­»á
-ËÞÉá°²ÅÅ
+** é‘«é—»è¾¾ï¼šQN8035æ”¶éŸ³æ•ˆæžœå·®ï¼ŒåŠŸæ”¾Dç±»å½±å“ï¼Œæ™¶æŒ¯å¼•æ—¶é’Ÿ15p
+** ç§‘æ™®è±ªï¼š1621æŽ¨å±ï¼Œæ¨¡æ‹ŸSPIï¼Œæ—¶åºå»¶æ—¶è¦åŠ å¤§
+** TODO TODOï¼š
+- State "TODO"       from ""           [2017-08-19 å‘¨å…­ 11:03]
+è”å·¨å…´ï¼šäººå£°æ¶ˆé™¤æ•ˆæžœç¡®è®¤ï¼Ÿ
+ç”µå½±åä¼š
+å®¿èˆå®‰æŽ’
 
 * 20170819
-** TODO ÈËÉùÏû³ýµÍÒô´¦Àí
-- State "TODO"       from ""           [2017-08-19 ÖÜÁù 11:02]
-µÍÒôÅÚÄÚ²¿µçÂ· Ê¼ÖÕÒª°ÑË«ÉùµÀÊäÈëñîºÏ³Éµ¥ÉùµÀµÄ ÄÇÑùÁ¢Ìå¸Ð²ÅÇ¿
-¿É³¢ÊÔ¼ÓÈëEQ´¦ÀíÉú³É2.1ÉùµÀ
-** Ìì²©ÖÇ4602°´¼ü²»Æð×÷ÓÃ
-»ú×ÓÓÃÒ»¶ÎÊ±¼äºó£¬»ú×Ó¿ª²»ÁË»ú£¬USBÎÞ·¨Ê¶±ð¡£
-ÓÃÉÕÐ´Æ÷ÖØÉÕºó£¬Õý³£¹¤×÷¡£
-´ý²éÈí¼þÎÊÌâ
+** TODO äººå£°æ¶ˆé™¤ä½ŽéŸ³å¤„ç†
+- State "TODO"       from ""           [2017-08-19 å‘¨å…­ 11:02]
+ä½ŽéŸ³ç‚®å†…éƒ¨ç”µè·¯ å§‹ç»ˆè¦æŠŠåŒå£°é“è¾“å…¥è€¦åˆæˆå•å£°é“çš„ é‚£æ ·ç«‹ä½“æ„Ÿæ‰å¼º
+å¯å°è¯•åŠ å…¥EQå¤„ç†ç”Ÿæˆ2.1å£°é“
+** å¤©åšæ™º4602æŒ‰é”®ä¸èµ·ä½œç”¨
+æœºå­ç”¨ä¸€æ®µæ—¶é—´åŽï¼Œæœºå­å¼€ä¸äº†æœºï¼ŒUSBæ— æ³•è¯†åˆ«ã€‚
+ç”¨çƒ§å†™å™¨é‡çƒ§åŽï¼Œæ­£å¸¸å·¥ä½œã€‚
+å¾…æŸ¥è½¯ä»¶é—®é¢˜
 
 * 20170821
-** öÎÎÅ´ïBLEÏ´Ë¢Ë¢ÏîÄ¿
-Ê¹ÓÃDA380ÈýÖá¼ÓËÙ¶È´«¸ÐÆ÷£¬¸úÊÓÆµµÄÍ£³µÊØÎÀ²ÉÓÃÒ»Ñù¡£
-´î½¨DA380µÄÇý¶¯´úÂë
-** »ªÁ¢S36
-ÐÞ¸ÄºôÎüµÆµÄ¿ØÖÆ
+** é‘«é—»è¾¾BLEæ´—åˆ·åˆ·é¡¹ç›®
+ä½¿ç”¨DA380ä¸‰è½´åŠ é€Ÿåº¦ä¼ æ„Ÿå™¨ï¼Œè·Ÿè§†é¢‘çš„åœè½¦å®ˆå«é‡‡ç”¨ä¸€æ ·ã€‚
+æ­å»ºDA380çš„é©±åŠ¨ä»£ç 
+** åŽç«‹S36
+ä¿®æ”¹å‘¼å¸ç¯çš„æŽ§åˆ¶
 
 * 20170822
-** ÈËÉùÏû³ýµÍÒôÏûÊ§
-¼Ä»ú×Ó¸øÓ°Ö¾,É½¾°µÄ»ú×ÓÐèÒªÐÞ°å
-** öÎÎÅ´ïBLEÏ´Ë¢Ë¢ÏîÄ¿
-×¥°ü£¬µ÷ÊÔBLEÁ¬½Ó£¬BLEÁ¬½Ó³É¹¦
+** äººå£°æ¶ˆé™¤ä½ŽéŸ³æ¶ˆå¤±
+å¯„æœºå­ç»™å½±å¿—,å±±æ™¯çš„æœºå­éœ€è¦ä¿®æ¿
+** é‘«é—»è¾¾BLEæ´—åˆ·åˆ·é¡¹ç›®
+æŠ“åŒ…ï¼Œè°ƒè¯•BLEè¿žæŽ¥ï¼ŒBLEè¿žæŽ¥æˆåŠŸ
 
 * 20170823
-** öÎÎÅ´ïÊý¾Ý°ü·¢ËÍ
-Ô­±¾Ê¹ÓÃSTµÄLSM6DS3Ð¾Æ¬£¬ÍÓÂÝÒÇºÍ¼ÓËÙ¶ÈÒ»Ìå
-DA380È±Ê§ÍÓÂÝÒÇÊý¾Ý£¬Ä¿Ç°Ìî°ü´¦Àí
+** é‘«é—»è¾¾æ•°æ®åŒ…å‘é€
+åŽŸæœ¬ä½¿ç”¨STçš„LSM6DS3èŠ¯ç‰‡ï¼Œé™€èžºä»ªå’ŒåŠ é€Ÿåº¦ä¸€ä½“
+DA380ç¼ºå¤±é™€èžºä»ªæ•°æ®ï¼Œç›®å‰å¡«åŒ…å¤„ç†
 
 * 20170824
-** Áª¾ÞÐËÈËÉùÏû³ý
-°å×ÓÐÞºÃ£¬¼Ä¸øÓ°Ö¾£¬´¦ÀíµÍÒôÐ§¹û
-** öÎÎÅ´ïÏ´Ë¢Ë¢
-µ÷ÊÔDA380µÄ²ÉÑùÆµÂÊ£¬Á¿³Ì£¬·¢ËÍÊý¾ÝµÄ´óÐ¡£¬ÓÅ»¯Ð§¹û
-6909µÄ°å×Ó£¬ÒÑÐÞºÃ
+** è”å·¨å…´äººå£°æ¶ˆé™¤
+æ¿å­ä¿®å¥½ï¼Œå¯„ç»™å½±å¿—ï¼Œå¤„ç†ä½ŽéŸ³æ•ˆæžœ
+** é‘«é—»è¾¾æ´—åˆ·åˆ·
+è°ƒè¯•DA380çš„é‡‡æ ·é¢‘çŽ‡ï¼Œé‡ç¨‹ï¼Œå‘é€æ•°æ®çš„å¤§å°ï¼Œä¼˜åŒ–æ•ˆæžœ
+6909çš„æ¿å­ï¼Œå·²ä¿®å¥½
 
 * 20170825
-** öÎÎÅ´ïÏ´Ë¢Ë¢
-×¼±¸2¿î´«¸ÐÆ÷£¬STµÄLSM6DS3ºÍinvensenseµÄMPU6050
-µ÷ÊÔ¹¦ºÄ£¬ºÍÀ¶ÑÀÃûÓëÀ¶ÑÀµØÖ·´¦Àí
-*** ¹¦ºÄ×¢Òâµã
-1.ÏµÍ³48MHz
-2.DAC¹Ø
-3.Bredr¹Ø£¬Ö»¿ªBLE
-4.FM¹Ø
-5.DA380ÉèÖÃÎªµÍ¹¦ºÄÄ£Ê½
-6.µçÔ´DCDCÄ£Ê½
-7.×Ô¶¯¹Ø»ú´¦Àí
-8.ÍÆµÆÁÁ¶È´¦Àí
-*** Éý¼¶ÎÊÌâ
-ÎÞÏßÉý¼¶Ã»ÓÐ×öºÃ
-*** 4.2µÄsleepÄ£Ê½
-»¹Ã»ÓÐ×öºÃ
-*** µÍÑ¹flash
-ÓÃÅ¦¿Ûµç³Ø¹©µç£¬ÐèÈÏÅú´Î£¬Ñ¡ÓÃµÍÑ¹flash£¬²ÅÄÜÕý³£
+** é‘«é—»è¾¾æ´—åˆ·åˆ·
+å‡†å¤‡2æ¬¾ä¼ æ„Ÿå™¨ï¼ŒSTçš„LSM6DS3å’Œinvensenseçš„MPU6050
+è°ƒè¯•åŠŸè€—ï¼Œå’Œè“ç‰™åä¸Žè“ç‰™åœ°å€å¤„ç†
+*** åŠŸè€—æ³¨æ„ç‚¹
+1.ç³»ç»Ÿ48MHz
+2.DACå…³
+3.Bredrå…³ï¼Œåªå¼€BLE
+4.FMå…³
+5.DA380è®¾ç½®ä¸ºä½ŽåŠŸè€—æ¨¡å¼
+6.ç”µæºDCDCæ¨¡å¼
+7.è‡ªåŠ¨å…³æœºå¤„ç†
+8.æŽ¨ç¯äº®åº¦å¤„ç†
+*** å‡çº§é—®é¢˜
+æ— çº¿å‡çº§æ²¡æœ‰åšå¥½
+*** 4.2çš„sleepæ¨¡å¼
+è¿˜æ²¡æœ‰åšå¥½
+*** ä½ŽåŽ‹flash
+ç”¨çº½æ‰£ç”µæ± ä¾›ç”µï¼Œéœ€è®¤æ‰¹æ¬¡ï¼Œé€‰ç”¨ä½ŽåŽ‹flashï¼Œæ‰èƒ½æ­£å¸¸
 
