@@ -1,0 +1,863 @@
+
+
+
+Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Fastboot:      Version 3.2.2
+Machine ID:    8000 v0
+Build Date:    Jun 17 2013, 13:41:47
+Serial Number: godbox
+CPU:           Hi3716Cv100 
+Boot Media:    SPI Flash
+
+Check nand flash controller v301. found
+Special NAND id table Version 1.36
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+
+Check spi flash controller v300. found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB Name:"W25Q32BV"
+Check spi flash controller v350. 
+
+eMMC: No eMMC device found!!!
+In:    serial
+Out:   serial
+Err:   serial
+ Hd_format index = 8
+g_gfxMode: WBC Mode 
+HDMI input format is HI_UNF_ENC_FMT_720P_50
+--> HW_ResetHDMITX.
+TMDS_CTL2 set to:0x2a
+--> SW_ResetHDMITX.
+einput:2, eoutput:2
+siiSetVideoPath bVMode:0x0d
+siiSetVideoPath setting video path abVideoPath:0x02,0x01,0x00,0xff
+ConfigTXVideoMode in:0x02: out:0x01, RegVal:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color VID_ACEN_ADDR bDeepColor:0
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x2f, data:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x4a, data:0x00
+TMDS_CTL3 old walue:0xa9
+SiI_DeepColor_24bit(normal)
+TMDS_CTL3 new walue:0xa9
+Start...
+[TXVIDP.C](SiI_TMDS_setup): 1.0x tclk
+siiSetVideoPath end
+Active Format aspect ratio  set to 0x1000:Same as picture aspect ratio
+The Content of the AVI version2 info frame is:
+0x51,0xa8,0x00,0x13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0x2c,0x80,0x00,
+ SendAVIInfoFrame
+ Set HDMI mode to 1.
+JPG_Decode(): Line 740 : Hard dec 
+We use single Buffer to show logo
+printf_playInfo,435: Do not include fastplay data
+get_fastPlay_playMemInfo,1217: 
+can not find PlayParam
+SysProcShow,32: CHIP_TYPE: Hi3716C(0x2)_v101
+before sync Loader_Main
+
+ +++ db.eUpdateType = 2 +++
+Press Menu + ok to force upgrade or timeout to normal upgrade/big kernel!
+Loader_Check->1002 start 'kernel'.
+booting kernel
+The value that loader_Check returned is kernel
+Loading 'kernel' image.
+'kernel'->ih_size = 0x424f34 
+Partation:kernel  read size = 0x426000
+open failed
+mac:D4:43:A8:01:73:E6
+Press Ctrl+C to stop autoboot
+## Booting kernel from Legacy Image at 82000000 ...
+   Image Name:   Linux-3.0.8_hisilicon
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    4345652 Bytes = 4.1 MiB
+   Load Address: 80800000
+   Entry Point:  80800000
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Linux version 3.0.8_hisilicon (yezhizhan@Android-Server) (gcc version 4.4.1 (Hisilicon_v200(gcc4.4-23
+CPU: ARMv7 Processor [412fc092] revision 2 (ARMv7), cr=10c53c7f
+CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine: godbox
+Memory policy: ECC disabled, Data cache writeback
+CPU:Hi3716Cv100, Timer:126M
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 196850
+Kernel command line: mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androii_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(,10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(user
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 775MB = 775MB total
+Memory: 777128k/777128k available, 16472k reserved, 392192K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+    vmalloc : 0xd9000000 - 0xfe000000   ( 592 MB)
+    lowmem  : 0xc0000000 - 0xd8800000   ( 392 MB)
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+      .init : 0xc0008000 - 0xc0072000   ( 424 kB)
+      .text : 0xc0072000 - 0xc0811960   (7807 kB)
+      .data : 0xc0812000 - 0xc0864040   ( 329 kB)
+       .bss : 0xc0864064 - 0xc09907b0   (1202 kB)
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:128
+sched_clock: 32 bits at 126MHz, resolution 7ns, wraps every 34087ms
+sched_clock: wrong multiply/shift: 8322032>>20 vs calculated 4260880254>>29
+sched_clock: fix multiply/shift to avoid scheduler hiccups
+Calibrating delay loop (skipped) preset value.. 1199.35 BogoMIPS (lpj=5996758)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+NET: Registered protocol family 16
+the pmem size is 67108864, the address is 2960130048
+hw-breakpoint: found 6 breakpoint and 1 watchpoint registers.
+hw-breakpoint: 1 breakpoint(s) reserved for watchpoint single-step.
+hw-breakpoint: maximum watchpoint size is 4 bytes.
+Serial: AMBA PL011 UART driver
+uart:0: ttyAMA0 at MMIO 0x101fb000 (irq = 59) is a PL011 rev2
+console [ttyAMA0] enabled
+uart:1: ttyAMA1 at MMIO 0x101fc000 (irq = 60) is a PL011 rev2
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Version 1.0.24.
+Bluetooth: Core ver 2.16
+NET: Registered protocol family 31
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+Switching to clocksource timer1
+NET: Registered protocol family 2
+IP route cache hash table entries: 16384 (order: 4, 65536 bytes)
+TCP established hash table entries: 65536 (order: 7, 524288 bytes)
+TCP bind hash table entries: 65536 (order: 6, 262144 bytes)
+TCP: Hash tables configured (established 65536 bind 65536)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+PMU: registered new PMU device of type 0
+L2cache cache controller enabled
+highmem bounce pool size: 64 pages
+ashmem: initialized
+VFS: Disk quotas dquot_6.5.2
+Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+msgmni has been set to 751
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+io scheduler noop registered
+io scheduler deadline registered (default)
+io scheduler cfq registered
+brd: module loaded
+loop: module loaded
+pmem: 1 init
+ahci: SSS flag set, parallel bus scan disabled
+ahci ahci.0: AHCI 0001.0200 32 slots 1 ports 3 Gbps 0x1 impl platform mode
+ahci ahci.0: flags: ncq sntf stag pm led clo only pmp pio slum part ccc sxs boh 
+scsi0 : ahci_platform
+ata1: SATA max UDMA/133 mmio [mem 0x60040000-0x6004ffff] port 0x100 irq 92
+mtdoops: mtd device (mtddev=name/number) must be supplied
+physmap platform flash device: 02000000 at 34000000
+physmap-flash physmap-flash.0: map_probe failed
+Check Spi Flash Controller V300. Found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB (Name:W25Q32BV)
+6 cmdlinepart partitions found on MTD device hi_sfc
+Creating 6 MTD partitions on "hi_sfc":
+0x000000000000-0x000000100000 : "fastboot"
+0x000000100000-0x000000200000 : "bootargs"
+0x000000200000-0x000000300000 : "bootargsbak"
+0x000000300000-0x000000310000 : "stbid"
+0x000000310000-0x000000320000 : "loaderdb"
+0x000000320000-0x000000330000 : "loaderdbbak"
+Check Spi Flash Controller V350. 
+Special NAND id table Version 1.36
+Check Nand Flash Controller V301. Found
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+16 cmdlinepart partitions found on MTD device hinand
+Creating 16 MTD partitions on "hinand":
+0x000000000000-0x000000800000 : "recovery"
+0x000000800000-0x000000e00000 : "baseparam"
+0x000000e00000-0x000001600000 : "logo"
+0x000001600000-0x000002000000 : "fastplay"
+0x000002000000-0x000003e00000 : "cache"
+0x000003e00000-0x000004800000 : "misc"
+0x000004800000-0x000005200000 : "kernel"
+0x000005200000-0x000005c00000 : "loader"
+0x000005c00000-0x000006600000 : "loaderbak"
+0x000006600000-0x000008a00000 : "dasse2prom"
+0x000008a00000-0x00000a800000 : "cainfo"
+0x00000a800000-0x00001a200000 : "system"
+0x00001a200000-0x000039600000 : "userdata"
+ata1: SATA link down (SStatus 0 SControl 300)
+0x000039600000-0x000049000000 : "upsdata"
+0x000049000000-0x000049400000 : "blackbox"
+0x000049400000-0x000100000000 : "sdcard"
+Check Nand Flash Controller V504. 
+Fixed MDIO Bus: probed
+himii: probed
+Up port phy at 0x01 is connect
+Down port phy at 0x03 is connect
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+PPTP driver version 0.8.5
+usbcore: registered new interface driver zd1201
+usbmon: debugfs is not available
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+hiusb-ehci hiusb-ehci.0: HIUSB EHCI
+hiusb-ehci hiusb-ehci.0: new USB bus registered, assigned bus number 1
+hiusb-ehci hiusb-ehci.0: irq 96, io mem 0x60080000
+hiusb-ehci hiusb-ehci.0: USB 0.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 2 ports detected
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+hiusb-ohci hiusb-ohci.0: HIUSB OHCI
+hiusb-ohci hiusb-ohci.0: new USB bus registered, assigned bus number 2
+hiusb-ohci hiusb-ohci.0: irq 97, io mem 0x60070000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+usbcore: registered new interface driver cdc_acm
+cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+usbcore: registered new interface driver cdc_wdm
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver ums-alauda
+usbcore: registered new interface driver ums-datafab
+usbcore: registered new interface driver ums-freecom
+usbcore: registered new interface driver ums-isd200
+usbcore: registered new interface driver ums-jumpshot
+usbcore: registered new interface driver ums-sddr09
+usbcore: registered new interface driver ums-sddr55
+usbcore: registered new interface driver usbserial
+usbserial: USB Serial Driver core
+USB Serial support registered for cp210x
+usbcore: registered new interface driver cp210x
+cp210x: v0.09:Silicon Labs CP210x RS232 serial adaptor driver
+mousedev: PS/2 mouse device common for all mice
+Linux video capture interface: v2.00
+usbcore: registered new interface driver uvcvideo
+USB Video Class driver (v1.1.0)
+device-mapper: uevent: version 1.0.3
+device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+device-mapper: multipath: version 1.3.0 loaded
+device-mapper: multipath round-robin: version 1.0.0 loaded
+Bluetooth: Generic Bluetooth USB driver ver 0.6
+usbcore: registered new interface driver btusb
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+logger: created 256K log 'log_main'
+logger: created 256K log 'log_events'
+logger: created 256K log 'log_radio'
+logger: created 256K log 'log_system'
+usbcore: registered new interface driver snd-usb-audio
+ALSA device list:
+  No soundcards found.
+oprofile: using arm/armv7-ca9
+GACT probability on
+Mirror/redirect action on
+Simple TC action Loaded
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (12142 buckets, 48568 max)
+ctnetlink v0.93: registering with nfnetlink.
+NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+xt_time: kernel timezone is -0000
+IPVS: Registered protocols ()
+IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+IPVS: Creating netns size=744 id=0
+IPVS: ipvs loaded.
+GRE over IPv4 demultiplexor driver
+GRE over IPv4 tunneling driver
+ip_tables: (C) 2000-2006 Netfilter Core Team
+ipt_CLUSTERIP: ClusterIP Version 0.8 loaded successfully
+arp_tables: (C) 2002 David S. Miller
+TCP cubic registered
+NET: Registered protocol family 10
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+NET: Registered protocol family 17
+Bridge firewalling registered
+Ebtables v2.0 registered
+Bluetooth: RFCOMM TTY layer initialized
+Bluetooth: RFCOMM socket layer initialized
+Bluetooth: RFCOMM ver 1.11
+Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Bluetooth: BNEP filters: protocol multicast
+Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+lib80211: common routines for IEEE802.11 drivers
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 2
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+Warning: unable to open an initial console.
+Freeing init memory: 424K
+init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+yaffs: dev is 32505873 name is "mtdblock17" rw
+yaffs: passed flags ""
+yaffs: dev is 32505874 name is "mtdblock18" rw
+yaffs: passed flags ""
+yaffs: dev is 32505875 name is "mtdblock19" rw
+yaffs: passed flags ""
+yaffs: dev is 32505866 name is "mtdblock10" rw
+yaffs: passed flags ""
+yaffs: dev is 32505871 name is "mtdblock15" rw
+yaffs: passed flags ""
+init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
+root@android:/ # !!! Module himedia: init ok
+/home/yezhizhan/hisi_haojie/device/hisilicon/godbox/driver/sdk/msp/common/drv/mmz/mmz-userdev.c(769): <6>Hisilicon Media Memory Zone Manager stage 1
+/home/yezhizhan/hisi_haojie/device/hisilicon/godbox/driver/sdk/msp/common/drv/../../../msp_base/common/drv/mmz/media-mem.c(1270): <6>Hisilicon Media Memory Zone Manager state 0
+Load hi_common.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:06])
+Load tde.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:50])
+Load pre hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:44])
+Load hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:44])
+warning: `mediaserver' uses 32-bit capabilities (legacy support in use)
+Load hi_mpi.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:09])
+Load jpeg6b.ko success.		(SDK_VERSION:[jpeg6bv1.0] Build Time:[Aug  8 2013, 13:40:53])
+success to create the proc graphics/jpeg !
+Load png.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:54])
+lirc_dev: IR Remote Control driver registered, major 61 
+lirc_dev: lirc_register_driver: sample_rate: 0
+lirc_serial init ok
+input: HI_LIRC as /devices/virtual/input/input0
+irkeypad_deve_probe3333
+Load hi_svdec.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Oct 22 2012, 17:45:00])
+Load hi_otp.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Oct 22 2012, 17:47:37])
+ufsd: module license 'Commercial product' taints kernel.
+Disabling lock debugging due to kernel taint
+ufsd: driver (8.6, Oct 16 2012 19:32:32, LBD=ON, delalloc, acl, ioctl) loaded at bf8ec000
+NTFS (with native replay) support included
+optimized: speed
+Built_for__huawei_stb_2012-03-30
+
+Load hi_gpioi2c.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:46])
+Load hi_i2c.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:47])
+Load hi_tuner.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:41:02])
+Load hi_sci.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:42:51])
+Load hi_e2prom.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:42:46])
+galcore options:
+  irqLine           = 69
+  registerMemBase   = 0x60180000
+  registerMemSize   = 0x00000800
+  contiguousSize    = 100663296
+  contiguousBase    = 0xBA000000
+  bankSize          = 0x00000000
+  fastClear         = -1
+  compression       = -1
+  signal            = 48
+  baseAddress       = 0x80000000
+  physSize          = 0x00000000
+ logFileSize         = 0 KB 
+ HD display IntType(0), EncFmt(8), EnLcdFmt(18)
+input: Hi keyboard as /devices/virtual/input/input1
+input: Hi mouse as /devices/virtual/input/input2
+input: Hi_MT_touch as /devices/virtual/input/input3
+Hi vinput driver  init successful!
+[11595 ERROR-hdmi]:DRV_HDMI_ReadEvent[3563]:event:17
+input: keyled_key as /devices/virtual/input/input4
+Load hi_keyled.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:59])
+alarm_set_rtc: no RTC, time will be lost on reboot
+init: sys_prop: permission denied uid:1000  name:app.is.3d
+request_suspend_state: wakeup (3->0) at 22654642429 (1970-01-02 00:00:05.289961590 UTC)
+yaffs: dev is 32505877 name is "mtdblock21" rw
+yaffs: passed flags "uid=1000,gid=1015,fmask=0,dmask=0"
+yaffs: the uid = 1000
+yaffs: the gid = 1015
+yaffs: the fmask = 0
+yaffs: the dmask = 0
+ADDRCONF(NETDEV_UP): eth1: link is not ready
+
+
+Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Fastboot:      Version 3.2.2
+Machine ID:    8000 v0
+Build Date:    Jun 17 2013, 13:41:47
+Serial Number: godbox
+CPU:           Hi3716Cv100 
+Boot Media:    SPI Flash
+
+Check nand flash controller v301. found
+Special NAND id table Version 1.36
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+
+Check spi flash controller v300. found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB Name:"W25Q32BV"
+Check spi flash controller v350. 
+
+eMMC: No eMMC device found!!!
+In:    serial
+Out:   serial
+Err:   serial
+ Hd_format index = 8
+g_gfxMode: WBC Mode 
+HDMI input format is HI_UNF_ENC_FMT_720P_50
+--> HW_ResetHDMITX.
+TMDS_CTL2 set to:0x2a
+--> SW_ResetHDMITX.
+einput:2, eoutput:2
+siiSetVideoPath bVMode:0x0d
+siiSetVideoPath setting video path abVideoPath:0x02,0x01,0x00,0xff
+ConfigTXVideoMode in:0x02: out:0x01, RegVal:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color VID_ACEN_ADDR bDeepColor:0
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x2f, data:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x4a, data:0x00
+TMDS_CTL3 old walue:0xa9
+SiI_DeepColor_24bit(normal)
+TMDS_CTL3 new walue:0xa9
+Start...
+[TXVIDP.C](SiI_TMDS_setup): 1.0x tclk
+siiSetVideoPath end
+Active Format aspect ratio  set to 0x1000:Same as picture aspect ratio
+The Content of the AVI version2 info frame is:
+0x51,0xa8,0x00,0x13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0x2c,0x80,0x00,
+ SendAVIInfoFrame
+ Set HDMI mode to 1.
+JPG_Decode(): Line 740 : Hard dec 
+We use single Buffer to show logo
+printf_playInfo,435: Do not include fastplay data
+get_fastPlay_playMemInfo,1217: 
+can not find PlayParam
+SysProcShow,32: CHIP_TYPE: Hi3716C(0x2)_v101
+before sync Loader_Main
+
+ +++ db.eUpdateType = 2 +++
+Press Menu + ok to force upgrade or timeout to normal upgrade/big kernel!
+Loader_Check->1002 start 'kernel'.
+booting kernel
+The value that loader_Check returned is kernel
+Loading 'kernel' image.
+'kernel'->ih_size = 0x424f34 
+Partation:kernel  read size = 0x426000
+open failed
+mac:D4:43:A8:01:73:E6
+Press Ctrl+C to stop autoboot
+## Booting kernel from Legacy Image at 82000000 ...
+   Image Name:   Linux-3.0.8_hisilicon
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    4345652 Bytes = 4.1 MiB
+   Load Address: 80800000
+   Entry Point:  80800000
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Linux version 3.0.8_hisilicon (yezhizhan@Android-Server) (gcc version 4.4.1 (Hisilicon_v200(gcc4.4-290+glibc-2.11+eabi+nptl)) ) #2 Wed Aug 7 10:50:39 CST 2013
+CPU: ARMv7 Processor [412fc092] revision 2 (ARMv7), cr=10c53c7f
+CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine: godbox
+Memory policy: ECC disabled, Data cache writeback
+CPU:Hi3716Cv100, Timer:126M
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 196850
+Kernel command line: mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 775MB = 775MB total
+Memory: 777128k/777128k available, 16472k reserved, 392192K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+    vmalloc : 0xd9000000 - 0xfe000000   ( 592 MB)
+    lowmem  : 0xc0000000 - 0xd8800000   ( 392 MB)
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+      .init : 0xc0008000 - 0xc0072000   ( 424 kB)
+      .text : 0xc0072000 - 0xc0811960   (7807 kB)
+      .data : 0xc0812000 - 0xc0864040   ( 329 kB)
+       .bss : 0xc0864064 - 0xc09907b0   (1202 kB)
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:128
+sched_clock: 32 bits at 126MHz, resolution 7ns, wraps every 34087ms
+sched_clock: wrong multiply/shift: 8322032>>20 vs calculated 4260880254>>29
+sched_clock: fix multiply/shift to avoid scheduler hiccups
+Calibrating delay loop (skipped) preset value.. 1199.35 BogoMIPS (lpj=5996758)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+NET: Registered protocol family 16
+the pmem size is 67108864, the address is 2960130048
+hw-breakpoint: found 6 breakpoint and 1 watchpoint registers.
+hw-breakpoint: 1 breakpoint(s) reserved for watchpoint single-step.
+hw-breakpoint: maximum watchpoint size is 4 bytes.
+Serial: AMBA PL011 UART driver
+uart:0: ttyAMA0 at MMIO 0x101fb000 (irq = 59) is a PL011 rev2
+console [ttyAMA0] enabled
+uart:1: ttyAMA1 at MMIO 0x101fc000 (irq = 60) is a PL011 rev2
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Version 1.0.24.
+Bluetooth: Core ver 2.16
+NET: Registered protocol family 31
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+Switching to clocksource timer1
+NET: Registered protocol family 2
+IP route cache hash table entries: 16384 (order: 4, 65536 bytes)
+TCP established hash table entries: 65536 (order: 7, 524288 bytes)
+TCP bind hash table entries: 65536 (order: 6, 262144 bytes)
+TCP: Hash tables configured (established 65536 bind 65536)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+PMU: registered new PMU device of type 0
+L2cache cache controller enabled
+highmem bounce pool size: 64 pages
+ashmem: initialized
+VFS: Disk quotas dquot_6.5.2
+Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+msgmni has been set to 751
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+io scheduler noop registered
+io scheduler deadline registered (default)
+io scheduler cfq registered
+brd: module loaded
+loop: module loaded
+pmem: 1 init
+ahci: SSS flag set, parallel bus scan disabled
+ahci ahci.0: AHCI 0001.0200 32 slots 1 ports 3 Gbps 0x1 impl platform mode
+ahci ahci.0: flags: ncq sntf stag pm led clo only pmp pio slum part ccc sxs boh 
+scsi0 : ahci_platform
+ata1: SATA max UDMA/133 mmio [mem 0x60040000-0x6004ffff] port 0x100 irq 92
+mtdoops: mtd device (mtddev=name/number) must be supplied
+physmap platform flash device: 02000000 at 34000000
+physmap-flash physmap-flash.0: map_probe failed
+Check Spi Flash Controller V300. Found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB (Name:W25Q32BV)
+6 cmdlinepart partitions found on MTD device hi_sfc
+Creating 6 MTD partitions on "hi_sfc":
+0x000000000000-0x000000100000 : "fastboot"
+0x000000100000-0x000000200000 : "bootargs"
+0x000000200000-0x000000300000 : "bootargsbak"
+0x000000300000-0x000000310000 : "stbid"
+0x000000310000-0x000000320000 : "loaderdb"
+0x000000320000-0x000000330000 : "loaderdbbak"
+Check Spi Flash Controller V350. 
+Special NAND id table Version 1.36
+Check Nand Flash Controller V301. Found
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+16 cmdlinepart partitions found on MTD device hinand
+Creating 16 MTD partitions on "hinand":
+0x000000000000-0x000000800000 : "recovery"
+0x000000800000-0x000000e00000 : "baseparam"
+0x000000e00000-0x000001600000 : "logo"
+0x000001600000-0x000002000000 : "fastplay"
+0x000002000000-0x000003e00000 : "cache"
+0x000003e00000-0x000004800000 : "misc"
+0x000004800000-0x000005200000 : "kernel"
+0x000005200000-0x000005c00000 : "loader"
+0x000005c00000-0x000006600000 : "loaderbak"
+0x000006600000-0x000008a00000 : "dasse2prom"
+0x000008a00000-0x00000a800000 : "cainfo"
+0x00000a800000-0x00001a200000 : "system"
+0x00001a200000-0x000039600000 : "userdata"
+ata1: SATA link down (SStatus 0 SControl 300)
+0x000039600000-0x000049000000 : "upsdata"
+0x000049000000-0x000049400000 : "blackbox"
+0x000049400000-0x000100000000 : "sdcard"
+Check Nand Flash Controller V504. 
+Fixed MDIO Bus: probed
+himii: probed
+Up port phy at 0x01 is connect
+Down port phy at 0x03 is connect
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+PPTP driver version 0.8.5
+usbcore: registered new interface driver zd1201
+usbmon: debugfs is not available
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+hiusb-ehci hiusb-ehci.0: HIUSB EHCI
+hiusb-ehci hiusb-ehci.0: new USB bus registered, assigned bus number 1
+hiusb-ehci hiusb-ehci.0: irq 96, io mem 0x60080000
+hiusb-ehci hiusb-ehci.0: USB 0.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 2 ports detected
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+hiusb-ohci hiusb-ohci.0: HIUSB OHCI
+hiusb-ohci hiusb-ohci.0: new USB bus registered, assigned bus number 2
+hiusb-ohci hiusb-ohci.0: irq 97, io mem 0x60070000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+usbcore: registered new interface driver cdc_acm
+cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+usbcore: registered new interface driver cdc_wdm
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver ums-alauda
+usbcore: registered new interface driver ums-datafab
+usbcore: registered new interface driver ums-freecom
+usbcore: registered new interface driver ums-isd200
+usbcore: registered new interface driver ums-jumpshot
+usbcore: registered new interface driver ums-sddr09
+usbcore: registered new interface driver ums-sddr55
+usbcore: registered new interface driver usbserial
+usbserial: USB Serial Driver core
+USB Serial support registered for cp210x
+usbcore: registered new interface driver cp210x
+cp210x: v0.09:Silicon Labs CP210x RS232 serial adaptor driver
+mousedev: PS/2 mouse device common for all mice
+Linux video capture interface: v2.00
+usbcore: registered new interface driver uvcvideo
+USB Video Class driver (v1.1.0)
+device-mapper: uevent: version 1.0.3
+device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+device-mapper: multipath: version 1.3.0 loaded
+device-mapper: multipath round-robin: version 1.0.0 loaded
+Bluetooth: Generic Bluetooth USB driver ver 0.6
+usbcore: registered new interface driver btusb
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+logger: created 256K log 'log_main'
+logger: created 256K log 'log_events'
+logger: created 256K log 'log_radio'
+logger: created 256K log 'log_system'
+usbcore: registered new interface driver snd-usb-audio
+ALSA device list:
+  No soundcards found.
+oprofile: using arm/armv7-ca9
+GACT probability on
+Mirror/redirect action on
+Simple TC action Loaded
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (12142 buckets, 48568 max)
+ctnetlink v0.93: registering with nfnetlink.
+NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+xt_time: kernel timezone is -0000
+IPVS: Registered protocols ()
+IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+IPVS: Creating netns size=744 id=0
+IPVS: ipvs loaded.
+GRE over IPv4 demultiplexor driver
+GRE over IPv4 tunneling driver
+ip_tables: (C) 2000-2006 Netfilter Core Team
+ipt_CLUSTERIP: ClusterIP Version 0.8 loaded successfully
+arp_tables: (C) 2002 David S. Miller
+TCP cubic registered
+NET: Registered protocol family 10
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+NET: Registered protocol family 17
+Bridge firewalling registered
+Ebtables v2.0 registered
+Bluetooth: RFCOMM TTY layer initialized
+Bluetooth: RFCOMM socket layer initialized
+Bluetooth: RFCOMM ver 1.11
+Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Bluetooth: BNEP filters: protocol multicast
+Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+lib80211: common routines for IEEE802.11 drivers
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 2
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+Warning: unable to open an initial console.
+Freeing init memory: 424K
+init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+yaffs: dev is 32505873 name is "mtdblock17" rw
+yaffs: passed flags ""
+yaffs: dev is 32505874 name is "mtdblock18" rw
+yaffs: passed flags ""
+yaffs: dev is 32505875 name is "mtdblock19" rw
+yaffs: passed flags ""
+yaffs: dev is 32505866 name is "mtdblock10" rw
+yaffs: passed flags ""
+yaffs: dev is 32505871 name is "mtdblock15" rw
+yaffs: passed flags ""
+init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
+root@android:/ # !!! Module himedia: init ok
+/home/yezhizhan/hisi_haojie/device/hisilicon/godbox/driver/sdk/msp/common/drv/mmz/mmz-userdev.c(769): <6>Hisilicon Media Memory Zone Manager stage 1
+/home/yezhizhan/hisi_haojie/device/hisilicon/godbox/driver/sdk/msp/common/drv/../../../msp_base/common/drv/mmz/media-mem.c(1270): <6>Hisilicon Media Memory Zone Manager state 0
+Load hi_common.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:06])
+Load tde.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:50])
+Load pre hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:44])
+Load hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:44])
+warning: `mediaserver' uses 32-bit capabilities (legacy support in use)
+Load hi_mpi.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:09])
+Load jpeg6b.ko success.		(SDK_VERSION:[jpeg6bv1.0] Build Time:[Aug  8 2013, 13:40:53])
+success to create the proc graphics/jpeg !
+Load png.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:54])
+lirc_dev: IR Remote Control driver registered, major 61 
+lirc_dev: lirc_register_driver: sample_rate: 0
+lirc_serial init ok
+input: HI_LIRC as /devices/virtual/input/input0
+irkeypad_deve_probe3333
+Load hi_svdec.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Oct 22 2012, 17:45:00])
+Load hi_otp.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Oct 22 2012, 17:47:37])
+ufsd: module license 'Commercial product' taints kernel.
+Disabling lock debugging due to kernel taint
+ufsd: driver (8.6, Oct 16 2012 19:32:32, LBD=ON, delalloc, acl, ioctl) loaded at bf8ec000
+NTFS (with native replay) support included
+optimized: speed
+Built_for__huawei_stb_2012-03-30
+
+Load hi_gpioi2c.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:46])
+Load hi_i2c.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:47])
+Load hi_tuner.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:41:02])
+Load hi_sci.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:42:51])
+Load hi_e2prom.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:42:46])
+galcore options:
+  irqLine           = 69
+  registerMemBase   = 0x60180000
+  registerMemSize   = 0x00000800
+  contiguousSize    = 100663296
+  contiguousBase    = 0xBA000000
+  bankSize          = 0x00000000
+  fastClear         = -1
+  compression       = -1
+  signal            = 48
+  baseAddress       = 0x80000000
+  physSize          = 0x00000000
+ logFileSize         = 0 KB 
+ HD display IntType(0), EncFmt(8), EnLcdFmt(18)
+[11523 ERROR-hdmi]:DRV_HDMI_ReadEvent[3563]:event:17
+input: Hi keyboard as /devices/virtual/input/input1
+input: Hi mouse as /devices/virtual/input/input2
+input: Hi_MT_touch as /devices/virtual/input/input3
+Hi vinput driver  init successful!
+input: keyled_key as /devices/virtual/input/input4
+Load hi_keyled.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  8 2013, 13:40:59])
+alarm_set_rtc: no RTC, time will be lost on reboot
+init: sys_prop: permission denied uid:1000  name:app.is.3d
+
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # request_suspend_state: wakeup (3->0) at 22464054431 (1970-01-02 00:00:05.372018029 UTC)
+
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # yaffs: dev is 32505877 name is "mtdblock21" rw
+yaffs: passed flags "uid=1000,gid=1015,fmask=0,dmask=0"
+yaffs: the uid = 1000
+yaffs: the gid = 1015
+yaffs: the fmask = 0
+yaffs: the dmask = 0
+
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # mount
+rootfs / rootfs ro,relatime 0 0
+tmpfs /dev tmpfs rw,nosuid,relatime,mode=755 0 0
+devpts /dev/pts devpts rw,relatime,mode=600 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /mnt tmpfs rw,relatime,mode=775,gid=1000 0 0
+tmpfs /var tmpfs rw,relatime,mode=777 0 0
+tmpfs /mnt/asec tmpfs rw,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,relatime,mode=755,gid=1000 0 0
+/dev/block/mtdblock17 /system yaffs2 ro,relatime 0 0
+/dev/block/mtdblock18 /data yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock19 /upsdata yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock10 /cache yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock15 /data/e2prom yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/vold/31:21 /mnt/nand yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/vold/31:21 /mnt/secure/asec yaffs2 rw,nosuid,nodev,relatime 0 0
+tmpfs /mnt/nand/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
+root@android:/ # ADDRCONF(NETDEV_UP): eth1: link is not ready
+
+root@android:/ # 
+root@android:/ # 
+root@android:/ # 
+root@android:/ # cat /proc/cmdline                                             
+mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+root@android:/ #  
+root@android:/ # 
+root@android:/ # 
+root@android:/ # ll /dev/block/          
+brwxrwxrwx root     root       7,   0 1970-01-01 08:00 loop0
+brwxrwxrwx root     root       7,   1 1970-01-01 08:00 loop1
+brwxrwxrwx root     root       7,   2 1970-01-01 08:00 loop2
+brwxrwxrwx root     root       7,   3 1970-01-01 08:00 loop3
+brwxrwxrwx root     root       7,   4 1970-01-01 08:00 loop4
+brwxrwxrwx root     root       7,   5 1970-01-01 08:00 loop5
+brwxrwxrwx root     root       7,   6 1970-01-01 08:00 loop6
+brwxrwxrwx root     root       7,   7 1970-01-01 08:00 loop7
+brwxrwxrwx root     root      31,   0 1970-01-01 08:00 mtdblock0
+brwxrwxrwx root     root      31,   1 1970-01-01 08:00 mtdblock1
+brwxrwxrwx root     root      31,  10 1970-01-01 08:00 mtdblock10
+brwxrwxrwx root     root      31,  11 1970-01-01 08:00 mtdblock11
+brwxrwxrwx root     root      31,  12 1970-01-01 08:00 mtdblock12
+brwxrwxrwx root     root      31,  13 1970-01-01 08:00 mtdblock13
+brwxrwxrwx root     root      31,  14 1970-01-01 08:00 mtdblock14
+brwxrwxrwx root     root      31,  15 1970-01-01 08:00 mtdblock15
+brwxrwxrwx root     root      31,  16 1970-01-01 08:00 mtdblock16
+brwxrwxrwx root     root      31,  17 1970-01-01 08:00 mtdblock17
+brwxrwxrwx root     root      31,  18 1970-01-01 08:00 mtdblock18
+brwxrwxrwx root     root      31,  19 1970-01-01 08:00 mtdblock19
+brwxrwxrwx root     root      31,   2 1970-01-01 08:00 mtdblock2
+brwxrwxrwx root     root      31,  20 1970-01-01 08:00 mtdblock20
+brwxrwxrwx root     root      31,  21 1970-01-01 08:00 mtdblock21
+brwxrwxrwx root     root      31,   3 1970-01-01 08:00 mtdblock3
+brwxrwxrwx root     root      31,   4 1970-01-01 08:00 mtdblock4
+brwxrwxrwx root     root      31,   5 1970-01-01 08:00 mtdblock5
+brwxrwxrwx root     root      31,   6 1970-01-01 08:00 mtdblock6
+brwxrwxrwx root     root      31,   7 1970-01-01 08:00 mtdblock7
+brwxrwxrwx root     root      31,   8 1970-01-01 08:00 mtdblock8
+brwxrwxrwx root     root      31,   9 1970-01-01 08:00 mtdblock9
+brwxrwxrwx root     root       1,   0 1970-01-01 08:00 ram0
+brwxrwxrwx root     root       1,   1 1970-01-01 08:00 ram1
+brwxrwxrwx root     root       1,  10 1970-01-01 08:00 ram10
+brwxrwxrwx root     root       1,  11 1970-01-01 08:00 ram11
+brwxrwxrwx root     root       1,  12 1970-01-01 08:00 ram12
+brwxrwxrwx root     root       1,  13 1970-01-01 08:00 ram13
+brwxrwxrwx root     root       1,  14 1970-01-01 08:00 ram14
+brwxrwxrwx root     root       1,  15 1970-01-01 08:00 ram15
+brwxrwxrwx root     root       1,   2 1970-01-01 08:00 ram2
+brwxrwxrwx root     root       1,   3 1970-01-01 08:00 ram3
+brwxrwxrwx root     root       1,   4 1970-01-01 08:00 ram4
+brwxrwxrwx root     root       1,   5 1970-01-01 08:00 ram5
+brwxrwxrwx root     root       1,   6 1970-01-01 08:00 ram6
+brwxrwxrwx root     root       1,   7 1970-01-01 08:00 ram7
+brwxrwxrwx root     root       1,   8 1970-01-01 08:00 ram8
+brwxrwxrwx root     root       1,   9 1970-01-01 08:00 ram9
+drwxrwxrwx root     root              1970-01-01 08:00 vold
+root@android:/ #                                                               

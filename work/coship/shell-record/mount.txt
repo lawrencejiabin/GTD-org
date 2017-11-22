@@ -1,0 +1,189 @@
+            \  _  _   _  _ _ ___
+            / /__/ \ |_/
+           / __   /  -  _ ___
+          / /  / /  / /
+  _ _ _ _/ /  /  \_/  \_ ______
+___________\___\__________________
+
+Configuring dynamic linker:
+[RCS]: /etc/init.d/S00devs
+[RCS]: /etc/init.d/S01udev
+[RCS]: /etc/init.d/S80network
+[RCS]: /etc/init.d/S90modules
+rmmod: can't unload 'ufsd': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'ohci_hcd': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'ehci_hcd': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'png': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'jpge': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'jpeg': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_wdg': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_keyled': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_e2prom': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_cipher': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_ir': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_sci': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hifb': unknown s!!! Module himedia: init ok
+ymbol in module, or unknown parameter
+rmmod: can't unload 'hi_tuner': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_svdec': unknown symbol in module, or unknown parameter
+r/home/y00106256/TEST/mytest/Develop/source/msp/common/drv/mmz/mmz-userdev.c(729): <6>Hisilicon Media Memory Zone Manager stage 1
+mmod: can't unlo/home/y00106256/TEST/mytest/Develop/source/msp/common/drv/../../../msp_base/common/drv/mmz/media-mem.c(1267): <6>Hisilicon Media Memory Zone Manager state 0
+ad 'hi_mpi': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_ndpt': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_otp': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'tde': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_i2c': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_gpioi2c': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_gpio': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_dmac': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_c51': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_common': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_mmz': unknown symbol in module, or unknown parameter
+rmmod: can't unload 'hi_media': unknown symbol in module, or unknown parameter
+Load hi_common.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:36:13])
+Load pre hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:15])
+Load hi_gpio.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:15])
+Load hi_gpioi2c.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:16])
+Load hi_i2c.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:33])
+Load tde.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:38:40])
+Load hi_otp.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:51])
+Load hi_mpi.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:36:16])
+Load hi_svdec.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:31:13])
+Load hi_tuner.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:17])
+Load hi_sci.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:37])
+Load hi_ir.ko success.  	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:30])
+Load hi_cipher.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:41])
+Load hi_e2prom.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:34])
+Load hi_keyled.ko success.	(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:37:35])
+Load jpeg6b.ko success.		(SDK_VERSION:[jpeg6bv1.0] Build Time:[Aug  6 2012, 16:38:49])
+success to create the proc graphics/jpeg !
+Load png.ko success.		(SDK_VERSION:[Hi3716XV100R001C00SPC0A1] Build Time:[Aug  6 2012, 16:38:51])
+ehci_hcd: module is already loaded
+insmod: can't insert '/kmod/usb/ehci-hcd.ko': Invalid argument
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+hiusb-ohci hiusb-ohci.0: HIUSB OHCI
+hiusb-ohci hiusb-ohci.0: new USB bus registered, assigned bus number 2
+hiusb-ohci hiusb-ohci.0: irq 97, io mem 0x60070000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+ufsd: module license 'Commercial product' taints kernel.
+Disabling lock debugging due to kernel taint
+ufsd: driver (8.6, Jul 12 2012 16:31:03, LBD=ON, delalloc, acl, ioctl, bdi) loaded at bfa13000
+NTFS (with native replay) support included
+optimized: speed
+Build_for__Huawei_stb_2011-03-28_U86_r185589_b2
+
+/
+Welcome to HiLinux.
+# usb 1-1: new high speed USB device using hiusb-ehci and address 2
+scsi0 : usb-storage 1-1:1.0
+scsi 0:0:0:0: Direct-Access     General  USB Flash Disk   1.00 PQ: 0 ANSI: 2
+sd 0:0:0:0: [sda] 7831552 512-byte logical blocks: (4.00 GB/3.73 GiB)
+sd 0:0:0:0: [sda] Write Protect is off
+sd 0:0:0:0: [sda] Assuming drive cache: write through
+sd 0:0:0:0: [sda] Assuming drive cache: write through
+ sda: sda4
+sd 0:0:0:0: [sda] Assuming drive cache: write through
+sd 0:0:0:0: [sda] Attached SCSI removable disk
+   
+# 
+# ll  
+-/bin/sh: ll: not found
+# mount
+rootfs on / type rootfs (rw)
+/dev/root on / type cramfs (ro,relatime)
+proc on /proc type proc (rw,relatime)
+sysfs on /sys type sysfs (rw,relatime)
+dev on /dev type tmpfs (rw,relatime)
+tmp on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime)
+devpts on /dev/pts type devpts (rw,relatime,mode=600)
+# mount /dev/sda
+/dev/sda   /dev/sda4
+# mount /dev/sda4 /mnt/
+# cd /mnt/\
+> 
+> 
+> 
+# ls
+LOST.DIR
+RECYCLER
+hi_kernel.bin
+sample_dvbplay
+soft-pkg
+毕业证书.jpg
+计算机等级3级.jpg
+人才招聘求职网-前程无忧 _ 51job 简历分析.pdf
+辛佳斌--简历2017-2-26.pdf
+学位证书.jpg
+证件照--白底.jpg
+证件照--蓝底.jpg
+# ./sample_dvbplay 
+./sample_dvbplay: error while loading shared libraries: libhijpegenc.so: cannot open shared object file: No such file or directory
+# cd ../../
+# find . -name libhijpegenc
+# find . -name libhijpegenc&
+# find . -name libhijpegenc* 
+[1]+  Done                       find . -name libhijpegenc
+# cd 
+bin/    dev/    home/   lib/    opt/    root/   share/  tmp/    var/
+boot/   etc/    kmod/   mnt/    proc/   sbin/   sys/    usr/
+# cd lib/
+lib/firmware/  lib/udev/
+# cd lib/
+# ls
+firmware                   libnss_dns-2.11.1.so
+ld-2.11.1.so               libnss_dns.so.2
+ld-linux.so.3              libnss_files-2.11.1.so
+libBrokenLocale-2.11.1.so  libnss_files.so.2
+libBrokenLocale.so.1       libnss_hesiod-2.11.1.so
+libSegFault.so             libnss_hesiod.so.2
+libanl-2.11.1.so           libnss_nis-2.11.1.so
+libanl.so.1                libnss_nis.so.2
+libc-2.11.1.so             libnss_nisplus-2.11.1.so
+libc.so.6                  libnss_nisplus.so.2
+libcap-ng.so.0             libpcprofile.so
+libcidn-2.11.1.so          libpthread-2.11.1.so
+libcidn.so.1               libpthread.so.0
+libcrypt-2.11.1.so         libresolv-2.11.1.so
+libcrypt.so.1              libresolv.so.2
+libdl-2.11.1.so            librt-2.11.1.so
+libdl.so.2                 librt.so.1
+libgcc_s.so                libstdc++.so
+libgcc_s.so.1              libstdc++.so.6
+libm-2.11.1.so             libstdc++.so.6.0.12
+libm.so.6                  libthread_db-1.0.so
+libmemusage.so             libthread_db.so.1
+libnsl-2.11.1.so           libutil-2.11.1.so
+libnsl.so.1                libutil.so.1
+libnss_compat-2.11.1.so    udev
+libnss_compat.so.2
+# cd ../
+# ls
+bin      etc      lib      opt      sbin     tmp
+boot     home     linuxrc  proc     share    usr
+dev      kmod     mnt      root     sys      var
+# cd sys/
+sys/block/     sys/class/     sys/devices/   sys/fs/        sys/module/
+sys/bus/       sys/dev/       sys/firmware/  sys/kernel/    sys/power/
+# cd kmod/    
+# ls
+ddr3_reboot_loader.ko  hi_mmz.ko              hifb.ko
+hi_aud_adp.ko          hi_mpi.ko              jpeg.ko
+hi_c51.ko              hi_ndpt.ko             jpge.ko
+hi_ci.ko               hi_otp.ko              load
+hi_cipher.ko           hi_ov7725.ko           png.ko
+hi_common.ko           hi_qtc.ko              tde.ko
+hi_dmac.ko             hi_sci.ko              tlv320.ko
+hi_e2prom.ko           hi_sethdcp.ko          tw2864.ko
+hi_gpio.ko             hi_ssp.ko              ufsd.ko
+hi_gpioi2c.ko          hi_svdec.ko            usb
+hi_i2c.ko              hi_tuner.ko            voip_hme.ko
+hi_ir.ko               hi_tvp5150.ko          wish_slac.ko
+hi_keyled.ko           hi_usbprotected.ko
+hi_media.ko            hi_wdg.ko
+# cd ../
+# ls
+bin      etc      lib      opt      sbin     tmp
+boot     home     linuxrc  proc     share    usr
+dev      kmod     mnt      root     sys      var
+# 

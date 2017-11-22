@@ -1,0 +1,426 @@
+Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Fastboot:      Version 3.2.2
+Machine ID:    8000 v0
+Build Date:    Jun 17 2013, 13:41:47
+Serial Number: godbox
+CPU:           Hi3716Cv100 
+Boot Media:    SPI Flash
+
+Check nand flash controller v301. found
+Special NAND id table Version 1.36
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+
+Check spi flash controller v300. found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB Name:"W25Q32BV"
+Check spi flash controller v350. 
+
+eMMC: No eMMC device found!!!
+In:    serial
+Out:   serial
+Err:   serial
+ Hd_format index = 8
+g_gfxMode: WBC Mode 
+HDMI input format is HI_UNF_ENC_FMT_720P_50
+--> HW_ResetHDMITX.
+TMDS_CTL2 set to:0x2a
+--> SW_ResetHDMITX.
+einput:2, eoutput:2
+siiSetVideoPath bVMode:0x0d
+siiSetVideoPath setting video path abVideoPath:0x02,0x01,0x00,0xff
+ConfigTXVideoMode in:0x02: out:0x01, RegVal:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color VID_ACEN_ADDR bDeepColor:0
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x2f, data:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x4a, data:0x00
+TMDS_CTL3 old walue:0xa9
+SiI_DeepColor_24bit(normal)
+TMDS_CTL3 new walue:0xa9
+Start...
+[TXVIDP.C](SiI_TMDS_setup): 1.0x tclk
+siiSetVideoPath end
+Active Format aspect ratio  set to 0x1000:Same as picture aspect ratio
+The Content of the AVI version2 info frame is:
+0x51,0xa8,0x00,0x13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0x2c,0x80,0x00,
+ SendAVIInfoFrame
+ Set HDMI mode to 1.
+JPG_Decode(): Line 740 : Hard dec 
+We use single Buffer to show logo
+printf_playInfo,435: Do not include fastplay data
+get_fastPlay_playMemInfo,1217: 
+can not find PlayParam
+SysProcShow,32: CHIP_TYPE: Hi3716C(0x2)_v101
+before sync Loader_Main
+
+ +++ db.eUpdateType = 2 +++
+Press Menu + ok to force upgrade or timeout to normal upgrade/big kernel!
+Loader_Check->1002 start 'kernel'.
+booting kernel
+The value that loader_Check returned is kernel
+Loading 'kernel' image.
+'kernel'->ih_size = 0x32ebcc 
+Partation:kernel  read size = 0x330000
+open failed
+mac:D4:43:A8:01:73:E6
+Press Ctrl+C to stop autoboot
+## Booting kernel from Legacy Image at 82000000 ...
+   Image Name:   Linux-2.6.35.7_hisilicon
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3337164 Bytes = 3.2 MiB
+   Load Address: 80800000
+   Entry Point:  80800000
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Linux version 2.6.35.7_hisilicon (xinjiabin@ROM-CM-Net) (gcc version 4.4.1 (Hisilicon_v200(gcc4.4-290+glibc-2.11+eabi+nptl)) ) #1 Mon Mar 6 17:28:04 CST 2017
+CPU: ARMv7 Processor [412fc092] revision 2 (ARMv7), cr=10c53c7f
+CPU: VIPT nonaliasing data cache, VIPT nonaliasing instruction cache
+Machine: godbox
+Memory policy: ECC disabled, Data cache writeback
+Truncating RAM at 80000000-b06fffff to -987fffff (vmalloc region overlap).
+CPU:Hi3716Cv100, Timer:126M
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 99568
+Kernel command line: mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 392MB = 392MB total
+Memory: 391496k/391496k available, 9912k reserved, 0K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+    vmalloc : 0xd9000000 - 0xfe000000   ( 592 MB)
+    lowmem  : 0xc0000000 - 0xd8800000   ( 392 MB)
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)
+      .init : 0xc0008000 - 0xc002c000   ( 144 kB)
+      .text : 0xc002c000 - 0xc05b5000   (5668 kB)
+      .data : 0xc05d6000 - 0xc060ad20   ( 212 kB)
+SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Hierarchical RCU implementation.
+	RCU-based detection of stalled CPUs is disabled.
+	Verbose stalled-CPUs detection is disabled.
+NR_IRQS:128
+Console: colour dummy device 80x30
+Calibrating delay loop (skipped) preset value.. 1199.35 BogoMIPS (lpj=5996758)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+NET: Registered protocol family 16
+Serial: AMBA PL011 UART driver
+uart:0: ttyAMA0 at MMIO 0x101fb000 (irq = 59) is a AMBA/PL011
+console [ttyAMA0] enabled
+uart:1: ttyAMA1 at MMIO 0x101fc000 (irq = 60) is a AMBA/PL011
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Version 1.0.23.
+Bluetooth: Core ver 2.15
+NET: Registered protocol family 31
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Switching to clocksource timer1
+NET: Registered protocol family 2
+IP route cache hash table entries: 4096 (order: 2, 16384 bytes)
+TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+TCP bind hash table entries: 16384 (order: 4, 65536 bytes)
+TCP: Hash tables configured (established 16384 bind 16384)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+L2cache cache controller enabled
+VFS: Disk quotas dquot_6.5.2
+Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+fuse init (API version 7.14)
+msgmni has been set to 764
+alg: No test for stdrng (krng)
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+io scheduler noop registered
+io scheduler deadline registered (default)
+io scheduler cfq registered
+brd: module loaded
+loop: module loaded
+physmap platform flash device: 02000000 at 34000000
+physmap-flash physmap-flash.0: map_probe failed
+Check Spi Flash Controller V300. Found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB (Name:W25Q32BV)
+6 cmdlinepart partitions found on MTD device hi_sfc
+Creating 6 MTD partitions on "hi_sfc":
+0x000000000000-0x000000100000 : "fastboot"
+0x000000100000-0x000000200000 : "bootargs"
+0x000000200000-0x000000300000 : "bootargsbak"
+0x000000300000-0x000000310000 : "stbid"
+0x000000310000-0x000000320000 : "loaderdb"
+0x000000320000-0x000000330000 : "loaderdbbak"
+Special NAND id table Version 1.36
+Check Nand Flash Controller V301. Found
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+16 cmdlinepart partitions found on MTD device hinand
+Creating 16 MTD partitions on "hinand":
+0x000000000000-0x000000800000 : "recovery"
+0x000000800000-0x000000e00000 : "baseparam"
+0x000000e00000-0x000001600000 : "logo"
+0x000001600000-0x000002000000 : "fastplay"
+0x000002000000-0x000003e00000 : "cache"
+0x000003e00000-0x000004800000 : "misc"
+0x000004800000-0x000005200000 : "kernel"
+0x000005200000-0x000005c00000 : "loader"
+0x000005c00000-0x000006600000 : "loaderbak"
+0x000006600000-0x000008a00000 : "dasse2prom"
+0x000008a00000-0x00000a800000 : "cainfo"
+0x00000a800000-0x00001a200000 : "system"
+0x00001a200000-0x000039600000 : "userdata"
+0x000039600000-0x000049000000 : "upsdata"
+0x000049000000-0x000049400000 : "blackbox"
+mtdoops: Attached to MTD device 20
+0x000049400000-0x000100000000 : "sdcard"
+Fixed MDIO Bus: probed
+himii: probed
+probe phy himii:01 ok 
+probe phy himii:03 ok 
+PPP generic driver version 2.4.2
+NET: Registered protocol family 24
+SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256).
+CSLIP: code copyright 1989 Regents of the University of California.
+usbcore: registered new interface driver asix
+usbcore: registered new interface driver cdc_ether
+usbcore: registered new interface driver rndis_host
+usbmon: debugfs is not available
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+hiusb-ehci hiusb-ehci.0: HIUSB EHCI
+hiusb-ehci hiusb-ehci.0: new USB bus registered, assigned bus number 1
+hiusb-ehci hiusb-ehci.0: irq 96, io mem 0x60080000
+hiusb-ehci hiusb-ehci.0: USB 0.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 2 ports detected
+usbcore: registered new interface driver cdc_acm
+cdc_acm: v0.26:USB Abstract Control Model driver for USB modems and ISDN adapters
+usbcore: registered new interface driver cdc_wdm
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver ums-alauda
+usbcore: registered new interface driver ums-datafab
+usbcore: registered new interface driver ums-freecom
+usbcore: registered new interface driver ums-isd200
+usbcore: registered new interface driver ums-jumpshot
+usbcore: registered new interface driver ums-sddr09
+usbcore: registered new interface driver ums-sddr55
+usbcore: registered new interface driver usbserial
+USB Serial support registered for generic
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core
+USB Serial support registered for debug
+usbcore: registered new interface driver debug
+USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver option
+option: v0.7.2:USB Driver for GSM modems
+mice: PS/2 mouse device common for all mice
+Bluetooth: Generic Bluetooth USB driver ver 0.6
+usbcore: registered new interface driver btusb
+usbcore: registered new interface driver hiddev
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+usbcore: registered new interface driver snd-usb-audio
+usbcore: registered new interface driver snd-usb-caiaq
+ALSA device list:
+  No soundcards found.
+GACT probability on
+Mirror/redirect action on
+Simple TC action Loaded
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (6117 buckets, 24468 max)
+CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+ctnetlink v0.93: registering with nfnetlink.
+xt_time: kernel timezone is -0000
+IPVS: Registered protocols ()
+IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+IPVS: ipvs loaded.
+ip_tables: (C) 2000-2006 Netfilter Core Team
+ipt_CLUSTERIP: ClusterIP Version 0.8 loaded successfully
+arp_tables: (C) 2002 David S. Miller
+TCP cubic registered
+NET: Registered protocol family 17
+Bridge firewalling registered
+Ebtables v2.0 registered
+Bluetooth: L2CAP ver 2.14
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO (Voice Link) ver 0.6
+Bluetooth: SCO socket layer initialized
+Bluetooth: RFCOMM TTY layer initialized
+Bluetooth: RFCOMM socket layer initialized
+Bluetooth: RFCOMM ver 1.11
+Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Bluetooth: BNEP filters: protocol multicast
+Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 2
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+Root-NFS: No NFS server available, giving up.
+VFS: Unable to mount root fs via NFS, trying floppy.
+VFS: Cannot open root device "(null)" or unknown-block(2,0)
+Please append a correct "root=" boot option; here are the available partitions:
+f000            1024 romblock0 (driver?)
+1f00            1024 mtdblock0 (driver?)
+f001            1024 romblock1 (driver?)
+1f01            1024 mtdblock1 (driver?)
+f002            1024 romblock2 (driver?)
+1f02            1024 mtdblock2 (driver?)
+f003              64 romblock3 (driver?)
+1f03              64 mtdblock3 (driver?)
+f004              64 romblock4 (driver?)
+1f04              64 mtdblock4 (driver?)
+f005              64 romblock5 (driver?)
+1f05              64 mtdblock5 (driver?)
+f006            8192 romblock6 (driver?)
+1f06            8192 mtdblock6 (driver?)
+f007            6144 romblock7 (driver?)
+1f07            6144 mtdblock7 (driver?)
+f008            8192 romblock8 (driver?)
+1f08            8192 mtdblock8 (driver?)
+f009           10240 romblock9 (driver?)
+1f09           10240 mtdblock9 (driver?)
+f00a           30720 romblock10 (driver?)
+1f0a           30720 mtdblock10 (driver?)
+f00b           10240 romblock11 (driver?)
+1f0b           10240 mtdblock11 (driver?)
+f00c           10240 romblock12 (driver?)
+1f0c           10240 mtdblock12 (driver?)
+f00d           10240 romblock13 (driver?)
+1f0d           10240 mtdblock13 (driver?)
+f00e           10240 romblock14 (driver?)
+1f0e           10240 mtdblock14 (driver?)
+f00f           36864 romblock15 (driver?)
+1f0f           36864 mtdblock15 (driver?)
+f010           30720 romblock16 (driver?)
+1f10           30720 mtdblock16 (driver?)
+f011          256000 romblock17 (driver?)
+1f11          256000 mtdblock17 (driver?)
+f012          512000 romblock18 (driver?)
+1f12          512000 mtdblock18 (driver?)
+f013          256000 romblock19 (driver?)
+1f13          256000 mtdblock19 (driver?)
+f014            4096 romblock20 (driver?)
+1f14            4096 mtdblock20 (driver?)
+f015         2994176 romblock21 (driver?)
+1f15         2994176 mtdblock21 (driver?)
+Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(2,0)
+mtdoops: ready 2, 3 (no erase)
+
+
+Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Fastboot:      Version 3.2.2
+Machine ID:    8000 v0
+Build Date:    Jun 17 2013, 13:41:47
+Serial Number: godbox
+CPU:           Hi3716Cv100 
+Boot Media:    SPI Flash
+
+Check nand flash controller v301. found
+Special NAND id table Version 1.36
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+
+Check spi flash controller v300. found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB Name:"W25Q32BV"
+Check spi flash controller v350. 
+
+eMMC: No eMMC device found!!!
+In:    serial
+Out:   serial
+Err:   serial
+ Hd_format index = 8
+g_gfxMode: WBC Mode 
+HDMI input format is HI_UNF_ENC_FMT_720P_50
+--> HW_ResetHDMITX.
+TMDS_CTL2 set to:0x2a
+--> SW_ResetHDMITX.
+einput:2, eoutput:2
+siiSetVideoPath bVMode:0x0d
+siiSetVideoPath setting video path abVideoPath:0x02,0x01,0x00,0xff
+ConfigTXVideoMode in:0x02: out:0x01, RegVal:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color VID_ACEN_ADDR bDeepColor:0
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x2f, data:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x4a, data:0x00
+TMDS_CTL3 old walue:0xa9
+SiI_DeepColor_24bit(normal)
+TMDS_CTL3 new walue:0xa9
+Start...
+[TXVIDP.C](SiI_TMDS_setup): 1.0x tclk
+siiSetVideoPath end
+Active Format aspect ratio  set to 0x1000:Same as picture aspect ratio
+The Content of the AVI version2 info frame is:
+0x51,0xa8,0x00,0x13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0x2c,0x80,0x00,
+ SendAVIInfoFrame
+ Set HDMI mode to 1.
+JPG_Decode(): Line 740 : Hard dec 
+We use single Buffer to show logo
+printf_playInfo,435: Do not include fastplay data
+get_fastPlay_playMemInfo,1217: 
+can not find PlayParam
+SysProcShow,32: CHIP_TYPE: Hi3716C(0x2)_v101
+before sync Loader_Main
+
+ +++ db.eUpdateType = 2 +++
+Press Menu + ok to force upgrade or timeout to normal upgrade/big kernel!
+Loader_Check->1002 start 'kernel'.
+booting kernel
+The value that loader_Check returned is kernel
+Loading 'kernel' image.
+'kernel'->ih_size = 0x32ebcc 
+Partation:kernel  read size = 0x330000
+open failed
+mac:D4:43:A8:01:73:E6
+Press Ctrl+C to stop autoboot
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# printenv 
+baudrate=115200
+bootfile="uImage"
+netmask=255.255.255.0
+bootdelay=0
+verify=n
+serverip=192.168.100.6
+ipaddr=192.168.100.111
+bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+recoverybootargs=mem=982M console=ttyAMA0,115200 mmz=ddr,0,0xBE400000,28M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+loaderargs=mem=352M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=yaffs2 mmz=ddr,0,0x96000000,160M DmxPoolBufSize=0x200000 LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard);nand read 0x82000000 0x4800000 0x400000;bootm 0x82000000
+stdin=serial
+stdout=serial
+stderr=serial
+bootcmd=bootm 0x82000000
+ethaddr=D4:43:A8:01:73:E6
+ver=Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Environment size: 1648/65532 bytes
+fastboot# 

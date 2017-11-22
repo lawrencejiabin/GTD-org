@@ -1,0 +1,52 @@
+make[2]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect'
+mkdir -p /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/out
+cd drivers;make LINUXROOT=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/../..//source/osdrv/kernel/linux-2.6.35;cd -
+make[3]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers'
+make ARCH=arm CROSS_COMPILE=arm-hisiv200-linux- -C /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/../..//source/osdrv/kernel/linux-2.6.35 M=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers modules
+make[4]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/source/osdrv/kernel/linux-2.6.35'
+  CC [M]  /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers/detect_ddr.o
+  LD [M]  /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers/ddr.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers/ddr.mod.o
+  LD [M]  /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers/ddr.ko
+make[4]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/source/osdrv/kernel/linux-2.6.35'
+make[3]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/drivers'
+/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect
+/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect/../..//pub/lib/libhi_mpi.a(mpi_adec_core.o): In function `ADECRegisterHaDeoder':
+/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/source/msp/mpi/api/audio/mpi_adec_core.c:303: warning: Using 'dlopen' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+make[2]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/factory_detect'
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample'
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/* 
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/sbin/* 
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/bin/* 
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/sbin/*
+#chmod 777 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/local/bin -R
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/lib/*
+chmod 755 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/lib/*
+cp /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/sample/standby/standby  /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/bin
+cd /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/;ln -sf mkdosfs mkfs.vfat;cd -
+/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2
+rm -fr /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/lib/*.a
+rm -fr /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/lib/*.la
+find /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/ /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/lib/ /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/sbin/ /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/ | xargs arm-hisiv200-linux-strip 2> /dev/null
+make: [rootfs_strip] Error 123 (ignored)
+#-ln -sf mke2fs /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/mkfs.ext2
+#-ln -sf mke2fs /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/mkfs.ext3
+#-ln -sf mke2fs /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/bin/mkfs.ext4
+#-ln -sf libhipng.so.14.1.4.0 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/lib/libhipng.so
+#-ln -sf libhipng.so.14.1.4.0 /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/usr/lib/libhipng.so.14
+rm -rf /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/
+mkdir -p /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox	
+cp -af /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/rootfs_full/. /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox
+#xucaiyi add
+rm -fr /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/home/*
+rm -f /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/console
+rm -f /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/ttyAMA0
+rm -f /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/ttyAMA1
+rm -f /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/ttyS000
+#xucaiyi add end
+/bin/mknod /home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/console c 5 1
+/bin/mknod: `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub/rootbox/dev/console': Operation not permitted
+make: *** [rootfs] Error 1
+xinjiabin@ROM-CM-Net:~/trunk/porting/hisi/hi3716x/src/hidrv_v0A2$ 

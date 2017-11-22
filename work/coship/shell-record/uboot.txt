@@ -1,0 +1,173 @@
+fastboot# setenv serverip 192.168.88.5
+fastboot# setenv ipaddr 192.168.88.56
+fastboot# tftp  0x82000000 sysinfo.flash
+Eth up port phy at 0x01 is connect
+Eth down port phy at 0x03 is connect
+Hisilicon ETH net controler
+MAC:   D4-43-A8-01-73-E6
+UP_PORT : phy status change : LINK=UP : DUPLEX=FULL : SPEED=100M
+TFTP from server 192.168.88.5; our IP address is 192.168.88.56
+Download Filename 'sysinfo.flash'.
+Download to address: 0x82000000
+Downloading: #  [ Connected ]
+
+done
+Bytes transferred = 86 (56 hex)
+fastboot# tftp  0x82000000 sysinfo.flash
+Eth up port phy at 0x01 is connect
+Eth down port phy at 0x03 is connect
+Hisilicon ETH net controler
+miiphy_register: non unique device name '0:1'
+miiphy_register: non unique device name '0:3'
+MAC:   D4-43-A8-01-73-E6
+UP_PORT : phy status change : LINK=UP : DUPLEX=FULL : SPEED=100M
+TFTP from server 192.168.88.5; our IP address is 192.168.88.56
+Download Filename 'sysinfo.flash'.
+Download to address: 0x82000000
+Downloading: #  [ Connected ]
+
+done
+Bytes transferred = 86 (56 hex)
+fastboot# Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Fastboot:      Version 3.2.2
+Machine ID:    8000 v0
+Build Date:    Jun 17 2013, 13:41:47
+Serial Number: godbox
+CPU:           Hi3716Cv100 
+Boot Media:    SPI Flash
+
+Check nand flash controller v301. found
+Special NAND id table Version 1.36
+Nand ID: 0x2C 0x68 0x04 0x4A 0xA9 0x00 0x00 0x00
+Nand: Micron MT29F32G08CBACA 
+Nand(Hardware): Block:1MB Page:4KB OOB:224B ECC:24bits/1K Chip:4GB*1
+
+Check spi flash controller v300. found
+Spi(cs1) ID: 0xEF 0x40 0x16 0x00 0x00 0x00
+Spi(cs1): Block:64KB Chip:4MB Name:"W25Q32BV"
+Check spi flash controller v350. 
+
+eMMC: No eMMC device found!!!
+In:    serial
+Out:   serial
+Err:   serial
+ Hd_format index = 8
+g_gfxMode: WBC Mode 
+HDMI input format is HI_UNF_ENC_FMT_720P_50
+--> HW_ResetHDMITX.
+TMDS_CTL2 set to:0x2a
+--> SW_ResetHDMITX.
+einput:2, eoutput:2
+siiSetVideoPath bVMode:0x0d
+siiSetVideoPath setting video path abVideoPath:0x02,0x01,0x00,0xff
+ConfigTXVideoMode in:0x02: out:0x01, RegVal:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color VID_ACEN_ADDR bDeepColor:0
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x2f, data:0x00
+[TXVIDP.C](SetDeepColor): Set Deep Color AUDP_TXCTRL_ADDR:0x4a, data:0x00
+TMDS_CTL3 old walue:0xa9
+SiI_DeepColor_24bit(normal)
+TMDS_CTL3 new walue:0xa9
+Start...
+[TXVIDP.C](SiI_TMDS_setup): 1.0x tclk
+siiSetVideoPath end
+Active Format aspect ratio  set to 0x1000:Same as picture aspect ratio
+The Content of the AVI version2 info frame is:
+0x51,0xa8,0x00,0x13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0x2c,0x80,0x00,
+ SendAVIInfoFrame
+ Set HDMI mode to 1.
+JPG_Decode(): Line 740 : Hard dec 
+We use single Buffer to show logo
+printf_playInfo,435: Do not include fastplay data
+get_fastPlay_playMemInfo,1217: 
+can not find PlayParam
+SysProcShow,32: CHIP_TYPE: Hi3716C(0x2)_v101
+before sync Loader_Main
+
+ +++ db.eUpdateType = 2 +++
+Press Menu + ok to force upgrade or timeout to normal upgrade/big kernel!
+Loader_Check->1002 start 'kernel'.
+booting kernel
+The value that loader_Check returned is kernel
+Loading 'kernel' image.
+'kernel'->ih_size = 0x32ebcc 
+Partation:kernel  read size = 0x330000
+open failed
+mac:D4:43:A8:01:73:E6
+Press Ctrl+C to stop autoboot
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# <INTERRUPT>
+fastboot# printenv 
+baudrate=115200
+bootfile="uImage"
+bootdelay=0
+verify=n
+bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+recoverybootargs=mem=982M console=ttyAMA0,115200 mmz=ddr,0,0xBE400000,28M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+loaderargs=mem=352M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=yaffs2 mmz=ddr,0,0x96000000,160M DmxPoolBufSize=0x200000 LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard);nand read 0x82000000 0x4800000 0x400000;bootm 0x82000000
+netmask=255.255.0.0
+serverip=192.168.100.88
+ipaddr=192.168.100.22
+stdin=serial
+stdout=serial
+stderr=serial
+bootcmd=bootm 0x82000000
+ethaddr=D4:43:A8:01:73:E6
+ver=Fastboot 3.2.2-dirty (Jun 17 2013 - 13:41:35)
+
+Environment size: 1646/65532 bytes
+fastboot# setenv ipaddr 192.168.88.2
+fastboot# setenv s
+  serverip stdin stdout stderr
+fastboot# setenv serverip 192.168.88.5
+fastboot# tftp 0x82000000 rootfs.cramfs
+Eth up port phy at 0x01 is connect
+Eth down port phy at 0x03 is connect
+Hisilicon ETH net controler
+MAC:   D4-43-A8-01-73-E6
+UP_PORT : phy status change : LINK=UP : DUPLEX=FULL : SPEED=100M
+TFTP from server 192.168.88.5; our IP address is 192.168.88.2
+Download Filename 'rootfs.cramfs'.
+Download to address: 0x82000000
+Downloading: #  [ Connected ]
+################T ##########T ######    [ 2.888 MB]
+################################        [ 5.752 MB]
+################################        [ 8.616 MB]
+############
+done
+Bytes transferred = 10174464 (9b4000 hex)
+fastboot# c
+  cp cmp crc32
+fastboot# c<INTERRUPT>
+fastboot# nand bad
+
+Device 0 bad blocks:
+  05a00000
+  05b00000
+fastboot# nand erase a800000 FA00000
+
+NAND erase: device 0 offset 0xa800000, size 0xfa00000
+Erasing at 0x1a100000 -- 100% complete.
+OK
+fastboot# nand write 82000000 a800000 9b4000 
+
+NAND write: device 0 offset 0xa800000, size 0x9b4000
+pure data length is 10174464, len_incl_bad is 10485760
+ 10174464 bytes written: OK
+fastboot# sync
+Unknown command 'sync' - try 'help'
+fastboot# setenv bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=cramfs rw lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+## Error: illegal character '=' in variable name "bootargs=mem=775M"
+Unknown command 'hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)' - try 'help'
+fastboot# setenv storeargs 'bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=cramfs rw lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)'
+fastboot# history
+Unknown command 'history' - try 'help'
+fastboot# setenv storeargs 'bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=cramfs rw lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loa                                                                                                                                                                                                                                                                                                                                                                                                                              setenv storeargs 'bootargs=mem=775M vmalloc=600M console=ttyAMA0,115200 root=/dev/mtdblock17 rootfstype=cramfs rw lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+fastboot# 
+fastboot# 
+
+
+
+
+setenv bootargs 'mem=775M vmalloc=600M console=ttyAMA0,115200 root=/dev/romblock17 rootfstype=cramfs rw lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)'

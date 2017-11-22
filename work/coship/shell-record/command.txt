@@ -1,0 +1,225 @@
+
+
+mount -t tmpfs tmpfs /mnt/;ifconfig eth0 192.168.88.5;cd /mnt/;tftp -g -r baseapp.pls 192.168.88.88;tftp -g -r main.out 192.168.88.88;chmod 777 main.out baseapp.pls;ls -al
+
+ifconfig eth0 192.168.88.5;cd /mnt/;ls -al;tftp -g -r main.out 192.168.88.88;chmod 777 main.out;ls -al
+
+killall main.out
+
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 82000000 fastboot-burn.bin;sf probe 0;sf erase 0 100000;sf write 82000000 0 100000;reset;
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 82000000 fastboot-burn.shell;sf probe 0;sf erase 0 100000;sf write 82000000 0 100000;reset;
+
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 82000000 sysinfo.flash;sf probe 0;sf erase 300000 10000;sf write 82000000 300000 10000;
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 82000000 syscfg.flash;sf probe 0;sf erase 310000 10000;sf write 82000000 310000 10000;sf erase 320000 10000;sf write 82000000 320000 10000;
+
+sf probe 0;sf erase 330000 10000;
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 82000000 sysdata.bin;sf probe 0;sf erase 360000 10000;sf write 82000000 360000 10000;sf erase 370000 10000;sf write 82000000 370000 10000;
+
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 0x82000000 hi3716_loader_cramfs.bin;nand erase 47800000 6400000;nand write 82000000 47800000 6400000;
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 0x8F000000 hi3716_loader_cramfs.bin;csflash erase 44000000 5000000;csflash write 8F000000 44000000 5000000;
+//下载到8F000000
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 0x82000000 kernel.bin;nand erase 4dc00000 2800000;nand write 82000000 4dc00000 2800000;
+
+
+setenv serverip 192.168.88.88;setenv ipaddr 192.168.88.5;tftp 0x8F000000 kernel.bin;csflash erase 49000000 1C00000;csflash write 8F000000 49000000 1C00000;
+//下载到8F000000
+
+
+//Y:\linliwei\Hi3751\OLD\device\hisilicon\bigfish\sdk\source\custom\hi3751v500_demo_board\hi_pin_mux_cfg.h
+himm 0xF8A210C4      0x00000001
+himm 0xF8A210C8      0x00000001
+himm 0xF8A210CC      0x00000001
+himm 0xF8A210F4      0x00000001
+himm 0xF8A21108      0x00000001
+
+echo HI_VO=3 > /proc/msp/log   
+echo HI_VO=1 > /proc/msp/log   
+
+logcat > /data/coship.log &
+logcat -v time > /data/coship.log &
+
+busybox killall logcat
+
+
+busybox ifconfig -a 
+busybox ifconfig eth0 192.168.88.8 
+am start -n com.ipanel.join.network.js/cn.fujian.tvapps.network.SearchActivity  
+logcat | grep -E "tuner_hw_default|HAL|cs_qam|MMCP|tvss|HI_TUNER|udi2_demux"  
+
+
+//adb kill-server
+adb connect 192.168.88.8
+adb disconnect 192.168.88.8
+adb connect 172.30.80.73  
+adb disconnect 172.30.80.73  
+adb remount
+adb push avdec.default.so       /system/lib/hw/  
+adb push avout.default.so       /system/lib/hw/  
+adb push demux.default.so       /system/lib/hw/  
+adb push hidev.default.so       /system/lib/hw/  
+adb push smartcard.default.so   /system/lib/hw/  
+adb push tgd_hidev.default.so   /system/lib/hw/  
+adb push tgd_tuner.default.so   /system/lib/hw/  
+adb push transcode.default.so   /system/lib/hw/  
+adb push tuner.default.so       /system/lib/hw/  
+adb push libporting.so          /system/lib/  
+adb push tuner_test          /system/bin/
+
+adb push libhi_msp.so          /system/lib/
+
+adb push init.bigfish.sh          /system/etc/
+adb push services.jar			/system/framework/
+
+adb push iPanel_Jiangsu4kLauncher2_Nanjing.apk		/system/app/
+
+看打印：
+logcat | grep -E "udi2_player|priv_play|avdec_hw_default|avout_hw_default|demux_hw_default|smartcard_hw_default|tuner_hw_default|HAL|cs_qam|MMCP|tvss"
+logcat | grep -E "tuner_hw_default|HAL|cs_qam|MMCP|tvss|HI_TUNER|udi2_demux"
+logcat | grep -E "tvss"
+logcat | grep -E "ipanel_avdec|priv_play|ipanel_avout|avdec_hw_default|avout_hw_default|HAL|tvss"  
+logcat | grep -E "PrivPlayAudStop|PrivPlayVidStop|framer_set_freeze|udi2_video|udi2_player"  
+logcat | grep -E "EM_UDIPLAYER_VIDEO_FRAME_COMING|CSUDIVIDEOShow|CSUDIPLAYERGetCurPTS|udi2_player|HI_AVPLAY"   
+logcat | grep -E "smartcard_hw_default|ipanel_smartcard|get_atr|recv_data|udi2_smc"   
+
+logcat -s XXX
+
+adb pull /data/system/packages.xml 			.
+adb pull /system/etc/key.xml			.
+adb pull /system/etc/init.bigfish.sh	.
+
+adb pull /system/		../backup-tailin/system/
+adb pull /data/		../backup-tailin/data/
+
+adb pull /data/tombstones		.
+
+adb uninstall com.ipanel.join.home.js
+
+cd /data/tombstones
+
+sync
+reboot
+
+dumpsys SurfaceFlinger --list
+dumpsys | grep "DUMP OF SERVICE" 
+
+top -t -m 5 -d 1
+debuggerd  进程号
+
+用u盘把文件放入android系统目录上
+mount -o remount /system
+
+打开apk
+am start -n com.ipanel.join.network.js/cn.fujian.tvapps.network.SearchActivity  
+am start -n com.ipanel.join.home.js/com.ipanel.join.home.HomeActivityAIO  
+或者
+monkey -p  com.ipanel.join.network.js 1
+
+monkey -p  iPanel_JiangsuNetworks.apk 1 
+
+am force-stop com.ipanel.join.network.js
+
+com.skyworth.middtv        							iPanel_HISI_SwitchActivity.apk
+com.ipanel.join.live.js 							iPanel_JiangsuLive_new_4K_CW2.apk
+com.ipanel.apps.loading     						iPanel_JiangSuLoadingV2.apk
+com.ipanel.join.jiangsu.setting     				iPanel_Settings.apk
+com.ipanel.ime										JoinIctcIME.apk"
+cn.ipanel.androidtv.networkmanagerservice      	    NetworkServiceManager.apk
+com.test.ipanel.advanced							NJ_JiangsuiPanel_AdvancedPortal_skyworth_hi3751X_44_4.4.apk
+com.ipanel.tvapps.tsvodsourceservice				TsVodSourceService.apk"
+
+
+am start -n com.ipanel.join.network.js/cn.fujian.tvapps.network.SearchActivity
+
+am start -n com.skyworth.middtv/com.skyworth.middtv.SwitchActivity
+
+am start -n  com.ipanel.join.home.js/com.ipanel.join.home.HomeActivityAIO  
+
+am force-stop  com.ipanel.join.home.js
+
+am force-stop  com.test.ipanel.advanced
+
+/data/system/packages.xml  
+
+android_ir_user -D 
+
+getevent   
+
+mount -o remount /system 
+
+echo 0 > /proc/sys/kernel/printk 
+
+logcat | grep AndroidRuntime 
+
+stop
+start
+
+packagemanager 
+activitymanager
+WindowManager
+
+
+adb push libHA/libHA.AUDIO.AAC.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.AAC.encode.so				/system/lib/
+adb push libHA/libHA.AUDIO.AC3PASSTHROUGH.decode.so		/system/lib/
+adb push libHA/libHA.AUDIO.AMRNB.codec.so				/system/lib/
+adb push libHA/libHA.AUDIO.AMRWB.codec.so				/system/lib/
+adb push libHA/libHA.AUDIO.BLURAYLPCM.decode.so			/system/lib/
+adb push libHA/libHA.AUDIO.COOK.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.DOLBYPLUS.decode.so			/system/lib/
+adb push libHA/libHA.AUDIO.DRA.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.DTSPASSTHROUGH.decode.so		/system/lib/
+adb push libHA/libHA.AUDIO.FFMPEG_ADEC.decode.so		/system/lib/
+adb push libHA/libHA.AUDIO.G711.codec.so				/system/lib/
+adb push libHA/libHA.AUDIO.MP2.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.MP3.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.PCM.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.SRS.effect.auth.so			/system/lib/
+adb push libHA/libHA.AUDIO.TRUEHDPASSTHROUGH.decode.so	/system/lib/
+
+adb push libHA/libHA.AUDIO.WMA.decode.so				/system/lib/
+adb push libHA/libHA.AUDIO.FFMPEG_WMAPRO.decode.so		/system/lib/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

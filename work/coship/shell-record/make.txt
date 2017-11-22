@@ -1,0 +1,37 @@
+xinjiabin@ROM-CM-Net:~/trunk/porting/hisi/hi3716x$ make
+/home/xinjiabin/trunk/bin/exportSvnVersion /home/xinjiabin/trunk
+current module source code svn version=74362
+current compiling mode=stepbystep
+current svn url=svn://192.168.99.107/mmcp/trunk
+mkdir -p /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/
+make -C /home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv install
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv'
+cp -f arm-uclibc.debug/libportingplat.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv'
+make -C /home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv4loader install
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv4loader'
+cp -f arm-uclibc.debug/libportingplat4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/pfdrv4loader'
+make -C /home/xinjiabin/trunk/porting/hisi/hi3716x/src/csdrv install
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/csdrv'
+cp -f arm-uclibc.debug/libportinghdi.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x/src/csdrv'
+make /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/libportingchip.a
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+make[1]: `/home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/libportingchip.a' is up to date.
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+make /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/libportingchip4loader.a
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+make[1]: `/home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep/libportingchip4loader.a' is up to date.
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+make /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libporting.a
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+build libporting.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingplat.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportinghdi.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingchip.a...
+***/home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingplat.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportinghdi.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingchip.a
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+make /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libporting4loader.a
+make[1]: Entering directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+build libporting4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingplat4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingchip4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportinghdi.a...
+***/home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingplat4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportingchip4loader.a /home/xinjiabin/trunk/lib/hi3716H_SDK0A1/stepbystep//libportinghdi.a
+make[1]: Leaving directory `/home/xinjiabin/trunk/porting/hisi/hi3716x'
+xinjiabin@ROM-CM-Net:~/trunk/porting/hisi/hi3716x$ 

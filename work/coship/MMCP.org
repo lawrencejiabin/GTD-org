@@ -1,0 +1,1457 @@
+#+TITLE:       Platform(终端中间件平台)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* Cable线信号频点
+** 171MHz
+杜比音频，清流
+** 259MHz、506MHz
+天威信号,清流
+
+* 缩略语
+** A
+*** AF Adaptation Field 
+自适应域
+
+** D
+*** DAV DMA and AV Synchronization 
+DMA 和 AV 同步
+
+** E
+*** EPG Electrical Program Guide 
+电子节目指南
+*** ECM Entitlement Control Message 
+授权控制信息
+*** EMM Entitlement Management Message 
+授权管理信息
+*** ES Elementary Stream 
+原始码流
+
+** P
+*** PAT Program Association Table 
+节目关联表
+*** PCR Program Clock Reference 
+节目时钟参考
+*** PES Packetized Elementary Stream 
+封装为包的基本流
+*** PID Packet Identifier 
+包识别符
+*** PMT Program Map Table 
+节目映射表
+*** PTS Presentation Time Stamp 
+显示时间标签
+
+** S
+*** SDT Service Descriper Table 
+服务描述表
+*** STC System Time Clock 
+系统时钟
+
+** T
+*** TS Transport Stream 
+传送流
+*** TSI Transport Stream Interface 
+传送流接口
+
+* 编程技巧
+** 利用编译器将函数名，字符串化
+#define CS_TK_AUTOCASE(tc) 		#tc, tc
+作用：将宏定义中的传入参数名转换成用一对双引号括起来参数名字符串。
+      其只能用于有传入参数的宏定义中，且必须置于宏定义体中的参数名前。
+
+* *1K=0x400* , *4K=0x1000* , *64K=0x1 0000* , *1M=0x10 0000* , *1G=0x4000 0000*
+* 提示符
+** PS1='[${debian_chroot:+($debian_chroot)}sdd@coship: \W\$] '
+
+* 资料共享
+** \\10.10.49.20\datasheet
+** \\10.10.112.129
+软件共享
+** \\10.10.100.146\share
+
+** \\10.10.100.159
+
+** \\192.168.99.100\应用软件
+
+** svn://192.168.99.107/bootloader/devdb/trunk/
+
+** svn://192.168.99.107/mmcp/trunk
+** \\10.10.100.12\sotfware
+** \\10.10.100.159\share  胡福龙交接资料
+
+** ftp站点
+ftp://ftp.coship.com
+账户：907705
+密码：GH_1qaz2wsx
+
+** 测试资料
+\\10.10.40.129\beyond\DolbyTest_mp4
+** 林立伟资料
+\\10.10.100.121\share
+** 冬哥
+\\10.10.100.146\share
+** 周报
+\\10.10.5.26\数字家庭事业部\11工作汇报\2017\软件部
+** 海思资料
+HISI SDK下载方式：
+http://hisupport.hisilicon.com/hisupport/homePage.html
+账号：coship_024
+密码：Coship7000?
+
+** 自动构建
+	代码和自动构建服务器换了地址，IP变更信息如下：
+	1、10.10.96.200 的hudson自动构建服务器地址更换为10.10.5.185（即http://10.10.5.185:8080/hudson-2.2.0/）。
+	2、10.10.5.66 的SVN地址变更为10.10.5.186（即svn://10.10.5.186 + 代码仓库路径），git地址不变。
+	3、10.10.5.63 的apk构建的取包路径由10.10.100.42变更为10.10.5.186
+	其它git、svn和构建地址不变。
+
+另，个人用的服务器地址变更信息如下：
+	1、10.10.96.111地址变更为10.10.5.187
+
+* TODO scp
+- State "TODO"       from ""           [2017-05-11 周四 20:18]
+scp -r linliwei@10.10.96.120:/mnt/sdb/linliwei/linliwei/mmcp  .
+*为何是/mnt/sdb/*
+
+* 调试技巧
+** ./main.out 2>&1 | tee play.log
+
+* trunk/bin/setupenv 环境脚本
+#  . bin/setupenv --im//一定要在trunk目录下执行
+** export environment variable
+# Begin to set MMCP environment
+# Set FS env variable
+# We need to test if the env file exists
+---source $MMCP_HOME/porting/$CHIP_PROVIDER/$MMCP_PLATFORM_PORTING_DIR/setenv.sh -file $input_catch_file
+# Setting JAVA_HOME
+# For MMCP Home directory
+# Setting several PATH
+# Setting MMCP Version
+# Check the version of Linux and use some patches for glibc
+# Compiling Menu:
+# generateOptions 
+# Main Section   
+# STROOT= STPT_OPTION=
+# Begin for argument parsing
+** doselect
+脚本执行的选项参数
+** start_interactive_mode
+Please select the target execution PLATFORM
+# select_platform
+# select_filesystem
+# select_cfgfile_support
+# select_config_file
+# porting/.../setenv.sh//Please select board type:
+** select_platform
+# select_hi3716x_compiler_and_build_mode
+* hi3716x
+** env
+MMCP_HOME=/home/xinjiabin/trunk
+MMCP_PLATFORM=hi3716H_SDK0A1
+MMCP_COMPILING_MODE=stepbystep
+INSTALL_PATH=$(MMCP_HOME)/lib/$(MMCP_PLATFORM)/$(MMCP_COMPILING_MODE)/
+HISI_HOME=/home/xinjiabin/trunk/porting/hisi/hi3716x
+EXPORT_DIR=${HISI_HOME}/export
+HI_PUB=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/pub
+HISI_SDK_DIR=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2
+LINUX=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/source/osdrv/kernel/linux-2.6.35
+CS_MAKE_DIR=/home/xinjiabin/trunk/porting/hisi/hi3716x/make
+** make
+z:/trunk/build/hi3716H_SDK0A1/Makefile.defs
+HISI_TOOLCHCAIN=arm-hisiv200-linux
+MKDIR=mkdir -p //$(MMCP_HOME)/build/share/CompileEnvironment.defs
+MAKE=???
+** setenv.sh
+# 被trunk/bin/setupenv调用执行
+The rule used on build the coship plat project 
+to set the environment.
+# 是否编译动态库：y-静态 n-动态
+# Hisi不同版本的SDK对应不同的源码目录，在这里指定
+# 选择是使用Coship开发板还是Hisi Demo板
+# 该环境变量控制porting层代码是debug还是release
+** Makefile
+*** include
+注意都包含了啥文件
+**** make.txt
+**** $(MMCP_HOME)/build/$(MMCP_PLATFORM)/Makefile.defs
+**** $(MMCP_HOME)/build/share/CMakefile.defs
+**** $(MMCP_HOME)/build/share/COption.rules
+**** $(MMCP_HOME)/build/$(MMCP_PLATFORM)/COption.rules
+**** $(MMCP_HOME)/build/share/CompileEnvironment.defs
+**** $(MMCP_MENUCONFIG_DIR)$(MMCP_MENUCONFIG_FILE)
+*** make subsystem
+*** make clean
+*** make mklibdir
+*** make porting
+*** make udi1.0 os
+*** make UDIPlus
+*** make cli
+*** make hubei
+*** make clicmd
+*** make linux
+*** make hiboot
+*** make rootbox
+*** make rootbox_install
+# 删除设备节点
+# c51待机程序
+# nandupdate 工具
+# PPPoE相关文件
+# SoftAp相关文件
+# wifi相关文件
+# FilePlayer相关库文件
+# voip相关文件
+# 删除不需要的动态库,这些库已经静态链接到了libporting.a中
+# 高级安全才用到libhi_advca.so
+# himount使用
+# 下面的音频编解码库
+# 删除msp_debug
+# 删除不需要的工具
+# 应用需要该文件夹
+
+*** make hisdk
+hisdk_modify:
+*** make booterdrv
+*** make plat_udi2_to_udi1
+*** make cliapp
+*** make voip
+*** make blue
+*** make dfb
+*** make PPPoE
+wifi:
+wifi_tool:
+*** make softap
+*** make logcat
+*** make softap tools
+*** make tools_install
+*** make all
+all:
+install:
+# version.h用于校验文件系统与porting的匹配
+# 拷贝USB转串口驱动入文件系统
+# 拷贝调试工具topt
+# 拷贝logcat 、logger.ko、liblog.so、logcat.sh
+# hi目录用于码流录制
+appall:
+*** make minirootbox_prepare
+*** make minirootbox_install
+*** make minilinux_prepare
+*** make minilinux_install
+*** make minimsp
+*** make miniclean
+*** make minisys
+*** make dassporting
+*** make libipanel_henan
+*** make libipanel_XJNT
+*** make libntv_tvn
+*** make libntv_key
+*** make libbaseapp
+*** make baseapp
+*** make cp2104-ek
+* csdrv
+** cs_gpio
+z:/trunk/porting/hisi/hi3716x/src/csdrv/cs_gpio/cs_gpio.c
+z:/trunk/include/porting/csplus/cs_gpio_plus.h
+** cs_flash
+z:/trunk/porting/share/hdicommon/cs_flash/CSFlash.c
+z:/trunk/include/porting/csplus/cs_flash_plus.h
+
+* pfdrv 
+z:/trunk/include/porting/udi2/udi2_error.h
+** udi2_hdmi
+z:/trunk/porting/hisi/hi3716x/src/pfdrv/udi2_hdmi/udi2_hdmi.c
+z:/trunk/include/porting/udi2/udi2_hdmi.h
+** udi2_flash
+z:/trunk/porting/share/udi2/hdicommon/udi2_flash/udi2_flash.c
+z:/trunk/include/porting/udi2/udi2_flash.h
+z:/trunk/include/porting/hdi/cs_flash.h
+
+* get-kernel
+** /proc/cmdline
+mem=775M 
+vmalloc=600M 
+console=ttyAMA0,115200 
+lpj=5996758 
+mtddev=blackbox 
+androidboot.console=ttyAMA0 
+mmz=ddr,0,0xBD600000,42M
+mtdparts=
+hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);
+<5>Creating 6 MTD partitions on "hi_sfc":
+<5>0x000000000000-0x000000100000 : "fastboot"
+<5>0x000000100000-0x000000200000 : "bootargs"
+<5>0x000000200000-0x000000300000 : "bootargsbak"
+<5>0x000000300000-0x000000310000 : "stbid"
+<5>0x000000310000-0x000000320000 : "loaderdb"
+<5>0x000000320000-0x000000330000 : "loaderdbbak"
+hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),
+       10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),
+       250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)
+<5>Creating 16 MTD partitions on "hinand":
+<5>0x000000000000-0x000000800000 : "recovery"
+<5>0x000000800000-0x000000e00000 : "baseparam"
+<5>0x000000e00000-0x000001600000 : "logo"
+<5>0x000001600000-0x000002000000 : "fastplay"
+<5>0x000002000000-0x000003e00000 : "cache"
+<5>0x000003e00000-0x000004800000 : "misc"
+<5>0x000004800000-0x000005200000 : "kernel"
+<5>0x000005200000-0x000005c00000 : "loader"
+<5>0x000005c00000-0x000006600000 : "loaderbak"
+<5>0x000006600000-0x000008a00000 : "dasse2prom"
+<5>0x000008a00000-0x00000a800000 : "cainfo"
+<5>0x00000a800000-0x00001a200000 : "system"
+<5>0x00001a200000-0x000039600000 : "userdata"
+<6>ata1: SATA link down (SStatus 0 SControl 300)
+<5>0x000039600000-0x000049000000 : "upsdata"
+<5>0x000049000000-0x000049400000 : "blackbox"
+<5>0x000049400000-0x000100000000 : "sdcard"
+** mount
+rootfs  /         rootfs  ro,relatime                 0 0
+tmpfs   /dev      tmpfs   rw,nosuid,relatime,mode=755 0 0
+devpts  /dev/pts  devpts  rw,relatime,mode=600        0 0
+proc    /proc     proc    rw,relatime                 0 0
+sysfs   /sys      sysfs   rw,relatime                 0 0
+tmpfs   /mnt      tmpfs   rw,relatime,mode=775,gid=1000 0 0
+tmpfs   /var      tmpfs   rw,relatime,mode=777          0 0
+tmpfs   /mnt/asec tmpfs   rw,relatime,mode=755,gid=1000 0 0
+tmpfs   /mnt/obb  tmpfs   rw,relatime,mode=755,gid=1000 0 0
+/dev/block/mtdblock17 /system          yaffs2 ro,relatime 0 0
+/dev/block/mtdblock18 /data            yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock19 /upsdata         yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock10 /cache           yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/mtdblock15 /data/e2prom     yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/vold/31:21 /mnt/nand        yaffs2 rw,nosuid,nodev,relatime 0 0
+/dev/block/vold/31:21 /mnt/secure/asec yaffs2 rw,nosuid,nodev,relatime 0 0
+tmpfs    /mnt/nand/.android_secure     tmpfs  ro,relatime,size=0k,mode=000 0 0
+** /dev/block/
+brwxrwxrwx root     root       7,   0 1970-01-01 08:00 loop0
+brwxrwxrwx root     root       7,   1 1970-01-01 08:00 loop1
+brwxrwxrwx root     root       7,   2 1970-01-01 08:00 loop2
+brwxrwxrwx root     root       7,   3 1970-01-01 08:00 loop3
+brwxrwxrwx root     root       7,   4 1970-01-01 08:00 loop4
+brwxrwxrwx root     root       7,   5 1970-01-01 08:00 loop5
+brwxrwxrwx root     root       7,   6 1970-01-01 08:00 loop6
+brwxrwxrwx root     root       7,   7 1970-01-01 08:00 loop7
+brwxrwxrwx root     root      31,   0 1970-01-01 08:00 mtdblock0
+brwxrwxrwx root     root      31,   1 1970-01-01 08:00 mtdblock1
+brwxrwxrwx root     root      31,  10 1970-01-01 08:00 mtdblock10
+brwxrwxrwx root     root      31,  11 1970-01-01 08:00 mtdblock11
+brwxrwxrwx root     root      31,  12 1970-01-01 08:00 mtdblock12
+brwxrwxrwx root     root      31,  13 1970-01-01 08:00 mtdblock13
+brwxrwxrwx root     root      31,  14 1970-01-01 08:00 mtdblock14
+brwxrwxrwx root     root      31,  15 1970-01-01 08:00 mtdblock15
+brwxrwxrwx root     root      31,  16 1970-01-01 08:00 mtdblock16
+brwxrwxrwx root     root      31,  17 1970-01-01 08:00 mtdblock17
+brwxrwxrwx root     root      31,  18 1970-01-01 08:00 mtdblock18
+brwxrwxrwx root     root      31,  19 1970-01-01 08:00 mtdblock19
+brwxrwxrwx root     root      31,   2 1970-01-01 08:00 mtdblock2
+brwxrwxrwx root     root      31,  20 1970-01-01 08:00 mtdblock20
+brwxrwxrwx root     root      31,  21 1970-01-01 08:00 mtdblock21
+brwxrwxrwx root     root      31,   3 1970-01-01 08:00 mtdblock3
+brwxrwxrwx root     root      31,   4 1970-01-01 08:00 mtdblock4
+brwxrwxrwx root     root      31,   5 1970-01-01 08:00 mtdblock5
+brwxrwxrwx root     root      31,   6 1970-01-01 08:00 mtdblock6
+brwxrwxrwx root     root      31,   7 1970-01-01 08:00 mtdblock7
+brwxrwxrwx root     root      31,   8 1970-01-01 08:00 mtdblock8
+brwxrwxrwx root     root      31,   9 1970-01-01 08:00 mtdblock9
+brwxrwxrwx root     root       1,   0 1970-01-01 08:00 ram0
+brwxrwxrwx root     root       1,   1 1970-01-01 08:00 ram1
+brwxrwxrwx root     root       1,  10 1970-01-01 08:00 ram10
+brwxrwxrwx root     root       1,  11 1970-01-01 08:00 ram11
+brwxrwxrwx root     root       1,  12 1970-01-01 08:00 ram12
+brwxrwxrwx root     root       1,  13 1970-01-01 08:00 ram13
+brwxrwxrwx root     root       1,  14 1970-01-01 08:00 ram14
+brwxrwxrwx root     root       1,  15 1970-01-01 08:00 ram15
+brwxrwxrwx root     root       1,   2 1970-01-01 08:00 ram2
+brwxrwxrwx root     root       1,   3 1970-01-01 08:00 ram3
+brwxrwxrwx root     root       1,   4 1970-01-01 08:00 ram4
+brwxrwxrwx root     root       1,   5 1970-01-01 08:00 ram5
+brwxrwxrwx root     root       1,   6 1970-01-01 08:00 ram6
+brwxrwxrwx root     root       1,   7 1970-01-01 08:00 ram7
+brwxrwxrwx root     root       1,   8 1970-01-01 08:00 ram8
+brwxrwxrwx root     root       1,   9 1970-01-01 08:00 ram9
+drwxrwxrwx root     root              1970-01-01 08:00 vold
+
+* 安卓平台，分区设备文件
+dd if=hi_kernel.bin of=/dev/block/mtdblock12
+dd if=rootfs.cramfs of=/dev/block/mtdblock17
+
+* hi_sdk使用说明
+** SDK的使用
+当您拿到SDK包并已经解压后，进入SDK的根目录，您将看到此文件。
+*** 0.解压SDK包
+    解压SDK包的命令：
+    tar xzf ***.tar.gz      
+*** 1.安装服务器
+    当您第一次拿到此发布包，或遇到发布包的版本更新时，请您重新安装/更新服务器的SDK开发环境。
+    安装/更新服务器SDK开发环境将主要进行如下工作：
+      －安装交叉编译工具链。
+      －改变部分工具的使用权限使普通用户可以使用，方便普通用户进行发布包的编译。
+      －安装发布包中使用的工具到服务器
+    linux服务器的安装必须使用root权限。
+    # 安装服务器的命令为：./server_install
+    执行此命令前，请确保服务器上的shell是bash，目前发布包 ~只支持在bash下运行~ 。
+    如果服务器上的shell不是bash，推荐解决办法：卸载dash或者把默认的sh改成bash。
+    一般删除原来的sh软链接，重新建立一个指向bash的软链接即可：
+    #    cd /bin
+    #    rm –f sh
+    #    ln –s /bin/bash /bin/sh
+    执行完成后，强烈建议重启linux服务器。
+    如果确实不方便重启服务器，可以尝试退出服务器登录，然后重新登录服务器，
+    但是不能保证所有服务器都支持这种做法。
+    !!!请注意：
+    安装交叉编译工具链的时候会覆盖之前已经安装过同名编译器，
+    如果您以前使用过海思的相关编译，并且做了修改，那么您的修改将会丢失。
+*** 2.SDK的配置
+    请配置SDK的根目录的cfg.mak文件，选择您使用的芯片类型，单板类型以及对应的BOO表格：
+    # CFG_CHIP_TYPE               := 芯片类型
+    # CFG_BOARD_TYPE              := 单板类型，请配置为对应芯片类型的dmo板即可
+    # CFG_BOOT_REG                := 根据芯片类型，DDR大小，FLASH类型选择相应的BOOT表格
+    再选择您需要的编译器,以及FLASH块大小等其他参数：
+    # CFG_NAND_BLOCK_SIZE         := boot/kenerl所在flash区域的块大小
+    # CFG_NAND_PAGE_SIZE          := 文件系统所在flash区域的pagesize
+    # CFG_NAND_ECC_TYPE           := 文件系统所在flash区域的ECC类型
+    # CFG_SPIFLASH_BLOCK_SIZE     := 文件系统所在flash区域的块大小
+    请注意，这些参数默认情况下是与demo板配套的，如果您更改了单板类型，请一定要配置正确!!!   
+    其他的配置信息请参考cfg.mak_notes.txt进行配置, 注意：VER-C/VER-B类型的单板共用VER-B单板的配置。
+
+    !!! CFG_MCE_SUPPORT 选项用于配置fastplay播放功能。
+    fastplay播放包含dvb播放、本地ts播放和动画播放三种场景。
+    详细说明：
+     a  当 CFG_MCE_SUPPORT=YES 时，支持该功能； 
+        此时内核会同 msp_base 目录一同编译，也就是说 msp_base 涉及的基本功能会内核合并在一起；
+        需要特别注意 msp_base 目录下所有 makefile 文件仅供内核编译时使用；
+     b  当 CFG_MCE_SUPPORT=NO 时，
+        msp_base不会同内核一同编译, 无须对 msp_base目录下 makefile 作任何修改给; 
+        msp/msp_base 会作为同一模块共同编译;
+     c  sdk 顶层的 makefile 编译用法没有改变
+     d  当 CFG_MCE_SUPPORT=YES 时, 需要特别注意的是, 由于部分模块已经放入内核, 
+        此时初始参数的传入, 已不能通过load脚本设置, 
+        需要在内核启动参数 bootargs中配置 ;
+     e  d中涉及的模块主要指 hi_mmz, hi_common, 在代码中有默认参数; 参数设置格式如下
+        # mmz=ddr,0,0x86000000,160M LogBufSize=0x80000
+        可参阅 sdk/source/msp_base/common/drv 下相关代码; 
+        根据实际情况设置具体内容    
+     f  当CFG_MCE_SUPPORT=YES 时，必须将Flash的分区写入内核启动参数 bootargs中配置:
+        mtdparts=hinand:1M(boot),4M(kernel),
+                        60M(rootfs),1M(baseparam),
+                        1M(logo),20M(fastplay),
+                        -(others) 
+        该配置中baseparam分配1MB，开机logo分配1MB,fastplay分配20MB.
+     
+     !!! CFG_MUTECTL_GPIO 选项用于配置音频的静音管脚, 
+     该功能配置仅在C/H系列芯片上有效. 
+     M系列芯片配置静音管脚请在内核启动参数bootargs中配置.
+     例如, 在bootargs中配置 MuteCtl_GPIO=0x65
+     根据管脚计算方法gpio_pin = gpio_group * 8 + gpio_num,该配置将音频静音管脚配置为GPIO12_5管脚.
+    
+*** 3.SDK的编译
+    在进行SDK或者任何开发工作前，请在SDK根目录执行
+    ". ./setenv.sh"命令导出SDK所需的环境变量。
+    !!! 注意不能用"./setenv.sh"命令替代。
+    
+    SDK的编译和使用可以不使用linux的root权限。
+    第一次拿到SDK，进入SDK的根目录，初次编译SDK，命令：
+    #    make build 
+    注意这个命令只需要执行一次！ 而且一定要执行一次才能进行后面的开发工作！   
+    开发过程中，编译部分模块，命令：
+    #    make xxx_install
+    比如编译MPI可以使用 make mpi_install,编译内核可以用make linux_install等    
+    具体信息，可以参考make的帮助文件，命令：
+    #    make 或make help   
+    !!! 注意：用户自行编写的Makefile里面的编译器选项
+    一定要参考SDK顶层Makefile里面的USER_CFLAGS选项，一定不能错。
+    
+*** 4.映象和编译结果
+    SDK编译成功后会在pub目录下生成一些结果文件：
+     －映象(在image目录)：包括内核映象（hi_kernel.bin），
+                          boot映象（fastboot-burn.bin），
+                          文件系统（rootfs.xxx）
+     －头文件(在include目录)：客户开发依赖的api头文件
+     －库(在lib目录)：客户开发依赖的库文件
+    !!!请注意：
+    1.如果要自己制作文件系统，
+      请使用pub目录下的rootbox目录，而不要使用SDK根目录下的rootfs_full目录，
+      rootfs_full目录下只是保留全部的库文件和驱动文件等，不具备启动功能。    
+      
+** 如何编译内核															
+编译内核请严格按以下流程:
+*** 1. 解压缩SDK中的内核:
+   cd source/osdrv/kenel/
+   tar -xf linux-2.6.35.tar.bz2 
+   
+*** 2. 选择配置文件:
+   # make ARCH=arm CROSS_COMPILE=arm-hisiv200-linux- hi3716m_defconfig 
+	 Hi3716m_defconfig 表示选择的是 hi3716m 单板.
+   其它的配置文件为:
+   # hi3716c_defconfig
+   # hi3716h_defconfig
+   分别对应hi3716c单板和hi3716h单板。
+   
+*** 3. 打开内核配置菜单:
+   # make ARCH=arm CROSS_COMPILE=arm-hisiv200-linux- menuconfig
+   
+*** 4. 编译内核:
+   #  make ARCH=arm CROSS_COMPILE=arm-hisiv200-linux- uImage -j 128
+   注意:不要用 zImage,否则内核无法启动。
+   
+*** 5. 编译后的镜像文件为: arch/arm/boot/uImage
+
+** 映象的烧写和启动
+*** 1.如果单板上没有boot或者boot已经损坏，
+请使用fastboot3.0烧写工具进行映像的烧写,工具位于SDK的tools\windows\fastboot3.0目录下。
+
+*** 2.如果单板上已经有了boot,
+也可以使用fastboot工具烧写，
+烧写方法请参考《fastboot工具使用说明application notes.pdf》。
+
+如果要使用命令行烧写，请参考如下步骤：
+**** 2.1： 配置boot参数
+    # setenv serverip xxx.xxx.xxx.xxx
+    # setenv ipaddr xxx.xxx.xxx.xxx
+    # setenv ethaddr 00:xx:xx:xx:xx:xx
+    # setenv netmask 255.255.xxx.0
+    配置完成后先ping一下ftp服务器，特别是烧写boot之前一定要先保证网络的可用性。
+
+**** 2.2.烧写地址
+ 本文假设烧写地址按如下分配：
+***** nand flash:
+    Partion Name    offset         Size
+    boot:           0x00000000   0x0100000   (大小1M, 其中0～512K是fastboot-burn.bin, 
+                                              512K～1M是bootargs)   
+    kernel: 	    0x00100000   0x0400000   (大小4M)
+    rootfs:    	    0x00500000   0x3C00000   (大小60M，实际烧写大小应该根据文件大小决定)
+    baseparam:      0x04100000   0x0100000   (大小1M, 用于保留全局变量，
+                                             如果要使用开机画面或者fastplay瞬播功能，必须烧写)
+    logo:      	    0x04200000   0x0100000   (大小1M, 开机画面区，
+                                             如果使用JPEG格式图片一般够用了，
+                                             但是如果图片比较大，就需要调整此区域的大小)
+    fastplay:       0x04300000   0x1400000   (大小20M, 客户可以根据瞬播模式需要修改大小)
+
+***** spi flash：
+    如果从SPI flash启动，需要将boot/bootargs 放到SPI flash起始的位置。
+    其中 
+    fastboot-burn.bin:  0x00000～0x080000  	     (大小512K)
+    bootargs: 		0x080000~ 0x0100000          (大小512K)
+        
+    kernel可以放到spi flash或nand flash，视spi flash大小而定。
+    文件系统，是否放到spi flash也是根据文件系统和flash大小而定的。
+    如果放到nand flash，则需要根据前面是否有内核，来安排存放的地址。
+    
+  注意以上烧写地址仅供参考，实际使用时需要根据您的单板上flash的配置再进行调整。   
+
+*** 3.烧写命令
+***** nand flash:
+    命令：
+        获取帮助：nand
+        擦除：nand erase startpos length
+        读取：nand read ddroffset start length
+        写入：nand write ddroffset start length
+    下载boot：
+        mw.b 82000000 ff 80000                         //将ddr写为0xff，写512K
+        tftp 82000000 fastboot-burn.bin                //下载boot到ddr
+        nand erase 0 100000                            //擦写0x0后面的1M flash空间
+                                                        (假设不单独烧写bootargs区域，
+                                                         直接把bootargs区域也擦除掉)
+        nand write 82000000 0 80000                  //把ddr中的boot写入nand flash，写入512K的大小
+        慎重一点，最好先确认下载到内存成功，然后再擦除flash
+    下载linux：
+        mw.b 82000000 ff 400000                         //将ddr写为0xff，写4M
+        tftp 82000000 hi_kernel.bin                     //下载kernel到ddr
+        nand erase 100000 400000                        //擦写0x100000后面的4M flash空间
+        nand write 82000000 100000 400000            //把ddr中的kernel写入nand flash，写入4M的大小
+    下载文件系统(使用yaffs)：
+        mw.b 82000000 ff 3c00000                   //将ddr写为0xff, 写60M, 
+                                                   3c00000这个值根据文件系统镜像大小可能需要改动，
+                                                           一般应该大于镜像的大小
+        tftp 82000000 rootfs.yaffs          		//下载rootfs到ddr
+        nand erase 500000 3C00000              		//擦写0x500000后面的60M flash空间
+        nand write.yaffs 82000000 500000 $(filesize)    //把ddr中的rootfs写入nand flash, 
+                                                  boot会自动识别$(filesize)为rootfs.yaffs的大小。
+***** spi flash:
+    命令：
+        获取帮助：sf
+        探测：sf probe 0
+        擦除：sf erase startpos length
+        读取：sf read ddroffset start length
+        写入：sf write ddroffset start length
+    下载uboot：
+        sf probe 0                         //探测一下是否存在spi flash
+        mw.b 82000000 ff 80000             //将ddr写为0xff，写512K
+        tftp 82000000 fastboot-burn.bin    //下载boot到ddr
+        sf erase 0 100000                  //擦写0x0后面的1M flash空间
+                                        (假设不单独烧写bootargs区域，直接把bootargs区域也擦除掉)
+        sf write 82000000 0 80000          //把ddr中的boot写入spi flash，写入512K的大小
+        慎重一点，最好先确认下载到内存成功，然后再擦除flash
+   下载linux：
+        mw.b 82000000 ff 400000              //将ddr写为0xff，写4M                           
+        tftp 82000000 hi_kernel.bin          //下载kernel到ddr                               
+        sf erase 100000 400000               //擦写0x100000后面的4M flash空间                
+        sf write 82000000 100000 400000      //把ddr中的kernel写入spi flash，写入4M的大小   
+    下载文件系统：
+        spi flash较小，文件系统一般不放在spi flash中。
+        往往需要配合nand flash使用，请参考nand flash烧些过程。
+        如果确实需要把文件系统下载到spi flash，可以使用如下命令(假设使用jffs2文件系统)
+        sf probe 0                          //探测一下是否存在spi flash    
+        mw.b 82000000 ff b00000             //将ddr写为0xff，写的空间要超过文件系统的大小
+        tftp 82000000 rootfs.jffs2         //下载rootfs到ddr
+        sf erase 500000 b00000              //擦除0x500000后面的flash空间，
+                                              大小要超过文件系统的大小
+        sf write 82000000 500000 b00000     //把ddr中的rootfs写入spi flash, 
+                                              大小要超过文件系统的大小
+    注意：如果文件系统要放在spi flash上，那么只能使用jffs2或者cramfs
+***** eMMC flash:
+   命令：
+        获取帮助：help mmc
+        读取：mmc read 0 ddroffset startblock blockcount // 注意: 操作的单位是块, 后续有说明
+        写入：mmc write 0 ddroffset startblock blockcount
+        注意:eMMC flash的块大小为512Bytes，startblock = start/512；blockcount = length/512
+   下载uboot：
+        eMMC的uboot只能通过fastboot工具烧写，
+        烧写方法请参考《fastboot工具使用说明application notes.pdf》。
+   下载linux：
+        mw.b 82000000 ff 400000             //将ddr写为0xff，写4M
+        tftp 82000000 hi_kernel.bin         //下载kernel到ddr
+        mmc write 0 82000000 800 2000       //把ddr中的kernel写入eMMC flash，写入4M的大小
+   下载文件系统：
+        注意：如果文件系统要放在eMMC flash上，请使用ext3或者squashfs（只读），
+              推荐使用ext3。emmc flash上文件系统只能通过
+              烧录工具烧写，文件系统类型选择ext3。
+
+*** 4.启动参数
+    烧写完新的映象之后要在boot的命令行设置启动参数才能启动系统。
+    设置启动命令：  
+    boot、kernel和文件系统在NAND flash:
+    (nand flash只能使用yaffs文件系统，squashfs文件系统或者cramfs文件系统)
+    setenv bootcmd 'nand read 0x82000000 0x100000 0x400000;bootm 0x82000000'
+    setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock3 
+                     rootfstype=yaffs2 mtdparts=hinand:1M(boot),4M(kernel),60M(rootfs),
+                     1M(baseparam),1M(logo),20M(fastplay),-(others)
+                     mmz=ddr,0,0x86000000,160M  DmxPoolBufSize=0x200000'
+    如果单板上没有spi flash，“root=/dev/mtdblock3”应该改为“root=/dev/mtdblock2”,
+    因为SPI flash总是会占用掉分区0。
+    参数具体含义，请参考《linux开发环境指南》
+
+    boot在spi flash， kernel和文件系统在NAND flash:  
+    setenv bootcmd 'nand read 0x82000000 0 0x400000;bootm 0x82000000'         
+    //注意：这种情况kernel需要从nand的0地址位置开始烧写
+    setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock2 
+                     rootfstype=yaffs2 mtdparts=hi_sfc:1M(boot);
+                     hinand:4M(kernel),60M(rootfs),1M(baseparam),1M(logo),20M(fastplay),-(others) 
+                     mmz=ddr,0,0x86000000,160M  DmxPoolBufSize=0x200000'
+    
+    boot和kernel在spi flash，文件系统存放在NAND flash:
+    setenv bootcmd 'sf probe 0;sf read 0x82000000 0x100000 0x400000;bootm 0x82000000'
+    setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock2 
+                     rootfstype=yaffs2 mtdparts=hi_sfc:1M(boot),4M(kernel);
+                     hinand:60M(rootfs),1M(baseparam),1M(logo),20M(fastplay),-(others) 
+                     mmz=ddr,0,0x86000000,160M  DmxPoolBufSize=0x200000'
+        
+    boot、kernel、文件系统 全部在spi flash:
+    setenv bootcmd 'sf probe 0;sf read 0x82000000 0x100000 0x400000;bootm 0x82000000'
+    setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock1 
+                     rootfstype=jffs2 mtdparts=hi_sfc:5M(boot),11M(rootfs) 
+                     mmz=ddr,0,0x86000000,160M  DmxPoolBufSize=0x200000'
+
+    boot、kernel、文件系统 全部在eMMC flash，文件系统类型为ext3:
+    setenv bootcmd 'mmc read 0 0x82000000 0x800 0x2000;bootm 0x82000000'
+    setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mmcblk0p5 
+                     rootfstype=ext3 rootwait mmz=ddr,0,0x86000000,160M  
+                     DmxPoolBufSize=0x200000 
+                     mtdparts=hi_emmc:1M(boot),4M(kernel),1M(baseparam),1M(logo),
+                     20M(fastplay),5M(other) emmcparts=40M(rootfs),-(others)'
+
+    以上参数仅供参考，请参考《linux开发环境指南》对参数进行调整。
+    其中“rootfstype=” 后面的文件系统类型请根据烧写的文件系统类型做相应变化，
+    	比如如果使用cramfs，那么就应该是rootfstype=cramfs。
+    	或者是使用squashfs，那么就应该是rootfstype=squashfs。
+  !!! 特别注意: 
+       1) 如果在NAND上使用cramfs或者squashfs，
+          那么"root="应该配置为root=/dev/romblockXXX而不是mtdblockXXX。
+       2) 如果在eMMC上使用squahsfs文件系统，
+          那么"rootfstype="应该配置为rootfstype=squashfs而不是ext3。
+  
+    "mmz="后面的关于MMZ内存配置的参数，请参考下一节进行调整。	
+    设置完成后，使用“saveenv”命令保存上面的命令。  
+      
+*** 5.内存分布：
+Hi3716x的内存分为内核空间和MMZ空间，内存物理初始地址为：0x80000000.
+  
+内核空间供操作系统使用，其大小由bootargs里面的mem=xxxM 指定，
+地址范围：0x80000000 ~ 0x80000000+内核内存空间大小。
+  		SDK默认为内核分配了96MB内存，地址范围是： 0x80000000 ~ 0x85ffffff
+  		
+MMZ空间供SDK驱动使用， 其大小由mmz驱动的参数指定，
+范围为：（0x80000000 + 内核内存空间大小） ~ （0x80000000 + 内核内存空间大小 + MMZ内存空间大小）。
+SDK默认为MMZ分配了160MB或者416MB内存，
+地址范围是： 0x86000000 ~ 0x8fffffff 或者 0x86000000 ~ 0x9fffffff
+  
+如果客户需要改变上面的设置，例如：内核使用352M,MMZ使用160M, 需要修改bootargs内核启动参数:  
+setenv bootargs 'mem=352M console=ttyAMA0,115200 root=/dev/mtdblock3 
+                 rootfstype=yaffs2 mtdparts=hinand:1M(boot),4M(kernel),60M(rootfs),
+                 1M(baseparam),1M(logo),20M(fastplay),-(others) 
+                 mmz=ddr,0,0x96000000,160M DmxPoolBufSize=0x200000'
+ 
+*** 6.启动
+设置好之后重启单板即可进入操作系统命令行。
+启动时系统会自动加载模块的驱动，并打开telnetd服务
+进入命令行后可以使用下面命令配置网络并mount到nfs进行调试或测试：
+# ifconfig eth0 hw ether 00:xx:xx:xx:xx:xx;  
+//如果有必须要，可以通过此命令配置网口的MAC地址，
+  一般在boot里面有用setenv ethaddr配置过了的话就不需要再配置了。
+  多个人在同一个网络内进行开发的时候，
+  请不要配置相同的MAC地址，
+  否则可能导致网络不稳定。
+# ifconfig eth0 xxx.xxx.xxx.xxx netmask 255.255.xxx.0;route add default gw xxx.xxx.xxx.x;
+# mount -t nfs -o nolock -o tcp xxx.xxx.xxx.xxx:/xxx/sdk_root /mnt
+# export LD_LIBRARY_PATH="/mnt/rootfs_full/usr/lib:$LD_LIBRARY_PATH"   
+//通过export命令可以指向sdk最新编译出来的动态库文件，方便调试，
+  其中假设mnt/rootfs_full/usr/lib为用户的动态库放置路径。
+
+如果要执行sample,使用下面命令进入sample路径，然后执行即可：
+#    cd /mnt/sample/xxx
+#    ./sample_xxx
+
+*** 7.开机画面与瞬播
+    请先预留一块flash空间用于开机画面的烧写，比如，烧写至NAND flash的0x4100000：
+     设置baseparam段
+	mw.b 82000000 ff 100000               
+    	tftp 82000000 baseparam.img           //请注意: baseparam.img是经过Fastplay.exe（位于tools\windows\bootmovie\下）加工后的文件。
+        nand erase 4100000 100000             //请注意：这里是bootargs 设置的baseparam开辟的1MB空间，并且保存在NAND Flash上
+    	nand write 82000000 4100000 100000    
+     设置logo段
+        mw.b 82000000 ff 100000
+    	tftp 82000000 logo.jpg.img           //请注意: logo.jpg.img并不是jpg文件，而是开机画面经过Fastplay.exe（位于tools\windows\bootmovie\下）加工后的文件。
+        nand erase 4200000 100000            //请注意：这里假设开机画面烧写文件大小不超过1MB,并且保存在NAND Flash上
+    	nand write 82000000 4200000 100000  
+     设置play段
+        mw.b 82000000 ff 1400000
+        tftp 82000000 fastplay.img 
+        nand erase 4300000 1400000 
+        nand write 82000000 4300000 1400000  
+    	
+    需要显示开机logo，必需在mtdparts设置baseparam和logo段，如：
+    mtdparts=hinand:1M(boot),4M(kernel),60M(rootfs),1M(baseparam),1M(logo),20M(fastplay),-(others)
+    否则将没有开机画面输出。
+    
+    如果开机画面和瞬播的镜像需要烧写到eMMC中，如果各镜像在eMMC中分布如下面bootargs中设置的位置，
+	setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mmcblk0p5 rootfstype=ext3 rootwait mmz=ddr,0,0x86000000,160M  DmxPoolBufSize=0x200000 mtdparts=hi_emmc:1M(boot),4M(kernel),1M(baseparam),1M(logo),20m(fastplay),-(other) emmcparts=40m(rootfs)-(others)'
+	则烧写命令为：
+    设置baseparam段   
+	mw.b 82000000 ff 100000;tftp 82000000 baseparam.img; mmc write 0 82000000 2800 800   	   
+    设置logo段
+	mw.b 82000000 ff 100000;tftp 82000000 logo.jpg.img  ;mmc write 0 82000000 3000 800  
+    设置play段
+	mw.b 82000000 ff 1400000; tftp 82000000 fastplay.img ;mmc write 0 82000000 3800 a000  
+  
+*** 8.Loader
+	8.1 编译
+	!!!注意：1，强烈建议为Loader单独解压一个SDK包，不要和正常系统共用一个SDK包，因为Loader的kernel、驱动、rootbox与正常系统的无法通用。
+		 2，如果需要共用一个SDK包，则在编译之前一定要先clean。编译方法如下
+		    (1)编译大kernel（正常系统）
+		    	make cleanall
+		    	make build
+		    	编译出的fastboot_burn不带升级流程的引导程序。
+		    	
+		    (2)编译小kernel(loader)
+			make cleanall
+			make hiloader_build
+			编译出的fastboot_burn带升级流程的引导程序。
+		
+		编译之前，要在cfg.mak中配置系统flash的类型。因为bootargs分区存放在系统flash中，
+		不同的flash的block size不同。
+		
+		在第一次编译loader时,请务必执行make hiloader_build。
+		如果要使用增量编译请执行 make hiloader_install。
+		编译完成后，生成的小系统(带升级程序)为 SDK_ROOT/pub/image下的mini_uImage，同时，pub/image下的fastboot_burn为带升级流程的引导程序
+    
+    8.2 烧写
+   	8.2.1 boot/bootargs/stbid等分区都在spi上(如3716cdemoversionb板)
+   	
+   		 SDK假设Loader的分区表如下:
+			SPI Flash（"hi_sfc"）上有如下分区 :
+			0x000000000000-0x000000100000 : "boot"
+			0x000000100000-0x000000200000 : "bootargs"
+			0x000000200000-0x000000300000 : "bootargsbak"
+			0x000000300000-0x000000310000 : "stbid"
+			0x000000310000-0x000000320000 : "loaderdb"
+			0x000000320000-0x000000330000 : "loaderdbbak"
+			
+			NAND Flash（"hinand"）上有如下分区 :
+			0x000000000000-0x000000800000 : "loader"
+			0x000000800000-0x000001000000 : "loaderbak"
+			0x000001000000-0x000001700000 : "kernel"
+			0x000001700000-0x000005300000 : "rootfs"
+			0x000005300000-0x000015300000 : "app"
+			0x000015300000-0x000015a00000 : "fastplay"
+			0x000015a00000-0x000100000000 : "others"
+    	那烧写命令应该类似这样：
+    	烧写fastboot ：
+			sf probe 0 ;tftp 82000000 fastboot-burn.bin;sf erase 0 0x320000;sf write 0x82000000 0 100000   //烧写之前同时把bootargs、stbid等分区全部擦除掉
+		
+        烧写kernel：
+	 		nand erase 0x1000000 300000;tftp 82000000 hi_kernel.bin;nand write 0x82000000 0x1000000 300000
+	
+        烧写rootfs(yaffs)：
+			nand erase 0x1700000 1e00000;tftp 82000000 rootfs.yaffs;nand write.yaffs 0x82000000 0x1700000 $(filesize)
+		
+        烧写rootfs(其他文件系统，比如cramfs，或者squashfs)：
+			nand erase 0x1700000 1e00000;tftp 82000000 rootfs.cramfs;nand write 0x82000000 0x1700000 1e00000
+
+		烧写loader：
+			nand erase 0 600000;tftp 82000000 mini_uImage;nand write 0x82000000 0 600000 
+	
+		bootargs配置类似这样：
+			使用yaffs文件系统：
+			setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock9 rootfstype=yaffs2 mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(boot),1m(bootargs),1m(bootargsbak),64k(stbid),64k(loaderdb),64k(loaderdbbak);hinand:8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+			使用cramfs文件系统：
+			setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/romblock9 rootfstype=cramfs mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(boot),1m(bootargs),1m(bootargsbak),64k(stbid),64k(loaderdb),64k(loaderdbbak);hinand:8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+			使用squashfs文件系统：
+			setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/romblock9 rootfstype=squashfs mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(boot),1m(bootargs),1m(bootargsbak),64k(stbid),64k(loaderdb),64k(loaderdbbak);hinand:8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+		
+		loaderagrs配置类似这样：
+		        setenv loaderargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock9 rootfstype=yaffs2 mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_sfc:1M(boot),1m(bootargs),1m(bootargsbak),64k(stbid),64k(loaderdb),64k(loaderdbbak);hinand:8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+						
+   	8.2.2 boot/bootargs/stbid等分区都nand上(如hi3716mstb板)
+		SDK假设Loader的分区表如下:
+		0x000000000000-0x000000100000 : "boot"
+		0x000000100000-0x000000200000 : "bootargs"
+		0x000000200000-0x000000300000 : "bootargsbak"
+		0x000000300000-0x000000400000 : "stbid"
+		0x000000400000-0x000000500000 : "loaderdb"
+		0x000000500000-0x000000600000 : "loaderdbbak"
+		0x000000600000-0x000000e00000 : "loader"
+		0x000000e00000-0x000001600000 : "loaderbak"
+		0x000001600000-0x000001d00000 : "kernel"
+		0x000001d00000-0x000005900000 : "rootfs"
+		0x000005900000-0x000015900000 : "app"
+		0x000015900000-0x000016000000 : "fastplay"
+		0x000016000000-0x000020000000 : "others"
+		
+	
+	
+	则烧写命令应该变更为：
+
+		烧写kernel
+			nand erase 1600000 300000;tftp 82000000 hi_kernel.bin;nand write 0x82000000 1600000 300000 
+		烧写rootfs(yaffs)
+			nand erase 1d00000 1e00000;tftp 82000000 rootfs.yaffs;nand write.yaffs 0x82000000 1d00000 $(filesize)
+        	烧写rootfs(其他文件系统，比如cramfs，或者squashfs)：
+			nand erase 0x1700000 1e00000;tftp 82000000 rootfs.squashfs_2k;nand write 0x82000000 0x1700000 1e00000
+			nand erase 0x1700000 1e00000;tftp 82000000 rootfs.cramfs;nand write 0x82000000 0x1700000 1e00000
+		烧写loader
+			nand erase 600000 600000;tftp 82000000 mini_uImage;nand write 0x82000000 600000 600000 
+		
+		bootargs配置
+		setenv loaderargs 'mem=224M console=ttyAMA0,115200 mmz=ddr,0,0x8E000000,32M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hinand:1m(boot),1m(bootargs),1m(bootargsbak),1m(stbid),1m(loaderdb),1m(loaderdbbak),8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+		setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock10 rootfstype=yaffs2 mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hinand:1m(boot),1m(bootargs),1m(bootargsbak),1m(stbid),1m(loaderdb),1m(loaderdbbak),8m(loader),8m(loaderbak),7m(kernel),60m(rootfs),256m(app),7m(fastplay),-(others)'
+		saveenv
+		
+		注：(1)如果使用cramfs文件系统系统，请参考8.2.1节 bootargs配置。
+                    (2)hifb的内存分配默认按照720p的分辨率分配 如果baseparam参数要使用1080P分辨率的图片 需要重新配置hifb的MMZ分配。
+                       a.大kernel（正常系统）: 在脚本SDK/scripts/rootfs/kmod/mkload.sh中配置。
+	               b.小kernel(loader): 如果rootbox的版本是1.16.1,在脚本SDK/loader/rootbox/app_for_rootbox_1.16.1/kmod/load中配置;
+	                 如果rootbox的版本是1.1.2, 在脚本SDK/loader/rootbox/app_for_rootbox_1.1.2/kmod/load 中配置。
+	            
+	8.2.3 boot/bootargs/stbid等分区都emmc上(如hi3716mtst板)
+
+		烧写kernel
+			mw.b 82000000 ff 100000;tftp 82000000 hi_kernel.bin;mmc write 0 0x82000000 0xb000 0x3000
+		烧写rootfs(ext3)
+			只能烧录工具进行烧写
+		烧写loader
+			mw.b 82000000 ff 100000;tftp 82000000 mini_uImage;mmc write 0 0x82000000 0x3000 0x3000
+		bootargs配置
+		setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mmcblk0p5 rootfstype=ext3 rootwait mmz=ddr,0,0x86000000,160M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_emmc:1m(boot),1m(bootargs),1m(bootargsbak),1m(stbid),1m(loaderdb),1m(loaderdbbak),8m(loader),8m(loaderbak),7m(kernel),1m(baseparam),1m(logo),7m(fastplay),20m(other) emmcparts=40m(rootfs),50m(app1),120m(app2),-(app3)'
+		setenv loaderargs  'mem=224M console=ttyAMA0,115200 mmz=ddr,0,0x8E000000,32M LogBufSize=0x80000 DmxPoolBufSize=0x200000 mtdparts=hi_emmc:1m(boot),1m(bootargs),1m(bootargsbak),1m(stbid),1m(loaderdb),1m(loaderdbbak),8m(loader),8m(loaderbak),7m(kernel),1m(baseparam),1m(logo),7m(fastplay),20m(other)'
+
+			注：(1). hi_emmc：裸写区的参数,通过这些参数可以计算出各裸写区的起始地址和长度；
+ 			         emmcparts: 逻辑分区的个数和每个逻辑分区的大小(升级时有效)。
+               		    (2). Loader升级时，如果需要重新划分逻辑分区，则需要在bootargs参数中调整mmcparts的分区参数值，
+	   			 bootargs参数需升级到bootargs区
+	   		    
+	推荐使用fastboot3.1工具在图形化界面下进行烧写。
+	
+	8.2.4 stbid/loaderdb/loaderdbback等分区可以任意放置在不同类型的FLASH上,与fastboot存储介质没有直接关系,用户可根据实际应用情况参考以上配置进行调整.
+	
+	8.2.5 使用卫星tuner升级.
+	loader升级时,如果需要使用卫星tuner,需要在头文件SDK/loader/app/loader/common/hi_adp_boardcfg.h中定义支持卫星tuner的宏定义
+	#define TUNER_SAT_SIGNAL_TYPE
+	
+		
+	**** 8.3 烧写完成后，请重启系统。
+	
+	**** 8.4 loader 调试相关工具
+	   引导进入小系统时,必须先设置触发条件.调试时设置触发条件可以使用sdk/loader/app/tools目录下的相关工具.
+	   loader调试工具的编译方法是:在sdk根目录下按下面的方法编译
+	   make hiloader_tools
+	   
+	   在大系统下把调试工具所在的目录mount到串口的/root目录下
+	   例:mount -o nolock -o tcp 10.67.212.158:/home/sdk/loader/app/tools /root 
+	   
+	   进入/root后，可以进行如下操作：	
+	 8.4.1： 使用stbid命令配置序列号.
+		注意:升级时硬件版本号,厂商ID,需要匹配,可通过设置序列号来配置以上参数.打包升级流时,硬件版本号,厂商ID需要这里配置的一致.
+		./stbid 26 15010300101010001c1d000021
+		序列号格式如下：
+		AAAA BB CCC DD EE X FFFF FFFF FFFF
+		   AAAA：四位地区指示码。1501
+		   BB：终端产品生产厂商认证编号。03
+		   CCC：终端产品机顶盒生产批次。001
+		   DD：终端类型。01
+		   EE：硬件版本号。01
+		   X：识别码。0
+		   FFFFFFFFFFFF：根据前一位的定义的具体数值。MAC 地址。001c1d000021
+
+	8.4.2： 使用ldrread命令可以查看升级相关的参数
+		./ldrread 		
+		============Loader Info:===========
+		UPG Type      = 0
+		PID           = 7000
+		Freq          = 682000K
+		SymbRate      = 6875K
+		Qam           = 2(2-64Qam)
+		CurSoftVer    = 0x4
+		NewSoftVer    = 0x1
+		LoaderVer     = 0x0		
+		===================================
+		
+	8.4.3： 使用ldrwrite命令可以设置升级相关参数
+		注意:升级时硬件版本号需要与升级流的硬件版本号一致,且新版本号不能等于老的版本号(强制升级除外).
+		(1) 不带卫星tuner的cable升级触发命令
+		./ldrwrite 435 6875 2 7000 0x01010102  //触发升级，频点：435000 ，符号率：6875000，QAM：64 ，升级流PID：7000，软件版本号：0x01010102  
+
+	        (2) 卫星tuner的cable升级触发命令
+		./ldrwrite     //相关参数根据提示输入.
+		
+
+	8.4.4： 使用stbinfor命令 可以查看软/硬件版本号,厂商ID,硬件批次,序列号等等.
+		./stbinfor
+		==================stb info================
+		STB factory id          0x00000003
+		STB Area code           0x00001051
+		STB Hw ver id           0x00000001
+		STB Hw batch id                 0x00000001
+		UPG sw cur version      0x00000003
+		==========================================
+
+	8.4.5：使用stbinfow命令可以修改当前软件版本号.
+		./stbinfow
+		 =============modify stb info==============
+		software version        0x00000003 ? 04
+		==========================================
+	8.4.6：使用dataclr命令可以清除升级参数设置
+	8.4.7：使用lang命令设置loader UI界面的语言类型
+		
+	开机后，在前面板显示boot时，快速按下前面板上的Menu键+OK键，即可引导小系统。	
+		
+	其余功能可参考<<loader使用指南>>来调试.
+
+*** 9.Bootargs参数补充说明
+  9.1 VO bootargs参数说明
+   VoMscBufSize=X  --指示VO MOSAIC模式下内部buffer如何申请。
+   X=0，按照1920x1080申请，共计需要 1,2441,600 Byte，
+        VO MOSAIC模式下，不能选择1600x1200/1920x1200/2048x1152等输出格式；
+   X=1，按照2048x1200申请，共计需要 1,4745,600Byte， 
+        VO MOSAIC模式下，可以选择1600x1200/1920x1200/2048x1152等输出格式；
+   X其他取值保留。
+   如果bootargs中没有设置该参数，则驱动中默认按照X=0处理；该参数对VO NORMAL模式没有任何影响。
+  9.2 PVR平滑播放 bootargs参数说明
+	extra_disp=X   --指示在默认帧存个数的基础上增加X个帧存。
+	设置了extra_disp=X可以在PVR回放的快进快退时获得更好的平滑效果。
+	如果不设置，PVR在回放时快进快退将使用不平滑的只播放I/P帧的模式。
+	其中X的值最小为4，在系统内存的允许的范围内，该值越大越好。
+
+	mem=xxxM   --指示为内核分配的内存大小
+	在设置了extra_disp=X之后，mem=xxxM设置的最小值为64M。
+        
+* Uboot使用
+** help
+fastboot# help                        
+?       - alias for 'help'
+base    - print or set address offset
+bootm   - boot application image from memory
+bootp   - boot image via network using BOOTP/TFTP protocol
+cmp     - memory compare
+cp      - memory copy
+crc32   - checksum calculation
+dataclr - dataclr	- data clear, debug only, clear DATA block  
+getinfo - print hardware information
+go      - start application at address 'addr'
+help    - print command description/usage
+iploaderr- 
+iploaderw- 
+ldrread - ldrread	- loader request read , debug only, 
+ldrwrite- ldrwrite	- ldrwrite request set , debug only, 
+     arg: frequency(MHz), sym_rate(KS/s), Qam(0-16,1-32,2-64Qam ), ts_pid, soft_version
+	 Example: loaderw 610  6875  2  222  123 
+loadb   - load binary file over serial line (kermit mode)
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+md      - memory display
+mii     - MII utility commands
+mm      - memory modify (auto-incrementing address)
+mmc     - MMC sub system
+mmcinfo - mmcinfo <dev num>-- display MMC info
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+nand    - NAND sub-system
+nboot   - boot from NAND device
+nm      - memory modify (constant address)
+ping    - send ICMP ECHO_REQUEST to network host
+printenv- print environment variables
+rarpboot- boot image via network using RARP/TFTP protocol
+reset   - Perform RESET of the CPU
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+sf      - SPI flash sub-system
+stbid   - stbid - write stbid to stb!
+stbinfor- stbinfor	- stb info display
+stbinfow- stbinfow- stb info modify, debug only
+stbmac  - stbmac - write stbmac to stb!
+tftp    - tftp	- download or upload image via network using TFTP protocol
+uploadx - upload binary file over serial line (xmodem mode)
+version - print monitor version
+
+** IP
+fastboot# setenv serverip 192.168.88.5 
+fastboot# setenv ipaddr 192.168.88.15 
+fastboot# ping 192.168.88.5
+
+** tftp
+win7下要将下载文件放在tftpd32.exe同一个目录下：
+>ipconfig /all
+>ping
+*** fastboot# tftp 0x82000000 rootfs.cramfs
+Eth up port phy at 0x01 is connect
+Eth down port phy at 0x03 is connect
+Hisilicon ETH net controler
+MAC:   D4-43-A8-01-73-E6
+UP_PORT : phy status change : LINK=UP : DUPLEX=FULL : SPEED=100M
+TFTP from server 192.168.88.5; our IP address is 192.168.88.2
+Download Filename 'rootfs.cramfs'.
+Download to address: 0x82000000
+Downloading: #  [ Connected ]
+################T ##########T ######    [ 2.888 MB]
+################################        [ 5.752 MB]
+################################        [ 8.616 MB]
+############
+done
+Bytes transferred = 10174464 (9b4000 hex)
+fastboot# c
+  cp cmp crc32
+fastboot# c<INTERRUPT>
+fastboot# nand bad
+
+Device 0 bad blocks:
+  05a00000
+  05b00000
+*** fastboot# nand erase a800000 FA00000
+
+NAND erase: device 0 offset 0xa800000, size 0xfa00000
+Erasing at 0x1a100000 -- 100% complete.
+OK
+*** fastboot# nand write 82000000 a800000 9b4000 
+
+NAND write: device 0 offset 0xa800000, size 0x9b4000
+pure data length is 10174464, len_incl_bad is 10485760
+ 10174464 bytes written: OK
+*** fastboot# sync
+
+** bootargs
+setenv bootargs 'mem=775M vmalloc=600M console=ttyAMA0,115200
+       root=/dev/romblock17 rootfstype=cramfs rw 
+       lpj=5996758 mtddev=blackbox androidboot.console=ttyAMA0 mmz=ddr,0,0xBD600000,42M 
+       mtdparts=hi_sfc:1M(fastboot),1M(bootargs),1M(bootargsbak),64K(stbid),64K(loaderdb),64K(loaderdbbak);
+       hinand:8M(recovery),6M(baseparam),8M(logo),10M(fastplay),30M(cache),10M(misc),
+       10M(kernel),10M(loader),10M(loaderbak),36M(dasse2prom),30M(cainfo),
+       250M(system),500M(userdata),250M(upsdata),4M(blackbox),2924M(sdcard)'
+(注意不要分行，和选项之间的空格)
+** saveenv
+保存环境变量修改。
+
+** nand
+# nand scrub
+# nand bad
+
+* hisi内核及根文件系统
+** 内核
+*** /kmod
+.ko 是kernel object的意思。内核模块的驱动。
+*** /lib
+存放的都是.so的动态库。
+*** /usr/lib
+存放的也是.so的动态库。
+** 根文件系统
+rootfs.cramfs
+有多种格式的文件系统。
+
+* 编程规范
+** 匈牙利命名法
+前缀	类型
+a        	数组 (Array) 
+b	        布尔值 (Boolean) 
+cr	        颜色参考值 (ColorRef) 
+c/n8	有符号字符 (Char) 
+uc/u8	无符号字符 (Char Byte) 
+n16	        16位有符号数
+w/u16	16位无符号数
+n/n32	32位有符号数
+dw/u32	32位无符号数
+ll/n64	64位有符号数
+u64     	64位无符号数
+fn	        函数指针
+h        	Handle 32位
+s_         	静态变量
+m_         	类的成员
+g_	        全局变量
+p       	Pointer
+sz	        以null做结尾的字符串型 (String with Zero End) 
+
+** 正反词
+常用的反义词组。
+add / remove       begin / end         create / destroy 
+insert / delete    first / last        get / release
+increment / decrement                  put / get
+add / delete       lock / unlock       open / close
+min / max          old / new           start / stop
+next / previous    source / target     show / hide
+send / receive     source / destination
+cut / paste        up / down
+
+** 优先级
+运算符	结合律
+( )  [ ]  ->  .	从左至右
+!  ~  ++  --  （类型） sizeof
++  -  *  &	从右至左
+/ *    %	从左至右
++  -	从左至右
+<<  >>	从左至右
+<   <=   >  >=	从左至右
+==  !=	从左至右
+&	从左至右
+^	从左至右
+|	从左至右
+&&	从左至右
+||	从右至左
+?:	从右至左
+=  +=  -=  *=  /=  %=  &=  ^=
+|=  <<=  >>=	从左至右
+
+** if (NULL == pTdt) 
+防止将 if (pTdt == NULL) 误写成 if (pTdt = NULL).
+
+** 循环语句的效率
+在多重循环中，如果有可能，
+应当将最长的循环放在最内层，最短的循环放在最外层，
+以减少CPU跨切循环层的次数。
+** 函数参数
+参数的顺序要遵循程序员的习惯。一般地，应将目的参数放在前面，源参数放在后面。
+
+** 随机内聚
+随机内聚是指将没有关联或关联很弱的语句放到同一个函数中。
+使用随机内聚函数，常常容易出现在一种应用场合需要改进此函数，
+而另一种应用场合又不允许这种改进，从而陷入困境。
+
+** 程序编写人员应该对栈的占用情况比较清晰
+特别是对于递归调用的函数。
+
+** 根据模块的功能图或/及数据流图映射出函数结构
+使用什么工具画流程图。
+
+** 函数可重入性的构造
+
+** 引用（不是指针）
+引用是C++中的概念，初学者容易把引用和指针混淆一起
+    int nRft;
+	int &nRfc = nRft;
+
+* 代码技巧
+** 消除编译器警告
+#define CSSTD_UNUSED(x) ((void)x)
+消除变量定义，却未使用的警告信息
+
+* 内核模块
+保存在kmod中，后缀为.ko文件。
+加载脚本load文件，会被/etc/init.d/目录的脚本调用。
+注意load文件，加载模块时，可能会传参。
+** 加载模块
+# insmod 模块文件名
+
+** 卸载模块
+# rmmod  模块文件名
+
+** 已加载模块列表
+# lsmod 
+
+* 查看内核信息
+内核使用printk()函数打印。
+通过dmesg命令查看。
+清除内核信息用dmesg -c命令。
+** 查看内核打印级别
+# cat /proc/sys/kernel/printk
+** 内核信息 == dmesg
+cat /proc/kmsg
+* 海思SDK使用/proc/msg查看打印消息
+需设置打印级别，消息才会打印到控制台
+# echo ecs=7 > /proc/msp/log
+
+* 查看硬件寄存器值
+# himm 0x101E1004
+himm加寄存器地址，寄存器地址查看CPU的datasheet。
+
+* 杀死后台进程
+# ps 查看进程号
+# kill 进程号
+# killall 进程名称
+
+* 查看打包库信息
+** nm命令
+# nm -A 库完整路径名 | grep  关键字
+
+** strings命令
+# strings 库完整路径名(或执行文件) | grep 关键字
+可用来查询文件里包含的任何字符串
+
+* 内核分区不建议设置太大
+由于 *内核分区* 和 *根文件系统分区* 的读写，是需要校验的，不建议设置太大，够用就行。
+
+* Busybox中tftp命令的用法
+-g 表示下载文件 (get)
+-p 表示上传文件 (put)
+-l 表示本地文件名 (local file)
+-r 表示远程主机的文件名 (remote file)
+例如，要从远程主机192.168.1.2上下载 embedexpert，则应输入以下命令
+# tftp -g  -r embedexpert 192.168.1.2
+# tftp  -l hi_kernel.bin   -r hi_kernel.bin   -g   192.168.88.88
+
+* 将/mnt挂载为内存文件系统
+# mount -t tmpfs tmpfs /mnt
+如果根文件系统不支持读写，可将/mnt挂载为tmpfs，以支持tftp操作。
+
+* UBI文件系统挂载
+UBI分区，开机自动挂载
+** UBI文件系统
+每一个块的前2页，为UBI的TAG标记。
+1.页大小
+2.块大小
+3.物理擦除块
+4.逻辑擦除块
+5.卷大小
+6.mkfs.ubifs
+
+** UBI分区挂载
+# tftp -g -r rootfs.ubifs 192.168.88.88
+# dd if=rootfs.ubifs of=/dev/mtdblock16 bs=1048576
+# ./ubiattach /dev/ubi_ctrl -m 16
+# ls /sys/class/ubi/ubi0
+# ./ubimkvol /dev/ubi1 -s 100MiB -N rootubifs
+# ls /dev/ubi0_0
+# mount -t ubifs ubi0_0 /mnt/
+
+** 挂载信息
+# ./ubiattach /dev/ubi_ctrl -m 17
+UBI: attaching mtd17 to ubi0
+UBI: physical eraseblock size:   1048576 bytes (1024 KiB)
+UBI: logical eraseblock size:    1040384 bytes
+UBI: smallest flash I/O unit:    4096
+UBI: VID header offset:          4096 (aligned 4096)
+UBI: data offset:                8192
+UBI: volume 0 ("rootfs") re-sized from 101 to 146 LEBs
+UBI: attached mtd17 to ubi0
+UBI: MTD device name:            "UserData"
+UBI: MTD device size:            152 MiB
+UBI: number of good PEBs:        152
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    256
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     1
+UBI: available PEBs:             0
+UBI: total number of reserved PEBs: 152
+UBI: number of PEBs reserved for bad PEB handling: 2
+UBI: max/mean erase counter: 1/0
+UBI: image sequence number: 1787414139
+UBI: background thread "ubi_bgt0d" started, PID 333
+UBI device number 0, total 152 LEBs (158138368 bytes, 150.8 MiB), available 0 LEBs (0 bytes), LEB size 1040384 bytes (1016.0 KiB)
+
+# mount -t ubifs ubi0_0 /mnt/
+UBIFS: mounted UBI device 0, volume 0, name "rootfs"
+UBIFS: file system size:   93634560 bytes (91440 KiB, 89 MiB, 90 LEBs)
+UBIFS: journal size:       12550144 bytes (12256 KiB, 11 MiB, 13 LEBs)
+UBIFS: media format:       w4/r0 (latest is w4/r0)
+UBIFS: default compressor: lzo
+UBIFS: reserved for root:  0 bytes (0 KiB)
+
+* Yaffs文件系统挂载
+** Yaffs文件系统制作
+# ./tools/mkyaffs2image504 
+mkyaffs2image504-3716x: image building tool for YAFFS2, last update Mar  6 2017 16:57:27. 
+Version: Linux-2.6.35 Nand Controller V504
+Usage:
+    mkyaffs2image504-3716x {dir} {image} {pagesize} {ecctype} [-b blocksize] [-v].
+    dir          the directory tree to be converted
+    image        the output file to hold the image
+    pagesize     the page size to be converted
+                 0 | 512     512 Bytes pagesize
+                 1 | 2k      2K Bytes pagesize
+                 2 | 4K      4K Bytes pagesize
+                 3 | 8K      8K Bytes pagesize
+    ecctype      ECC type
+                 0 | none    no ecc
+                 1 | 1bit    used 1bit/512 ecc
+                 2 | 4bit    used 4bit/512 ecc
+                 3 | 8bit    used 8bit/512 ecc
+                 4 | 24bit   used 24bit/1k ecc
+                 5 | 40bit   used 40bit/1k ecc
+    -b blocksize explicitly align blocksize
+    -v           verbosely list files processed
+Example:
+    mkyaffs2image504-3716x ./rootfs rootfs_4k4bit.yaffs 4k 4bit
+
+# ./tools/mkyaffs2image504 ./rootfs/ rootfs.yaffs 2 4
+mkyaffs2image504-3716x: image building tool for YAFFS2, last update Mar  6 2017 16:57:27. 
+Version: Linux-2.6.35 Nand Controller V504
+Processing dir ./rootfs/ into imagefile rootfs.yaffs
+Operation success complete. 605 objects in 53 directories 10565 NAND pages
+Input parameter: pagetype: 2(4K), ecctype: 4(24bits/1K)
+
+** Yaffs分区挂载
+# nand write.yaffs 82000000 50400000 文件大小
+此处文件大小，要严格按照下载的文件大小，因为包含oob数据，所以 *不会刚好页取整* 。
+# mount -t yaffs /dev/mtdblock16 /mnt/
+
+* brctl网桥搭建
+BRIDGE_DEV=br_coship
+
+ifconfig eth0 up
+ifconfig eth1 up
+
+# create bridge device
+brctl addbr $BRIDGE_DEV
+
+# add interface
+brctl addif $BRIDGE_DEV eth0
+brctl addif $BRIDGE_DEV eth1
+
+# get ip for bridge
+udhcpc -A 3 -b -q -i $BRIDGE_DEV 1>/dev/null 2>&1 &
+
+* \\10.10.96.200\public\porting\porting_Hi3716C_V100 服务器编译
+路径：/hudson16/porting/porting_Hi3716C_V100/trunk/     
+执行：/cc/script/porting# sh make_porting_hisi.sh porting_Hi3716C_V100 hi3716C_V100 hisi/hi3716C_V100
+账户：xieyue     
+密码：04303309
+
+* SVN操作
+** 对于工程的提交
+*最好不要递归* 提交整个工程。
+采用一级一级的逐级提交。
+采用 -N 选项，适用于 add 、commit 、co 等操作。
+
+注意一些特殊文件、如软连接、设备文件等。
+
+** add
+切换到父目录下
+# svn add 当前目录的子目录
+添加子目录下所有文件。
+
+** commit
+切换到提交目录下
+# svn commit -F .../svn-commit.txt
+提交需要log格式一致。
+
+** status
+查看当前目录下所有文件的状态
+# svn status
+
+** checkout根目录
+# svn co --depth=empty svn://192.168.99.107/bootloader/devdb/trunk
+然后进入目录，checkout指定文件
+# svn update Bootloader源码移动记录.xls
+
+** checkout目录所有文件
+# svn co svn://192.168.99.107/bootloader/devdb/trunk
+
+** checkout根目录下的文件夹，但不同步文件
+# svn co svn://192.168.99.107/bootloader/devdb/trunk -N
+
+** 提交软连接文件
+用svn add命令添加文件到版本库会 *忽略* 一些文件，比如链接文件，
+这时需要使用 svn add --no-ignore命令
+
+** delete
+如果是在某个目录下，删除一个文件。
+# svn delete --force  文件名
+删除之后一定要对 *目录进行update* 操作，使本地删除操作与SVN服务器同步。
+
+* TVOS系统
+* 510 APK系统
+
+
+* hi3751平台Android 5.1
+** 编译
+*** 编译Android_SDK
+1.source build/envsetup,sh
+2.lunch Hi3751V500_DMO_eng
+3.make bigfish -j16
+
+*** 编译mmcp
+1.source bin/setupenv --im
+2.make all
+
+* Android系统
+** dumpsys SurfaceFlinger --list 
+
+* git服务器
+** 服务器
+# http://10.10.5.183/#/      账号: xinjiabin   密码: 123456
+
+** 生成SSH-key
+$ git config --global --add user.name  xinjiabin
+$ git config --global --add user.email xinjiabin@coship.com
+3、使用ssh-keygen -t rsa,创建SSH密钥
+$ ssh-keygen -t rsa 一路回车
+
+** 查看当前目录的状态
+git status ./
+
+** 查看远程
+git branch -r
+
+** 查看本地
+git branch
+
+** git添加文件夹
+git add hardware/libhardware/modules/iPanel/avout/ 
+git add hardware/libhardware/modules/iPanel/include/
+git add  device/hisilicon/bigfish/sdk/source/msp/drv/custom/src
+** git添加文件
+git add  hardware/libhardware/include/hardware/avdec.h
+git add  hardware/libhardware/include/hardware/avout.h
+git add  hardware/libhardware/include/hardware/demux.h
+git add  hardware/libhardware/modules/iPanel/avdec/Android.mk
+git add  hardware/libhardware/modules/iPanel/avdec/avdec.c
+git add  hardware/libhardware/modules/iPanel/demux/Android.mk
+git add  hardware/libhardware/modules/iPanel/demux/demux.c
+git add  hardware/libhardware/modules/iPanel/smartcard/Android.mk
+git add  hardware/libhardware/modules/iPanel/smartcard/smartcard.c
+git add  hardware/libhardware/modules/iPanel/tuner/Android.mk
+git add  hardware/libhardware/modules/iPanel/tuner/tuner.c
+
+** git提交log
+git commit -m "<autor:xinjiabin 接口完善>" 
+
+** git提交
+git push origin HEAD:refs/for/master
+
+** git查看log
+git log ./
+
+

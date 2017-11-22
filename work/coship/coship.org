@@ -1,0 +1,75 @@
+#+TITLE:       Manager in job
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    manage job work
+#+LANGUAGE:    
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* 公司产品
+致力于数字电视机顶盒、交互数字电视系统、
+集成电路、核心软件、卫星通讯设备、coship品牌手机、品牌pad
+等数字视讯产品的研制、生产、销售。
+
+* DVB(Digital Video Broadcasting数字视频广播)
+http://blog.csdn.net/leixiaohua1020/article/details/43882921
+主要作用是提供数模信号转换的功能，使用户能够用原有的模拟电视机收看数字电视节目。
+设计一个通用的数字电视系统，在此系统内的各种传输方式之间的转换有最简单的方式，尽可能的增加通用性。
+利用了包括卫星、有线、地面、SMATV、MNDSD在内的所有通用电视广播传输媒体。
+它们分别对应的DVB标准：DVB-S、DVB-C、DVB-T、DVB-SMATV、DVB-MS和DVB-MC。
+** 标准核心
+系统采用MPEG-2压缩的音频、视频及资料格式作为资源
+** 衍生产品
+* 芯片方案选型
+** 海思HI
+
+** 意法ST
+
+** 日电NEC
+
+** 恩智浦NXP
+
+** 博通Broadcom
+
+** 杭州国芯GX
+
+** 卓然Zoran
+
+** 飞利浦
+
+** 富士通
+
+** 美商巨积
+
+** 科胜讯
+
+* 网络机顶盒
+网络机顶盒的芯片方案，瑞芯微、高通、全志、海思
+* 软件平台和架构
+
+* 系统架构
+
+* 驱动外设
+
+* ……方案
+** 代码框架
+
+** 文件结构
+
+** 软件协议层
+
+** 认证标准
+
+** 设备模型
+
+** 开发板平台
+
+** 版本控制
+
+** 调试工具
+
+** 编译工具
+
+** 下载工具

@@ -1,0 +1,61 @@
+#+TITLE:       工作记录及GTD
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+
+
+* <2017-05-16 周二>
+** DONE(D@)3 hi3751的Android-SDK编译，及mmcp的porting编译。
+** TODO ipanel的资料及头文件获取。
+- State "TODO"       from ""           [2017-05-17 周三 09:23]
+** TODO 豪杰项目HLS播放失败
+- State "TODO"       from ""           [2017-05-17 周三 09:26]
+** TODO 采用HiPlayer_V3.0.3.0库后，本地播放异常
+- State "TODO"       from ""           [2017-05-17 周三 19:53]
+
+* <2017-05-17 周三>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

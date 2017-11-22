@@ -1,0 +1,68 @@
+xinjiabin@ROM-CM-Net:~/trunk$ . bin/setupenv --im
+-bash: ?#!/bin/sh: No such file or directory
+input_catch_file=
+Please select the target execution PLATFORM
+ 1)linux 2)st5516 3)st5105 4)st710x 5)bcm7309 6)bcm740x 7)windows 8)st71xx 9)bcm7401 10)st5197 11)ali3329 12)hi3110E 13)st5107 14)ali3602 15)bcm7406 16)bcm7002 17)cx24501 18)ZoranSupraXD-180 19)st5167 20)st71xxlinux 21)bcm75xx 22)bcm7019 23)skyworth_bcm7003 24)huawei_bcm7405 25)bcm7468 26)st5206 27)skyworth_yinhe_st5197 28)yinhe_st7105_linux 29)changhong_bcm7405 30)huawei_bcm7019 31)hi3716H 32)pnx8473 33)skyworth_bcm7019 34)MSD7C51L 35)hi3716M 36)bcm7231 37)mtk8652 38)hi3716M_hisiv200 39)htv900d 40)st71xxos21 41)hi3110E_tianbai 42)tcb_bcm7405 43)changhong_bcm7405 44)hi3716C 45)hi3716M_tianbai 46)jiangsu_skyworth_st7101 47)MSD7812 48)hi3110E_sfp 49)ali_m3701e 50)ali_m3202c 51)Android_Hi3716C 52)MSD7817 53)MSD7817_LINUX 54)hi3110E_v200 55)wuhan_kingvon_bcm7019 56)ali3603 57)hi3716M_hisiv200_A10 58)ali_3281 59)stih207_linux 60)ali_m3701c 61)hi3716x 62)stih237_os21 63)mstar_7c51c 64)mtk5480i 65)stih237_linux 66)Hi3716C_V200_Android 67)msd7862_linux 68)stih2xx_5189 69)msd5043_linux 70)hi3716C_v200 71)Android_Hi3716C_V200 72)Android_Hi3716C_V200_Client 73)msd5043linux 74)Android_6A801 75)Android_6A801_Client 76)Android_AmS802 77)Android_AmS802_Client 78)bcm7581 79)msd7c51g 80)Hi3716M_V310 81)Linux_hi3796M_V100 82)Hi3716M_V420 83)msd7c51d 84)Android_Hi3796M 85)Android_Hi3796M_Client 86)bcm7584 87)Hi3716M_V330
+ Enter your anwser (default: linux) => 61
+select PLATFORM
+1)HISI3716M
+2)HISI3716H
+3)HISI3716C
+4)HISI3716M_MCE
+Enter your anwser (default: HISI3716M) => 3
+Please select debug mode:
+ 1)release[release without log] 2)print[O2,release with log] 3)debug[O0, -g with log]
+ Enter your anwser (default: step trace mode) => 
+Would u like to select filesystem in details? 
+ 1)no 2)yes
+ Enter your anwser (default: no) => 
+would u like to select a config file for this compile?
+1) yes 2) no 
+ Enter your anwser (default: no) => 
+Please select board type:
+1) coship dev board 2)hisi demo board 
+Enter your anwser (default: coship dev board) => 
+HISI_HOME=/home/xinjiabin/trunk/porting/hisi/hi3716x
+CS_PLATFORM_LIB_DIR=/home/xinjiabin/trunk/lib
+CS_MAKE_DIR=/home/xinjiabin/trunk/porting/hisi/hi3716x/make
+STD_INCLUDE=/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin/../usr/include
+ARCH_MMCP=arm-uclibc
+PATH=/opt/hisi-linux/x86-arm/arm-histbv300-linux/bin:/opt/hisilicon/toolchains/arm-uclibc-linux-soft/bin/:/opt/hisi-linux/x86-arm/gcc-3.4.3-csl-uClibc-0.9.30-softvfp/bin/:/usr/local/CodeSourcery/Sourcery_G++_Lite/bin:/usr/local/arc-4.8-amlogic-20130904-r2/bin/:/opt/android_4.2_ndk/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin:/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin:/usr/local/apache-ant-1.9.3/bin:/opt/android-ndk-r8e/android-ndk-r8/toolchains/arm-linux-androideabi-4.7/bin:/usr/local/arm-2009q1/bin/:/mtkoss/gnuarm/soft_4.5.1_2.6.27_arm11-rhel4/i686/bin:/mtkoss/gnuarm/vfp_4.5.1_2.6.27_arm11-rhel4/i686/bin:/mtkoss/gnuarm/vfp_4.5.1_2.6.27_cortex-a9-rhel4/i686/bin:/opt/install/bin/:/opt/java/jdk1.6.0_33/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11:/usr/games:.:/bin::/home/xinjiabin/trunk/bin/bin:/opt/java/jdk1.5.0_11/bin:/home/xinjiabin/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:/usr/X11R6/bin:/bin:/bin:/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin:/bin:/bin:/bin:/bin:/bin:.:/bin::/home/xinjiabin/trunk/bin/bin:/opt/java/jdk1.5.0_11/bin:/home/xinjiabin/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:/usr/X11R6/bin:/bin:/bin:/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin:/bin:/bin:/bin:/bin:/bin:/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/tools/linux/utils
+HIDEBUG=y
+STATIC_COSHIP_LIBS=y
+HIDRV_TOOL=/home/xinjiabin/trunk/porting/hisi/hi3716x/src/hidrv_v0A2/tools/linux/utils
+source /home/xinjiabin/trunk/porting/hisi/hi3716x/setenv.sh -D executed  ok
+cat: VERSION: No such file or directory
+ 
+ Set environment variables: 
+-----------------------------------------
+         TARGET_OS = linux
+        TARGET_CPU = arm
+       TARGET_ARCH = 
+  PLATFORM(TARGET) = hi3716C_SDK0A1
+   PLATFORM_JAVAVM = linux-arm
+MMCP_COMPILING_MODE= stepbystep
+ 
+          WORK_HOME = /home/xinjiabin/trunk
+      CHIP_PROVIDER = hisi
+          JAVA_HOME = /opt/java/jdk1.5.0_11
+             STROOT = 
+            BCMROOT = 
+         OSPLUSROOT = 
+        STPT_OPTION = 
+   ANDROID_TOOL_DIR = 
+    ANDROID_GCC_DIR = 
+    ANDROID_NDK_DIR = 
+    ANDROID_CXX_DIR = 
+       CAS_PROVIDER = 
+ 
+       MMCP VERSION = 
+    MMCP MIDDLEWARE = dtvm
+   KERNEL_FS_OPTION = 
+    NETWORK_SUPPORT = -DMMCP_SUPPORT_IP
+   SECURITY_SUPPORT = 
+    GUITOOL_SUPPORT = 
+        PVR_SUPPORT = 
+    MEMLEAK_SUPPORT = 
+   CONFIG_FILE_NAME = def.config
+-----------------------------------------

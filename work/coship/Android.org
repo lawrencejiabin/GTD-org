@@ -1,0 +1,117 @@
+#+TITLE:       Platform(终端中间件平台)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* android APK安装信息
+** /data/system/packages.xml  
+com.ipanel.join.live.js 			--->iPanel_JiangsuLive_new_4K_CW2.apk
+com.ipanel.join.jiangsu.setting     --->iPanel_Settings.apk
+
+* logcat 
+** 清除
+# logcat -c
+** grep 关键字
+# logcat | grep -E "关键字1|关键字2"
+** 指定TAG
+# logcat -s TAG
+** 重定向到文件
+# logcat > /data/coship.log &
+** 显示时间戳
+# logcat -v time > /data/coship.log &
+** 重要TAG
+# logcat |grep AndroidRuntime 
+# logcat |grep PackageManager 
+# logcat |grep ActivityManager
+# logcat |grep WindowManager
+
+* adb
+** adb connect 192.168.88.8
+** adb disconnect 192.168.88.8
+** adb connect 172.30.80.73  
+** adb disconnect 172.30.80.73  
+** adb remount
+** adb push avdec.default.so       /system/lib/hw/  
+** adb pull /data/system/packages.xml 			.
+** adb uninstall com.ipanel.join.home.js
+** adb kill-server
+** push整个文件夹
+# adb push ./system /system
+** pull整个文件夹
+# adb pull /system ./system
+** shell
+# adb shell
+** 执行某个shell命令
+# adb shell chmod 777 /system/etc/dtvlib_init.sh
+
+* am
+** am start -n com.ipanel.join.network.js/cn.fujian.tvapps.network.SearchActivity  
+** am force-stop com.ipanel.join.network.js
+* pm
+** pm list packages -f
+* monkey
+** monkey -p  com.ipanel.join.network.js 1
+
+* dumpsys
+** 支持所有命令
+# dumpsys | grep "DUMP OF SERVICE" 
+** 查看帮助
+# dumpsys meminfo -h
+** 关键命令
+*** account
+*** activity
+*** battery
+*** cpuinfo
+*** diskstats 磁盘
+*** meminfo
+*** package 安装包信息
+****  安装包信息
+# dumpsys package -h
+# dumpsys package <package.name>
+** statusbar 状态栏信息
+*** usagestats 每个界面启动时间 
+** surface层
+# dumpsys SurfaceFlinger --list
+** 找出广告通知那个应用
+# dumpsys statusbar | grep notification=Notification
+
+* prop
+** getprop
+** setprop
+* 重新挂载分区
+** mount -o remount /system 
+
+* 获取红外
+** android_ir_user -D 
+** getevent   
+
+* android系统启动关闭
+** sync
+** stop
+** start
+** reboot
+
+* 内核打印等级
+# echo 0 > /proc/sys/kernel/printk 
+# echo HI_VO=3 > /proc/msp/log   
+
+* 打印堆栈
+# debuggerd  进程号
+# cd /data/tombstones
+
+* 监控进程占用率
+** top -t -m 5 -d 1
+-t：显示线程
+
+* 查看寄存器定义
+** 设置寄存器
+# himm 0xF8A210C4      0x00000001
+** 查看寄存器
+# himm 0xF8A210C4
+
