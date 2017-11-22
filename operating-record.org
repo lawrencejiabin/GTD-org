@@ -297,4 +297,12 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
   3.以指定编码重读当前buffer：C-x <RET> r utf-8，（revert-buffer-with-coding-system）
   4.改变当前buffer的编码：C-x <RET> f utf-8，（set-buffer-file-coding-system）
   5.设定下一步操作的编码格式：C-x <RET> c，（universal-coding-system-argument）
+**  如果想设定默认编码，可以在配置文件中输入：
+  (set-language-environment "UTF-8")
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-clipboard-coding-system 'utf-8)
+  (set-buffer-file-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (modify-coding-system-alist 'process "*" 'utf-8)
 
