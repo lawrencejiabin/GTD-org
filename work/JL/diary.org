@@ -9,6 +9,33 @@
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
+* 20171128
+** wifi--iis输入
+   #+BEGIN_SRC C
+   dac_channel_on(MUSIC_CHANNEL, FADE_ON);
+	 audio_link_init();
+	 //audio_link_close(1);
+	 dac_set_samplerate(44100,1);
+    #if 1
+        dac_write((u8 *)buf_addr0,DAC_BUF_LEN);
+    #else
+        extern int soft_eq_run(u8 *buf, u32 len);
+        soft_eq_run((u8 *)buf_addr0, DAC_BUF_LEN);
+		cbuf_write_dac((short*)buf_addr0, DAC_BUF_LEN); //DAC 实时播放
+    #endif
+    #+END_SRC
+* 20171127
+** DAB案子
+   切模式会串音，是因为自动解mute，ST程序不会一直发送mute导致。
+* 20171124
+** DAB
+   切模式串音问题，BT播放模式，切换一圈后进入FM/DAB，蓝牙播放音乐串音到FM/DAB
+** 汉普6902A车充
+
+* 20171123
+** DAB
+   dac_AmuxGain_en(1);放大linein声音一倍。
+   linein声音输入源幅度太小，可设置此项。只能固定放大一倍。
 * 20171122
 * 20171121
 ** 汉普车充

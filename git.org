@@ -106,5 +106,36 @@
    删除本地文件，还没有commit，就可以用checkout，从仓库中恢复本地文件。
 
 * 分支
+  HEAD指向的就是当前分支,master才是指向提交的分支。
+** $ git checkout -b branch1 
+   命令加上 –b 参数表示创建并切换到分支branch1。
+   等同于 _$ git branch branch1; git checkout branch1;_
+** $ git branch
+   查看分支，会列出所有的分支，当前分支前面会添加一个星号。
+** $ git merge branch1
+   用于合并指定分支到当前分支上。
+   先执行 _$ git checkout master_,再执行此命令，就会将branch1合并到master。
+** $ git branch –d branch1
+   删除分支branch1。
+** $ git merge branch1; 出现合并冲突
+   $ cat file_name;查看文件内容。
+   用<<<<<<< ，=======，>>>>>>>标记出不同分支的内容，
+   其中<<<< HEAD是指主分支修改的内容，>>>>>branch1 是指branch1上修改的内容
+   $ git log; 查看合并后的log，为2个分支的log合并。
+** 分支管理
+   通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息.
+*** $ git merge --no-ff -m "messages" branch1
+    $ git branch -d branch1,删除branch1后，会保留branch1分支的log，合并到master中。
+*** $ git log --graph --pretty=oneline --abbrev-commit
+    以树图显示log，包含分支log。
+
+** 分支策略
+   首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活。
+   干活一般情况下在新建的分支上干活，
+   干完后，或者说分支代码稳定后可以合并到主分支master上来。
+
+** 远程分支
+*** $ git remote -v
+    查看远程分支信息
 
 * 忽略文件.gitignore
