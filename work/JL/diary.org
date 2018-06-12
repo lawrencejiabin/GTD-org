@@ -9,6 +9,1506 @@
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
+
+* 20180611
+** 金华AI音箱
+   储存speex语音的spx文件，应该没有文件头的。
+   调用public static void setIsLog(boolean log);可以开启底层库的打印。
+** 其他方案的对耳
+   络达AB1526
+   风动WT200M/S
+   炬力ATS2829
+   都是class 1的功率。
+
+* 20180609
+** 起华6904D对耳问题
+   出差华强北测试69对耳的问题。
+   见邮件
+** 金华AI音箱
+   修改static u16 speex_encode_write_cbk(void *hdl, u8 *buf, u16 len);里的发送函数，
+   为自定义属性的发送函数。
+   打开void ladc_isr_callback(void *ladc_buf,u32 buf_flag,u32 buf_len);里的
+   speex_encode_ladc_isr_callback(ladc_buf, buf_flag, buf_len);函数执行，才会有发送语音。
+   APP端,new SpeechAiManager()，就会新建一个spx文件，用于储存speex的语音数据。
+   speex和通用的开源不一样，珠海修改过。
+   再调用mSpeexManager.decodeFile()解码成16kHz 16bits的PCM数据。
+
+* 20180608
+** 无线云图6904D出现机子开不了机
+   有4种情况。见邮件。
+** 金华AI音箱
+   将le_server_smart.c替换为le_server_module.c文件，写回调才能上抛。
+   le_server_smart.c只能用于杰理的AI的APP。要连接正常后，才能上抛数据。
+   le_server_module.c用于自定义gatt profile。
+
+* 20180606
+** 设置对耳播放声道
+   __set_soundtrack_compound(1);///主机播放左声道
+   __set_soundtrack_compound(2);///主机播放右声道
+
+** 博建6908C
+   目前测试VMCU换成226，才行。
+   VDDIO的电压，比VBAT的电压，上升比较慢。
+
+** 联巨兴6904D充电LDOIN漏电
+   以后强制LDOIN要加二极管，和对地2M的电阻。
+
+* 20180605
+** 博建6908C开不了机
+   停在uboot 1.0里出不来，插USB，弹出盘符，下载时，提示读不到flash。
+
+* 20180604
+** 芯运6902用MAC电脑拷贝会出现2个文件
+   一个是原文件，一个是AppleDouble，文件名后缀名都一样，但是是隐藏文件，无法播放
+   默认SDK，没有去掉隐藏文件，会显示出来，但是播放不了，会跳过。
+   extern void hidden_file(u8 flag);
+   hidden_file(1);///在进music_task设置一下就行。
+** 起华6904D改sbc码率
+   sbc码率改成27后，距离能达到水果那边的窗口。
+   要是54的时候，只能在老板的门口。
+
+* 20180601
+** JBL 串口协议
+   基本能用，写了一些基本的命令，后续需要测试再加新的命令。
+** 起华6904D对耳
+   信号差，就mute，测试可以，
+   加了出声音，慢慢变大的操作。
+
+* 20180531
+
+* 20180530
+** 科普豪6908C对耳
+   iPhone X手机，所有样机都卡。
+
+** JBL音箱自动化测试协议
+   目前切换测试模式正常。
+
+* 20180529
+** 新子K歌宝SD卡掉线
+   CMD脚的检测，可以直接放到key_drv_ad.c文件里，直接检测。
+   扫描函数里要开上拉才行。
+** 起华6904D对耳先回连从机再回连手机
+   铜霭发了2个库，做了版V2013版本的程序
+** 起华W302对耳固定左耳当主机
+   软件已改好，V2013版本的。
+
+* 20180528
+** 新子K歌宝播放SD卡卡音
+   由于SD的CMD脚和DATA脚复用做AD检测导致，想办法优化。
+** 起华6904D-W302固定左右耳
+   可以检测，功能还没做。
+** JBL音箱
+   开LDO模式，SW脚的电感要换成0R电阻。
+
+* 20180525
+** 测试692X普通IO推灯效果
+   PB口只有8mA，推屏不行。
+   PA口可以。
+** JBL程序兼容正常模式和测试模式
+   修改成变量，不用宏包含。
+** 6919的BLE的程序广播包参数
+   修改广播包参数，不起作用，一直是5ms以内。
+   69的SDK是可以的。
+** 起华6904D对耳
+   先回连从机再回连主机，铜霭发了2个库，测试OK。
+
+* 20180524
+** 起华6904D--R208对耳
+   通话效果，只能把增益调高，声音变清晰，但会引入环境噪音，
+   在嘈杂的环境下，无法使用。
+** 起华6904D改先回连从机再回连手机
+   铜霭发了个蓝牙库，测试还是不行。
+
+* 20180523
+** 源创杰46歌词加密无法点播MP3
+   通过目录项里的簇号，无法找到文件。
+   刘行发了补丁库dev_mg_lib.a，客户测试OK。
+** 起华6904D对耳
+   客户想改成先回连样机，再回连手机，测试不行
+   铜霭说，底层做了限制，不能这样操作，具体原因未说明。
+
+* 20180522
+** 芯运6902外挂flash播放
+   播报提示音有间隙。德科创的程序，就可以，但是是用提示音播放的。
+   
+** 华炬芯6901用IIC从机接收
+   主机iic是5V输出，要改成3.3V供电才行。
+   iic的打印要去掉，影响时序。
+
+* 20180521
+** 无线云图6904D
+   耳机通话，客户确认中。
+   充电问题，解决不了。
+** 源创杰4601点播MP3
+   通过簇号，播放不了。国炜处理
+** 芯运69玩具
+   无间隙播放，mp3文件剪切不干净。明秋说，怎能听效果。
+* 20180518
+** 出差三诺
+   处理JBL音箱的认证，仪器问题，立辉处理
+
+* 20180517
+** 6919-BLE用sniff模式
+   默认SDK会复位，要改成PWR_DCDC15模式。
+
+* 20180516
+** 出差无线云图6904D对耳
+   测试盒连接慢，要避免测试盒进入搜索设备状态，会导致测试盒连接慢。
+   板卡测试，只需要快速测试即可。
+
+* 20180515
+** 无线云图6904D对耳
+   5V充电唤不醒问题，不能在充满电之后，调用soft_poweroff()函数，有隐患。
+   串连问题，复现不了。
+
+* 20180514
+** 出差无线云图6904D对耳
+   5V充电唤不醒，是有问题，待会分析。
+   串连复现不了。
+
+* 20180511
+** 691X的开发板
+   PR0是短接到地的，flash口是PB0-PB4
+** 中翔达wav 32bits断电播放异常
+   从头播放正常，断点播放异常。
+** 692X按键音播放哒哒响
+   69的按键音，比较小声，比较难听出来。
+* 20180510
+** 威益德69系列spp发送
+   放在main线程，因为会pending住，会导致死机
+   放在优先级低的，就不会有事，但会卡住当前线程。
+   建议新建一个线程，专门用于发送spp数据。
+   底层是会pend，发送完之后再返回的。
+** 科普豪69推大屏的数码管
+   由于每一段都有2个灯，需要修改驱动。
+** 芯运69玩具SDK单曲无间断播放
+   伟文发了一个库，发给客户测试了。
+
+* 20180509
+** 威益德69获取收音立体声
+   printf("get_fm_stereo:%d\n",get_fm_stereo());
+** 微源功放
+   mute脚控制脉冲要大于60ms，才能正常。
+
+* 20180508
+** 小霸王6905A升级成图灵APP
+   用测试盒烧录认证码，显示AU超时，吴旭处理中
+   改用USB工具烧录
+** 艾玛威6901A点阵屏耳机
+   调试界面，基本OK。
+* 20180507
+** 威益德用恒大智通蓝牙测试盒
+   第一次连接，通话会出现卡5s左右，才有反应，海华分析中。
+   由于“AT+CMEE”指令，测试盒没有响应。
+** 威益德spp发送数据给APP
+   在main线程发送，由于main线程优先级较高，会卡死蓝牙线程。
+   在music模式下测试，不会卡死，会卡住一段时间，只能减少发送频率。
+   客户写的编码器，会累积一堆音量加减消息，等待执行，需要去掉这一部分。
+** 泰芯为69带BLE
+   特征同时带读写属性，句柄是一样，需要同时在read、write回调执行。
+** 艾玛威6901A带点阵屏
+   调试中，修改界面。
+* 20180505
+** 联巨兴6901A
+   点阵屏点不亮，配置IO口不对。
+** 联巨兴6904D对耳
+   快速插拔充电，会无法充电。
+   在关机的时候会有一段时间，关闭了充电唤醒，如果在这期间，产生上升沿，会导致电平丢失。
+** 艾玛威6901A带点阵屏耳机
+   屏点亮，板子硬件调通。界面待改。
+** 科普豪6901A收音底噪
+   用QN8035收音，用升压5V给HT1628芯片供电，会带来底噪滋滋声。
+   分析是因为升压5V供电不足，多并了一个芯片4004，但是客户测试还是不行。
+
+* 20180504
+** 宇恒69AI想兼容其他APP
+   之前有“火火兔讲故事”的APP，想做到69AI上面。
+** 69点播MP3
+   #+BEGIN_SRC C
+ 	 u32  music_play_by_path(MUSIC_OP_API *mapi)
+ 	 {
+		u32 err;
+	//    u8 *path;
+		const char path[]="/1*.mp3";
+		puts("1\n");
+	//    path="/音乐/";
+		mapi->fop_api->fop_init->filepath = (u8*)path;
+	//    printf("file path : %s  \n",path);
+	//    err = music_play_api(mapi,DEV_SEL_CUR,0,PLAY_FILE_BYPATH,&(mapi->dop_api->file_num));
+		err = music_play_api(mapi,DEV_SEL_SPEC,0,PLAY_FILE_BYPATH,&(mapi->dop_api->file_num));
+		return err;
+   }
+   #+END_SRC
+** 科普豪6901-8035收音底噪
+   4004的升压IC，推灯的亮度，电池的电源位置，都有点影响。
+
+* 20180503
+** 秦齐发射器死机
+   发射器切模式进idle，再回到发射模式，会死机。
+   让客户改用SDK的流程，不要自己自定义流程。
+
+* 20180502
+** 天罡微69系列vivo X6A无法连接pin code
+   用p4测试过，也会，其他vivo没有问题。
+   不设置pin code就能连接。
+宇恒69系列普通SDK回连导致BLE异常
+   之前AI的SDK，回连样机当主机，手机当从机，会影响BLE的发送。
+   普通的SDK，也会有这样的问题。
+** 源创杰69019B-BLE烧录不了C版晶圆
+   替换otp_ver.bin，修改日期为20171201，就可以烧录。
+   原先A版晶圆为20170701
+** 诚谦LC6904C低电LVD复位
+   客户用纽扣电池供电，没有加升压iC，后续生产可能会有问
+   
+* 20180428
+** 源创杰6919B烧录不了
+   升级烧写器到2.11.1版本
+   BLE的SDK不支持C版晶圆的问题。
+
+** 692X异步唤醒问题
+   异步唤醒底层库都为空函数，没有执行。
+   
+* 20180427
+** 博益友6905B K歌宝
+   推RGB灯，会有底噪声。
+   客户板子没分地，mic的电路距离主控太远。
+   改板处理。
+
+* 20180426
+** 博建6901A生产不良
+   VMCU有4V供电，但是其他电压都没有。
+   正常情况下，VMCU有供电，那RTCVDD电压就一定要有输出。
+   问题是批次不良，换主控。
+** 德科创6904D待机功耗高
+   耳机要连上手机，手机不播歌，隔一段时间才会进入power_down模式。
+   功耗为1mA-1.5mA之间。
+   DAC输出频响不好，失真度高，无解。
+   
+* 20180425
+** BLE标志
+   indicate比notify多了一个应用层的GATT_MSG_EVENT通知。
+   Notification快，因为indication要等回复才能发下一个包。
+   indicate本来就是耗时的，担心耗时就用notify。
+** 起华FF208调音质
+   调试一个低音版本给客户。
+** 巴达木692X非PR口唤醒
+   SDK有对应函数，但是和690X一模一样，钧仟先对数据手册。
+** 诚谦LC6904C
+   生产一百个，有一个会LVD复位，
+   客户不会焊板子，要过来，让他五一之后再来。
+
+* 20180424
+** 不同手机BLE发包数据间隔
+   安卓最低7.5ms，苹果是20ms。
+** 也杨翁工linein录音
+   69系列在linein单声道模式下，录音成双声道，会出现左右声道不对称。
+   测试没有发现。
+** 6919-BLE的SDK
+   OTP只剩余6-7K空间。
+** 69系列浮点运算
+   不支持，只有52支持。
+** 天罡微69-p3开启pin code
+   用vivo X6A手机连接不上，目前找不到该手机。
+
+* 20180423
+** BLE不同手机的速率
+   Android 4.3 设备： < 2KB/s
+   Android 4.4 设备: 4-5KB/s
+   Android 5、 6、 7 设备: 5-8KB/s（ 部分手机可超过 20kB/s）
+   IOS 8.3 设备: 3-4KB/S
+   IOS 10、 11 设备:6-8KB/s
+
+* 20180421
+** 博建6901开不了机
+   LDOIN有电池供电3.8V，但是其他电压都没有。
+   RTCVDD电压一定要有，晶振才能起振。
+
+* 20180420
+** 69系列消息池
+   void key_msg_sender(char *name, u32 msg);中
+   os_taskq_count(name, &cnt);获取的是消息池的剩余空间
+
+* 20180419
+** 69系列修改pin code
+   #+BEGIN_SRC C
+    extern void bt_pin_code_spec_deal_handle_register(void (*handle)(char *pin_code));
+    void set_bd_pincode(char *pincode)
+    {
+        char tmp[] = "1279";
+        printf("len:%d\n",sizeof(tmp));
+        memcpy(pincode,tmp,sizeof(tmp));
+        printf("pincode:%s\n",pincode);
+    }
+   #+END_SRC
+** 起华6904D对耳充电
+   设置了80分钟充满，但是电池如果电量太低，80分钟充不到4.3V。
+   会导致一直在耗电，关不了机。
+** 起华6908C--FF108
+   使用p4的SDK，没有测试通话效果。
+** 针对对某个按键做长按时间处理
+   #+BEGIN_SRC C
+    void key2msg_filter(u8 key_status, u8 back_last_key);中添加
+    {
+        ///长按3s关机。///
+        static u8 key_delay = 0;
+//        printf("key_status:%d...back_last_key:%d\n",key_status,back_last_key);
+        if(((KEY_LONG == key_status)||(KEY_HOLD == key_status))&&(0 == back_last_key))
+        {
+            if(0xFF != key_delay){
+                if( key_delay > 11){
+                    key_delay = 0xFF;
+                    key_status = KEY_LONG;
+                    back_last_key = 0;
+                }else{
+                    key_delay++;
+                    return;
+                }
+            }else {return ;}
+        }else{
+            key_delay = 0;
+        }
+    }
+   #+END_SRC
+
+* 20180418
+** 宇恒69AI回连APP出现兼容性问题
+   APP主动连接对箱，手机EDR做主机
+   样机重启回连APP，样机EDR做主机
+   解决办法，要将回连后，将样机主机调整为从机，才不会影响到BLE。
+** 针对对延时时序控制严格
+   在临界区内，不要出现调用函数，尽量在临界区外，获取索引，
+   转换成指针形式，才能控制好时序不会跳动。
+** Android打印byte[]
+   #+BEGIN_SRC java
+    public static void printHexString(String hint, byte[] b)
+    {
+        Log.d(TAG, hint);
+        for (int i = 0; i < b.length; i++)
+        {
+            String hex = Integer.toHexString(b[i] & 0xFF);
+            if (hex.length() == 1)
+            {
+                hex = '0' + hex;
+            }
+            Log.d(TAG, hex.toUpperCase() + " ");
+        }
+    }
+   #+END_SRC
+* 20180417
+** 69系列PB3引脚
+   开机就输出高，没有上拉。
+   maskrom程序写死，无法修改。
+
+* 20180416
+** 玩具SDK挂载外置Flash
+   spifat1_ctrl_open(1, 1);///第一个参数设置成1，每次进PC，会格式化Flash的文件系统。
+   生产一定要改成0.
+** 出差中翔达-科迈通处理对耳
+   客户用音魅电子的测试盒，有一个测试盒连不上，要机子连接手机之后才能连接。
+   高频声，要装壳之后，就会有，小概率性出现。
+   带触摸的机子，灵敏度不是很好。
+* 20180413
+** 69APP通信机制
+   设置发送数据的心跳包mJLBluetoothRcsp.setDeviceInquireTimeInterval(500);单位ms。
+   小机这边无法发送数据给手机，必须有手机发送命令，样机再回应数据给手机。
+   小机发送流程：
+   1.rcsp_report_status(x)
+   2.u8 rcsp_event_cbk_send_process(int send_allow_flag)
+   3.自定义填充数据函数，post_....(),参考Post_Radio_StartInfo_to_rcsp()
+** 宇恒69AI要做常连接状态低功耗
+   不支持。要等智能耳机SDK。
+
+* 20180412
+** 汉普功能
+   固件没有连接手机的时候，发起siri,通过HFP发送一段语音“打开酷走车机”，
+   由系统识别，并打开软件，连接样机。
+
+* 20180411
+** 69系列连接BLE获取MAC地址
+   在连接成功有buffer反馈，16字节。
+	 前面2byte是handle，接着1byte的role，1byte的addr_type，然后就是6byte的peer_addr。
+   手机蓝牙MAC地址可以改的，EDR和BLE的地址是不一样的。
+* 20180410
+** 宇恒69AI
+   V100版本，部分安卓手机APP重连后，固件发送数据后，APP没有回调。
+   卓成分析，语音数据没有产生回调，具体原因分析中。
+** 汇杰芯69对箱
+   主机100ms发送消息给从机，在连接从机后，发这些消息会导致底层同步丢失。
+   后面客户删除提示音后，又会出现这个问题。
+   铜霭反馈，是有这样的问题，无法修改。
+   让客户自己修改应用层的流程。
+
+* 20180409
+** 芯运69玩具SDK
+   外挂flash，要CS定义好，接上IO，初始化识别要用到
+** 实捷BT15、BT65D
+   修改频点881-1079。
+** 宇恒69AI
+   AI_SoundBox_v100修改过IOS重连重启的bug后的软件,
+   在OPPO_A79的机型上装客户端软件,在手机不操作时,
+   板子开机重连后出现对话无法识别的bug。
+ 
+* 20180408
+** 老树开花6901A
+   RGB用定时器去推，调不好，播歌之后，会有问题。
+   改用延时推灯，目前半秒推1次9盏灯，测试正常，播歌也不会卡。
+
+** 汇杰芯69对箱
+   主机以100ms发送消息给从机。在从机关机后，主机会有延时断开，导致消息池累积消息，
+   下次连接有导致消息同步问题。
+   如果以500ms发送就不会有事。
+** 嘉兴科美69对箱
+   对箱连接不上，频偏有很大影响。
+   其他程序问题，修改软件问题。
+** 光交锁
+   日新新发的uboot.bin，测试正常，可以升级。
+
+* 20180404
+** 汇杰芯69对箱
+   从机关机后，主机发送数据，会卡死在底层，导致下次连接后，同步有问题。
+** 嘉兴科美69对箱
+   下载程序之后，很难连接对箱。
+    #define    TWS_SLAVE_WAIT_CON         0
+
+* 20180403
+** 光交锁Uboot工程
+   日新发的库，测试还是不行，错误码为-12，后面又发了一个新的，还没测试。
+** 老树开花XR871-H2案子
+   基本功能都OK，剩下灯还没推，灯的效果未定义。
+** 汉普6904D耳机
+   开启回声消除，通话会突然间没声音。
+   进不了低功耗，珠海还没整。
+
+* 20180402
+** 起华6908C单耳调试
+   E23采用6908C，调试功能，基本正常。
+   E25有一个机子不行，通话很模糊，一个机子通话正常。
+* 20180330
+** 宇恒69AI-V100
+   V100-SDK和V200-SDK不通用，V100在重启连接APP，打开发送speex语音，会导致重启。
+   初步判断，是库有个断言导致重启。
+   吴旭知道，在改库。
+** 69AI的SDK
+   V100用于客户自己有资源，自己开发APP。
+   V200专用于连接老树服务器。
+** 起华69对耳
+   修改提示音。
+* 20180329
+** 起华R208对耳音质调试
+   样机原本没低音，声音太散。
+   喇叭厂，更换喇叭，喇叭前后密封(音量变大，低音变重)，前面加防尘网，人声变清晰，不失真。
+   目前播放告白气球，时不时会有很小的噗声。
+* 20180328
+** 起华69对耳
+   修改双击上一曲，三击下一曲，关机提示音，双击上一曲和搜索设备同时起作用。
+** 光交锁安卓手机usb升级
+   需要在uboot 2.0加2个命令。
+** 威益德6905C
+   电话本获取sim卡的联系人，会发2次，一个是名字和号码，一个是序号和名字。
+   目前建议客户判断号码是否为数字，进行过滤。
+   开机默认进蓝牙，关闭蓝牙可发现可连接，会导致蓝牙栈卡死。
+
+* 20180327
+** 出差国华
+   broadcom20738 ble低功耗
+   EDR支持4M包
+   ble有分真ble，和假ble
+   假ble为软件协议层模拟。
+** 光交锁6905D
+   测试USB升级apk，荣耀6X点击下载没有反应。
+   测试发现在maskrom的uboot1.0是可以，在Uboot2.0不行。
+** 69系列擦除flash
+   -format 0-1024
+* 20180326
+** 起华69对耳进入低功耗哒哒声
+   进入低功耗模式，DAC和VCOMO会随DCDC产生1秒2次电平跳动噪声。
+   跳动大概80mV电压。
+   解决办法：
+   #+BEGIN_SRC C
+		case MSG_DAC_ON:
+			puts("main_dac_on\n");
+			set_pwrmd(PWR_DCDC15);
+			dac_on_control();
+			break;
+		case MSG_DAC_OFF:
+			puts("main_dac_off\n");
+			dac_off_control();
+			set_pwrmd(PWR_LDO15);
+			break;
+   #+END_SRC
+** 汉普6904D耳机带ble
+   功能正常，开不了power_down状态。
+* 20180323
+** 中翔达69发射器录音
+   SDK的录音流程是缺失的，参照p4添加，有部分函数，连接不到。
+   替换库，又会导致其他函数，没定义。
+   目前有文件，有声音，但都是杂音。p_ladc_rec变量获取不到。
+** 光交锁6905D连测试盒死机
+   是因为晶振原因，频偏太大就会。
+** 起华对耳V2013通话调试
+   远端近端，都有哒哒声。
+** 69AI的V200APK
+   V200.apk安装到手机刷新不出资源。
+* 20180322
+** 中翔达发射器录音
+   没空看。
+** 光交锁6905修板子
+   测试盒，畅玩6X，华为Novo，连接不上，其他手机可以。
+   测试盒连接会导致重启。
+   没有pcb，无法查看。
+** 起华6904D对耳
+   通话时，就算不说话，也会哒哒声。
+   用V2012-p2版本，就不会。
+   通话参数，2个版本是一样，不同的是dac的中断改动，处理延时加的。
+
+* 20180321
+** 华炬芯6904D耳机改用数字音量
+   改用数字音量，会有底噪声。使用数字音量，模拟音量默认最高，导致的。
+   可以降低模拟音量的最大等级，要降到21级才可以，但是这时整体音量会变低。
+** 杰飞达69系列spp协议
+   客户测试发现，p4版本，如果按照公版，关闭1拖2，就会导致，手机拿远之后，再回来，就搜索不到蓝牙。
+   打开1拖2，就正常。
+**  汉普X8-6901A
+   U盘接口，兼容有充电功能。
+   屏幕接反，180度反向。
+   晶振频偏大，晶振太远，蓝牙天线太长，绕了屏幕。
+   发射底噪大，杂音、电流声太强。
+
+* 20180320
+**  天浪
+   工程交流。
+** 光交锁tea加密库
+   测试新的加密库，正常。
+** 杰飞达69用spp
+   客户用spp和APP通信，走远回来后，会导致蓝牙搜索不到。
+   测试p4版本，正常。
+** 鑫闻达调节按键音大小
+   #+BEGIN_SRC C
+    void key_voice_init(void)
+    {
+        memset(&key_voice,0,sizeof(_key_voice));
+        key_voice.vol = 2000;
+    }
+   #+END_SRC
+* 20180319
+** 美师傅6919B死机问题
+   buf没有溢出检查，会死机。
+** 光交锁tea加密库
+   存在类型转换，会死机。
+* 20180316
+** 起华6904D中控耳机
+   带3个按键。
+** 69系列
+   	芯片序号标签  printf("chip index =%x \n",get_chip_index());  开发板打印chip index =7
+	  芯片ID         printf("CHIP_ID =%x \n",JL_SYSTEM->CHIP_ID);   开发板打印CHIP_ID =5300
+    内核电压      SFR(JL_SYSTEM->LDO_CON, 15, 3, 0b101);     // 3.3 -> 1.2 DVDD set to 1.0v
+                   110(0.9V)/101(1.0V)/011(1.2V)/010(1.3V)/001(1.4V)
+** 起华6904D耳机测试蓝牙距离
+   DVDD、BTAVDD、VDDIO电压改动，对蓝牙距离影响不大，差不了一步的距离。
+** 6919耳机SDK
+   开关DACVDD，调用LDO1_EN(0/1);
+* 20180315
+** 69临界区操作
+   临界区代码，如果cache命中不了，会从flash中读取，会导致执行时间不一样。
+   #+BEGIN_SRC C
+     //接下来的函数代码存放段测试。
+     //不要内联
+    void open_critical(u8 cfg) __attribute__((section(".ramx_code"))) __attribute__((noinline));
+    void open_critical(u8 cfg)
+    {
+    //    puts("open_critical\n");
+        CPU_SR_ALLOC();
+        OS_ENTER_CRITICAL();
+        JL_PORTB->DIR &= ~BIT(0);
+        JL_PORTB->OUT |=  BIT(0);
+
+        u8 i = 50;
+        while(i--){
+            __asm__ volatile ("nop");
+            __asm__ volatile ("nop");
+            __asm__ volatile ("nop");
+            __asm__ volatile ("nop");
+            __asm__ volatile ("nop");
+        }
+        JL_PORTB->DIR &= ~BIT(0);
+        JL_PORTB->OUT &= ~BIT(0);
+
+        OS_EXIT_CRITICAL();
+    }
+   #+END_SRC
+** 汉普6904D耳机
+   调试OK，距离可以。
+** 汉普6901煲机异常
+   未测试到。
+* 20180314
+** 小树开花RGB灯环
+   RGB灯WS2812B，单线控制协议。纳秒级精度。
+   http://blog.csdn.net/tangxing1212/article/details/42964417
+   http://blog.csdn.net/zoomdy/article/details/54730618
+   http://blog.csdn.net/darren2015zdc/article/details/52262197
+** 69系列一拖2不支持ble
+   天师说，固件开1拖2，不支持ble。
+   测试发现，开机进入蓝牙后，蓝牙栈就卡死了。
+   耳机SDK，不支持ble，没有包含对应的C文件。
+** 69系列蓝牙获取手机的ID3信息
+   在V2012-P3版本测试，可以获取到，但是兼容性问题无法保证。
+** 69蓝牙对讲机
+   只支持A2DP协议，单向发送，不支持同时的双工。
+** 宙心WiFi-9601
+   耳机座子和linein座子，接法是，其他一个音频接1K下拉，没插入检测脚跟他短路为低。
+   插入之后，开路，检测脚上拉，检测为高。
+** 6919-ble使用USB当串口
+   搬耳机版的程序，测试OK。
+   #+BEGIN_SRC C
+	 #ifdef UART_USBP_USBM
+		JL_USB->CON0 = 0;
+		JL_USB->CON1 = 0;
+		JL_USB->IO_CON0 = 0;
+		JL_USB->CON0 |= BIT(0) ;
+		JL_USB->IO_CON0 |= BIT(11) ; //USB_IO_MODE
+
+		JL_IOMAP->CON1 |= BIT(3) | BIT(2);
+		JL_USB->CON0 = BIT(0) ;
+		JL_USB->IO_CON0 = (BIT(11) | BIT(10) | BIT(9)); //USB_IO_MODE	//DMDIE	//DPDIE
+		JL_USB->IO_CON0 |= BIT(0); //TX DP
+		JL_USB->IO_CON0 |= BIT(3);//RX DM
+		JL_USB->IO_CON0 &= ~BIT(2);//tx dp
+
+		JL_USB->IO_CON0 &= ~BIT(5);//DM下拉
+		JL_USB->IO_CON0 &= ~BIT(7);//DM上拉
+	//    JL_USB->IO_CON0 |=  BIT(4);//DM下拉
+	//    JL_USB->IO_CON0 |=  BIT(6);//DM上拉
+   #endif/*UART_USBP_USBM*/
+   #+END_SRC
+* 20180313
+** 源创杰6919B测试盒升级不了蓝牙名
+   蓝牙名测试盒升级不了，是因为程序写死了。
+   #define ADV_NAME_EN         1            //广播包是否填充名字信息
+   宏置1后，才会使用配置文件。
+** 汉普6904D耳机
+   进入power_init()函数出不来，BTAVDD电压5V，VDDIO电压为0.7V。
+   查不出其他原因，板子废了。
+* 20180312
+** 华炬芯6904D挂脖式耳机
+   开关机，播提示音切dac通道，有噗噗声。
+   将VCOM换成104电容，软件上用加大dac上电时间，dac_power_on_time()。
+   蓝牙通道使用数字通道，在执行dac_channel_off(BT_CHANNEL, FADE_ON);会有杂音。
+   可以通过dac_mute处理掉。
+   但是有一些杂音，播提示音，概率性出现。
+** 宙心WIFI-6901
+   RGB灯，是共阳，板子是共阴
+   linein和耳机，检测拉低不了。
+** 伦茨6919A隔推会有噗噗声
+   6919默认用直推，使用了dac开关dac_toggle(1)，所以在dac关，就有噗声
+   可以改成dac_mute();
+   DACVDD控制高mute功放，关机会噗声，加电容处理掉，过滤脉冲。
+* 20180309
+** 源创杰6919B蓝牙名升级不了
+   铜霭发的测试盒程序，客户测试会出现conerr。
+   铜霭说是，升级相同的蓝牙名，就会出现这样。
+   客户星期一拿样机给我测试。
+** 中翔达6908C单耳通话调试
+   机内有腔体，会有震荡回声。通话声音小，不清晰。
+   改通话效果就可以。
+** 芯运69--IIS调EQ
+   程序有问题，重新初始化eq导致，
+   开启软件EQ，会死机。
+** 美师傅6919B-ble使用UART2的PA3打印不了
+   AD-key默认使用PA3，需要注释掉，开启IO-key即可。
+** 宙心WiFi
+   IIS的格式改为通道数：2，通道位宽：16，采样频率：44.1
+   设置为每帧32bits。
+* 20180308
+** 宙心WiFi
+   添加WiFi模式播放iis。
+   添加串口协议。
+** 彩荣测试盒替换sbc语音
+   转成wav文件Windows PCM，格式32K， 16bits， 单声道。
+* 20180307
+** 益丰6904C烧录不了&&IIC从机
+   晶振封装搞错，接地了。
+   刘行，发资料，测试一下。
+** 美师傅6919B串口通信
+   串口接收要用hex显示，发送要以ASCII格式发送。
+** 起华科技69对耳
+   升级SDK到p4版本，待测试。
+* 20180306
+** 宙心MTK-WIFI和BT
+   板子修好，串口和IIS，待调试。
+   DAC单声道，耳机却双声道。
+   2个RGB灯，没法推，无法输出6个PWM。
+** 起华科技死机
+   6904有概率性在power_init死机
+   要更新到V2012-p4版本才行
+   优化程序，一直打印，方便以后生成问题跟踪。
+* 20180305
+** 6919-ble
+   做了一个ble蓝牙模块的例子。
+** 源创杰6919B升级蓝牙名
+   测试盒要升级到AC690x_1T2 测试盒 V1.0.7 版本，才能使用6919的。
+** 汉普6905A电池电压检测异常
+   电池4V，但是LDOIN的电压检测是8V。
+   因为电量检测的宏，没有打开。
+** 起华科技开不了机
+   跟民宗确认，开机的时候，power_init会初始化所有电源，导致电源都存在。
+   DCDC电源SW脚，和BTAVDD电源短路在一起。
+
+* 20180302
+** 飞灵特Novolink蓝牙模块
+   支持ble模块开发，UART通信。
+* 20180301
+** 瑞知光交锁
+   ADC的检测，放在电磁铁之后，电磁铁电阻30R左右，会耗光5V的压降。
+   关锁状态，电压3.0V，开锁状态，电压0V。
+   USB和蓝牙的开关锁，功能正常。
+** 汉普6905A
+   LDOIN测量出来的电压，是8V，误差太大。具体原因未知。
+
+
+* 20180228
+** 诚谦LC6904A
+   socket板子，USB的限流电阻，2.4R变成100R，导致供流不足，会不停复位。
+   有一颗芯片，初始化电源之后，就跑不下去。
+* 20180227
+** 4110直播声卡
+   影志说，寄回给振荣搞。
+* 20180226
+** 光交锁
+   USB的通信，熟悉USB的协议流程
+** 4110直播声卡
+   linein通道和LADC的采样通道，对应不上。
+   钧仟帮忙看看。
+* 20180224
+** 光交锁
+   蓝牙的通信，可以，待发给客户测试。
+* 20180223
+** 4110直播声卡
+   开会讨论，在music模式下，耦合linein和mic的采样，再输出。
+** 光交锁
+   调试客户协议程序流程。
+* 20180222
+** 4110直播声卡
+   调试led，按键功能。
+
+
+
+* 20180208
+** 起华69对耳
+   改用PR1，上升沿唤醒，测试正常，双击OK。
+** 直播声卡4110
+   用玩具的SDK，能开机正常工作。
+
+* 20180207
+** 起华69对耳触摸
+   触摸电压高，接近电池，要3.9V，会导通bangding的二极管，造成20uA的耗电。
+   PR2不支持默认下拉到地，uboot下升级不了。
+
+* 20180206
+** 总结问题点
+*** ble切模式死机
+    死机问题，是切换的链表释放问题，与ble无关。
+    FAT16，也能测试出来，ble连接之后切模式，也能测试出来。
+*** ble回调死机问题
+    ble回调函数，不能处理延时操作，会导致蓝牙栈卡死。
+*** ble发送notify数据
+    需要由其他线程调用，不能由回调函数调用。
+*** 充电问题
+    充电充不满问题。
+*** power_down引起乱中断
+    6919B--ble power down，会改动引脚，引起乱中断现象。
+
+* 20180205
+** 博建69对耳iPhone X通话
+   通话隔个头，对线放后裤袋，就会卡。
+
+* 20180202
+** 源创杰6919B
+   烧录不了，是因为用release版本的fw文件，大小为66K。
+   烧录器无法烧录flash。
+   旧的样片，bangding有问题，180度反向了。
+** 源创杰6905C
+   EDR、ble的蓝牙名和MAC地址一样，有问题。
+   广播包的flags设置，
+   flags为0x06正常，但是赖工手机搜不到。
+   flags为0x0A不正常，安卓手机都无法连接ble。
+
+* 20180201
+** 蓝牙游戏手柄
+   一定要进入安卓模式，才可以用。
+** 光交锁
+   spp和ble定时收发数据。
+** 诚谦69车机
+   空间不够，会导致能下载，但是跑的不正常。
+** 6919-ble
+   图标显示，显示成HID，是因为广播包的字段填充导致。
+   //    0x03, 0x03, 0x12, 0x18,
+   1812是HID的UUID.
+* 20180131
+** 光交锁
+   插着下载器，隔一会会复位重启，是因为PR2接1K电阻到地。
+** 源创杰6919B
+   蓝牙MAC地址，有otp工具生成的cfg文件。debug版本复制release版本的文件。
+   选择随机地址后，由烧录器自动改写cfg文件。
+** 伦茨69对耳
+   修改功能，固定右耳为主机，参考灼坤程序编写。
+* 20180130
+** 6919--串口通信
+   频繁的中断，是因为sleep模式导致，进入sleep后引脚状态被改。
+   每次接收中断，会有2个中断，一个是接收，一个是超时。
+   JL_UART1->CON0 |= BIT(10);///超时中断
+   要么设置超时计数，JL_UART1->OTCNT = 0xffffffff;
+** AI-69SDK添加自定义命令
+   命令定义参考 CBW_CMD_SPEEX_WAIT_OK， 范围在 0xA0 以上没有被使用的值， 
+   并要求接收 到 app 的 命 令 不 要 在 bt_smart_rcsp_command_recieve 中 直 接 处 理 ， 
+   通 过 发 送 消 息 中 转 到bt_smart_msg_deal 中处理。
+   安卓APP修改 mJLBluetoothRcsp.sendCommandToDevice(new byte[]{(byte) 0xa5}, null);
+** AI-69添加传统蓝牙判断手机系统
+   extern void feedback_manufacturer_handle_register(void (*handle)(char *msg,u8 len));
+   void manufacturer_handle(char *msg , u8 len )
+   {
+       puts(msg);
+       putchar('\n');
+   }
+   在static void bredr_handle_register() 中调用feedback_manufacturer_handle_register(manufacturer_handle);
+** 中翔达46在U盘播放下开混响，拔出U盘后混响停止不了
+   err = os_sem_pend(echo_sem,0) ;///0改成1，作为超时释放信号量。
+   待考量是否正常。是否有隐患。
+** 光交锁PCB
+   使用Allegro，以 brd 文件结尾
+
+* 20180129
+** DAB案子
+   开机噗声。加默认上拉mute，延时1.5s开机。
+** 6919--串口通信
+   PB0-PB1是SPI flash的通信脚。
+   UART1，频繁的中断，掺杂很多异常数据。
+
+* 20180126
+** DAB案子
+   改板，加mOS管mute声音。
+** 源创杰6919-ble
+   串口通信未整。
+** 汉普6902A播提示音
+   播提示音会死机。
+   函数music_prompt_play()和music_play_api()有冲突，嵌套执行会死机。
+** 小树开花WiFi音箱
+   低电关机，加入开机计时后，才执行。
+
+* 20180125
+** 起华科技69对耳通话音量同步
+   华为荣耀6x，打电话不会同步，按音量才会同步，如果最大音，音量+，不会同步。
+   华为Nova，如果上次电话音量为0，会同步一个音量0，导致样机音量设为0，再次调节音量，无法再加大声音。
+   游总iPhone 7，手机配对连接，就会回调通话音量同步，此时不是通话状态，导致误改了音乐的音量。
+   赖工iPhone 6，手机配对，每次打电话不会音量同步，断开回连，每次打电话就会音量同步。
+** 小树开花WiFi音箱
+   添加WiFi模式休眠
+   关机会有pop声，怀疑断电瞬间，mute不受控，功放放电导致。
+* 20180124
+** 起华科技69对耳
+   iPhone 7 连接蓝牙就会回调一次call_vol_change()，导致系统音量被改变。
+** 小树开花WiFi音箱
+   处理反馈问题
+** 实捷
+   S33B修改手动播放。
+   BT58修改通话下一分钟关闭发射问题。
+** 光交锁
+   安卓手机枚举USB
+* 20180123
+** 小树开花WiFi音箱
+   蓝牙、music、linein下功放mute功放。
+
+* 20180122
+** 起华科技69对耳
+   通话的时候，调音量没声音。
+   设置音量的时候，不能用FADE_ON，突变设置会没声音。
+   开始打电话，要判断VM通话音量，是否为0，会导致没声音。
+** 汉普6901A车充
+   蓝牙收不到，查不出啥原因。屏幕显示不正常，还没搞定。
+** 小树开花wifi音箱
+   uart协议增加PAmute控制，供WiFi主控使用，能mute掉开始的爆破音。
+   音频播完的掉电，无法mute，需要改板。
+
+* 20180119
+** 小树开花WiFi
+   增加WiFi模式，增加协议WiFi状态。
+** 汉普6901A车充
+   支持邓工调试。
+* 20180118
+** 起华科技对耳
+   充电板拔出USB，充电电压会有掉电现象，掉电到4.0V一下，会导致误判充电线拔出。
+** ble描述符
+   不会生成0x2901
+   CHARACTERISTIC_USER_DESCRIPTION, READ,
+** ble的notify配置
+   notify不能和write_without_response一起配置，会导致notify配置handle时，没有回调产生。
+** 小树开花WiFi和蓝牙
+   利用“我要长大机器人”公众号，连接WiFi音箱
+   还差WiFi——up脚，不让输出串口TX波形。
+   创建linein任务。
+** 合成语音
+   百度语音在线合成
+   http://tsn.baidu.com/text2audio?tex=wifi%E6%A8%A1%E5%BC%8F&lan=zh&cuid=f6532074500827f24995f36699b11abc&ctp=1&tok=25.d440799ee39656414071490090cce5ae.315360000.1817018727.282335-9279783
+   http://tsn.baidu.com/text2audio?tex=wifi模式&lan=zh&cuid=f6532074500827f24995f36699b11abc&ctp=1&tok=25.d440799ee39656414071490090cce5ae.315360000.1817018727.282335-9279783
+   替换tex=的文本即可
+   
+* 20180117
+** 起华科技69对耳
+   拔出USB，直充变成升压，会导致LDOIN电压掉电到4.0V以下，软件判断为拔出充电线。
+   软件需要做过滤操作。
+   检测到掉电后，调低电流档为0档。
+   延时检测5V拔出，1秒多，再关机，会导致，开机时间变长。
+* 20180116
+** 起华科技充电充不满
+   电池在3.9V-4.0V之间，电压不会有波动，判断阈值0x7400L
+   电池在4.08V-4.10V之间，电压不会有波动，增大判满时间。
+** 汉普6902A
+   支持邓工调试。
+
+* 20180115
+** 起华科技外置充电
+   充电IC的charge点灯脚，一接主控脚，就会拉低。
+   在2ms中断，不能调用太多PR口的函数，会导致延时过长，超过2ms。
+** 彩荣反馈69发射器连接1拖2耳机有哒哒声
+   验证发射器105的SDK，连接1拖2的公版程序，播放1KHz的音频，很容易听到哒哒声。
+** 汉普6902A
+   支持邓工调试。
+* 20180112
+** 发射器连不上炬力对耳
+   连接认证失败。
+** 起华科技
+   出烧录程序版本。
+** 鑫闻达洗刷刷
+* 20180111
+** 出差充电IC公司
+   调试对耳充电和充电板的检测。
+   充满之后，降低VBAT的电压档。为0档。
+* 20180110
+** 天博智4602
+   代码区末尾有部分被修改，怀疑是VM操作错误，误修改了。
+* 20180109
+** wifi加69bt案子开发
+** 源创杰修改ble
+   帮客户修改ble协议，未改。
+** 天博智4602样机开不了机
+   之前分析过，无法弹出uboot，烧录器可以重新烧写。
+** 起华通信
+   69对耳调试，我的手机荣耀6X，通话距离特别短，手机有问题。
+   系统频率跑160M，通话数字增益放大，加大mic的声音。
+*** 切记不可用新的编译器编译，通话效果有差异
+** 天地宏蓝牙能量灯
+   闪频太快，get_dac_energy_value()函数只能获取瞬间能量值，需要自己做过滤取平均值。
+   否则会造成切换颜色太快。
+** 汉普69车充样机
+   借客户一个升级工具。
+** 源创杰朗琴开EQ功能
+   协助卓添
+* 20180108
+** 串口通信
+   460800波特率，在蓝牙下播歌，会丢数据。
+   受蓝牙中断影响，导致中断被阻塞。
+   9600波特率就不会出现丢数据。
+** 中断优先级
+   board.c里的irq_index_2_prio_tab数组，定义了优先级0-3。
+   3为最高。
+   但是底层可能有关中断的操作，导致中断的丢失。
+** 起华69对耳
+   在太多人和设备的环境下，从机会卡。
+   在空旷的地方，通话不行。         
+* 20180105
+** 对箱闪灯方式
+   #+BEGIN_SRC C
+	void stereo_led_deal()
+	{
+	//    printf("get_total_connect_dev:%d\n",get_total_connect_dev());
+	#if BT_TWS
+	   if(BT_CURRENT_CONN_PHONE==get_bt_current_conn_type())//当前只有手机连接上，对箱没有连接
+	   {
+		   puts("BT_CURRENT_CONN_PHONE\n");
+			if(BT_MUSIC_STATUS_STARTING == a2dp_get_status()){
+				puts("BT_MUSIC\n");
+				led_fre_set(0xFF,0);
+			}
+			else if(BT_STATUS_TAKEING_PHONE == get_bt_connect_status()){
+				puts("bt_phone\n");
+				led_fre_set(0,0);  ///常亮
+			}
+			else{
+				 puts("bt_other\n");
+				led_fre_set(30,1);
+			}
+	   }
+	   else if((BT_CURRENT_CONN_STEREO_MASTER==get_bt_current_conn_type()))//||(BT_CURRENT_CONN_STEREO_SALVE==get_bt_current_conn_type()))
+	   {  //当主机，只在没有连接手机进
+		   puts("BT_CURRENT_CONN_STEREO_MASTER\n");
+
+	//      puts("master\n");
+			led_fre_set(30,1);
+	   }
+	   else if(BT_CURRENT_CONN_STEREO_SALVE==get_bt_current_conn_type())//当从机，任何状态都进
+	   {
+		   puts("BT_CURRENT_CONN_STEREO_SALVE\n");
+			if(BT_MUSIC_STATUS_STARTING == a2dp_get_status()){
+				puts("BT_MUSIC\n");
+				led_fre_set(0xFF,0);
+			}
+			else if(BT_STATUS_TAKEING_PHONE == get_bt_connect_status()){
+				puts("bt_phone\n");
+				led_fre_set(0,0);
+			}
+			else{
+				 puts("bt_other\n");
+				led_fre_set(60,0);
+			}
+	   }
+	   else if(BT_CURRENT_CONN_STEREO_MASTER_PHONE==get_bt_current_conn_type())//当主机，先连对箱，再连手机
+	   {
+		   puts("BT_CURRENT_CONN_STEREO_MASTER_PHONE\n");
+			if(BT_MUSIC_STATUS_STARTING == a2dp_get_status()){
+				puts("BT_MUSIC\n");
+				led_fre_set(0xFF,0);
+			}
+			else if(BT_STATUS_TAKEING_PHONE == get_bt_connect_status()){
+				puts("bt_phone\n");
+				led_fre_set(0,0);
+			}
+			else{
+				 puts("bt_other\n");
+				led_fre_set(60,0);
+			}
+	   }
+	   else if(BT_CURRENT_CONN_STEREO_PHONE_MASTER==get_bt_current_conn_type())//先连手机，在连对箱，当主机
+	   {
+		   puts("BT_CURRENT_CONN_STEREO_PHONE_MASTER\n");
+			if(BT_MUSIC_STATUS_STARTING == a2dp_get_status()){
+				puts("BT_MUSIC\n");
+				led_fre_set(0xFF,0);
+			}
+			else if(BT_STATUS_TAKEING_PHONE == get_bt_connect_status()){
+				puts("bt_phone\n");
+				led_fre_set(0,0);
+			}
+			else{
+				 puts("bt_other\n");
+				led_fre_set(60,0);
+			}
+	   }
+	   else
+	   {
+		   puts("BT_CURRENT_CONN_else\n");///手机，对箱都没有连接
+		   led_fre_set(7,1);
+	   }
+	#endif
+	}
+   #+END_SRC
+** 汉普6902车充
+   协助邓工修改程序。
+** 威益德69串口丢数据
+   采用波特率460800做通信接口，接收数据会丢失。
+   是否支持全双工，待验证。
+** 起华科技
+   蓝牙功率改为9。
+** 联巨兴
+   RGB和白灯，要用一个电机的PWM。
+** 降低系统时钟
+   20M可以，低于20M就不行。
+* 20180104
+** 美师傅69K歌宝喊话有嘶声
+   通过改mic的模拟增益，微调数字增益。
+** 变声变调
+   pitch_coff(128);//原声模式
+   pitch_coff(64);//男声
+   pitch_coff(160);//女声
+   pitch_coff(200);//童声
+   pitch_coff(90);//变音
+** 起华科技对耳
+   关机红灯亮，替换振荣的cpu_lib_ac690x.a改善通话效果。
+** 天罡微spp测试
+   一次接收448字节可以，bt_spp_send_data()发送也可以。
+** 博益友iPod搜索不到HID设备
+   #+BEGIN_SRC C
+	 __change_hci_class_type(BD_CLASS_WEARABLE_HEADSET);/*改变蓝牙设备类型，可以改变连接成功显示图标*/
+	 extern void __change_hid_class_type(u32 class);
+	 __change_hid_class_type(BD_CLASS_WEARABLE_HEADSET);
+   extern void __bt_set_hid_independent_flag(u8 flag);
+   __bt_set_hid_independent_flag(0);
+   #+END_SRC
+
+* 20180103
+** 汉普6905B乐放音箱
+   修改蓝牙设备图标
+** 起华科技对耳
+   修改对耳的闪灯方式
+** iPod无法搜索到HID设备
+   电量图标也无法显示
+* 20180102
+** IIS文档
+   已发出
+** 汉普6902A车充底噪
+   对比样机360车充，采用的是QN8007发射，底噪会小很多，发射功率弱很多。
+** 起华科技69对耳
+   客户采用络达的芯片，声音有渐变的过程。
+   播歌的时候，灯原本会闪亮，改为灭灯。
+* 20171229
+** SPP蓝牙串口数据量
+   SPP返回数据量，最多一次性500字节。
+** 起华通信对耳
+   单键触摸IC，TTP233D，TTP233D-HA6，直接高低电平控制。
+** 艾玛威69调EQ
+   #+BEGIN_SRC C
+	///软件EQ模式
+	void eq_mode_change(int mode)
+	{
+		tbool ret;
+		switch(mode)
+		{
+			case 0:
+				///标准
+				///puts("eq_0\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE,sizeof(eq_dbg_online_t));
+				break;
+			case 1:
+				///摇滚
+				///puts("eq_1\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_ROCK,sizeof(eq_dbg_online_t));
+				break;
+			case 2:
+				///puts("eq_2\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_COUNTRY,sizeof(eq_dbg_online_t));
+				break;
+			case 3:
+				///puts("eq_3\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_POP,sizeof(eq_dbg_online_t));
+				break;
+			case 4:
+				///puts("eq_4\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_CLASSIC,sizeof(eq_dbg_online_t));
+				break;
+			case 5:
+				///爵士
+				///puts("eq_5\n");
+				///eq_set_eq_bypass_flag(0);
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_JAZZ,sizeof(eq_dbg_online_t));
+				break;
+			case 6:
+				///重低音
+				///puts("eq_6\n");
+				ret = read_cfg_file((u8*)eq_dbg_online,(u8 *)EQ_CFG_FILE_LOW,sizeof(eq_dbg_online_t));
+				///eq_set_eq_bypass_flag(0);
+				break;
+		}
+		///printf("EQ_Read_ret:%d\n",ret);
+		///printf("EQ config file,eq_type:%d\n",eq_dbg_online->eq_type);
+		eq_config_api( eq_dbg_online->eq_filt_0 ,
+					   eq_dbg_online->eq_filt_1 ,
+					   eq_dbg_online->eq_filt_2 ,
+					   eq_dbg_online->eq_filt_3 ,
+					   eq_dbg_online->eq_filt_4 ,
+					   eq_dbg_online->eq_filt_5 ,
+					   eq_dbg_online->eq_filt_6 ,
+					   eq_dbg_online->eq_filt_7 ,
+					   eq_dbg_online->eq_filt_8 ,
+					   (int (*)[10])eq_dbg_online->eq_freq_gain ,
+					   eq_dbg_online->eq_gain ,
+					   !USE_SOFTWARE_EQ);
+		soft_eq_set_segment_num(eq_dbg_online->eq_cnt);
+		eq_mode_sw(eq_dbg_online->eq_type );
+	}
+   #+END_SRC
+** 众芯达69设置成数字音量
+   音量设置成0时，底层貌似会调用dac_mute(1,1);
+** 科普豪69的IIS
+   音乐模式播放歌曲，音量调大，声音会断断续续。
+** 博润威69播提示音滋滋声
+   由于dac的隔直电容太大，导致上电时间长，从而影响dac校准。
+   通过延长dac上电时间，可以解决这个问题。
+   //dac_vcm_rsel_set(0);
+   这个函数影响dac上点速度，0为上电慢，1为上电快。默认为快速上电。
+   #+BEGIN_SRC C
+	void dac_power_on_time(u8 mode) 
+	{ 
+		if(mode == 2) { 
+			puts("dac_off_delay\n"); 
+			os_time_dly(15); 
+			//delay(0xAFFF*70);//120ms 
+		} 
+		else if(mode == 1) { 
+			puts("dac_power_on quickly\n"); 
+			//delay(0xAFFF*70);//120ms 
+			os_time_dly(40); //这个值跟进实际调整，经测试目前这个值应该比较合适
+		} 
+		else { 
+			/*如果打开了dac_vcm_rsel_set(0);则需要延长这里的时间，增加250ms即可*/
+			puts("dac_power_on slowly\n"); 
+			//delay(0xAFFF*300);//600ms 
+			os_time_dly(70); 
+		} 
+	}   
+   #+END_SRC
+* 20171228
+** 瑞荣达BLE培训
+   APP端BLE升级，不行。
+   蓝牙自组网，不行。
+   蓝牙地址滚式递增地址，待确认。
+** 汉普乐放音箱
+   增加通话功能。
+** 众芯达69扩音器
+   开ladc，做检测，mic的自动mute，背景音自动调低。
+
+* 20171227
+** 科普豪鑫和乐4602插linein死机
+   测试不出来，打静电，打地线都死机。
+   46死机有3种现象：
+   1.不能复位
+   2.一直不断复位
+   3.复位后正常开机，但是电池电压会被拉到3.3V以下，芯片发烫。
+
+* 20171226
+** 博润威6905A做耳机
+   在播放提示音的时候，会有滋滋声。
+   VCOM用106,就有杂音出现了,换用105,部分芯片有,换用104,会好点。
+* 20171225
+** 串口代码
+   #+BEGIN_SRC C
+    __uart_handle *user_uart_handle;
+    #define USER_UART        uart2_handle
+    #define USER_UART_PORT   UART_TXPA3_RXPA4
+    #define USER_UART_NAME   UART2_HARDWARE_NAME
+    #define USER_UART_BAUD   115200
+    static void user_uart_isr_callback(u8 uto_buf, void *p ,u8 isr_flag)
+    {
+        putchar('S');
+        if(UART_ISR_TYPE_DATA_COME == isr_flag)
+        {
+            put_u8hex(uto_buf);
+        }
+    }
+    void user_uart_init(void)
+    {
+        u32 status = 0;
+        puts("-----user_uart_init\n");
+        user_uart_handle=NULL;
+        status=uart_module_open(&USER_UART,USER_UART_NAME);
+        if(!status)
+        {
+           __uart_param uart_param;
+           memset(&uart_param,0,sizeof(__uart_param));
+           uart_param.baud_rate=USER_UART_BAUD;
+           uart_param.io=  USER_UART_PORT;
+           uart_param.workmode=UART_WORKMODE_NORMAL;
+           uart_param.custom |= (BIT(14)|BIT(3));
+           status=uart_module_init(&USER_UART,&uart_param);
+           uart_reg_isr_callback_fun(&USER_UART,5,user_uart_isr_callback);
+           if(status)
+           {
+               puts("uart_module_init err\n");
+           }
+           if(!status)
+           {
+               status=uart_module_start(&USER_UART);
+               if(!status)
+                   user_uart_handle=&USER_UART;
+           }
+        }
+    }
+    void user_uart_write(char a)
+    {
+        if(user_uart_handle)
+        {
+            user_uart_handle->putbyte(user_uart_handle,a);
+        }
+        else
+        {
+            puts("user_uart_write err\n");
+        }
+    }
+    void user_uart_write_repeat(u8 *data,u8 len)
+    {
+        u8 tmp;
+        if((len == 0)||(data == NULL)) return;
+        for(tmp = 0;tmp < len; tmp++)
+        {
+            user_uart_write(*(data+tmp));
+        }
+    }
+   #+END_SRC
+   接收串口中，调用打印串口，打印数据时，2组串口的波特率不能一样，
+   会导致误以为接收数据丢失。
+   打印串口的波特率，要大于接收串口的波特率才行，差距越大越好。
+
+** DAB案子 
+   串口接收没有判断数组越界，存在死机风险。
+
+* 20171222
+** 源创杰扩音器开关mic
+   void microphone_open(u8 mic_gain,u8 mic_gx2);
+   void microphone_close(void);
+** 实捷BT66-8027
+   改用linein音量21级。
+** 威益德客户处理问题
+   USB串口中断，软件要选择成ASCII发送。
+   通话关闭mic声音，通过清空ladc的buff。
+
+* 20171221
+** 爱瑞声6905A卡掉线死机
+   卡掉线，是layout拉线太长，导致波形不稳定，卡座CLK脚加10K上拉。
+   卡上下曲死机，替换志彬cpu_lib_ac690x.a库，解决切模式链表没有清干净。
+** 实捷BT66
+   替换蓝牙库，空间超了，修改图片资源文件。
+   替换VM补丁库，蓝牙会死机，未替换，用回原先的。
+   linein失真杂音，未处理，25级。
+   #+BEGIN_SRC C
+   降音量做法。
+            case MSG_SET_LOW36V_MAXVOICE:
+                puts("MSG_SET_LOW36V_MAXVOICE\n");
+                set_max_analog_vol(MAX_SYS_VOL_L-2,MAX_SYS_VOL_R-2);
+                printf("maxl=%0d\n",dac_var.max_analog_vol_l);
+                set_sys_vol(dac_var.cur_sys_vol_l, dac_var.cur_sys_vol_r, FADE_OFF);
+                break;
+            case MSG_SET_HIGH36V_MAXVOICE:
+                puts("MSG_SET_HIGH36V_MAXVOICE\n");
+                set_max_analog_vol(MAX_SYS_VOL_L,MAX_SYS_VOL_R);
+                printf("maxl=%0d\n",dac_var.max_analog_vol_l);
+                set_sys_vol(dac_var.cur_sys_vol_l, dac_var.cur_sys_vol_r, FADE_OFF);
+                break;
+   #+END_SRC
+** 汉普6905A样机
+   功能修改，培训客户邓工，客户要用新板。
+** 鑫闻达69闹钟不醒
+   闹钟设置后，不唤醒，复位后才行。
+* 20171220
+** 爱瑞声6905A插卡死机
+   卡为FAT16，格式化之后就可以。
+   卡掉线，波形不正常，待查。
+** 科普豪U盘挂载失败
+   69下正常，46下等待30s后，挂载失败，查不出打印。寄给钧仟。
+* 20171219
+** 汉普6902A音箱
+   测试功能正常，寄给客户了。
+** 实捷BT66-8027添加RDS个Siri
+   参考灼坤程序，修改，数据为小端。
+   替换蓝牙库，可以用。
+** 科普豪4602耳机插拔linein死机
+   静电原因，软件无法处理。
+* 20171218
+** 实捷BT66-8027添加RDS和siri
+   添加好了，等机子测试，还要加Siri界面。
+* 20171215
+** 汉普6905A音箱
+   出了一个版本给客户测试。
+** 华炬芯6905D插充电线唤醒不了
+   #+BEGIN_SRC C
+   void set_poweroff_wakeup_io()
+   {
+	     u8 wakeup_io_en = 0;
+	     u8 wakeup_edge = 0;
+       wakeup_io_en |=  WAKE_UP_PR2;
+       wakeup_edge |= EDGE_PR2;     //failling edge
+	     soft_poweroff_wakeup_io(wakeup_io_en , wakeup_edge);      
+	     charge_mode_detect_ctl(1);///此句会影响到睡眠后，插充电线，唤醒不了
+   }
+   #+END_SRC
+* 20171214
+** 汉普6905A音箱
+   调试一半
+** FCC测试
+   V2012-p3版本，BLE测试，频点会偏移2M。替换志彬的库，测试OK。
+   公版的FCC，发射功率会小于-6dB，不符合标准，用起华的下载包，能达到接近0dB。
+** 汉普乐放音箱
+   include_lib文件夹，头文件被改了。
+   修改程序，添加BLE特征，用作授权认证。
+
+* 20171213
+** 汉普6905A音箱
+   鑫凌波--博建--开发。
+** 嘉兴格优6901对箱
+   第一次开机，配对不上从机。
+   改成一定进入配对状态，不能发起回连命令，会导致搜索不到设备。
+** 汉普语音识别BLE唤醒APP
+   添加语音识别。
+** 汉普6905音箱
+   添加UUID属性。
+* 20171212
+** 鑫闻达洗涮涮
+   调试摇动灵敏度，
+   牙刷摆放，没有固定位置，无法确定固定坐标系。
+** 巴达木PC麦
+   1.音量值16位，要调整大小端位置，发下来是0x15cf,上传改为mic_vol = 0xcf15;
+   2.对局部变量取值，VM的函数，取值一定要是全局变量。
+
+* 20171211
+** 尚凌69对箱音质问题
+   量DAC输出频响，幅值dB，会有变化。
+
+* 20171208
+** 尚凌69对箱
+   做全功能蓝牙对箱音箱，第一次连接对箱播歌正常，切模式回连后，音质就会变。
+   原本充实变得散了。
+** 源创杰ble地址获取错误
+   原因是蓝牙配置工具，ble的地址分配配成了random，
+   应该用public，这时ble的地址参考EDR地址，才能用程序获取并打印出来。
+* 20171207
+** 测试盒更新音频文件
+   测试盒更新音频文件,wav,32K,16bits,单声道。
+** 调节数字音量
+   #+BEGIN_SRC C
+   #define BT_CHANNEL         DAC_DIGITAL_DVOL///DAC_DIGITAL_AVOL
+    void custom_digital_vol_tab(u8 flags)
+    {
+        u8 i = 0;
+        if(flags == 1){
+            for( i = 0; i <= DIGITAL_VOL_MAX_L; i++){
+                digital_vol_tab_dynamic[i] = digital_vol_tab[i];
+            }
+    //        memcpy(digital_vol_tab_dynamic, digital_vol_tab, DIGITAL_VOL_MAX_L+1);
+        }else{
+            for( i = 0; i <= DIGITAL_VOL_MAX_L; i++){
+                digital_vol_tab_dynamic[i] = digital_vol_tab[i] * 3;
+                ///最大4倍，用5倍时，31级的值会溢出，变为0///
+            }
+    //        digital_vol_tab_dynamic[30] = 46384;
+        }
+        for( i = 0; i <= DIGITAL_VOL_MAX_L; i++ ){
+            printf("digital_vol_tab_dynamic[%d]:  ",i);
+            put_u16hex(digital_vol_tab_dynamic[i]);
+            puts("\n");
+        }
+    }
+//    reg_digital_vol_tab((void *)digital_vol_tab);
+    reg_digital_vol_tab((void *)digital_vol_tab_dynamic);
+   #+END_SRC
+* 20171206
+** 汉普6902A
+   如果定义函数和底层库函数重名，会导致覆盖库里的函数，调用成应用层的函数。
+   crc16();底层就有一个。
+** 测试盒没有NFC功能
+   硬件环境有留，软件没有做。
+** APP
+   V2.0之后，安卓APP走的是BLE通道，之前走的是SPP通道。
+** 海科通话
+   蓝牙通话的声音，在30级的时候，还是偏小。
+   改用数字音量表
+* 20171205
+** 威益德获取电话本
+   使能pin code之后，配对连接获取不到，回连可以。
+   铜霭，改了一个库。
+* 20171204
+  请假
+* 20171201
+** 汉普6902
+   修板3块
+* 20171130
+** 汉普6902A车充
+   发射芯片没焊好。
+** DAB
+   蓝牙发射，切换同一个通道，会有POP声，需要添加延时，清空LADC数据。
+* 20171129
+** 汉普6902A车充
+   添加BLE电话功能，17字节校验码存储功能
 * 20171128
 ** wifi--iis输入
    #+BEGIN_SRC C
@@ -21,7 +1521,7 @@
     #else
         extern int soft_eq_run(u8 *buf, u32 len);
         soft_eq_run((u8 *)buf_addr0, DAC_BUF_LEN);
-		cbuf_write_dac((short*)buf_addr0, DAC_BUF_LEN); //DAC 实时播放
+		    cbuf_write_dac((short*)buf_addr0, DAC_BUF_LEN); //DAC 实时播放
     #endif
     #+END_SRC
 * 20171127
@@ -311,6 +1811,8 @@
    ARGUN协议，没有按照蓝牙标准，发送enable notify给从机，导致我们底层notify通道没有打开。
    而客户用telink主控，支持这样的操作。
 *** descriptors
+    CHARACTERISTIC_USER_DESCRIPTION, READ,
+
     CHARACTERISTIC_USER_DESCRIPTION     -->0x2901
     CLIENT_CHARACTERISTIC_CONFIGURATION -->0x2902
     SERVER_CHARACTERISTIC_CONFIGURATION -->0x2903

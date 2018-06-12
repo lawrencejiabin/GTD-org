@@ -9,3 +9,46 @@
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
+** theme
+   core-dotspacemacs.el
+  (defvar dotspacemacs-themes '(spacemacs-dark
+                                tango-dark
+                                spacemacs-light)
+   `SPC T n' to cycle to the next theme in the list.
+
+** highlight
+  Shift+8  highligt minibuffer
+  (global-set-key [(control f3)] 'highlight-symbol)
+  (global-set-key [f3]           'highlight-symbol-next)
+  (global-set-key [f4]           'highlight-symbol-prev)
+  
+** gtags
+  (define-key evil-normal-state-map "ff" 'helm-gtags-find-files)
+  (define-key evil-normal-state-map "ft" 'helm-gtags-find-tag-other-window)
+  (define-key evil-normal-state-map "fp" 'helm-gtags-find-pattern)
+  (define-key evil-normal-state-map "fm" 'helm-semantic-or-imenu)
+
+** list-matching-lines
+(defun list-matching-lines2 ()
+  "Show lines in the current buffer matching current word or text selection.
+  This command is the similar to `list-matching-lines'.
+  The differences are:
+  • The input of this command is the current word.
+  • If there is a text selection, that is used as input.
+  • The input is plain text, not regex."
+  (interactive)
+  (let (meat pos1 pos2 bds)
+    (if (and transient-mark-mode
+             mark-active)
+        (setq pos1 (region-beginning) pos2 (region-end))
+      (progn
+        (setq bds (bounds-of-thing-at-point 'symbol))
+        (setq pos1 (car bds) pos2 (cdr bds))))
+    (setq meat (buffer-substring-no-properties pos1 pos2))
+    (list-matching-lines (regexp-quote meat))
+    )
+) 
+
+
+
+

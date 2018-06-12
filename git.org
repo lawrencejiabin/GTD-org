@@ -133,9 +133,52 @@
    首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活。
    干活一般情况下在新建的分支上干活，
    干完后，或者说分支代码稳定后可以合并到主分支master上来。
+   master分支是主分支，因此要时刻与远程同步。
+   一些修复bug分支不需要推送到远程去，可以先合并到主分支上，然后把主分支master推送到远程去 .
 
 ** 远程分支
 *** $ git remote -v
     查看远程分支信息
+    远程库的默认名称是origin
+*** $ git push <远程主机名> <本地分支名>:<远程分支名>
+    $ git push origin DAB06:DAB06;将本地分支推送到远程分支上。
+*** $ git branch -vv   
+    查看当前的本地分支与远程分支的关联关系.
+
+** 抓取分支
+*** $ git checkout –b dev origin/dev
+    创建远程的origin的dev分支到本地来。
+    就可以在本地dev分支上做开发了，开发完成后把dev分支推送到远程库时。
+*** $ git branch --set-upstream dev origin/dev
+    $ git branch --set-upstream-to=origin/dev
+    $ git branch -vv
+    指定本地dev分支与远程origin/dev分支的链接
+*** $ git pull
+    抓取远程分支，到本地分支上。
+    冲突的地方，会合并到本地文件中，需要我们手动编辑文件。
+*** $ git push origin dev
+    解决冲突后，推送到远程分支dev上。
+
+** 隐藏工作现场
+   比如在开发中接到一个404 bug时候，我们可以创建一个404分支来修复它。
+   但是，当前的dev分支上的工作还没有提交，并不是我不想提交，而是工作进行到一半时候，我们还无法提交。
+   Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来”，等以后恢复现场后继续工作。
+*** $ git stash
+    将当前分支的工作现场隐藏起来，就不需要commit，也能保存起来。
+    $ git status;查看当前分支时，就会变成是干净的。
+*** $ git checkout master;git checkout -b issue-404
+    首先我们要确定在那个分支上修复bug，比如我现在是在主分支master上来修复的，现在我要在master分支上创建一个临时分支。
+    即可在临时分支上修改,修改后提交即可。
+    $ git checkout master;git merge --no-ff -m "merge bug fix 404" issue-404;git branch -d issue-404;
+    合并到主分支之后，就可以删除这个临时分支了。
+    $ git checkout dev;回到当初隐藏工作现场的分支上。
+*** $ git stash list 
+    查看隐藏工作现场列表。
+*** $ git stash apply
+    恢复后，stash内容并不删除。你需要使用命令git stash drop来删除。
+*** $ git stash drop
+    删除stash list内容。
+*** $ git stash pop
+    恢复的同时把stash内容也删除了。
 
 * 忽略文件.gitignore
