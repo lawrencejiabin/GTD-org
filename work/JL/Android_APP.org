@@ -1,0 +1,323 @@
+#+TITLE:       JL Android App Framework
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+
+* 蓝牙伴侣
+├── app
+│   ├── app.iml
+│   ├── build
+│   ├── build.gradle
+│   ├── libs
+**     libs 
+│   │     ├── armeabi
+│   │     │   └── libImageBlur.so
+│   │     ├── armeabi-v7a
+│   │     │   └── libImageBlur.so
+│   │     ├── jl_audio-V2.1.7.aar
+***         jl_audio
+│   │     │   └── com
+│   │     │       └── jieli
+│   │     │           └── audio
+│   │     │               ├── base
+│   │     │               │   ├── JL_Assets.java
+│   │     │               │   ├── JL_Crypto.java
+│   │     │               │   ├── JL_DataSetting.java
+│   │     │               │   ├── JL_Dir.java
+│   │     │               │   ├── JL_Error.java
+│   │     │               │   ├── JL_File.java
+│   │     │               │   ├── JL_Font.java
+│   │     │               │   ├── JL_Handler.java
+│   │     │               │   ├── JL_MessageBox.java
+│   │     │               │   ├── JL_RunnablePackage.java
+│   │     │               │   ├── JL_Time.java
+│   │     │               │   └── JL_Window.java
+│   │     │               ├── BuildConfig.java
+│   │     │               ├── media_player
+│   │     │               │   ├── ActionBroadcastReceiver.java
+│   │     │               │   ├── JL_MediaPlayer.java
+│   │     │               │   ├── JL_MediaPlayerCallback.java
+│   │     │               │   ├── JL_MediaPlayerService.java
+│   │     │               │   └── JL_MediaServiceConnection.java
+│   │     │               ├── midi_decode
+│   │     │               │   └── JL_MidiDecode.java
+│   │     │               └── syd_format
+│   │     │                   └── JL_SydFormat.java
+***         jl_audio-end
+│   │     └── jl_bluetooth-V2.1.7.aar
+***         jl_bluetooth
+│   │         └── com
+│   │             └── jieli
+│   │                 └── bluetooth
+│   │                     ├── BuildConfig.java
+│   │                     ├── CHexConver.java
+│   │                     ├── JL_Bluetooth.java
+│   │                     ├── JL_BluetoothAdapter.java
+│   │                     ├── JL_BluetoothBase.java
+│   │                     ├── JL_BluetoothBleConnect.java
+│   │                     ├── JL_BluetoothBreProfiles.java
+│   │                     ├── JL_BluetoothCallback.java
+│   │                     ├── JL_BluetoothDiscovery.java
+│   │                     ├── JL_BluetoothError.java
+│   │                     ├── JL_BluetoothPair.java
+│   │                     ├── JL_BluetoothService.java
+│   │                     ├── JL_BluetoothSpp.java
+│   │                     └── rcsp
+│   │                         ├── DeviceStateInfos.java
+│   │                         ├── JL_BluetoothRcsp.java
+│   │                         ├── JL_BluetoothRcspBase.java
+│   │                         ├── JL_BluetoothRcspCallback.java
+│   │                         ├── JL_BluetoothRcspCommand.java
+│   │                         ├── JL_BluetoothRcspCommunication.java
+│   │                         ├── JL_BluetoothRcspConnection.java
+│   │                         ├── JL_BluetoothRcspDeviceMusic.java
+│   │                         ├── JL_BluetoothRcspError.java
+│   │                         ├── JL_BluetoothRcspLight.java
+│   │                         ├── JL_BluetoothRcspLightSceneData.java
+│   │                         ├── JL_BluetoothRcspLightSceneValue.java
+│   │                         ├── JL_BluetoothRcspLineIn.java
+│   │                         ├── JL_BluetoothRcspPhoneMusic.java
+│   │                         ├── JL_BluetoothRcspRadio.java
+│   │                         ├── JL_BluetoothRcspRespond.java
+│   │                         ├── JL_BluetoothRcspService.java
+│   │                         └── JL_BluetoothRcspUsbDisk.java
+***         jl_bluetooth-end
+**     libs-end
+│   ├── proguard-rules.pro
+│   └── src
+**     src
+│        ├── androidTest
+│        │   └── java
+│        ├── main
+│        │   ├── AndroidManifest.xml
+│        │   ├── java
+│        │   │   └── com
+│        │   │      └── jieli
+│        │   │          └── bluetooth
+│        │   │              └── box
+***                          box
+│        │   │                 ├── adapter
+│        │   │                 │   ├── JL_BtDeviceListAdapter.java
+│        │   │                 │   ├── JL_EQStyleAdapter.java
+│        │   │                 │   ├── JL_FileExplorerAdapter.java
+│        │   │                 │   ├── JL_LightSceneGridViewAdapter.java
+│        │   │                 │   ├── JL_ModeListAdapter.java
+│        │   │                 │   └── JL_PhoneMusicAdapter.java
+│        │   │                 ├── application
+│        │   │                 │   └── JL_Application.java
+│        │   │                 ├── Dbug.java
+│        │   │                 ├── fragment
+│        │   │                 │   ├── JL_BTBoxModeFragment.java
+│        │   │                 │   ├── JL_BtDeviceListFragment.java
+│        │   │                 │   ├── JL_DeviceMusicFragment.java
+│        │   │                 │   ├── JL_LightControlFragment.java
+│        │   │                 │   ├── JL_LightFragment.java
+│        │   │                 │   ├── JL_LightSceneFragment.java
+│        │   │                 │   ├── JL_LineInFragment.java
+│        │   │                 │   ├── JL_PhoneMusicFragment.java
+│        │   │                 │   ├── JL_RadioFragment.java
+│        │   │                 │   └── JL_UsbDiskFragment.java
+│        │   │                 ├── framework
+│        │   │                 │   ├── JL_ColorPickerView.java
+│        │   │                 │   ├── JL_FastBlur.java
+│        │   │                 │   ├── JL_FloatWindowSmallView.java
+│        │   │                 │   ├── JL_FormatHelper.java
+│        │   │                 │   ├── JL_ImageBlur.java
+│        │   │                 │   ├── JL_MessageBox.java
+│        │   │                 │   ├── JL_MusicLoader.java
+│        │   │                 │   ├── JL_SlidingTabLayout.java
+│        │   │                 │   ├── JL_SlidingTabStrip.java
+│        │   │                 │   ├── JL_SmallWindowManager.java
+│        │   │                 │   └── JL_TimeTransform.java
+│        │   │                 ├── JL_BluetoothBoxActivity.java
+│        │   │                 ├── JL_DeviceMusicDetailActivity.java
+│        │   │                 ├── JL_EqualizerActivity.java
+│        │   │                 ├── JL_LightControlActivity.java
+│        │   │                 ├── JL_PhoneMusicDetailActivity.java
+│        │   │                 ├── MainActivity.java
+│        │   │                 ├── popwindow
+│        │   │                 │   ├── JL_DeviceMusicPopWindow.java
+│        │   │                 │   ├── JL_LineInPopWindow.java
+│        │   │                 │   ├── JL_PhoneMusicPopWindow.java
+│        │   │                 │   ├── JL_PopWindow.java
+│        │   │                 │   ├── JL_RadioPopWindow.java
+│        │   │                 │   └── JL_UDiskPopWindow.java
+│        │   │                 ├── service
+│        │   │                 │   ├── ActionBroadcastReceiver.java
+│        │   │                 │   ├── JL_MusicPlayer.java
+│        │   │                 │   ├── JL_MusicPlayService.java
+│        │   │                 │   └── JL_MusicServiceConnection.java
+│        │   │                 ├── WelcomeActivity.java
+│        │   │                 └── widgets
+│        │   │                     ├── JL_CircleImageView.java
+│        │   │                     ├── JL_CustomSeekBar.java
+│        │   │                     ├── JL_MarqueeTextView.java
+│        │   │                     ├── JL_RefreshListView.java
+│        │   │                     ├── JL_RefreshListViewFooter.java
+│        │   │                     ├── JL_RefreshListViewHeader.java
+│        │   │                     ├── JL_ScrollRadioView.java
+│        │   │                     ├── JL_SwipeListView.java
+│        │   │                     ├── JL_VerticalSeekBar.java
+│        │   │                     └── Topbar.java
+***                          box-end
+│        │   │                 
+│        │   └── res
+│        │       ├── anim
+│        │       ├── drawable
+│        │       ├── drawable-xhdpi
+│        │       ├── layout
+│        │       ├── mipmap-hdpi
+│        │       ├── mipmap-mdpi
+│        │       ├── mipmap-xhdpi
+│        │       ├── mipmap-xxhdpi
+│        │       ├── mipmap-xxxhdpi
+│        │       ├── values
+│        │       ├── values-w820dp
+│        │       └── values-zh
+│        └── test
+│            └── java
+│
+**     src-end
+├── BTMate_2.1.7.iml
+├── BTMate_2.1.iml
+├── build
+│   └── android-profile
+├── build.gradle
+├── gradle
+│   └── wrapper
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── local.properties
+└── settings.gradle
+
+* AIMate 2.0
+app/src/main/java/
+└── com
+    └── jieli
+        └── smartbox
+            ├── audio
+            │   ├── AudioConfig.java
+            │   ├── AudioManager.java
+            │   ├── AudioPlayer.java
+            │   └── PcmToWavUtil.java
+            ├── bean
+            │   ├── ItemBean.java
+            │   ├── SpeechRecord.java
+            │   └── SpeechTask.java
+            ├── BluetoothApplication.java
+            ├── contracts
+            │   └── MusicContract.java
+            ├── MainApplication.java
+            ├── presenters
+            ├── SpeechAiHandler.java
+            ├── task
+            │   ├── CheckAudioSource.java
+            │   ├── CustomInputStream.java
+            │   ├── InFileStream.java
+            │   ├── PlayAudio.java
+            │   ├── PlayAudioListener.java
+            │   ├── RecordAndVad.java
+            │   ├── RequestMusicMsgList.java
+            │   └── SpeexHandler.java
+            ├── ui
+            │   ├── adapter
+            │   │   ├── AlbumCoverCreator.java
+            │   │   ├── AlbumCoverHolder.java
+            │   │   ├── AlbumListAdapter.java
+            │   │   ├── AlbumPageAdapter.java
+            │   │   ├── DeviceListAdapter.java
+            │   │   ├── MineAdapter.java
+            │   │   ├── MsgTrackAdapter.java
+            │   │   ├── MusicAdapter.java
+            │   │   ├── RecommendAlbumAdapter.java
+            │   │   ├── RecommendRadioAdapter.java
+            │   │   ├── ScheduleAdapter.java
+            │   │   ├── ScrollListAdapter.java
+            │   │   ├── SkillAdapter.java
+            │   │   └── SpeechRecordAdapter.java
+            │   ├── base
+            │   │   ├── BaseActivity.java
+            │   │   └── BaseFragment.java
+            │   ├── DeviceConnectActivity.java
+            │   ├── dialog
+            │   │   └── RadioAnimView.java
+            │   ├── entertainment
+            │   │   ├── DiscoveryFragment.java
+            │   │   ├── MineFragment.java
+            │   │   ├── music
+            │   │   │   ├── AlbumFragment.java
+            │   │   │   ├── AlbumListFragment.java
+            │   │   │   ├── LocalMusicFragment.java
+            │   │   │   └── MusicDetailFragment.java
+            │   │   ├── MusicFragment.java
+            │   │   └── radio
+            │   │       └── ScheduleFragment.java
+            │   ├── GenericActivity.java
+            │   ├── MainActivity.java
+            │   ├── settings
+            │   │   └── AboutFragment.java
+            │   ├── skills
+            │   │   ├── SkillsFragment.java
+            │   │   └── SkillSubFragment.java
+            │   ├── speech
+            │   │   └── SpeechFragment.java
+            │   ├── WelcomeActivity.java
+            │   └── widget
+            │       ├── CommonDecoration.java
+            │       ├── FastBlur.java
+            │       ├── HorizontalListView.java
+            │       ├── JL_CircleImageView.java
+            │       ├── MusicSeekBar.java
+            │       ├── NoScrollGridView.java
+            │       ├── RecordImageButton.java
+            │       └── SpacesItemDecoration.java
+            └── util
+                ├── Actions.java
+                ├── AppUtil.java
+                ├── Constant.java
+                ├── DeviceCommand.java
+                ├── NetWorkUtil.java
+                ├── RecordUtil.java
+                ├── TaskQueue.java
+                └── TfResUtil.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

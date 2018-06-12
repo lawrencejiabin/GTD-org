@@ -1,0 +1,181 @@
+#+TITLE:       USB protocol
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+
+* USB
+
+* CRC5-USB
+** 69 82 18
+   IN packet: 0110 1001 1000 0010 0001 1000
+   PID:0110 1001
+   Addr:000 0010
+   Ep: 0001
+   CRC:00011
+   实际CRC：00011 -> 11100 -> 00111
+   校验数据：Addr+Ep：000 1000 0010 == 00 82（只能计算11bits）
+** 2D 02 A8
+   SETUP:0010 1101 0000 0010 1010 1000
+   PID:0010 1101
+   Addr:000 0010
+   Ep:0000
+   CRC:10101 -> 01010 -> 01010
+
+* HID Report Descriptors
+** 06 FF 00 
+   Usage Page  0000 01nn | 2(后面2个字节)
+   FF00-FFFF Vendor-defined
+   定义设备功能
+*** 09 01 
+    Usage  0000 10nn | 1
+    UsageID:1
+    定义用法
+*** A1 01 
+    Collection 1010 00nn | 1
+    Collection有3种类型：Application、Physical与Logical，其项目的数据项的值分别为1、0和2.
+    开一个集合
+** 85 01 
+   Report ID  1000 01nn | 1
+   Report ID:1
+*** 09 01 
+    Usage  0000 10nn | 1
+*** 15 00 
+    Logical_Minimum 0001 01nn | 1
+*** 25 01 
+    Logical Maximum 0010 01nn | 1
+*** 75 08 
+    Report Size  0111 01nn | 1
+    定义报表数据项大小
+*** 95 40 
+    Report Count  1001 01nn | 1
+    定义报表数据项个数
+*** B1 82 
+    Feature 1011 00nn | 1 
+*** 85 01 
+    Report ID  1000 01nn | 1
+*** 09 01  
+    Usage  0000 10nn | 1
+*** 91 82 
+    Output 1001 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 02
+   Report ID  1000 01nn | 1
+   Report ID:2
+*** 09 02 
+    Usage  0000 10nn | 1
+    UsageID:2
+*** 15 00 
+*** 25 01 
+*** 75 08 
+*** 95 40 
+*** B1 82 
+    Feature 1011 00nn | 1 
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 85 02 
+*** 09 02  
+*** 91 82 
+    Output 1001 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 03
+   Report ID:3
+*** 09 03 
+*** 15 00 
+*** 25 01 
+*** 75 08 
+*** 95 40 
+*** B1 82 
+*** 85 03 
+*** 09 03  
+*** 91 82 
+    Output 1001 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 04
+   Report ID:4
+*** 09 04 
+*** 15 00 
+*** 25 01 
+*** 75 08 
+*** 95 40 
+*** B1 82 
+*** 85 04 
+*** 09 04  
+*** 91 82 
+    Output 1001 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 05
+   Report ID:5
+*** 09 05 
+*** 15 00 
+*** 25 01 
+*** 75 01 
+*** 81 82 
+    Input  1000 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 09 05 
+*** 75 01 
+*** B1 82 
+    Feature 1011 00nn | 1 
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 75 07 
+*** 81 83 
+    Input  1000 00nn | 1
+    83(1000 0011)(Constant,variable,absolute,NO wrap,linear,Volatile)
+*** 85 05 
+*** 75 07  
+*** B1 83 
+    Feature 1011 00nn | 1 
+    83(1000 0011)(Constant,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 06
+   Report ID:6
+*** 09 06 
+*** 15 00 
+*** 25 01 
+*** 75 01 
+*** 81 82 
+    Input  1000 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 09 06 
+*** 75 01  
+*** B1 82 
+    Feature 1011 00nn | 1 
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 75 07 
+*** 81 83 
+    Input  1000 00nn | 1
+    83(1000 0011)(constant,variable,absolute,NO wrap,linear,Volatile)
+*** 85 06 
+*** 75 07 
+*** B1 83 
+    Feature 1011 00nn | 1 
+    83(1000 0011)(Constant,variable,absolute,NO wrap,linear,Volatile)
+
+** 85 07
+   Report ID:7
+*** 09 07 
+*** 15 00 
+*** 26 FF 00  
+    Logical Maximum 0010 01nn | 2
+*** 75 08 
+*** 81 82 
+    Input  1000 00nn | 1
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+*** 85 07 
+*** 09 07 
+*** B1 82
+    Feature 1011 00nn | 1 
+    82(1000 0010)(data,variable,absolute,NO wrap,linear,Volatile)
+
+** C0
+
