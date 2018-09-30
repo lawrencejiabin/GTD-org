@@ -9,26 +9,26 @@
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
-** theme
+* theme
    core-dotspacemacs.el
   (defvar dotspacemacs-themes '(spacemacs-dark
                                 tango-dark
                                 spacemacs-light)
    `SPC T n' to cycle to the next theme in the list.
-
-** highlight
+   
+* highlight
   Shift+8  highligt minibuffer
-  (global-set-key [(control f3)] 'highlight-symbol)
-  (global-set-key [f3]           'highlight-symbol-next)
-  (global-set-key [f4]           'highlight-symbol-prev)
+ (global-set-key [(control f3)] 'highlight-symbol)
+ (global-set-key [f3]           'highlight-symbol-next)
+ (global-set-key [f4]           'highlight-symbol-prev)
   
-** gtags
-  (define-key evil-normal-state-map "ff" 'helm-gtags-find-files)
-  (define-key evil-normal-state-map "ft" 'helm-gtags-find-tag-other-window)
-  (define-key evil-normal-state-map "fp" 'helm-gtags-find-pattern)
-  (define-key evil-normal-state-map "fm" 'helm-semantic-or-imenu)
+* gtags
+ (define-key evil-normal-state-map "ff" 'helm-gtags-find-files)
+ (define-key evil-normal-state-map "ft" 'helm-gtags-find-tag-other-window)
+ (define-key evil-normal-state-map "fp" 'helm-gtags-find-pattern)
+ (define-key evil-normal-state-map "fm" 'helm-semantic-or-imenu)
 
-** list-matching-lines
+* list-matching-lines
 (defun list-matching-lines2 ()
   "Show lines in the current buffer matching current word or text selection.
   This command is the similar to `list-matching-lines'.
@@ -49,6 +49,44 @@
     )
 ) 
 
+* 当前文件搜索
+  SPC + s + s  helm Swoop
 
+* bookmark
+  point
+  register
+  bookmark
 
+* buffer list
+  goto-buffer-workspace
+
+* 消除^M符号
+  
+  光标要在文件头，执行下面命令
+  M-% C-q C-m RET RET !
+  
+* 格式化代码
+*** 整理整个文件
+    M-x mark-whole-buffer  或者 C-x h    //选中整个文件
+    M-x indent-region 或者 C-M-\         //格式化选中
+*** 整理某个函数
+    M-x mark-defun 或者 C-M-h         //选中函数
+    M-x indent-region 或者  C-M-\        //格式化
+
+* 光标返回上一个位置
+  同一个buffer，使用 C-u C-SPC。全局的包括跳转到其它文件，C-x C-@
+
+* 列块编辑
+  Emacs 下列编辑模式常用命令
+  先mark一个区域,要求起始位置和终止位置不在用一列
+  后续可选操作
+  C-x r k ;;剪切选中的列 kill-rectangle
+  C-x r o ;;在选中区域的插入空格 open-rectangle
+  C-x r t ;;将选中的区域替换为某个字符串 string-rectangle
+  C-x r y ;;粘贴通过 C-x r k 剪切的区域
+  C-x r c ;;清除选中的区域
+
+* 删除空行
+  m-x flush-lines 
+  ^$
 

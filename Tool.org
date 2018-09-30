@@ -20,5 +20,23 @@
 ** 匹配名高亮
    Options -> File Type Options -> Highlight references to selected symbol
 
+* 打印高亮
+  在Xshell上显示
+  #define r_puts(x)    puts("\033[40;31m" x "\033[0m");
+  #define g_puts(x)    puts("\033[40;32m" x "\033[0m");
+  #define r_printf(x, ...)  printf("\033[40;31m" x "\033[0m", ## __VA_ARGS__);
+  #define g_printf(x, ...)  printf("\033[40;32m" x "\033[0m", ## __VA_ARGS__);
+  
+** 颜色代码
+	字背景颜色范围: 40--49               字颜色: 30—39             
+			40: 黑                           30: 黑                 
+			41: 红                           31: 红                
+			42: 绿                           32: 绿                
+			43: 黄                           33: 黄                
+			44: 蓝                           34: 蓝               
+			45: 紫                           35: 紫                 
+			46: 深绿                         36: 深绿                 
+			47: 白色                         37: 白色
+
 
 
