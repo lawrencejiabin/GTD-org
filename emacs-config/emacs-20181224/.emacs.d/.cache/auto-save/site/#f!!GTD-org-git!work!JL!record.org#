@@ -1,0 +1,89 @@
+#+TITLE:       Operating record in emacs(history record)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+* 寄存器
+  JL_DSP
+  JL_NVIC
+  JL_TICK
+  JL_DEBUG
+  JL_SFC
+  JL_ENC
+  JL_AES
+  JL_FFT
+  JL_EQ
+  JL_SRC
+  JL_FMRX
+  JL_PWM
+  JL_SYSTEM
+  JL_WAKEUP
+  JL_IOMAP
+  JL_POWER
+  JL_CLOCK
+  JL_PORT
+  JL_TIMER
+  JL_UART
+  JL_SPI
+  JL_PAP
+  JL_SD
+  JL_IIC
+  JL_LCDC
+  JL_PWM4
+  JL_IRTC
+  JL_IR
+  JL_AUDIO
+  JL_IIS
+  JL_NFC
+  JL_USB
+  JL_CRC
+  JL_RAND
+  JL_ADC
+  JL_PLL_COUNTER
+  JL_POWER_DOWN
+  CTM_CON0
+  JL_SP
+  WLA_CON0
+  JL_FMA
+  ZB_SOFTSPND *C51*
+  
+* BLE--Gatt协议介绍
+** property_flags 
+*** READ
+    由手机主动获取，从机通过回调buffer数据
+*** WRITE
+    由手机主动发送，从机通过回调保存buffer数据
+*** DYNAMIC
+    只有具有这个属性，返回给手机的数据，才能在应用程序上填充。
+    否则由协议栈返回，profile的默认数据。
+*** WRITE_WITHOUT_RESPONSE
+*** NOTIFY
+    拥有CLIENT_CONFIGURATION_HANDLE特征
+    从机可以主动发送数据包给手机 
+**** 配置值
+     0：disable
+     1：enable
+     2：confirmation带回复的
+*** INDICATE
+* C版芯片内置充电IC
+** 最大充电电流100mA，损耗较大，视外接限流电阻而定
+** 软件通过判断 *固定时间内电压的变化大小* 来判断充电状态
+** 对于大容量电池，修改检测的精度，和检测间隔阈值
+** 替换库和charge.c文件 
+* 蓝牙进power down死机
+  不适合同时开PR1和PR2，做唤醒功能。
+  开机状态下，蓝牙模式，只能开某个PR口，做唤醒功能。
+
+* 人声消除
+  开人声消除，会导致伴奏低频也被消除。
+** 调节EQ，可以增强低音
+   软件上，人声消除，只是纯粹左右声道相减，没有特殊算法，只能使用EQ补充。
+   但是EQ会导致低频声音变浊。
+
+   
