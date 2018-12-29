@@ -32,6 +32,10 @@
    ->socket.c(sock_register(PF_BLUETOOTH),bt_sock_create(),bt_proto[])
      ->kmod.c(__request_module())
    ->hci_sock.c(hci_sock_init())
+     ->net/core/sock.c(proto_register())
+     ->af_bluetooth.c(bt_socket_register(BTPROTO_HCI),bt_procfs_init("hci"))
+       ->hci_socket.c(hci_sock_create(),hci_sock_ops,bt_sock_link())
+       =>bt_sock_list hci_sk_list.head =>socket(hci_sk_proto) =>hci_sock_ops
    ->l2cap_core.c(l2cap_init())
    ->sco.c(sco_init())
    ->mgmt.c(mgmt_init())
