@@ -1,0 +1,66 @@
+#+TITLE:       BlueZ
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+
+* bluez
+** hard
+   hci_ll.c(Texas Instruments' Bluetooth HCILL UART protocol)
+   ->hci_serdev.c(hci_uart_register_device())
+   ->hci_core.c(hci_register_dev(),hci_dev_list)
+   ->hci_sock.c(hci_mgmt_chan_register(),hci_mgmt_chan,mgmt_chan_list)
+     ->hci_sock.c(hci_sock_init(),PF_BLUETOOTH,net_proto_family)
+     ->bluetooth.h(BTPROTO_HCI,BTPROTO_L2CAP,BTPROTO_SCO)
+     ->af_bluetooth.c(bt_sock_register(),bt_procfs_init(init_net))
+       ->net_namespace.c(init_net)
+   ->mgnt.c(hci_mgmt_chan,mgmt_handlerladc_closes)
+   ->af_bluetooth.c(bt_init(),mgmt_init())
+
+** kernel
+   af_bluetooth.c(bt_init(),bt_exit())
+   ->selftest.c(bt_selftest())
+   ->(debugfs_create_dir("bluetooth"))
+   ->bluetooth/leds.c(bt_leds_init())
+   ->hci_sysfs.c(bt_sysfs_init())
+   ->socket.c(sock_register(PF_BLUETOOTH),bt_sock_create(),bt_proto[])
+     ->kmod.c(__request_module())
+   ->hci_sock.c(hci_sock_init())
+   ->l2cap_core.c(l2cap_init())
+   ->sco.c(sco_init())
+   ->mgmt.c(mgmt_init())
+
+** bluez
+
+* 抓包工具
+  Ellisys BEX400 双模蓝牙协议分析仪是目前全球唯一的“真正的”蓝牙协议分析与抓包解码工具。
+  能同时抓取79个BR/EDR信道和40个LE的通信数据并实时解析。
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
