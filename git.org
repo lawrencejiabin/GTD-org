@@ -75,6 +75,25 @@
    推送到远程仓库
 ** $ git log
    查看log信息。
+* 抓取远程仓库
+** 本地无更新
+*** git fetch origin master
+    从远程的origin仓库的master分支下载代码到本地的master
+*** git merge origin/master
+** 本地有更新
+*** git fetch origin master:temp 
+    从远程的origin仓库的master分支下载到本地并新建一个分支temp
+*** git diff temp
+    比较master分支和temp分支的不同
+*** git merge temp
+    合并temp分支到master分支
+*** git branch -d temp
+    删除temp
+** 分支抓取
+*** git fetch origin branch1:branch2
+    首先执行上面的fetch操作，使用远程branch1分支在本地创建branch2(但不会切换到该分支),
+    如果本地不存在branch2分支, 则会自动创建一个新的branch2分支,
+    如果本地存在branch2分支, 并且是`fast forward', 则自动合并两个分支, 否则, 会阻止以上操作.
 
 * 查看log-diff
 ** $ git diff git.org
