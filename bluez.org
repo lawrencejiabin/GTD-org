@@ -15,6 +15,7 @@
    hci_ll.c(Texas Instruments' Bluetooth HCILL UART protocol)
    ->hci_serdev.c(hci_uart_register_device())
    ->hci_core.c(hci_register_dev(),hci_dev_list)
+   ->hci_sock.c(hci_sock_ops,hci_sock_ioctl(),hci_dev_get())
    ->hci_sock.c(hci_mgmt_chan_register(),hci_mgmt_chan,mgmt_chan_list)
      ->hci_sock.c(hci_sock_init(),PF_BLUETOOTH,net_proto_family)
      ->bluetooth.h(BTPROTO_HCI,BTPROTO_L2CAP,BTPROTO_SCO)
@@ -29,19 +30,130 @@
    ->(debugfs_create_dir("bluetooth"))
    ->bluetooth/leds.c(bt_leds_init())
    ->hci_sysfs.c(bt_sysfs_init())
-   ->socket.c(sock_register(PF_BLUETOOTH),bt_sock_create(),bt_proto[])
-     ->kmod.c(__request_module())
-   ->hci_sock.c(hci_sock_init())
-     ->net/core/sock.c(proto_register())
-     ->af_bluetooth.c(bt_socket_register(BTPROTO_HCI),bt_procfs_init("hci"))
-       ->hci_socket.c(hci_sock_create(),hci_sock_ops,bt_sock_link())
-       =>bt_sock_list hci_sk_list.head =>socket(hci_sk_proto) =>hci_sock_ops
-   ->l2cap_core.c(l2cap_init())
-   ->sco.c(sco_init())
-   ->mgmt.c(mgmt_init())
+   ->net/socket.c(sock_register(PF_BLUETOOTH,bt_sock_create()),
+              bt_proto[],request_module())
+     ->kernel/kmod.c(__request_module())
+**** linux/socket.h(PF_BLUETOOTH)(Protocol families协议族)
+     每一种类型外设(address families)对应一个sockets号，
+     #define AF_BLUETOOTH	31	/* Bluetooth sockets 		*/
+     syscall(family,type<sock_type>,protocol<hci...>)->__sys_socket()
+       ->sock_create()->sock_alloc()->bt_sock_family_ops.create
+       ->bt_sock_create()->bt_socket_register(bt_proto[proto])
+       ->hci_sock_create()->socket.ops=&hci_sock_ops(直接改写?)
+       ->sk_alloc()<net/core/sock.c>
+       ->struct sock->sock_init_data(socket)->sock.sk_socket=socket
+       ->socket.sk=sock(socket和sock互相绑定)
+       ->hci_sk_list.head
+
+**** socket和sock的区别
+     用户层执行
+     int fd=socket(PF_BLUETOOTH,SOCK_RAW|SOCK_CLOEXEC|SOCK_NONBLOCK,
+		               BTPROTO_HCI);
+     内核层执行
+     socket->struct file->fd_install(fd, newfile)
+     把与文件系统关系密切的放在socket结构中，
+     把与通信关系密切的放在另一个单独结构sock中;
+     sock的收发都是要占用内存的，即发送缓冲区和接收缓冲区。
+
+*** ->hci_sock.c(hci_sock_init())
+     ->net/core/sock.c(proto_register("HCI"))
+       ->net/sock.h(struct proto.node, *proto_list*)
+     ->af_bluetooth.c(bt_socket_register(BTPROTO_HCI),
+                      bt_procfs_init("hci"))
+       ->hci_socket.c(hci_sock_create(), *hci_sock_ops*,
+                      bt_sock_link())
+**** =>hci_sk_proto =>hci_sock_family_ops 
+        =>bt_sock_list hci_sk_list.head =>socket(hci_sk_proto) 
+        =>hci_sock_ops
+*** ->l2cap_core.c(l2cap_init())
+     ->l2cap_sock.c(l2cap_init_sockets(),proto_register("L2CAP"))
+     ->af_bluetooth.c(bt_socket_register(BTPROTO_L2CAP),
+                      bt_procfs_init("l2cap"))
+       ->l2cap_sock.c(l2cap_sock_create(), *l2cap_sock_ops*,
+                      l2cap_sock_alloc(),l2cap_chan_create(),
+                      l2cap_sock_init(),bt_sock_link(l2cap_sk_list))
+     ->hci_core.c(hci_register_cb( *l2cap_cb* ))->hci_cb_list
+**** =>l2cap_proto =>l2cap_sock_family_ops =>l2cap_sk_list(procfs)
+        =>l2cap_sock_ops =>l2cap_chan() =>l2cap_pinfo(等同sock)
+        =>l2cap_sk_list(socket)
+      l2cap_cb=>hci_cb_list
+      l2cap_proto =>sizeof(l2cap_pinfo) =>sock(l2cap_pinfo大小的sock) 
+        =>l2cap_pinfo(大小一样，强制转型)
+*** ->sco.c(sco_init())
+     ->proto_register("SCO")
+     ->af_bluetooth.c(bt_socket_register(BTPROTO_SCO),
+                      bt_procfs_init("l2cap"))
+       ->sco.c(sco_sock_create(), *sco_sock_ops*,sco_sock_alloc(),
+               bt_sock_link(sco_sk_list),sco_sock_init())
+     ->hci_core.c(hci_register_cb( *sco_cb* ))->hci_cb_list
+**** =>sco_proto =>sco_sock_family_ops =>sco_sk_list(procfs)
+        =>sco_sock_ops =>sco_sk_list(socket)
+      sco_cb =>hci_cb_list
+      sco_proto =>sizeof(sco_pinfo)
+*** ->mgmt.c(mgmt_init())
+     ->hci_sock.c(hci_mgmt_chan_register(struct hci_mgmt_chan)
+                  ,mgmt_chan_list)
+       ->hci_mgmt_chan(HCI_CHANNEL_CONTROL, *mgmt_handlers*)
+
+** socket
+*** user init
+	  int fd =socket(PF_BLUETOOTH,SOCK_RAW|SOCK_CLOEXEC|SOCK_NONBLOCK,
+	  							BTPROTO_HCI);
+    bind(fd, &addr.common, sizeof(addr.hci))
+      ->hci_sock_ops.hci_sock_bind(内核)->sockaddr_hci->hci_pinfo	
+    union {
+	  	struct sockaddr common;
+	  	struct sockaddr_hci hci;
+	  } addr{AF_BLUETOOTH,HCI_DEV_NONE,HCI_CHANNEL_CONTROL}
+    mgmt_master->struct mgmt=mgmt_new(fd){.fd=fd}->mgmt.io=io_new(fd)
+      ->mgnt{request_queue,reply_queue,pending_list,notify_list}
+      ->mainloop_add_fd(io_callback,io,io_cleanup)
+      ->mainloop_data{.user_data=io,.callback=io_callback}
+      ->mainloop_list[fd]=mainloop_data
+      ->mainloop_run
+    io_set_read_handler(mgmt->io, can_read_data, mgmt, NULL)
+      ->struct io{.read_callback=can_read_data,.read_data=mgmt}
+      ->mainloop_modify_fd(io->fd, io->events)
+      ->mainloop_data=mainloop_list[fd]{.events = events}
+      ->epoll_event{.events=events,.data.ptr=mainloop_data}
+      ->epoll_ctl(EPOLL_CTL_MOD,epoll_event)
+    can_read_data()->read(mgmt->fd, mgmt->buf, mgmt->len)(内核)
+      ->mgmt_hdr
+      ->process_notify()->queue_foreach(event_index)
+      ->notify_handler()->notify.callback()
+**** static const char *mgmt_op[] = {}
+      static const char *mgmt_ev[] = {}
+      static const char *mgmt_status[] = {}
+
+*** user_send
+    mgmt_send(mgmt_master,MGMT_OP_...,index,mgmt_request_func_t)
+      ->create_request(opcode,index,leghth,param,callback,user_data)
+      ->mgmt_request{.opcode,.buf={mgmt_hdr+param+length,
+                     .len=length+MGMT_HDR_SIZE,.user_data=user_data}
+      ->mgmt->request_queue
+      ->wakeup_writer(mgmt)
+    io_set_write_handler(mgmt->io,can_write_data,mgmt,
+                         write_watch_destroy)
+      ->struct io{.write_callback=can_write_data,.write_data=mgnt}
+      ->mainloop_modify_fd()
+    can_write_data(user_data)->mgmt=user_data
+      ->reply_queue==NULL,pending_list=0(优先级reply>pend>request)
+      ->queue_pop_head(request_queue)->send_request(mgmt, request)
+      ->struct mgmt_request->struct iovec->io_send(mgmt->io,&iov,1)
+      ->glibc/sysdeps/posix/writev.c(writev(io->fd, iov, iovcnt))
+        (发送给内核)
+      ->queue_push_tail(mgmt->pending_list,request)(等待回应)
+
+*** kernel
+     writev()
+     ->read_write.c->do_writev()->vfs_writev()->do_iter_write()
+       ->call_write_iter()
+     ->socket.c->socket_file_ops().write_iter()
+       ->sock_write_iter()->sock_sendmsg()
+       ->hci_sock_ops.sendmsg=hci_sock_sendmsg()
 
 ** bluez
-
+*** 
 * 抓包工具
   Ellisys BEX400 双模蓝牙协议分析仪是目前全球唯一的“真正的”蓝牙协议分析与抓包解码工具。
   能同时抓取79个BR/EDR信道和40个LE的通信数据并实时解析。

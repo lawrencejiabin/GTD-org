@@ -306,3 +306,15 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
   (set-selection-coding-system 'utf-8)
   (modify-coding-system-alist 'process "*" 'utf-8)
 
+* evil和emacs状态切换
+  evil-emacs-state
+  evil-exit-emacs-state
+
+* evil高亮
+  evil-repeat(.)可高亮匹配的字符串
+  在f-n后，只按(.)即可下一个高亮
+  在f-b后，只按(.)即可上一个高亮
+
+* 调节窗口大小
+  C-w(evil-window-map)
+
