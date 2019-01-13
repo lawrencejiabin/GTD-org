@@ -318,3 +318,8 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
 * 调节窗口大小
   C-w(evil-window-map)
 
+* mark active
+  C-SPE-Shift
+* mark last position
+  C-x C-x
+

@@ -12,9 +12,13 @@
 
 * bluez
 ** hard
-   hci_ll.c(Texas Instruments' Bluetooth HCILL UART protocol)
-   ->hci_serdev.c(hci_uart_register_device())
-   ->hci_core.c(hci_register_dev(),hci_dev_list)
+   hci_ldisc.c(hci_uart_init())
+   ->hci_ll.c(*Texas Instruments' Bluetooth HCILL UART protocol*
+     ll_init(),serdev_device_driver_register(hci_ti_drv),
+     hci_ti_probe(创建hci_uart),hci_uart_register_proto(hci_uart_proto))
+   ->hci_serdev.c(hci_uart_register_device(hci_uart,hci_uart_proto)
+     hci_uart_proto.open()->ll_open()->创建hci_dev)
+   ->hci_core.c(hci_register_dev(hci_dev),hci_dev_list)
    ->hci_sock.c(hci_sock_ops,hci_sock_ioctl(),hci_dev_get())
    ->hci_sock.c(hci_mgmt_chan_register(),hci_mgmt_chan,mgmt_chan_list)
      ->hci_sock.c(hci_sock_init(),PF_BLUETOOTH,net_proto_family)
@@ -94,7 +98,29 @@
      ->hci_sock.c(hci_mgmt_chan_register(struct hci_mgmt_chan)
                   ,mgmt_chan_list)
        ->hci_mgmt_chan(HCI_CHANNEL_CONTROL, *mgmt_handlers*)
-
+** bluez_init
+   main.c(main())
+   ->init_defaults(main_opts))
+   ->g_option_context_parse(&argc, &argv)
+   ->btd_backtrace_init()
+   ->g_main_loop_new()
+   ->setup_signalfd()->signal_handler()
+   ->__btd_log_init()->log_handler()
+   ->load_config("/main.conf")->parse_config()
+   ->connect_dbus()
+   ->adapter_init()
+   ->btd_device_init()->service_state_changed()
+     ->GSList state_callbacks->change_state()
+       ->device_profile_connected()
+     ->device_profile_disconnected()
+   ->btd_agent_init()->GDBusMethodTable methods[]
+   ->btd_profile_init()->GDBusMethodTable methods[]
+   ->start_sdp_server(sdp_mtu, sdp_flags)
+   ->register_device_id()
+   ->register_mps()
+   ->plugin_init()
+   ->g_timeout_add_seconds_full()->watchdog_callback()
+   ->g_main_loop_run(event_loop)
 ** socket
 *** user init
 	  int fd =socket(PF_BLUETOOTH,SOCK_RAW|SOCK_CLOEXEC|SOCK_NONBLOCK,
@@ -134,7 +160,7 @@
       ->wakeup_writer(mgmt)
     io_set_write_handler(mgmt->io,can_write_data,mgmt,
                          write_watch_destroy)
-      ->struct io{.write_callback=can_write_data,.write_data=mgnt}
+      ->struct io{.write_callback=can_write_data,.write_data=mgmt}
       ->mainloop_modify_fd()
     can_write_data(user_data)->mgmt=user_data
       ->reply_queue==NULL,pending_list=0(优先级reply>pend>request)
@@ -143,16 +169,141 @@
       ->glibc/sysdeps/posix/writev.c(writev(io->fd, iov, iovcnt))
         (发送给内核)
       ->queue_push_tail(mgmt->pending_list,request)(等待回应)
+**** Message encapsulation
 
-*** kernel
+*** kernel_deal
      writev()
      ->read_write.c->do_writev()->vfs_writev()->do_iter_write()
        ->call_write_iter()
      ->socket.c->socket_file_ops().write_iter()
        ->sock_write_iter()->sock_sendmsg()
        ->hci_sock_ops.sendmsg=hci_sock_sendmsg()
+       ->__hci_mgmt_chan_find(HCI_CHANNEL_CONTROL)->hci_mgmt_chan
+       ->hci_mgmt_cmd()->msghdr=>mgmt_hdr=>sk_buff
+         ->hci_send_to_channel(HCI_CHANNEL_MONITOR,sk_buff)
+           ->sock_queue_rcv_skb(sk,sk_buff)->sock.sk_receive_queue
+         ->mgmt_handlers[opcode]->hci_mgnt_chan.hdev_init(sk, hdev)
+         ->mgmt_handlers[opcode].func(void *data=param,u16 data_len)
+         ->mgmt_cmd_complete()
+       ->sock.hdev->bt_skb_send_alloc()->skb_queue_tail(hdev.raw_q)
+       ->queue_work(hdev->workqueue, &hdev->tx_work)(什么作用)
+**** Message encapsulation
 
-** bluez
+*** kernel_respone
+    mgmt_cmd_complete()->
+
+** MGMT_OP
+*** MGMT_OP_READ_VERSION
+    read_version()->read_version_complete()
+*** MGMT_OP_READ_COMMANDS
+    read_commands()->mgmt_commands,mgmt_events
+    ->read_commands_complete(kernel_conn_control=true)
+*** MGMT_OP_READ_INDEX_LIST
+    read_index_list()->hci_dev_list->hci_dev.id
+      ->hci_uart.h(HCI_UART_MAX_PROTO)
+    ->read_index_list_complete()
+      ->index_added(添加每一个蓝牙驱动)
+        ->btd_adapter_new(hci_dev.id)->adapter_list
+        ->MGMT_OP_READ_INFO(hci_dev.id)
+*** MGMT_OP_READ_INFO
+    mgmt_send(mgmt_master, MGMT_OP_READ_INFO, index, 0, NULL,
+					read_info_complete, adapter, NULL)
+    read_controller_info()->hdev=hci_dev_get(index)->hci_dev
+    ->mgmt_rp_read_info
+    ->read_info_complete(非常重要函数)
+      ->mgmt_rp_read_info->btd_adapter
+      ->clear_uuids(MGMT_OP_REMOVE_UUID)
+      ->clear_devices(MGMT_OP_REMOVE_DEVICE)
+      ->set_static_addr(MGMT_OP_SET_STATIC_ADDRESS)
+      ->main_opts.mode->set_mode()->set_privacy()
+      ->adapter_register()(重要函数)
+        ->adapter_methods()->adapter_properties()
+        ->btd_gatt_database_new()<BLE>
+        ->btd_adv_manager_new()<BLE>
+        ->gatt_db_register()->services_modified()
+        ->load_config()->fix_storage()->load_drivers()
+        ->btd_profile_foreach()->clear_blocked()->load_devices()
+        ->load_connections()
+        ->adapter_service_insert()<sdpd-service.c,sdp.h>
+        ->set_did()
+      ->mgmt_register()<Register all event notification handlers>
+      ->set_dev_class()
+      ->set_name()
+      ->set_mode(MGMT_OP_SET_BONDABLE)
+      ->set_mode(MGMT_OP_SET_CONNECTABLE,0x01/0x00)
+      ->set_discoverable()
+      ->adapter_start()
+*** MGMT_OP_REMOVE_UUID
+    ->clear_uuids_complete()
+*** MGMT_OP_REMOVE_DEVICE
+    ->clear_devices_complete()
+*** MGMT_OP_SET_STATIC_ADDRESS
+    set_static_address()->send_settings_rsp(hci_dev)
+    ->new_settings()->mgmt_limited_event()->不用处理回复
+**** MGMT_EV_NEW_SETTINGS
+     mgmt_limited_event(MGMT_EV_NEW_SETTINGS, hdev, &ev,
+				  sizeof(ev), HCI_MGMT_SETTING_EVENTS, skip)
+     ->mgmt_send_event(HCI_CHANNEL_CONTROL,sock)->sk_buff
+     ->hci_send_to_channel(sk_buff)
+       ->__hci_send_to_channel(HCI_CHANNEL_CONTROL)
+     ->hci_send_monitor_ctrl_event()->
+       ->__hci_send_to_channel(HCI_CHANNEL_MONITOR)
+       ->sock.c(sock_queue_rcv_skb(sock,sk_buff))
+       ->sock.sk_receive_queue->sock.sk_data_ready()
+       ->sock_def_readable()->wake_up_interruptible_sync_poll()
+       ->回到用户层->can_read_data()->read()
+
+** MGMT_EV
+*** MGMT_EV_INDEX_ADDED
+    index_added()
+*** MGMT_EV_INDEX_REMOVED
+    index_removed()
+*** MGMT_EV_NEW_SETTINGS
+    new_settings_callback()
+*** MGMT_EV_CLASS_OF_DEV_CHANGED
+    dev_class_changed_callback()
+*** MGMT_EV_LOCAL_NAME_CHANGED
+    local_name_changed_callback()
+*** MGMT_EV_DISCOVERING
+    discovering_callback()
+*** MGMT_EV_DEVICE_FOUND
+    device_found_callback()
+*** MGMT_EV_DEVICE_DISCONNECTED
+    disconnected_callback()
+*** MGMT_EV_DEVICE_CONNECTED
+    connected_callback()
+*** MGMT_EV_CONNECT_FAILED
+    connect_failed_callback()
+*** MGMT_EV_DEVICE_UNPAIRED
+    unpaired_callback()
+*** MGMT_EV_AUTH_FAILED
+    auth_failed_callback()
+*** MGMT_EV_NEW_LINK_KEY
+    new_link_key_callback()
+*** MGMT_EV_NEW_LONG_TERM_KEY
+    new_long_term_key_callback()
+*** MGMT_EV_NEW_CSRK
+    new_csrk_callback()
+*** MGMT_EV_NEW_IRK
+    new_irk_callback()
+*** MGMT_EV_NEW_CONN_PARAM
+    new_conn_param()
+*** MGMT_EV_DEVICE_BLOCKED
+    device_blocked_callback()
+*** MGMT_EV_DEVICE_UNBLOCKED
+    device_unblocked_callback()
+*** MGMT_EV_PIN_CODE_REQUEST
+    pin_code_request_callback()
+*** MGMT_EV_USER_CONFIRM_REQUEST
+    user_confirm_request_callback()
+*** MGMT_EV_USER_PASSKEY_REQUEST()
+    user_passkey_request_callback()
+*** MGMT_EV_PASSKEY_NOTIFY
+    user_passkey_notify_callback()
+
+** monitor
+*** bluez/monitor
+** HID
 *** 
 * 抓包工具
   Ellisys BEX400 双模蓝牙协议分析仪是目前全球唯一的“真正的”蓝牙协议分析与抓包解码工具。
