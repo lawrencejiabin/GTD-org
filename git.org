@@ -75,11 +75,20 @@
    推送到远程仓库
 ** $ git log
    查看log信息。
+*** git log -n 5
+    最新的5条log
+
 * 抓取远程仓库
 ** 本地无更新
 *** git fetch origin master
     从远程的origin仓库的master分支下载代码到本地的master
+*** git diff origin/master
+    对比和本地的master的不同
 *** git merge origin/master
+    合并到本地上，
+    如果本地有修改的文件，远程没更新，不会替换本地已修改的文件
+    如果同一个文件，本地有更新，远程也有更新会冲突
+
 ** 本地有更新
 *** git fetch origin master:temp 
     从远程的origin仓库的master分支下载到本地并新建一个分支temp
