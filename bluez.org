@@ -9,6 +9,11 @@
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 
+* Bluetooth
+** abbr
+** hardware
+** core
+** profile
 
 * bluez
 ** hard
@@ -16,7 +21,10 @@
    ->hci_ll.c(*Texas Instruments' Bluetooth HCILL UART protocol*
      ll_init(),serdev_device_driver_register(hci_ti_drv),
      hci_ti_probe(创建hci_uart),hci_uart_register_proto(hci_uart_proto))
-   ->hci_serdev.c(hci_uart_register_device(hci_uart,hci_uart_proto)
+   ->hci_serdev.c(
+     hci_uart_register_device(hci_uart,hci_uart_proto),
+     hci_alloc_dev()
+       ->hci_request_setup()
      hci_uart_proto.open()->ll_open()->创建hci_dev)
    ->hci_core.c(hci_register_dev(hci_dev),hci_dev_list)
    ->hci_sock.c(hci_sock_ops,hci_sock_ioctl(),hci_dev_get())
@@ -115,6 +123,20 @@
      ->device_profile_disconnected()
    ->btd_agent_init()->GDBusMethodTable methods[]
    ->btd_profile_init()->GDBusMethodTable methods[]
+     ->register_profile()->create_ext()
+     ->adapter_add_profile()
+       ->probe_profile()->profile.adapter_probe()->ext_adapter_probe()
+         ->ext_start_servers()<ext.enable_server服务器>
+           ->btio.c(BTPROTO_L2CAP,bt_io_listen(),create_io(),listen(),
+                  server_add(),server_cb(),bt_io_get())
+       ->device_probe_profile()<ext.enable_client客户端>
+         ->probe_service()->service_create()->service_probe()
+         ->service.profile.device_probe()->ext_device_probe()
+         ->change_state(BTD_SERVICE_STATE_DISCONNECTED)
+         ->device_set_auto_connect()
+         ->adapter_auto_connect_add()
+          ->mgmt_send(MGMT_OP_ADD_DEVICE)
+     *adapter.c->profile.c->uuid.h->adapter.c->device.c->service.c*
    ->start_sdp_server(sdp_mtu, sdp_flags)
    ->register_device_id()
    ->register_mps()
@@ -194,14 +216,14 @@
 
 ** MGMT_OP
 *** MGMT_OP_READ_VERSION
-    read_version()->read_version_complete()
+    read_version()=>read_version_complete()
 *** MGMT_OP_READ_COMMANDS
     read_commands()->mgmt_commands,mgmt_events
-    ->read_commands_complete(kernel_conn_control=true)
+    =>read_commands_complete(kernel_conn_control=true)
 *** MGMT_OP_READ_INDEX_LIST
     read_index_list()->hci_dev_list->hci_dev.id
       ->hci_uart.h(HCI_UART_MAX_PROTO)
-    ->read_index_list_complete()
+    =>read_index_list_complete()
       ->index_added(添加每一个蓝牙驱动)
         ->btd_adapter_new(hci_dev.id)->adapter_list
         ->MGMT_OP_READ_INFO(hci_dev.id)
@@ -210,7 +232,7 @@
 					read_info_complete, adapter, NULL)
     read_controller_info()->hdev=hci_dev_get(index)->hci_dev
     ->mgmt_rp_read_info
-    ->read_info_complete(非常重要函数)
+    =>read_info_complete(非常重要函数)
       ->mgmt_rp_read_info->btd_adapter
       ->clear_uuids(MGMT_OP_REMOVE_UUID)
       ->clear_devices(MGMT_OP_REMOVE_DEVICE)
@@ -232,7 +254,9 @@
       ->set_mode(MGMT_OP_SET_BONDABLE)
       ->set_mode(MGMT_OP_SET_CONNECTABLE,0x01/0x00)
       ->set_discoverable()
-      ->adapter_start()
+      ->adapter_start()<开始搜索设备>
+        ->trigger_passive_scanning()->passive_scanning_timeout()
+        ->mgmt_send(MGMT_OP_START_DISCOVERY)
 *** MGMT_OP_REMOVE_UUID
     ->clear_uuids_complete()
 *** MGMT_OP_REMOVE_DEVICE
@@ -252,7 +276,33 @@
        ->sock.sk_receive_queue->sock.sk_data_ready()
        ->sock_def_readable()->wake_up_interruptible_sync_poll()
        ->回到用户层->can_read_data()->read()
-
+*** MGMT_OP_START_DISCOVERY
+    start_discovery()
+      ->start_discovery_internal(MGMT_OP_START_DISCOVERY)
+      ->hci_discovery_set_state(DISCOVERY_STARTING)
+      ->queue_work(hdev->discov_update)
+        ->discov_update()->start_discovery()
+        ->hci_request.c->discov_update()->start_discovery()
+        ->__hci_req_sync()
+          ->active_scan()
+            ->hci_req_start_scan()->hci_req_add_ev()
+          ->hci_req_run_skb()
+            ->req_run()
+              ->hdev.cmd_work->hci_cmd_work()->hci_send_frame()
+              ->hci_serdev.c->hci_uart_send_frame()
+              ->hci_ll.c->ll_enqueue()
+              ->hci_ldisc.c->hci_uart_tx_wakeup()
+                ->hci_uart.write_work->hci_uart_write_work()
+                  ->hci_uart_dequeue()->tty.ops.write()
+                  ->hci_uart_tx_complete( HCI_COMMAND_PKT,
+                                          HCI_ACLDATA_PKT, 
+                                          HCI_SCODATA_PKT)
+            ->回应
+            ->hdev.rx_work->hci_rx_work()
+              ->hci_event.c->hci_req_sync_complete()
+          ->wait_event_interruptible_timeout()
+            ->___wait_event()
+    =>passive_scanning_complete()
 ** MGMT_EV
 *** MGMT_EV_INDEX_ADDED
     index_added()
