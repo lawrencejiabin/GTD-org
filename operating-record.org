@@ -322,4 +322,13 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
   C-SPE-Shift
 * mark last position
   C-x C-x
+* 在mark的前后加字符
+  C-M-SPC 选中字符串
+  按s，进入输入字符状态
+  再输入要加的字符，如"等
+  
+* 连续选中字符串
+  C-M-SPC 选中当前光标字符串
+  不要松开C-M，再点击SPC，就会延升后面字符。
+
 
