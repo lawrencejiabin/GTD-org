@@ -497,6 +497,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(hl-fill-column-face ((t (:background "dim gray" :foreground "white"))))
  '(macrostep-c-mode-hook highlight-operators-mode))
+  (add-hook 'c-mode-hook
+            'highlight-operators-mode
+            'xin-c-mode-hook)
 )
 
 

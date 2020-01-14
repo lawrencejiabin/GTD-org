@@ -1,0 +1,115 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("e:/69/JinKangTe/ac69_emitter_sdk_v107/b/apps_soundbox/include/" . "bluetooth/")
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/" . "b/")
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/" . "c/")
+ ("f:/APP/AndroidStduio/" . "JL_AIMate_V2.2.1/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "f:/linux/bluez-5.50/src/shared/"
+ "f:/GTD-org-git/work/JL/"
+ "e:/692X/1TEST/AC692x_SDK_release_V2.5/c/apps/include/cpu/led/"
+ "e:/6919/HuiJieXin/ac691x_sdk_le_v101_C_release/b/apps/include/ac691x/"
+ "e:/6919/1TEST/ac691x_C_flash_sdk_release_v204/b/include_lib/mcpwm/"
+ "e:/6919/1TEST/ac691x_sdk_le_v101_C_release/b/"
+ "e:/692X/1TEST/AC692x_SDK_release_V2.5/c/"
+ "e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/c/"
+ "f:/APP/AndroidStduio/JL_AIMate_V2.2.1/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("f:/linux/bluez-5.50/src/" (23532 5907 0 0) "uuid-helper.h" "uuid-helper.c" "uinput.h" "textfile.h" "textfile.c" "systemd.h" "systemd.c" "storage.h" "storage.c" "shared/" "service.h" "service.c" "sdpd.h" "sdpd-service.c" "sdpd-server.c" "sdpd-request.c" "sdpd-database.c" "sdp-xml.h" "sdp-xml.c" "sdp-client.h" "sdp-client.c" "rfkill.c" "profile.h" "profile.c" "plugin.h" "plugin.c" "oui.h" "oui.c" "org.bluez.service" "main.conf" "main.c" "log.h" "log.c" "hcid.h" "genbuiltin" "gatt-database.h" "gatt-database.c" "gatt-client.h" "gatt-client.c" "error.h" "error.c" "eir.h" "eir.c" "device.h" "device.c" "dbus-common.h" "dbus-common.c" "bluetoothd.8.in" "bluetooth.ver" "bluetooth.service.in" "bluetooth.conf" "backtrace.h" "backtrace.c" "attrib-server.h" "attrib-server.c" "agent.h" "agent.c" "advertising.h" "advertising.c" "adapter.h" "adapter.c" "../" "./")
+
+ ("f:/linux/bluez-5.50/src/shared/" (23570 19755 0 0) "util.h" "util.c" "uhid.h" "uhid.c" "tty.h" "timeout.h" "timeout-mainloop.c" "timeout-glib.c" "tester.h" "tester.c" "shell.h" "shell.c" "ringbuf.h" "ringbuf.c" "queue.h" "queue.c" "pcap.h" "pcap.c" "mgmt.h" "mgmt.c" "mainloop.h" "mainloop.c" "mainloop-glib.c" "io.h" "io-mainloop.c" "io-glib.c" "io-ell.c" "hfp.h" "hfp.c" "hci.h" "hci.c" "hci-crypto.h" "hci-crypto.c" "gatt-server.h" "gatt-server.c" "gatt-helpers.h" "gatt-helpers.c" "gatt-db.h" "gatt-db.c" "gatt-client.h" "gatt-client.c" "gap.h" "gap.c" "ecc.h" "ecc.c" "crypto.h" "crypto.c" "btsnoop.h" "btsnoop.c" "btp.h" "btp.c" "att.h" "att.c" "att-types.h" "ad.h" "ad.c" "../" "./")
+
+ ("f:/linux/bluez-5.50/tools/" (23532 5909 0 0) "userchan-tester.c" "ubcsp.h" "ubcsp.c" "test-runner.c" "smp-tester.c" "seq2bseq.c" "sdptool.c" "sdptool.1" "scotest.c" "sco-tester.c" "rtlfw.c" "rfcomm.c" "rfcomm.1" "rfcomm-tester.c" "rctest.c" "rctest.1" "parser/" "oobtest.c" "obexctl.c" "obex-server-tool.c" "obex-client-tool.c" "nokfw.c" "mpris-proxy.c" "mgmt-tester.c" "mcaptest.c" "magic.btsnoop" "l2test.c" "l2ping.c" "l2ping.1" "l2cap-tester.c" "ibeacon.c" "hwdb.c" "hid2hci.rules" "hid2hci.c" "hid2hci.1" "hex2hcd.c" "hcitool.c" "hcitool.1" "hcisecfilter.c" "hcieventmask.c" "hcidump.c" "hcidump.1" "hciconfig.c" "hciconfig.1" "hciattach_tialt.c" "hciattach_ti.c" "hciattach_st.c" "hciattach_qualcomm.c" "hciattach_intel.c" "hciattach_bcm43xx.c" "hciattach_ath3k.c" "hciattach.h" "hciattach.c" "hciattach.1" "hci-tester.c" "gatt-service.c" "gap-tester.c" "eddystone.c" "csr_usb.c" "csr_hci.c" "csr_h4.c" "csr_bcsp.c" "csr_3wire.c" "csr.h" "csr.c" "create-image.c" "cltest.c" "ciptool.c" "ciptool.1" "check-selftest.c" "btsnoop.c" "btproxy.c" "btpclient.c" "btmon-logger.c" "btmgmt.c" "btiotest.c" "btinfo.c" "btgatt-server.c" "btgatt-client.c" "btconfig.c" "btattach.c" "btattach.1" "bneptest.c" "bnep-tester.c" "bluetooth-player.c" "bluetooth-logger.service.in" "bluemoon.c" "bdaddr.c" "bdaddr.1" "bccmd.c" "bccmd.1" "avtest.c" "avinfo.c" "amptest.c" "advtest.c" "3dsp.c" "../" "./")
+
+ ("f:/GTD-org-git/work/JL/" (23506 31476 0 0) "record.org" "diary.org" "Android_APP.org" "../" "./")
+
+ ("e:/692X/1TEST/AC692x_SDK_release_V2.5/c/include_lib/bluetooth/" (23448 50528 0 0) "new_ccm_aes.a" "msbc_enc_dec.a" "crc_ibm_lib.a" "bt_led.h" "bluetooth_api.h" "ble_api.h" "avctp_user.h" "aes_lib_pi32.a" "../" "./")
+
+ ("e:/69/JinKangTe/ac69_emitter_sdk_v107/b/apps_soundbox/include/bluetooth/" (23465 61431 0 0) "le_server_module.h" "le_profile_def.h" "fcc_test.h" "emitter_user.h" "bt_ui.h" "bt_key_msg.h" "bt_key_deal.h" "../" "./")
+
+ ("e:/69/JinKangTe/ac69_emitter_sdk_v107/b/apps_soundbox/include/" (23467 14969 0 0) "usb_device/" "sdk_cfg.h" "rtc/" "record/" "music/" "main/" "linein/" "idle/" "fm/" "echo/" "cpu/" "common/" "bluetooth/" ".#sdk_cfg.h" "../" "./")
+
+ ("e:/69/JinKangTe/ac69_emitter_sdk_v107/b/apps_soundbox/cpu/ac690x/board/" (23465 64182 0 0) "board.c" "../" "./")
+
+ ("e:/692X/1TEST/AC692x_SDK_release_V2.5/c/apps/include/cpu/led/" (23448 50527 0 0) "pwm_led.h" "led.h" "../" "./")
+
+ ("e:/6919/HuiJieXin/ac691x_sdk_le_v101_C_release/b/apps/include/ac691x/" (23465 52891 0 0) "updata.h" "sdk_cfg.h" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_C_flash_sdk_release_v204/b/include_lib/mcpwm/" (23460 47836 0 0) "mcpwm_api.h" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/b/" (23456 25858 0 0) "include_lib/" "GTAGS" "GRTAGS" "GPATH" "apps/" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/" (23456 25863 0 0) "doc/" "b/" "a/" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/a/" (23456 25580 0 0) "include_lib/" "GTAGS" "GRTAGS" "GPATH" "apps/" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/a/apps/" (23418 15782 0 0) "ui/" "post_build/" "obj/" "Makefile" "main/" "include/" "cpu/" "common/" "bt/" "ac691x_otp_sdk.layout" "ac691x_otp_sdk.depend" "ac691x_otp_sdk.cbp" "ac691x_flash_sdk.layout" "ac691x_flash_sdk.depend" "ac691x_flash_sdk.cbp" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/a/apps/cpu/" (23362 451 0 0) "ac691x/" "../" "./")
+
+ ("e:/6919/1TEST/ac691x_sdk_le_v101_C_release/a/apps/cpu/ac691x/" (23362 2059 0 0) "version.S" "updata.o" "updata.d" "updata.c" "uart_hw.o" "uart_hw.d" "uart_hw.c" "timer_hw.c" "sys_init.o" "sys_init.d" "sys_init.c" "startup.S" "startup.o" "power_timer_hw.o" "power_timer_hw.d" "power_timer_hw.c" "key_drv_tch.h" "key_drv_tch.c" "key_drv_matrix.o" "key_drv_matrix.h" "key_drv_matrix.d" "key_drv_matrix.c" "key_drv_ir.h" "key_drv_ir.c" "key_drv_io.o" "key_drv_io.h" "key_drv_io.d" "key_drv_io.c" "key_drv_interface.h" "key_drv_ad_vddio.o" "key_drv_ad_vddio.d" "key_drv_ad_vddio.c" "key_drv_ad_rtcvdd.o" "key_drv_ad_rtcvdd.d" "key_drv_ad_rtcvdd.c" "key_drv_ad.h" "irtc_interface.h" "irtc_hw.o" "irtc_hw.h" "irtc_hw.d" "irtc_hw.c" "info_interface.h" "info_hw.o" "info_hw.d" "info_hw.c" "debug_init.o" "debug_init.d" "debug_init.c" "adc_interface.h" "adc_hw.o" "adc_hw.d" "adc_hw.c" "../" "./")
+
+ ("e:/692X/1TEST/AC692x_SDK_release_V2.5/c/" (23448 50528 0 0) "include_lib/" "GTAGS" "GRTAGS" "GPATH" "apps/" "../" "./")
+
+ ("e:/692X/1TEST/AC692x_SDK_release_V2.5/c/apps/" (23459 39798 0 0) "task_manager/" "sdk.layout" "sdk.depend" "sdk.cbp" "obj/" "Makefile" "include/" "download/" "cpu/" "common/" "btstack/" "ble_stack/" "auto_test/" "../" "./")
+
+ ("e:/692X/1TEST/AC692x_SDK_release_V2.5/c/apps/cpu/" (23459 33755 0 0) "wdt.c" "updata.c" "ui/" "uart/" "timer.c" "spdif.c" "rotate_dec.c" "power/" "output_channel.c" "led/" "key_drv/" "irq.c" "iis/" "iic/" "clock.c" "board_init.c" "board/" "audio/" "adc_api.c" "../" "./")
+
+ ("e:/692X/HuaJuXing/FenDa/AC692x_SDK_release_V2.3/d/apps/task_manager/task_test/" (23457 46294 0 0) "uart_auto_test.h" "uart_auto_test.c" "test_api.c" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/c/" (23456 38733 0 0) "include_lib/" "GTAGS" "GRTAGS" "GPATH" "apps_soundbox/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/" (23456 38738 0 0) "tone_resource_Q1/" "tone_resource.rar" "c/" "b/" "a/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/" (23455 24370 0 0) "include_lib/" "GTAGS" "GRTAGS" "GPATH" "apps_soundbox/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/" (23455 37580 0 0) "usb_device/" "test.layout" "speex_api/" "speed_pitch_api/" "rtc/" "record/" "obj/" "music/" "Makefile" "main/" "linein/" "include/" "idle/" "fm/" "echo/" "download/" "cpu/" "common/" "bt_smart/" "br16_app_lab.layout" "bluetooth/" "alarm/" "ai_toy/" "ac690x_app.layout" "ac690x_app.depend" "ac690x_app.cbp" "ac690x_6901d_app.cbp" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/include/" (23455 31167 0 0) "usb_device/" "speex_api/" "speed_pitch_api/" "sdk_cfg.h" "rtc/" "record/" "music/" "main/" "linein/" "idle/" "fm/" "echo/" "cpu/" "common/" "bt_smart/" "bluetooth/" "alarm/" "ai_toy/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/include/cpu/" (23455 23548 0 0) "ac690x/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/include/cpu/ac690x/" (23455 23548 0 0) "update.h" "ui/" "uart/" "timer/" "sys_detect.h" "ladc/" "key_drv/" "isr/" "iis/" "iic/" "dac/" "clock.h" "board/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/include/cpu/ac690x/ui/" (23455 23548 0 0) "ui_common.h" "ui_api.h" "led/" "lcd/" "../" "./")
+
+ ("e:/69AI/XinRuiSheng/Q1/AI_SoundBox_v221/b/apps_soundbox/include/cpu/ac690x/ui/led/" (23455 36546 0 0) "led7_drv.h" "led.h" "../" "./")
+
+ ("f:/APP/AndroidStduio/JL_AIMate_V2.2.1/" (23456 25120 0 0) "settings.gradle" "local.properties" "jl_dialog/" "JL_AIMate_V2.2.1.iml" "jl_aimate/" "jl-component-lib/" "gradlew.bat" "gradlew" "gradle.properties" "gradle/" "commonlib/" "buildSdk.gradle" "build.gradle" "build/" ".idea/" ".gradle/" ".gitignore" "../" "./")
+
+ ("f:/APP/AndroidStduio/" (23456 23373 0 0) "XinStudy/" "xin.jks-bak" "xin.jks" "JL_AIMate_V2.2.1-bak/" "JL_AIMate_V2.2.1/" "demo/" "BTMate_2.1.7-bak/" "BTMate_2.1.7/" "AIMate_V2.2-bak/" "AIMate_V2.2/" "AIMate_V2.0.zip" "AIMate_V2.0-bak/" "AIMate_V2.0/" "AIMate.zip" "AIMate-libs/" "AIMate-bak/" "AIMate/" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/" (23448 33047 0 0) "settings.gradle" "oldtree/" "local.properties" "jl_dialog/" "jl-component-lib/" "GTAGS" "GRTAGS" "gradlew.bat" "gradlew" "gradle.properties" "gradle/" "GPATH" "commonlib/" "build.gradle" "build/" "AIMate_V2.2.iml" ".idea/" ".gradle/" ".gitignore" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/" (23448 32374 0 0) "src/" "proguard-rules.pro" "libs/" "commonlib.iml" "build.gradle" "build/" ".gitignore" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/" (23445 54648 0 0) "test/" "main/" "androidTest/" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/" (23445 54648 0 0) "res/" "java/" "AndroidManifest.xml" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/java/" (23445 54647 0 0) "com/" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/java/com/" (23445 54647 0 0) "jieli/" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/java/com/jieli/" (23445 54647 0 0) "ai_commonlib/" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/java/com/jieli/ai_commonlib/" (23445 54648 0 0) "utils/" "ui/" "task/" "SpeexStreamHandler.java" "SpeexHandler.java" "sco/" "receivers/" "playcontrol/" "communicaion/" "callbacks/" "BluetoothApplication.java" "bean/" "BaseSpeechAiHandler.java" "../" "./")
+
+ ("f:/APP/AndroidStduio/AIMate_V2.2/commonlib/src/main/java/com/jieli/ai_commonlib/utils/" (23445 54648 0 0) "VoiceStream.java" "TranslateUtil.java" "TranslateRecoder.java" "ThreadPool.java" "RecordUtil.java" "JL_MediaPlayerServiceManager.java" "JL_AlramManager.java" "DeviceCommand.java" "ContextUtil.java" "Constant.java" "CommonlibUtil.java" "AsrQueue.java" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
