@@ -1,0 +1,82 @@
+#+TITLE:       JL work diary record
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+   #+BEGIN_SRC c
+   #+END_SRC
+
+
+
+* 20200113
+** 科普豪6956D
+   内置充电问题，音箱SDK0.0.1版本不支持内置充电，改了个程序给客户，
+   插卡卡音，公版SDK测试没问题
+
+* 20200110
+** 华巨芯6936D
+   中控耳机电流声,功率降2级,MIC电源提高,mic加EQ滤高频,改成LDO电源
+
+** 华巨芯4601B
+   32K晶振不跑,rtc读寄存器会出错,导致PR3被设置成输出或下拉
+   在所有的PORTR函数里,都初始化PR3的对应位
+   输入关上下拉
+
+* 20200109
+** 汉欣诺692X
+   苹果HID多点触控,改成White_board+Finger，客户测试中
+** 博创昱6936D
+   PA8有个3V到4V连续脉冲波，导致触摸IC死机
+   SDK在LDIN_ERR没有charge_close，客户测试中
+** 起华6936D
+   按键提示音修改，入离耳滤抖，客户测试中
+
+* 20200108
+** 起华6936D
+   KXD368触控耳机案子,加离耳不响应按键
+** 起华6925A
+   音箱案子,低音调节旋钮,声音很奇怪
+   
+* 20200107
+** 恒大6926
+   BLE蓝牙模块，客户文档协议封装测试可以
+** 也杨6901
+   spi外挂flash录音，剩flash分区录音问题，转了个珠海邮件给客户，客户回去自己先搞
+** 起华6936D
+   在065上打补丁，开不了机，处理中
+
+* 20200106
+** 恒大6926
+   BLE蓝牙模组，协议封装中
+** 源创杰692X
+   点阵屏繁体显示乱码
+   国内下载的歌词文件，都是ANSI编码，用记事本转换成UTF16-LE，客户测试可以
+   预测国外下载的，肯定不会是ANSI，应该是UTF16-LE
+** 芯运6936D8
+   测试盒升级死机
+   客户芯片批次号为UAK731-36D8，用064的SDK测试出现百分百死机
+   替换之前处理TH flash的ota.bin，客户测试几个芯片，都可以
+** 新时代692X
+   有其他方案能做到在一个连接事件内传送40包以上
+   692X只能传输10包以下,需要敏贤支持
+
+* 20200103
+** 695X
+   开发板PA9、PA10短路
+** 汉欣诺695X
+   串口UART1 TX和RX改任意映射，客户测试OK
+** 起华A3-6936D
+   生产不良，部分dvdd电压偏低，升级SDK给客户，
+** 起华AD138
+   无线充关机后耗电3mA，充电IC型号选错,应为CHARGE_IC_LP4060_LP6235
+** 起华R5-6936D
+   改用KXD368,发给客户测试了
+
+* 20200102
+** 请假1天
+

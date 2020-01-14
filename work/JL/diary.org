@@ -12,6 +12,2060 @@
    #+END_SRC
 
 
+* 20200102
+** 请假1天
+
+* 20191231
+** 起华A3
+   生产几百个不良
+** 科普豪6936D
+   对耳打给iPhone11，不说话都有电流声，跑LDO，功率降到6，调通话参数都不起作用，
+   PCB走线mic和dac线是相交的，建议客户改板测试，
+   而打给其他款手机，改LDO后基本听不出来
+
+* 20191230
+** 联巨兴6936D8
+   通话电流声，应该是硅mic的问题，尝试降功率跟通话参数
+** 恒大充电桩
+   调试中
+
+* 20191227
+** 请假2个钟
+** 起华6936D8
+   3代耳机，2版程序已发出
+** 组创692X
+   PR2上升沿唤醒问题，发了程序给客户测试
+** 源创杰692X
+   串口1dma接收数据，超时获取数目，处理中
+** 组创690X
+   ble notify出现导致连接断开，还没支持
+
+* 20191226
+** 源创杰692X
+   2.6.3蓝牙模块测试盒升级死机，进升级前关闭BLE的广播，测试可以
+** 羽恒692X
+   timer3定时不准，在客户程序上，验证可以发给客户了
+** 起华6936D8
+   3代耳机功能修改，还没改完
+** 组创692X
+   PR口上升沿唤醒不了，发了程序给客户了
+
+* 20191225
+** 请假到2点半
+** 起华6936D
+   3代耳机调试，发给客户测试了
+
+* 20191224
+** 请假一上午
+** 下午出差博益友
+   和少文出差,处理nordic的牙刷没有notify数据
+
+* 20191223
+** 博益友692X
+   Nordic 52810无法接收notify数据
+
+* 20191221
+** 加班一天
+   出差一天
+** 桑利6925B
+   测试盒连接慢,测试盒太多
+
+* 20191220
+** 起华6925A
+   蓝牙音箱，调试OK，等客户过来烧样片
+** 汇杰芯695X
+   耳机SDK，获取能量值，测试不行，得珠海确认
+
+* 20191219
+** 起华AD135
+   生产部分无法检测耳机
+   5V控制的三极管焊错，导致5V常在
+** 起华6925A
+   蓝牙音箱基本功能已完成
+
+* 20191218
+** 也杨695X
+   测试盒单独升级蓝牙名，程序不能开打印，关打印测试正常
+** 华巨芯8006
+   通道后，播歌没人声，VCOMO要设置2个地方
+** 羽恒692X
+   BLE和手机APP通信，能收不能发，在客户程序上改了个版本，客户验证可以
+** 联巨兴亚华692X
+   下午新的的BLE功能需求，还没加
+
+* 20191217
+** 起华AD138
+   内置无线充改灯显示,已发出
+** 起华6936D  AD138
+   功能修改，已发出
+** 联巨兴亚华6928B
+   蓝牙模块，串口丢数据，spp卡包，加ble功能，没处理完
+** 华巨芯8006
+   打完电话后播歌没有人声，待测试
+** 华巨芯奋达6923
+   app获取目录列表，偶现死机，栈检查会满，待处理
+
+* 20191216
+** 博益友692X
+   做client连接nordic的server，连接流程正常，
+   但是nordic的数据没有发出，抓包看不出来，先让客户看下nordic那端的打印再说
+** 起华AD138
+   内置无线充，调试中
+
+* 20191213
+** 起华AD138
+   带无线充SDK开3灯，爆ram太多，跟珠海处理中
+** 组创692X
+   软件模拟spi，跟6936D通信正常，
+   跟2.4GHz模块无法通信，未知原因，客户回去处理
+
+* 20191212
+** 组创6936D
+   有个华为手机播歌暂停后，会超时断开，留手机待处理
+** 聆动6928B
+   在源代码上固定中翔达key，等吴旭发库
+   要改固定key
+   电机pwm1到默认输出到PA4
+
+* 20191211
+** 中翔达692X
+   linein下串口丢数据，改了个程序给客户测试中
+** 也杨6936d
+   没有改2线flash,导致1拖6烧录部分不开机
+
+* 20191210
+** 8009
+   dsp有3个电源,一般由PB8供电，关机后掉电，dsp不工作，
+   开机后才能使用关键字“嘿，siri”做唤醒
+** 威益德690X
+   连测试盒测试容易出现复位
+   开了频偏测试功能，如果在这个时候出现异常就会复位，没有做退出流程
+   关了频偏测试，连接非常快
+   
+* 20191209
+** 伦茨682X
+   ble连上瞬间丢串口数据，开发板测试10ms接收，没有问题
+** 组创693X
+   ble单耳使用广播左右相反，客户测试ok
+** 芯运6936D
+   生产有2百多个不良不开机，打全电压段校准mic补丁OK
+
+* 20191206
+** 起华6936D
+   新案子3个问题，处理，发给客户测试
+** 中翔达695X
+   PB0做按键被充电仓的uart1默认第一组口修改，重新初始化可以
+** 新时代692X
+   无法被cc2541的client端连接，修改UUID为16bits，测试可以
+** 聆动692X
+   BLE案子基本可以，等走完商务，才能发出
+
+* 20191205
+** 聆动6928
+   BLE案子调试中
+** 起华6936d
+   改了2个案子，还有一个没改
+** 中翔达6956D
+   反馈PB0做按键，无法识别双击，会变成长按，待测试
+
+* 20191204
+** BLE参数
+   Adv_int_min 广播 interval 的最小值，  单位 0.625ms
+   Adv_int_max 广播 interval 的最大值，  单位 0.625ms
+   CONN_INTERVAL_MIN 最小 interval 值， 单位 1.25ms
+   CONN_INTERVAL_MAX 最大 interval 值， 单位 1.25ms
+   CONN_SUPERVISION_TIMEOUT 超时值 ，   单位 10ms
+** 新时代692X
+   抄机,692x做server，CC2541做client，连接不上，支持中
+** 聆动6928
+   带了个机子过来这边，待调试的案子
+
+* 20191203
+** 692X串口升级
+   改用UART1需要换uboot
+** 威益德690X
+   文件浏览器获取文件接口改了3个地方。其他问题没有测试到
+
+* 20191202
+** 8006推灯
+   用硬件模块PR口推灯,才能做成693X的效果,时钟初始化有问题
+** 威益德690X
+   BLE发送卡死机,写回调发送事件,会卡住不返回,改成发消息
+   文件浏览器出现有重复文件,丢失文件,点播wma失败,wma文件后缀变成mp3
+
+* 20191129
+** 科普豪693X
+   SPI收发例子，客户测试OK，
+   不过开发板偶现收不到数据，暂时找不到原因
+** 组创6933C
+   生产几百个不良，客户直接联系珠海，在珠海处理了
+** 汉欣诺692X
+   华为mate10配对BLE偶现出现失败，测试发现mate10无法搜索到48号通道的数据，
+   暂时让客户测试下之前抄的方案，是否有一样问题，再决定是否寄手机给珠海
+
+* 20191128
+** 威益德692X
+   几个问题处理完成
+** 组创6933C
+   后续生产还是出现不良，有几百个，处理中
+** 科普豪693X
+   spi用dma方式，测试中
+** 汉欣诺692X
+   BLE做HID，用mate10经常出现配对不上，处理中
+
+* 20191127
+** 奋达
+   出差一天
+   和棉鸿、荣均出差奋达
+   处理小芦双mic降噪测试标准
+
+* 20191126
+** 起华6936D8
+   苹果功能加广播问题，珠海说暂时无解
+   改成默认带入耳检测,安卓可以使用
+** 潮元6936D
+   通话调试中
+   硬件问题很多,才榜处理
+
+* 20191125
+** 请假1天
+
+* 20191123
+** 加班一天
+** BLE连接间隔
+   苹果的连接间隔默认为30ms，
+   如果要更新，需要满足如下要求，且最小可以申请到20ms，
+   如果蓝牙服务带HID服务，则可以申请的最小连接间隔为11.25ms，
+   另外，苹果从来不会读取设备端偏爱的连接间隔的character值。
+** BLE修改gatt
+   当从端有能力改变自身服务时， GATT服务必须包含Service Changed characteristic，
+   因为苹果可能会根据该特征值判断原来读取的从端设备的service list等信息是否还可以继续使用。
+
+* 20191122
+** 693X音箱SDK
+   开PC关机功耗大
+   JL_USB->CON0 = 0;
+   JL_USB->CON1 = 0;
+   JL_USB_IO->CON0 = 0;
+   JL_USB_IO->CON1 = 0;
+** 起华6936D8
+   广播电量有时出现乱跳，改了个版本给客户测试
+** 中翔达德芯成
+   关机后VDDIOW有误差，珠海改库后，发给你客户测试了
+
+* 20191121
+** 华巨芯692X
+   AI_V2.4关HFP出现U盘概率升级死机，暂不改库，给客户3种方式选择避免
+   1.做个vm，复位后直接进音乐模式升级，不要进蓝牙。
+   2.开HFP，把BT_HFP_EN_SCO_DIS打开，把__bt_set_update_battery_time(0);参数清0。
+   3.升级前关后台的，你再仔细测试看看，看看行不行
+
+** 汉欣诺692X
+   BLE做HID设备，手动回连出现延时大问题，改了个程序给客户，
+   反馈三星S10可以，华为mate 10还不行，处理中
+
+* 20191120
+  出差一天
+** 德芯成6936D
+   关机后VDDIO电压偏低，有2.4V-2.7V
+   导致触摸芯片不工作
+   珠海秉铨和建城在看
+
+* 20191119
+** AD转IIS芯片
+   立体声单/双路ADC
+   ES7241
+   CS4344 
+   ES7243
+** BLE主从机数据加快实现
+   #+BEGIN_SRC c
+   case HCI_SUBEVENT_LE_CONNECTION_COMPLETE: {
+       if (tc_state != TC_W4_CONNECT) {
+           client_printf("CONN ACTIVE err,%d\n", tc_state);
+           break;
+       }
+  
+       if (packet[3] != 0) {
+           client_puts("client creat_conn fail!\n");
+           client_put_buf(packet, size);
+           if (packet[3] != 0x0c) {
+               tc_state = TC_IDLE;//;
+               ACT_SET_FLAG(CLI_SCAN_ENABLE);
+           }
+           break;
+       }
+       client_puts("client conn sucess\n");
+       /* client_put_buf(packet, size); */
+       gc_handle = little_endian_read_16(packet, 4);
+       log_info("HCI_SUBEVENT_LE_CONNECTION_COMPLETE : %0x\n", gc_handle);
+       tc_state = TC_CONNECTED;//TC_W4_ENCRYPTED_CONNECTION;
+       set_ble_work_state(BLE_ST_CONNECT);
+       /* ACT_SET_FLAG(CLI_SEARCH_PROFILE_START);//debug */
+       att_send_init(gc_handle);
+       att_regist_client_callback(s_client_gatt_event);
+       test_record_data_cnt = 0;
+       index_record = 0;
+       client_search_profile_complete();
+       break;
+
+    const u8 indicate_enable_data[] = {0x02,0x00};
+    static void client_search_profile_complete(void)
+    {
+        u16 mtu;
+    
+        le_characteristic_t tmp_characteristic;
+        if (service_count == 0) {
+            log_info("find no services!!!\n");
+        }
+    
+        gatt_client_get_mtu(gc_handle, &mtu);
+        log_info("ATT MTU = %u\n", mtu);
+        att_send_set_mtu_size(mtu-3);
+    
+        client_puts("\n-target_handle:");
+        client_put_buf((void *)&target_handle, sizeof(target_handle_t));
+        set_ble_work_state(BLE_ST_SEARCH_COMPLETE);
+        log_info("client_search_profile_complete\n");
+    
+        tc_state = TC_W4_ACC_DATA;
+        client_operation_send(0x11,(void *)indicate_enable_data,2,ATT_OP_WRITE);
+    
+        tmp_characteristic.value_handle = 0x10;///indicate uuid handle
+        gatt_client_listen_for_characteristic_value_updates(&notification_registration[0],
+                                                            s_client_gatt_event, gc_handle, &tmp_characteristic);
+    }
+   #+END_SRC
+** 华巨芯奋达692X
+   U盘升级死机，还没找到原因，处理中
+** 迈瑞693X
+   改写flash任意地址任意长度的数据
+   而擦除要4K擦除，需要4K读回到ram，改写ram，再写回
+
+* 20191118
+  请假半天
+** 华巨芯693X
+   双模SDK等问题，验证好已发出
+** 华巨芯692X
+   奋达带测试模式升级死机，开发板没测到，客户测试中
+** 威益德690X+1082
+   USB和linein来电死机，已处理
+** 汉欣诺692X
+   BLE做HID，让手机更新profile，和珠海确认过，实现不了
+** 联巨兴690X
+   传统蓝牙HID本地更新report，没空测试，先发给客户测试
+
+* 20191115
+** 威益德690X+1082
+   做4通路dac
+   DAC中断解码数据通过串口DMA发送给1082
+   插播linein采样数据，dac中断不能停
+   #+BEGIN_SRC c
+   u8 dac_int_flag = 0;
+   void dac_int_enable(void)
+   {
+       dac_int_flag = 0;
+       dac_read_en = 0;
+       dac_ie_api(1);
+   #if BT_TWS
+       dac_mute(0,0);
+   #else
+       dac_mute(0,1);
+   #endif
+   
+   }
+   extern u8 aux_st;
+   void dac_int_disable(void)
+   {
+       if(aux_st){
+           dac_int_flag = 2;
+           return;
+       }else{
+           dac_int_flag = 1;
+       }
+   #if BT_TWS
+       dac_mute(1,0);
+   #else
+       dac_mute(1,1);
+   #endif
+   
+       dac_ie_api(0);
+   }
+   u32 USE_AMUX = DAC_AMUX0;
+   u8 aux_st = 0;
+   void aux_open(void)
+   {
+       puts("aux_open\n");
+       aux_st = 1;
+       dac_mute(1,1);
+       set_sys_vol(0,0,FADE_ON);
+       /* ladc_adcude(1); */
+       //init mic IO
+       if(USE_AMUX == DAC_AMUX0){
+           JL_PORTA->DIR |=  (BIT(1)|BIT(2));
+           JL_PORTA->DIE &= ~(BIT(1)|BIT(2));
+       }
+       else if(USE_AMUX == DAC_AMUX1){
+           JL_PORTA->DIR |=  (BIT(4)|BIT(3));
+           JL_PORTA->DIE &= ~(BIT(4)|BIT(3));
+           JL_PORTA->PD  &= ~(BIT(3));//PA3 default pull_down
+       }
+       else if(USE_AMUX == DAC_AMUX2){
+           JL_PORTB->DIR |=  (BIT(11)|BIT(12));
+           JL_PORTB->DIE &= ~(BIT(11)|BIT(12));
+       }
+       void ad2da_init(void);
+       ad2da_init();
+       digit_auto_mute_set(0,-1,-1,-1); // 关自动mute
+       printf("dac_get_samplerate:%d\n",dac_get_samplerate());
+       ladc_reg_init(ENC_LINE_LR_CHANNEL,dac_get_samplerate());
+       amux_channel_en(USE_AMUX,1);
+       /* amux_ch_combine(1,1); */
+       /* dac_AmuxGain_en(1); */
+       /* JL_AUDIO->DAA_CON2 |= (BIT(12)|BIT(7)); */
+       /* JL_AUDIO->DAA_CON2 &= ~(BIT(13)); */
+       os_time_dly(20);//wait amux channel capacitance charge ok
+       set_sys_vol(30,30,FADE_ON);
+       dac_mute(0,1);
+       /* ladc_adcude(0); */
+       printf("JL_AUDIO->DAC_CON :0x%08x\n",JL_AUDIO->DAC_CON);
+       printf("JL_AUDIO->DAA_CON0:0x%08x\n",JL_AUDIO->DAA_CON0);
+       printf("JL_AUDIO->DAA_CON1:0x%08x\n",JL_AUDIO->DAA_CON1);
+       printf("JL_AUDIO->DAA_CON2:0x%08x\n",JL_AUDIO->DAA_CON2);
+       printf("JL_AUDIO->DAA_CON3:0x%08x\n",JL_AUDIO->DAA_CON3);
+       printf("JL_AUDIO->DAA_CON4:0x%08x\n",JL_AUDIO->DAA_CON4);
+       printf("JL_AUDIO->DAA_CON5:0x%08x\n",JL_AUDIO->DAA_CON5);
+   }
+   extern u8 dac_int_flag;
+   void aux_close(void)
+   {
+       puts("aux_close\n");
+       aux_st = 0;
+       amux_ch_combine(0,0);
+       if(dac_int_flag == 2){
+           void dac_int_disable(void);
+           dac_int_disable();
+       }
+       ladc_close(ENC_LINE_LR_CHANNEL);
+       void ad2da_free(void);
+       ad2da_free();
+       amux_channel_en(USE_AMUX,0);
+       JL_AUDIO->DAA_CON2 &= ~(BIT(12)|BIT(7));
+       digit_auto_mute_set(1,-1,-1,-1); // 开自动mute
+   }
+   
+   typedef struct __AD_TO_DA_STREAM {
+       cbuffer_t 	cbuf;
+       u8 * 		ram;///[DAC_BUF_LEN];		//double buffer
+       u8 			enable;
+   } AD_TO_DA_STREAM;
+   
+   #define AD2DA_BUF_LEN  5*1024
+   static AD_TO_DA_STREAM ad2da_obj;
+   
+   void ad2da_init(void)
+   {
+       u32 ram_len = AD2DA_BUF_LEN;
+       ad2da_obj.enable = 1;
+       ad2da_obj.ram = malloc(AD2DA_BUF_LEN);
+       ASSERT(ad2da_obj.ram);
+       cbuf_init(&ad2da_obj.cbuf, ad2da_obj.ram, ram_len);
+   }
+   void ad2da_free(void)
+   {
+       if(ad2da_obj.enable){
+           if(ad2da_obj.ram){
+               free(ad2da_obj.ram);
+               ad2da_obj.ram = NULL;
+           }
+           ad2da_obj.enable = 0;
+       }
+   }
+   s32 ad2da_write(u8 *buf, u32 len)
+   {
+       s32 ret;
+       if (ad2da_obj.enable == 0) {
+           ret = 0;
+       } else {
+           ret = cbuf_write(&ad2da_obj.cbuf, buf, len);
+           if (len != ret) {
+               putchar('x');
+           }
+       }
+       putchar('w');
+       return ret;
+   }
+   
+   s32 ad2da_read(u8 *buf, u32 len)
+   {
+       s32 ret;
+       if (ad2da_obj.enable == 0) {
+           ret = 0;
+       } else {
+           ret = cbuf_read(&ad2da_obj.cbuf, buf, len);
+           if (len != ret) {
+               putchar('s');
+           }
+       }
+       putchar('r');
+       return ret;
+   }
+   
+   void ladc_stereo_ad2da(void *buf_l,void *buf_r,u32 len)
+   {
+       if(ad2da_obj.enable){
+           u16 sr_reg;
+           sr_reg=dac_get_samplerate();
+           if(sr_reg != ladc_sr_get())
+           {
+               printf("sr:%d\n",sr_reg);
+               ladc_sr_set(sr_reg);
+           }
+       }else{
+           return;
+       }
+   
+       u8 l2d_buf[DAC_DUAL_BUF_LEN*2];
+       s16 * sp_l = buf_l;
+       s16 * sp_r = buf_r;
+       s16 * dp = (s16 *)l2d_buf;
+       u8 cnt;
+       for(cnt = 0; cnt<(len/2); cnt++)
+       {
+           dp[cnt*2]=sp_l[cnt];
+           dp[cnt*2+1]=sp_r[cnt];
+       }
+       ad2da_write((u8 *)dp,len*2);
+   }
+   #+END_SRC
+
+** 华钜芯693X
+   双模SDK问题，未验证
+
+* 20191114
+** 迈瑞693X
+   处理2个，还剩IO中断切换边沿唤醒，有概率失效，还没看
+** 威益德690X
+   任意模式下，插播linein的RDS声音，公版测试正常，客户那边不行
+** 威益德692X
+   录音加混响，爆13K的ram，回客户处理不了
+** 起华6936D
+   苹果特殊功能调试，要配合充电仓使用才正常，还差mic动态调节没搞，先发给客户测试了
+
+* 20191113
+** 华钜芯693X
+   双模SDK问题，珠海没回应
+** 起华6936D8
+   功能调试，还有点问题
+** 迈瑞693X
+   电量检测流程
+   #+BEGIN_SRC c
+   static int vbat_timer = 0;
+   static u8 vbat_check_idle = 1;
+   static u16 bat_val = 0;
+   void vbat_check(void *priv);
+   void vbat_check_init(void)
+   {
+       r_printf("vbat_trim:%d...vbg_trim:%d\n",get_vbat_trim(),get_vbg_trim());
+       if (vbat_timer == 0) {
+           vbat_timer = sys_timer_add(NULL, vbat_check, 2);
+           vbat_check_idle = 0;
+       }
+   }
+   void vbat_timer_update(u32 msec)
+   {
+       if (vbat_timer) {
+           sys_timer_del(vbat_timer);
+           vbat_timer = sys_timer_add(NULL, vbat_check, msec);
+       }
+   }
+   u16 get_vbat_level(void)
+   {
+       return (adc_get_voltage(AD_CH_VBAT) * 4 / 10);
+   }
+   void vbat_check(void *priv)
+   {
+       static u8 switch_cnt = 0;
+       if(switch_cnt++ > 10){
+           log_info("bat_val:%d\n", bat_val);
+           vbat_timer_update(10 * 1000);///10s
+           switch_cnt = 0;
+           vbat_check_idle = 1;///不检测vbat,允许进sniff
+           return;
+       }
+       if(vbat_check_idle){
+           vbat_timer_update(2);///2ms
+           vbat_check_idle = 0;///要检测vbat,不允许进sniff
+       }
+       if (!bat_val) {
+           bat_val = get_vbat_level();
+       } else {
+           bat_val = (get_vbat_level() + bat_val) / 2;
+       }
+       /* log_info("bat_val:%d\n", bat_val); */
+   }
+   static u8 vbat_check_idle_query(void)
+   {
+       return vbat_check_idle;
+   }
+   REGISTER_LP_TARGET(vbat_check_lp_target) = {
+       .name = "vbat_check",
+       .is_idle = vbat_check_idle_query,
+   };
+   #+END_SRC
+   唤醒口没有设置DIE,导致read失效
+   power_wakeup_init(&wk_param);
+   gpio_set_die(port0.iomap,1);
+   gpio_set_die(port1.iomap,1);
+   gpio_set_die(port2.iomap,1);
+
+* 20191112
+** 华钜芯693X
+   AC693X_bt_data_transfer_soundbox_sdk_release_v0.1.0反馈6个问题，
+   验证了4个，3个存在，一个不存在，准备发邮件给珠海
+** 迈瑞693x
+   反馈IO中断，充电等问题，还没看
+** 威益德692X
+   睡眠后唤醒RTC不跑
+   set_lowpower_keep_32K_osc_flag(1);
+   enter_sys_soft_poweroff();
+   睡眠前都要调用下，前面的函数，才能睡眠。
+
+* 20191111
+** 迈瑞693X
+   开辟10区域开不了机，超4K读写异常，已经发给客户了
+** 联巨兴亚华6928B
+   spp串口透传，基本功能有，客户回去测试
+   设置搜索为普通蓝牙图标
+   #define BD_CLASS_BLUETOOTH			0x800000//0x040610
+    __change_hci_class_type(BD_CLASS_BLUETOOTH);
+
+* 20191108
+** 693X的VM做法
+   一开机有个vm的打印
+   [Info]: [SDFILE]VM size: 0x57000 @ 0x27000
+   [Info]: [VM]vm_info addr:0x27000, len:0x4000, mode:0x0
+   就是VM的起始地址和长度
+   代码里面会定一个最大长度，改isd_config.ini没用的，而且公版SDK不一定会对应上
+   len：0x4000 = 16K,要除以2,因为要做备份，这样才是最大可保存的最大长度8K
+** 美师傅8006
+   读EQ配置文件出错，要把eq的bin文件放到tools\resource文件夹里
+   不需要修改download.bat
+** 德科创693X
+   BLE超低功耗出现100mA大电流，这边量出来只有40mA，初步判定是唤醒电源电容充放电的大电流
+
+* 20191107
+** 汇杰芯6933C
+   生产开不了机，是flash问题，2线机制
+** 美师傅693X
+   064的开ACC立体声播歌会卡音，提高系统频率到64M，能优化
+   卓添小米手机连上播歌瞬间会卡3声，暂时无解
+** 汉欣诺690X
+   带BLE开了1拖2之后，会出现回连连不上现象
+** 美师傅8006
+   在线调EQ，连不上，测试正常
+** 华钜芯奋达692X
+   改AI版本，音频输出对不上，修改应用的流程
+** 德科创6939D
+   改了一个100uA的BLE蓝牙库，客户反馈1分钟会有2-3次有50us的100mA大电流
+   还没搞
+** 迈瑞693X
+   指定内部flash地址写数据，还没看
+   
+* 20191106
+** 汇杰芯692X
+   音乐播歌变速变调第一声没有变音
+   要改初始化时的默认值
+
+** 迈瑞693X
+   BLE案子支持，内部flash的文件系统sdfile不支持写，指定地址写方式也没有接口
+   #+BEGIN_SRC c
+     #include "system/includes.h"
+     #include "app_config.h"
+     #include "fs.h"
+     
+     #define FILE_SIZE   20 * 1024 * 1024
+     
+     static u8 write_buf[32 * 1024 + 500];
+     
+     #define SDFILE_NEW_FILE1 	SDFILE_RES_ROOT_PATH"user/file1.txt"///
+     #define SDFILE_NEW_FILE2 	SDFILE_RES_ROOT_PATH"user/file2.txt"///
+     /* #define SDFILE_NEW_FILE1 	SDFILE_RES_ROOT_PATH"file1.txt"///user/ */
+     /* #define SDFILE_NEW_FILE2 	SDFILE_RES_ROOT_PATH"file2.txt"///user/ */
+     
+     #define SDFILE_NEW_FILE3 	SDFILE_RES_ROOT_PATH"RESERVED_CONFIG/btif"
+     
+     #define SDFILE_READ_LEN 	9///0x20
+     
+     static int sdfile_test(const char *name)
+     {
+         log_d("SDFILE file path: %s", name);
+         FILE *fp = NULL;
+         u8 buf[SDFILE_READ_LEN];
+         u8 len;
+         int ret;
+     
+         fp = fopen(name, "rw+");
+         if (!fp) {
+             log_d("sdfile open file ERR!");
+             return -1;
+         }
+     
+         //char str_buf[] = "test user file write";
+         //fseek(fp, 0, SEEK_SET);
+         //ret = fwrite(fp, str_buf, sizeof(str_buf));
+         //if (ret == sizeof(str_buf)) {
+         //    printf("file write succ\n");
+         //}else{
+         //    printf("file write ERR\n");
+         //}
+         memset(buf,0x00,sizeof(buf));
+         len = fread(fp, buf, sizeof(buf));
+         if (len == 0) {
+             log_d("read file ERR!");
+             goto _end;
+         }
+         printf("read cnt:%d",len);
+         put_buf(buf, len);
+     
+         memset(buf,0x00,sizeof(buf));
+         fseek(fp, 5, SEEK_SET);
+         len = fread(fp, buf, sizeof(buf));
+         if (len == 0) {
+             log_d("seek read file ERR!");
+             goto _end;
+         }
+         printf("senk read cnt:%d",len);
+         put_buf(buf, len);
+     
+         memset(buf,0x00,sizeof(buf));
+         char str_buf1[] = "test over write";
+         printf("%s",str_buf1);
+         put_buf(str_buf1, sizeof(str_buf1));
+         fseek(fp, 0, SEEK_SET);
+         ret = fwrite(fp, str_buf1, sizeof(str_buf1));
+         if (ret == sizeof(str_buf1)) {
+             printf("file write succ\n");
+         }else{
+             printf("file write ERR\n");
+         }
+     
+         memset(buf,0x00,sizeof(buf));
+         fseek(fp, 0, SEEK_SET);
+         len = fread(fp, buf, sizeof(buf));
+         if (len == 0) {
+             log_d("write read file ERR!");
+             goto _end;
+         }
+         printf("write read cnt:%d",len);
+         put_buf(buf, len);
+     
+         log_d("SDFILE ok!");
+     _end:
+         if (fp) {
+             fclose(fp);
+         }
+         return 0;
+     }
+     
+     void file_test(void)
+     {
+         r_printf("-------SDFile test Start------");
+         //void *mnt = (void *)mount(SDFILE_DEV, SDFILE_MOUNT_PATH, "jlfs", 0, NULL);
+         //if (mnt == NULL) {
+         //    r_printf("mount jlfs failed");
+         //}
+     
+         sdfile_test(SDFILE_NEW_FILE1);
+         sdfile_test(SDFILE_NEW_FILE2);
+         /* sdfile_test(SDFILE_NEW_FILE3); */
+     
+         r_printf("-------SDFile test END------");
+     }
+     
+     static void fs_test_task(void *p)
+     {
+         OS_SEM sem;
+         os_sem_create(&sem, 0);
+         while (1) {
+             //if (!storage_device_ready()) {
+             //    os_time_dly(10);
+             //    continue;
+             //}
+             /*fs_write_test();*/
+             /*fs_write_test2();*/
+             //exfat_read_test();
+             os_sem_pend(&sem, 0);
+         }
+     }
+     static int fs_test_init()
+     {
+         task_create(fs_test_task, NULL, "fs_test");
+         return 0;
+     }
+     /* late_initcall(fs_test_init); */
+     
+     #define USER_ADDR  400*1024
+     void test_wirte_protect()
+     {
+         void *dev = dev_open("spiflash", NULL);
+         if (!dev) {
+             r_printf("\n <<<<spi_flash no_open>>>>\n");
+             return ;
+         }
+         /* dev_ioctl(dev, IOCTL_SET_WRITE_PROTECT, 0); */
+         dev_ioctl(dev, IOCTL_ERASE_BLOCK, USER_ADDR);
+         u8 buf[256];
+         memset(buf, 0xdd, sizeof(buf));
+         dev_bulk_write(dev, buf, USER_ADDR, sizeof(buf));
+         memset(buf, 0xbb, sizeof(buf));
+         dev_bulk_read(dev, buf, USER_ADDR, sizeof(buf));
+         put_buf(buf, sizeof(buf));
+         dev_close(dev);
+         dev = NULL;
+         // cpu_reset();
+     }
+   #+END_SRC
+
+* 20191105
+** 迈瑞693X
+   指纹识别智能锁BLE案子开发
+
+* 20191104
+** 组创6933C
+   改高阻防止部分芯片功耗高，但是整机下，手拿着功耗会逐渐增大，
+   外围有个三极管没有下拉截止电阻导致，需要主控输出0或下拉处理
+** 奋达692X
+   AI版本自动化测试，已发出
+
+* 20191101
+** 组创6933C
+   生产有部分芯片关机功耗500uA，是PA7设置成输出0，改成高阻就可以
+
+* 20191031
+** 华钜芯奋达
+   收音存台，默认50，改成100，会导致超u8，改动太大，客户暂时先限制80个。
+   自动化测试，珠海安排到下周搞
+** 伦茨693X
+   连接小米8出现连接成功又断开现象，反馈珠海
+
+* 20191030
+** 汉欣诺6905C
+   生产出现死机，目前怀疑是地回路引起，全志C200S的芯片一通电就会搞死6905C
+** 奋达692X
+   AI的V2.4收音下100个台，会出现APP闪退。
+
+* 20191029
+** 拜瑞6901A
+   解答客户一些问题
+** 联创视听690X
+   蓝牙伴侣暂停状态，微信来个信息，蓝牙伴侣就自动播歌，公版就有问题，
+   固件半秒会反馈A2DP播放状态，APP收到信息就会启动播歌
+** 汉欣诺6905C
+   生产出现部分开不了机，怀疑是硬件问题，客户先验证中
+
+* 20191028
+** 奋达692X
+   挪了一些样机工程代码，有库函数冲突，暂没改库，编译处理先,
+   要改uboot，要等棉鸿出差回来，再改
+** 组创6933C
+   客户用了旧的SDKV1.0.0生产了，生产没法测试频偏，SDK问题,
+   暂时还得等客户跟工厂沟通，再确定怎么个处理方式
+** 联巨兴693X
+   耳机带APP的通信问题，已处理
+** 起华
+   AD135和耳机，功能修改中
+** 重定义底层库函数
+   #+BEGIN_SRC c
+       void set_sys_vol(u32 l_vol, u32 r_vol, u8 fade_en);
+       extern u32 vol_map[32];
+       #define  set_sys_vol(x,y,z)     set_sys_vol(vol_map[x],vol_map[y],z);
+   #+END_SRC
+** APP端获取已连接设置的EDR地址
+   #+BEGIN_SRC C
+    AVAudioSessionRouteDescription *nowRoute = [[AVAudioSession sharedInstance] currentRoute];
+    NSArray * outArr = nowRoute.outputs;
+    AVAudioSessionPortDescription *outPort = outArr[0];
+    NSString *addr_lower = [outPort.UID lowercaseString];
+    addr_lower = [addr_lower stringByReplacingOccurrencesOfString:@":" withString:@""];
+    addr_lower = [addr_lower stringByReplacingOccurrencesOfString:@"-tacl" withString:@""];
+    NSDictionary *dict = @{@"ADDRESS":addr_lower?:@"",
+                           @"TYPE"   :outPort.portType,
+                           @"NAME"   :outPort.portName?:@""};
+    return dict;
+   #+END_SRC
+   #+BEGIN_SRC java
+   /**
+     * 检查指定的蓝牙设备是否已连接
+     *
+     * @param device 蓝牙设备
+     * @return 结果
+     */
+    public static boolean isBTConnected(BluetoothDevice device) {
+        boolean isConnected = false;
+        if (device != null) {
+            try {
+                Class<BluetoothDevice> bluetoothDeviceClass = BluetoothDevice.class;
+                Method isConnectedMethod = bluetoothDeviceClass.getDeclaredMethod("isConnected", (Class[]) null);
+                isConnectedMethod.setAccessible(true);
+                isConnected = (boolean) isConnectedMethod.invoke(device, (Object[]) null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return isConnected;
+    }
+    /**
+     * 获取系统已连接的蓝牙设备列表
+     */
+    public static List<BluetoothDevice> getSystemConnectedBtDeviceList() {
+        List<BluetoothDevice> mSystemConnectedList = new ArrayList<>();
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        try {//得到连接状态的方法
+            int state = getBtAdapterConnectionState(adapter);
+            if (state == BluetoothAdapter.STATE_CONNECTED || state == BluetoothAdapter.STATE_DISCONNECTED) {
+                Set<BluetoothDevice> devices = adapter.getBondedDevices();
+                 //筛选已配对的设备列表
+                for (BluetoothDevice device : devices) {
+                    boolean isConnected = isBTConnected(device);
+                     if (isConnected) {
+                        mSystemConnectedList.add(device);
+                    }
+                }
+            }
+            //TODO:获取游离状态的BLE设备(为了兼容BLE不配对连接的情况) ，不需要获取连接的ble设备择注释这个if代码块即可
+            if (!BluetoothConstant.BLE_BOUND_WAY) {
+                BluetoothManager mBluetoothManager = (BluetoothManager) CommonUtil.getMainContext().getSystemService(Context.BLUETOOTH_SERVICE);
+                if (mBluetoothManager != null) {
+                    List<BluetoothDevice> mConnectList = mBluetoothManager.getConnectedDevices(BluetoothProfile.GATT);
+                    //筛选已连接的设备列表
+                    if (mConnectList != null) {
+                        for (BluetoothDevice device : mConnectList) {
+                             if (!mSystemConnectedList.contains(device)) {
+                                 mSystemConnectedList.add(device);
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (mSystemConnectedList.size() > 0) {
+            return mSystemConnectedList;
+        } else {
+            return null;
+        }
+    }
+   #+END_SRC
+
+* 20191026
+** 加班1天
+** 三力
+   改了一个HID切换ios和Android的demo程序
+** 起华6936D
+   FF209改了一个056的版本
+
+* 20191025
+** 起华6936D
+   改了2款案子和AD135仓功能，还有一款209还没改
+** 奋达692X
+   自动化测试改AI版本，处理中，下周还要找珠海多个大佬，改usb，audio，exe，uboot等功能
+
+* 20191024
+** 新时代692X
+   BLE做主机获取RSSI，珠海在V2.6.3改了个库给客户测试了
+** 汇杰芯692X
+   发射器带混响，发射出去无混响效果
+   调整ladc的中断函数流程，客户测试可以
+
+* 20191023
+** 汇杰芯692X
+   发射器开混响，改了一个版本给客户能用，但是程序流程上，需要改动，暂时没空帮客户看
+** 中翔达大康693X
+   多款案子多个问题，处理中
+
+* 20191022
+** 得辉达6932A
+   带gsensor关机功耗高，需要拆掉IIC的外部上拉电阻，
+   更新程序，功耗在2.7uA
+** 国华693X
+   生产5%开不了机，flash问题，改为2线
+** 起华693X
+   2款案子修改
+
+* 20191021
+** 请假1天
+   
+* 20191018
+** 伦茨692X
+   BLE当主机,连接后，到打开notify需要1.5s的时间
+   客户想要加快,需要珠海处理
+
+* 20191017
+** AD135
+   一共10K的ram，flahs 是512k的
+   还有1k不到，大概是950byte
+** 起华6936D
+   入耳提示音,没有单击功能
+** 得辉达TX01-6932A
+    5个板子各有各的问题，修不好，跟客户说了，更新新的程序给客户
+** 国华6936D
+   案子开发，支持中
+
+* 20191016
+** 起华AD135
+   25%对应3.8V的电压
+   修改灯的状态
+** 组创6933C
+   目前烧录器的trim有问题，会把vbat烧成0档
+   喜增说，烧录不要勾选trim，出现配置错误的单独拿出来,后面再处理
+** 中翔达6936D
+   对耳靠近回连不了，焕辉跟立辉、余鑫,改了个库给客户测试。
+   bredr_normal_pwr_set(frame,15);库里加了这个调整
+
+* 20191015
+** 国华693X
+   案子开发培训
+** 中翔达6936D
+   对耳靠近回连不了，处理中
+   062公版就会,063公版不会
+** 组创6933C
+   电量检测不准，打印trim值，不正常，处理中
+
+* 20191014
+** 美师傅693X
+   音箱SDKmusic关机不了，公版就有，暂时加个变量处理，VCOMO无法保持，测试多个版本SDK，没有一个是正常的，反馈珠海
+** 伦茨693X
+   mic设成省电容，关不了机，还没看
+** 中翔达693X
+   对耳靠近回连不了，还会断开，客户寄机子过来分析
+
+* 20191012
+** 也杨693X
+   没有按键只有gsensor
+** 伦茨692X
+   蓝牙播歌后，串口数据异常，暂时找不到原因，客户尝试改uart1
+** 伦茨6939B2
+   做音响，mic当IO用开机有脉冲，按键和灯复用，功放噗声等问题支持，客户测试中
+** 也杨6936D
+   用SC7A20有个别机子，会一直初始化不过，怀疑是用了最高的波特率导致，
+   不用最高波特率蓝牙播歌又卡音，客户和sensor的工程沟通
+
+* 20191011
+** 中翔达693X
+   2个耳机靠近回连不了，拿远可以回连，重新靠近又断开。
+   打了晶振的补丁，一直跑晶振不跑LRC的，客户测试可以
+   不停的充电拿起来，操作50次出现一次死机，LDOIN焊103电容，客户测试可以
+
+* 20191010
+** 起华H3-6936D
+   功能修改，已发出
+** 也杨6936D+SC7A20
+   敲击失效，改成注册定时器，半秒初始化一次，知道初始化成功，终端回去测试50台再看情况
+** 汉欣诺692X
+   BLE连接失败，珠海改了个库，还没测试
+
+* 20191009
+** 威益德690X
+   linein扩音
+   #+BEGIN_SRC c
+   u8 aux_st = 0;
+   void aux_open(void)
+   {
+       puts("aux_open\n");
+       aux_st = 1;
+       dac_mute(1,1);
+   
+       /* ladc_adcude(1); */
+       //init mic IO
+       JL_PORTA->DIR |=  (BIT(1)|BIT(2));
+       JL_PORTA->DIE &= ~(BIT(1)|BIT(2));
+       digit_auto_mute_set(0,-1,-1,-1); // 关自动mute
+       amux_channel_en(DAC_AMUX0,1);
+       amux_ch_combine(1,1);
+       dac_AmuxGain_en(1);
+       JL_AUDIO->DAA_CON2 |= (BIT(12)|BIT(7));
+       JL_AUDIO->DAA_CON2 &= ~(BIT(13));
+       os_time_dly(20);//wait amux channel capacitance charge ok
+       set_sys_vol(20,20,FADE_ON);
+       dac_mute(0,1);
+       /* ladc_adcude(0); */
+       printf("JL_AUDIO->DAC_CON :0x%08x\n",JL_AUDIO->DAC_CON);
+       printf("JL_AUDIO->DAA_CON0:0x%08x\n",JL_AUDIO->DAA_CON0);
+       printf("JL_AUDIO->DAA_CON1:0x%08x\n",JL_AUDIO->DAA_CON1);
+       printf("JL_AUDIO->DAA_CON2:0x%08x\n",JL_AUDIO->DAA_CON2);
+       printf("JL_AUDIO->DAA_CON3:0x%08x\n",JL_AUDIO->DAA_CON3);
+       printf("JL_AUDIO->DAA_CON4:0x%08x\n",JL_AUDIO->DAA_CON4);
+       printf("JL_AUDIO->DAA_CON5:0x%08x\n",JL_AUDIO->DAA_CON5);
+   }
+   
+   void aux_close(void)
+   {
+       puts("aux_close\n");
+       aux_st = 0;
+       amux_ch_combine(0,0);
+       amux_channel_en(DAC_AMUX0,0);
+       JL_AUDIO->DAA_CON2 &= ~(BIT(12)|BIT(7));
+       digit_auto_mute_set(1,-1,-1,-1); // 开自动mute
+   }
+   extern u8 aux_st;
+   if(aux_st) {
+        memset(read_buf,0x00,DAC_BUF_LEN);
+   }
+   #+END_SRC
+
+* 20191008
+** 天罡微693X
+   063音量同步，提示音卡音杂音等问题，客户确认可以
+** 起华AD135
+   功能调试，客户回去装机测试
+** 摩天693X
+   手机播歌耳机没声音问题，还没看
+** 威益德690X
+   蓝牙音乐模式插播RDS声音，在线讲不通，最好让客户来一趟
+** 汉欣诺692X
+   BLE连接在设置界面上，回连出现连接失败，部分手机百分百，同个手机其他方案正常，敏贤处理中
+
+* 20190930
+** 汉欣诺692X
+   BLE做HID链接在设置界面上，手动断开后点连接出现连接失败，需要珠海看，发程序给敏贤了
+** 巴达木693X
+   KXD068芯片死机，一开始sniff模式死机，后面是poweroff模式下死机
+   一定要用IO口供电，不能用VDDIO供电
+   进充电等，可以关掉触摸IC的供电
+
+* 20190929
+** 博建690X
+   录音死机，栈被改了，函数返回死机，公版p4的不会，让客户换SDK
+** 汉欣诺692X
+   HID触摸，安卓的多点触控，横竖屏自适应都可以，
+   但是苹果的7P不行，其他型号又可以，没手机测试
+** 艾尔曼692X
+   BLE死机，还是能出现，看客户log，暂时看不出问题
+
+* 20190927
+** 得辉达6932A
+   USB当硬件IIC死机问题，DM内部上拉电阻太大，电阻越大波特率越小
+   改为外部上拉就可以
+** 科普豪692X
+   音乐太短，无法单曲循环，新的SDK也会，SDK加了过滤时间为0的歌曲
+   小于1s的歌曲认为是0
+
+* 20190926
+** 得辉达TX01-6932A
+   调了一版程序，给中翔达装机。
+** 693X
+   USB当硬件IIC会死机，无法产生pend，while住了，镊子点IO口就正常，处理中
+** 艾尔曼692X
+   BLE死机问题，改了一版程序给客户测试，未反馈
+
+* 20190925
+** 得辉达TX01-32A
+   DMDP用做硬件IIC,开机会死机,波特率不能高，400000就会死机
+   主要插播一个配对提示音，区分回连模式跟配对模式
+
+* 20190924
+** 组创693X
+   关机前留函数接口做复位功能，珠海改库，测试不能用，珠海还在改，等库测试
+** 起华H3-6936D
+   入耳离耳调试，基本能用，发给客户测试
+** 得辉达TX01-32A
+   调试中
+** 汇杰芯693X
+   老鼠BLE案子开发，支持中，测试盒问题，珠海处理
+
+* 20190923
+** 组创693X
+   BLE用测试盒无法升级，要开EDR才可以，关机留接口，改了个库，还没试
+** 汇杰芯693X
+   BLE无法用测试盒测试，得看珠海怎么说
+** 起华H3-6936D
+   对耳入耳功能调试中
+** 威益德690X
+   linein杂音，客户在adc_scan里操作寄存器，
+   虽然没有设置PA3，但是还会引起杂音，改成了库函数操作方式。
+
+* 20190920
+** 汇杰芯693X
+   MCPWM映射任意IO，没有关掉原先的硬件IO
+   *JL_MCPWM_CHx_CON0[arg->pwm_ch_num] &= ~BIT(2);
+
+* 20190919
+** 威益德692X
+   睡眠后无法唤醒，降频成120M就可以唤醒，但是开发板一直正常
+   可能跟芯片的flash有关
+*** 获取目录号
+   #+BEGIN_SRC c
+   typedef struct _FSAPIMSG {
+       u32	    musicdir_counter;    // 包含指定文件的文件夹序号
+       u32     dir_counter;			// 文件夹序号
+       u32     file_total_indir;     // 当前目录的根下有效文件的个数
+       u32     file_total_outdir;	// 当前目录前的文件总数，目录循环模式下，需要用它来计算文件序号
+       u32	    file_number;			// 当前文件序号
+       u32     file_counter;		//用于搜索文件计数
+       u8	    deepth;				// dir deepth for search
+   } FSAPIMSG;
+   #+END_SRC
+
+** 羽恒692X
+   用PA12检测不了linein,越界u8，被256整除
+   #+BEGIN_SRC c
+   #define AUX_IO_BIT    BIT(12)
+   #define AUX_DIR_SET   (JL_PORTA->DIR |= AUX_IO_BIT)
+   #define AUX_PU_SET    (JL_PORTA->PU  |= AUX_IO_BIT)
+   #define AUX_IN_CHECK  ((JL_PORTA->IN  &  AUX_IO_BIT)>>12)
+   #+END_SRC
+
+* 20190918
+** 威益德690X
+   BLE蓝牙名回连后出错，已OK，
+   linein下DACL杂音问题，应该是lineinL的问题，还没处理好
+
+* 20190917
+** 天地宏690X
+   卡里只有flac文件，不读卡，公版没问题
+   按路径字符串点播歌曲，要ANSI编码字符串，不能用Unicode
+   无法点播flac歌曲，SDK有问题，未修改。
+** 威益德692X
+   进入sleep睡眠后，普通IO唤醒不了，电压又是正常的，协助中
+
+* 20190816
+** 元征693X
+   BLE传大包卡最后一个小包，珠海改库，没出现卡的现象，但是有丢包现象，空中抓包分析应该是APP的问题
+** 芯运6936D
+   生产出货到用户手里开不了机，寄回来的机子都耗没电，重新充电又无法复现，只能先用最新的SDK，改DVDD最大给客户测试，看还能否复现，跟进中
+** 尚凌693X
+   音箱022反馈3个问题，已经回客户，已OK
+** 天地宏690X
+   2012-p4的SDK，flac反馈2个问题，还没看
+** 科普豪693X
+   之前改的左右耳不同蓝牙名，反馈2个问题，还没看
+** 美师傅692X
+   AI的V2.4需要IOS音量同步，要珠海改
+
+* 20190912
+** 伦茨6939B
+   充满死机，测试不到，让客户打DVDD库给工厂测试
+** 元征693X
+   大包卡几秒，协助敏贤处理中，2边现象不一样
+** 尚凌693X
+   音箱0.2.2版本反馈3个问题，还没看
+** 组创693X
+   BLE的SMP协议，没有交换加密key，看一半，处理中
+** 联创视听690X
+   要去读取蓝牙连过的所有手机的MAC地址，来做循环回连，
+   说是炬力有的功能，杰理要有，建议他不要做这个功能
+
+* 20190911
+** 元征693X
+   BLE的SDK，接收大包时，会卡最后一个包，珠海处理中
+** 汇杰芯692X
+   录音模式下，删除文件，串口接收，栈死机问题，改了个程序，暂时客户没反馈有问题
+** 中翔达692X
+   BT168测试盒，连接后，刚开始A2DP是连上的，后面又会断开
+
+* 20190910
+** 起华H3-6936D
+   双触控IC，反应有点慢，双击不了，易受电池印象，客户约触控IC原厂的人，过来搞
+** 汇杰芯692X
+   录音模式和串口接收，资源冲突死机，已OK
+** 元征693X
+   BLE大包传输，最后小包会卡机，要改个APP给客户测试，处理中
+
+* 20190909
+** 荣勤692X
+   频偏大，影响速率，让客户换用12pF晶振再试试
+** 也杨693X
+   单独升级蓝牙名工具，我这边生成的，那边测试能升级，他自己生成的升级不了，原因未知
+** 彩荣6925A
+   生产开不了机，1/4分压电阻出错，寄珠海分析
+** 中翔达6925F
+   生产开不了机，断电后复现不出，原因未知，让客户加8s复位功能，看客户测试能否接受
+** 中翔达6925F
+   关机状态下，8s复位后，复位源出错，测试中
+** 起华K3-6936D
+   入耳检测脉冲，还没搞
+
+* 20190907
+** 加班一天
+
+* 20190906
+** 新智造6936C
+   BLE案子开发，改了个程序给他们，OK
+** 科普豪6936D
+   左右耳不同名字，改成测试盒固定左右耳，测试正常给客户
+   void lmp_hci_write_local_name(const char *name);
+   lmp_hci_write_local_name((char *)(bt_cfg.edr_name));
+   搜索的名字修改后，要重新注册EDR的名字，才不会连接后显示原来的名字
+** 也杨6936D
+   SC7A20敲击，卡音已OK，偶然性失效，测试不到，有可能是误判，客户测试中
+
+* 20190905
+** 也杨6936D
+   加SC7A20敲击会导致蓝牙播歌卡，处理中
+** 科普豪6936D
+   左右耳不同蓝牙名，处理中
+
+* 20190904
+** 汉欣诺690X
+   三星手机触摸，没搞好，珠海没空支持，跟进中
+   690X的BLE做不了HID，接口没做好
+** 也杨692X
+   PC杂音，珠海说是同步问题，改了个库，这边测试正常
+** 中天微693X
+   mesh开发支持
+** 汇杰芯6933C
+   BLE案子开不了机
+   修改isd_config.ini的flash配置
+   SPI=3_3_0;	#data_width,clk,mode;
+
+* 20190903
+** BLE
+   AC693X_bt_data_transfer_sdk_release_v1.0.0
+   系统定时器用了Timer1，目前timer0/2/3都可以用
+   #+BEGIN_SRC c
+   u8 can_enter_lp = 1;
+   static u8 custom_idle_query(void)
+   {
+       if(can_enter_lp){
+           return 1;///可以进入low_power
+       }else{
+           return 0;
+       }
+   }
+   
+   REGISTER_LP_TARGET(custom_lp_target) = {
+       .name = "custom_lp",
+       .is_idle = custom_idle_query,
+   };
+   #+END_SRC
+** 组创693X
+   支持BLE案子开发，完成
+** 汉欣诺690X
+   三星手机HID触摸兼容性问题，用691X走BLE通道，测试正常，而690X要走传统蓝牙却不行，处理中
+** 也杨692X
+   PC模式侦听mic通道有哒哒声，珠海泽强处理中
+
+* 20190902
+  请假到下午2点半
+** 科普豪693X左右耳固定不同蓝牙名
+   #+BEGIN_SRC c
+   #include "bt_tws.h"
+   const char *bt_get_local_name()///单耳连接手机后,会执行一次，打印看不到
+   {
+       u8 channel = 'U';
+       channel = tws_api_get_local_channel();
+       if ('L' == channel) {
+           bt_cfg.edr_name[3] = '-';
+           bt_cfg.edr_name[4] = 'L';
+           bt_cfg.edr_name[5] = 0;
+       }
+       else if ('R' == channel) {
+           bt_cfg.edr_name[3] = '-';
+           bt_cfg.edr_name[4] = 'R';
+           bt_cfg.edr_name[5] = 0;
+       }
+       else{
+           bt_cfg.edr_name[3] = '-';
+           bt_cfg.edr_name[4] = 'U';
+           bt_cfg.edr_name[5] = 0;
+       }
+       if (get_bt_tws_connect_status()) {
+           bt_cfg.edr_name[4] = 'R';
+       }
+       r_printf("channel:%c..tws_connect_status:%d...bt_name:%s\n",channel,get_bt_tws_connect_status(),(const char *)(bt_cfg.edr_name));
+       return (const char *)(bt_cfg.edr_name);
+   }
+   #+END_SRC
+
+* 20190827-20190901
+  日本旅游
+
+* 20190826
+** 也杨692X
+   PC模式监听mic通道，一段时间后会变有哒哒声
+
+* 20190823
+** 起华
+   i10、A3、i9S功能修改，已发出
+** 威益德690X
+   fm珠海改库，有改善，不达标
+** 汇杰芯693X
+   VDDIO抖，还没测
+** 汉欣诺690X
+   三星手机HID有兼容性问题，珠海改库，目前还不行
+
+* 20190822
+** 源创杰690X
+   开隐藏文件无法播放录音文件，珠海改库，客户测试OK
+   有个变量没有清零
+** 尚凌693X
+   开PC功耗高，珠海改了一个库，客户测试可以，但是珠海感觉很奇怪，后续还得看是否有反馈
+** 也杨690X
+   接串口RX后检测不准，还在测试中
+** 汉欣诺690X
+   HID触摸屏三星手机不行，还没看
+** 起华AD135
+   功能异常还没看
+   LDOIN的电容拆掉
+
+* 20190821
+** 圣威泰690X
+   第3方测试盒无法挂断电话，处理中
+   测试盒很快就进入通话中，这个时候再发获取电话号码命令就会导致测试盒卡住
+   无法挂断电话
+** 起华A3-6936D
+   功能修改，发给客户测试
+** 尚凌693X
+   开PC功耗问题，这边测试正常，客户那边还是不行
+** 威益德690X
+   收音问题，珠海库，不行，已反馈
+
+* 20190820
+** 鼐(nai)峰693X
+   问题支持，剩魅族note5会死机，让客户写邮件过来，再看
+** 也杨692X
+   触摸受到D类功放的影响，让客户改板
+** 起华
+   A3-6936D i10-6936D AD135 程序修改，修改中
+   A3改成没播歌5s闪蓝灯，播歌不闪灯
+
+* 20190819
+** 德科创693X
+   BLE的功耗，珠海改库后，能达到100uA，发给客户测试
+** 尚凌693X
+   音箱SDK开PC后，关机功耗高，珠海改库，测试可以，但珠海说有其他问题，还要继续优化
+** 荣勤692X
+   SPP导致ram爆，测试剩余ram，已OK
+** 起华A3-6936D
+   功能修改，修改中
+
+* 20190817
+** 加班1天
+** 汉欣诺
+   客户带了一个手机投屏的电视，调试同时多点触控的HID
+   样机是BLE的HID设备
+   
+* 20190816
+** 尚凌693X
+   音箱版本开了PC关机后，功耗会无端上升，珠海已复现
+** 元征693X
+   BLE数据发送，最后一包经常性出现卡，还没处理
+** 新智造693X
+   BLE案子ram不够，建任务，外部IO中断，PWM等功能，支持中
+** 慧杰690X
+   发射器连接不上苹果耳机，没有耳机测试，也有其他客户反馈，后续再看
+** 汉欣诺690X
+   HID触摸屏，三星手机异常，暂时没法处理，跟进中
+
+* 20190815
+** 起华
+   A3-6936D、H3-6936D、i10-6936D案子调试
+** 德科创693X
+   纯BLE的待机功耗只能到250uA
+   客户有板子能到100uA
+
+* 20190814
+** 威益德6905
+   连苹果手机HID有概率性出现断连，已解决，
+   FM干扰旁边信道，珠海IC暂时没招，要走邮件
+
+* 20190813
+** 尚凌693X
+   调换声道后，自动mute发的声道会错误，要换算过来
+   开了PC，程序睡眠功耗不一样，待处理
+** 德科创693X
+   BLE的SDK，关了EDR的可发现可连接后，不进低功耗，功耗有2mA左右，处理中
+   const int config_btctler_modules        = (BT_MODULE_LE);///BT_MODULE_CLASSIC | 
+   功耗在0.7mA左右
+
+* 20190812
+** 打印长文件名
+   #+BEGIN_SRC C
+   void puts_lfn(u8 *lfn,u32 lfn_cnt)
+   {
+       u32 i;
+       for(i = 0; i < lfn_cnt/2; i++){
+           extern u8 unicode_to_utf8(u32 unic, u8 *pOutput, u8 outSize);
+           u16 tmp = (u16)lfn[i*2+1] << 8 | lfn[i*2];
+           u8 utf[6];
+           memset(utf, 0, 6);
+           u16 len = unicode_to_utf8((u32)tmp, utf, 6);
+           /* put_buf(utf,6); */
+           for(u8 i = 0; i < len; i++){
+               putchar((u8)utf[i]);
+           }
+       }
+       puts("\n");
+   }
+   u8 unicode_to_utf8(u32 unic, u8 *pOutput, u8 outSize)
+   {
+       /* assert(pOutput != NULL); */
+       /* assert(outSize >= 6); */   
+       if ( unic <= 0x0000007F )
+       {
+           // * U-00000000 - U-0000007F:  0xxxxxxx
+           *pOutput     = (unic & 0x7F);
+           return 1;
+       }
+       else if ( unic >= 0x00000080 && unic <= 0x000007FF )
+       {
+           // * U-00000080 - U-000007FF:  110xxxxx 10xxxxxx
+           *(pOutput+1) = (unic & 0x3F) | 0x80;
+           *pOutput     = ((unic >> 6) & 0x1F) | 0xC0;
+           return 2;
+       }
+       else if ( unic >= 0x00000800 && unic <= 0x0000FFFF )
+       {
+           // * U-00000800 - U-0000FFFF:  1110xxxx 10xxxxxx 10xxxxxx
+           *(pOutput+2) = (unic & 0x3F) | 0x80;
+           *(pOutput+1) = ((unic >>  6) & 0x3F) | 0x80;
+           *pOutput     = ((unic >> 12) & 0x0F) | 0xE0;
+           return 3;
+       }
+       else if ( unic >= 0x00010000 && unic <= 0x001FFFFF )
+       {
+           // * U-00010000 - U-001FFFFF:  11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+           *(pOutput+3) = (unic & 0x3F) | 0x80;
+           *(pOutput+2) = ((unic >>  6) & 0x3F) | 0x80;
+           *(pOutput+1) = ((unic >> 12) & 0x3F) | 0x80;
+           *pOutput     = ((unic >> 18) & 0x07) | 0xF0;
+           return 4;
+       }
+       else if ( unic >= 0x00200000 && unic <= 0x03FFFFFF )
+       {
+           // * U-00200000 - U-03FFFFFF:  111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+           *(pOutput+4) = (unic & 0x3F) | 0x80;
+           *(pOutput+3) = ((unic >>  6) & 0x3F) | 0x80;
+           *(pOutput+2) = ((unic >> 12) & 0x3F) | 0x80;
+           *(pOutput+1) = ((unic >> 18) & 0x3F) | 0x80;
+           *pOutput     = ((unic >> 24) & 0x03) | 0xF8;
+           return 5;
+       }
+       else if ( unic >= 0x04000000 && unic <= 0x7FFFFFFF )
+       {
+           // * U-04000000 - U-7FFFFFFF:  1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+           *(pOutput+5) = (unic & 0x3F) | 0x80;
+           *(pOutput+4) = ((unic >>  6) & 0x3F) | 0x80;
+           *(pOutput+3) = ((unic >> 12) & 0x3F) | 0x80;
+           *(pOutput+2) = ((unic >> 18) & 0x3F) | 0x80;
+           *(pOutput+1) = ((unic >> 24) & 0x3F) | 0x80;
+           *pOutput     = ((unic >> 30) & 0x01) | 0xFC;
+           return 6;
+       }   
+       return 0;
+   }
+   #+END_SRC
+** 德科创693X
+   最新BLE的SDK，连接参数修改，已OK
+** 元征693X
+   BLE做主机应用，旧的SDK有demo，最新的没有，先让客户用旧的开发
+** 慧杰692X
+   通话保留功能，珠海说暂时没有做过，不支持
+** 昂晖6905C
+   profile认证pbap协议版本V1.0过低，需要支持到V1.1或V1.2，珠海反馈没支持，得后续再看
+
+* 20190725-20190809
+  24号下午开始，请陪产假
+
+* 20190724
+** 也杨6939F
+   贴的是6939B，
+   软件改成单声道会变调
+   李超改了个库，测试OK
+
+* 20190723
+** 起华B218-6936D
+   生产需要改成一直回连的操作，改了给客户测试
+** 中翔达6936D
+   同步关机提示音，改好给客户，提示音偶尔不同步能测到，不知道怎么改
+** 也杨6939F
+   生产2%底噪大，板子寄到，准备看
+
+* 20190722
+** 中翔达6936D
+   改同步关机死机问题
+** 华炬芯尧顺
+   出差半天
+
+* 20190719
+** 威益德690X
+   后台下回连后，A2DP连不上，导致没声音
+** 中翔达693X
+   关机提示音同步，改了例子给客户了
+
+* 20190718
+** 中翔达693X
+   大康G71样机功能调试
+   远距离断开，回连3分钟内，不能被搜到
+   有2款手机对打电话有白噪声，其他方案也有
+
+* 20190717
+** 广播
+   BLE广播文档编写
+   
+* 20190716
+** 华炬芯客户
+   支持客户调试AD135和061的广播弹窗
+
+* 20190715
+** 出差国华一天
+   培训693X
+
+* 20190412
+** 伦茨
+   2款中控耳机都有回音
+   layout接地不好
+** 恒大692X
+   串口AT协议，写了一个demo
+
+* 20190711
+** 起华H3-6936D
+   程序发出给客户测试
+** 威益德690X
+   2款样机，
+   一款开不了机已解决，
+   另一款死机，目前有3种情况，vm_write_api(),蓝牙断开连接，ID3解析后，处理中
+
+* 20190710
+** 联巨兴693X
+   音箱linein单声道，测试板测试OK，让客户自己查硬件
+** 爱尚692X
+   调节sniff slot需求，要改库，要珠海处理
+** 起华6936D
+   A3和H3，需求修改中
+
+* 20190709
+** 威益德690X
+   触摸屏HID，安卓手机偏移，已弄好，有一个苹果手机，配对不上HID通道，其他手机正常，暂不处理
+** 起华A3-6936D
+   通话调试中
+** 美师傅693X
+   插卡开机，读不了卡，SDK问题，已OK
+
+* 20190708
+** 中翔达6936D
+   生产出现充电异常，是外壳导电导致，充电功耗异常导致充电仓芯片检测出错
+** 中翔达6936D
+   360手机有回声，目前还没测试到，怀疑客户板子的问题
+** 起华i9S-6936D
+   通话有回声，分地后，还是不行，还是有回声，原因还未知
+
+* 20190705
+** 威益德690X
+   进不了PC模式，客户程序bug，已OK
+** 博益友693X
+   2016晶振死机，打补丁即可，测试OK
+** 中翔达693X
+   删除配对后又自动配对上，给客户修改，客户测试中
+   部分手机，msbc关掉就可以
+
+* 20190704
+** 威益德6900A
+   升级死机，PR2连接的芯片，会拉低IO，导致4s复位
+** 中翔达693X
+   060的SDK不支持三方通话，需要置位more_hfp_cmd_support变量
+
+* 20190703
+** 起华i9S-6936D
+   硬件处理，回声除不掉
+** 693X的DUT测试
+   测试EDR灵敏度，output power要设置Apply Impairments
+
+* 20190702
+** 起华i9S-6936D
+   功能调试，通话有一整串回音
+
+* 20190701
+** 请假1天
+
+* 20190628
+** 出差巴达木好唛
+   处理6937A的案子
+   双击回拨通话，连续回拨会死机，要做个处理判断是否已经通话break
+   硬件LDO方式，软件用DCDC会导致距离很短。
+
+* 20190627
+** 华炬芯690X
+   HID描述符动态注册，要改库，暂时给客户改成了切换模式
+** 欣瑞声692X
+   点阵屏菜单死机，还在看
+** 起华I9S-6936D
+   案子功能还没调
+** 新时代690X
+   发射器SDK用spp发数据会卡住导致丢包，还没看
+** 中翔达693X
+   BLE广播改不了充电仓电量，还没看
+
+* 20190626
+** 起华B218-6936D
+   4个问题修改已发出
+** 内部693X
+   DUT测试，灵敏度测不过，和珠海验证中
+** 中翔达693X
+   微信语音嗡一声，已OK
+   #include "media/includes.h"
+   extern struct adc_platform_data adc_data;
+   if(adc_data.mic_capless == 0){
+      SFR(JL_AUDIO->ADC_CON,12,4,8);
+   }
+
+* 20190625
+** 693X
+   调换声道，
+   .output = DAC_OUTPUT_LR+3
+   #define AUDIO_OUTPUT_MODE   AUDIO_OUTPUT_STEREO
+** 中翔达693X
+   通话发语音会嗡一声，振荣在看
+   音量同步兼容性问题，针对三星手机，样机无法设置手机
+
+* 20190624
+** 威益德690X
+   HID触摸屏，按照海华修改，发给客户
+** 中翔达693X
+   055的SDK，3个问题
+   BLE广播，回连手机的时候默认没有打开
+   通话发语音会嗡一声
+   音量加减兼容性问题，vivo，三星S8，红米手机音量加减没有作用
+
+* 20190622
+** 加班1天
+** 美师傅690X
+   p4的SDKpitch_coff()会死机
+** 科普豪690X
+   V2013通话插播提示音会导致mic没声音，没测到
+
+* 20190621
+** 出差巴达木1天
+
+* 20190620
+** 出差巴达木1天
+
+* 20190619
+** 出差巴达木1天
+
+* 20190618
+** 威益德690X
+   传统蓝牙HID触摸屏针对IOS12.2以上，不起作用
+   寄给海华分析
+** 起华693X
+   FF216-6936A，升级工具的拨码要拨2档
+* 20190617
+** 慧杰692X
+   文件浏览器功能，在AI的V2.4版本添加完成发给客户了
+** 威益德690X
+   传统蓝牙HID触摸屏针对IOS12.2以上，不起作用
+
+* 20190614
+** 华炬芯奋达692X
+   自动化测试挪用V2.6.2版本，已经发了个版本给客户试用
+** 中翔达德芯成8006
+   多个问题，整理了一个版本，已发出，给客户测试用
+
+* 20190613
+** 请假一天
+
+* 20190612
+** 693X性能测试
+   耳机的SDK没有相关的代码
+   音箱的SDK有代码，但是测试不了
+   验证692X的是正常的。
+** 起华693X
+   i9机子无法充电，帮客户安装电脑工具。
+
+* 20190611
+** 也杨692X
+   数码管显示，改好发给客户
+** 科普豪693X
+   054的SDK没法在线调EQ，关掉TCFG_TEST_BOX_ENABLE即可
+
+* 20190610
+** 请假一天
+
+* 20190606
+** 也杨
+   692X断不开华为手机蓝牙
+   U盘和SD卡，切换显示设备图标
+** 德芯成8006
+   dac杂音问题，
+   测试是AUTO_UMUTE出来的，mute的时候也有
+
+* 20190605
+** 中翔达德芯成
+   出差1天
+   和耀聪去德芯成验证6936D的D版晶圆的距离
+
+* 20190604
+** 中翔达6936A
+   中控耳机，2个按键组合使用，通话回声问题，客户测试中
+** 起华FF216-6936A
+   中控耳机，2%出现开关机死机，需要更新SDK，增加复位功能
+** 美师傅6905
+   推RGB灯，会有电流声，换个升压IC的电感，就变得很小，只能这样处理
+
+* 20190603
+** 中翔达德芯成8006
+   dac杂音问题，用客户的EQ文件，就会出现。
+   公版的默认全0就不会
+** 起华B218-6936D
+   更新053的SDK,按键音有问题
+
+* 20190531
+** 中翔达8006
+   珠海在处理
+   带BLE和不带BLE的，发个版本给客户测试
+* 20190530
+** 中翔达德芯成
+   出差半天，处理8006配对慢
+* 20190529
+** 中翔达德芯成
+   充电仓BLE的工程过来处理弹窗
+* 20190528
+** 中翔达德芯成
+   出差中翔达半天，晚上去德芯成
+
+* 20190527
+** 嘉兴科美
+   692X和690X，dac吱声和调音量哒哒声，
+   改成dac_vcm_rsel_set(1);mode == 1{delay(0xAFFF*300);//600ms}
+   改成dac_power_on quickly,但是时间拉的比较长，就可以解决
+
+* 20190525
+** 中翔达德芯成
+   出差1天
+   在科迈捷工厂，升级0.5.3版本测试6936A
+   800X打珠海发过来的补丁，测试死机问题
+   修改方式：
+   把异常中断的代码挪到ram里面，确保flash死机后，还能执行
+   看门狗，不清楚
+   8s复位失效原因未知
+
+* 20190524
+** 中翔达德芯成
+   出差下午
+   在翔翔宇测试693X和800X的死机问题
+
+* 20190523
+** 中翔达德芯成693X
+   出差一天
+   还有开机死机，测试盒死机，测试盒提示音之后音量变小
+
+* 20190522
+** 嘉兴科美692X
+   频谱死机，和VM冲突
+   automute高频吱吱声，改成VCM_RSEL_1,delay_2ms(400);///70
+
+* 20190521
+** 中翔达德芯成
+   693X充电死机，抓到一个异常死机，给珠海
+   800X充电死机，测不到
+
+* 20190520
+** 中翔达德芯成693X
+   出差一天
+
+* 20190518
+** 起华B218-6936A
+   功放mute，现在剩一点点噗噗声
+   有电流声，白噪声大
+** 693X加大dac驱动电流
+   JL_ANA->DAA_CON3 |= ((u32)0xf << 8);
+
+* 20190517
+** 科普豪692X-AI
+   串口通信，杰理智能APP通信，小度
+   3个问题，客户测试中
+** 慧杰692X
+   BLE的mtu修改，测试正常
+
+* 20190516
+** 德科创690X
+   串口波特率1200会卡蓝牙播歌，新建任务来发送
+   6908C做BLE功耗大，降到8mA
+** 科普豪6939B
+   上电冲击声大，6939B没有VCOM脚，没有这个电容，上电波形会在5us
+   有这个电容，上电就会50ms时间的缓冲
+
+* 20190515
+** 中翔达6936A
+   客户嫌弃微信语音声音大，在aec建立，重新获取下通话音量，重新设置下音量
+   客户红米手机，微信语音声音会变小，手机问题
+   我的华为手机，连接后获取音量都为15，要手机调节音量之后，获取才正常
+
+* 20190514
+** 台德6905C
+   开不了机
+   出差一天
+* 20190513
+** 起华FF216-6936A
+   生产不良
+   通话没声音，声音小，时大时小
+
+* 20190511
+** 汇杰芯志康6904D
+   对耳通话调试
+   给了客户原先中翔达的程序
+** 中翔达6939M
+   功耗大，客户耳机阻抗是3.2R，用32R的喇叭功耗正常
+
+* 20190510
+** 博益友692X
+   BLE连IOS出现断开不了，APP闪退，
+   由于profile定义了HID导致
+** 源创杰692X
+   进入不了异步唤醒的sleep，
+   由于客户enter_sleep_mode重定义了此函数导致。
+
+* 20190509
+** 台德6905C
+   开不了机，主控停在uboot下，DP有个定期的脉冲波
+   AC6901A空片也有一个相同的波形，其他芯片又不一样。
+
+* 20190508
+** 出差台德一天
+   
+* 20190507
+** 起华B218-6936A
+   有耳机功放，自己加不了mute控制，等珠海在看
+** 联巨兴692X
+   录音文件按文件名排序播放，会出现解码错误，由于没有停解码就改写文件指针导致
+** 科普豪693X
+   需要操作功放mute，让他们等珠海处理
+
+* 20190506
+** 摩天6936A
+   提示音同步，要自己加流程
+   打电话要播提示音前，会嘶一声
+   打电话第一声会不同步
+* 20190505
+** 请假1天
+* 20190430
+** 天浪690X
+   玩具的SDK开音乐音量同步会死机，远强处理
+** 永泰胜6904D
+   6904D替换6916A，距离短
+   换用双通的SDK，也没提升
+
+* 20190429
+** 起华FF216-6936A
+   音量同步异常，已发出
+** 摩天6936A
+   回连问题，是串口设置成115200导致
+   灯抖动，pdown_keep_pw_gate()函数直接返回true，表示不降电压档
+
+* 20190428
+** 起华FF216-6936A
+   开关机死机，播歌下插USB死机，改硬件电容为106
+   改了一个mic省料的版本给客户选择
+** 中翔达6936A
+   通话音量不同步，rebuild一下就好，杂音问题，振荣说只能等下一个版本才能更新
+
+* 20190427
+** 充电流程
+*** 涓流充电
+    电压低于3V，采用20mA档位进行涓流充电
+*** 恒流充电
+    电压大于3V，才转成设定的恒流档
+*** 恒压充电
+    电压接近4.2V后，由硬件自动转成恒压充电
+** 中翔达
+*** 台德6905C
+    读了2个芯片，芯片的程序跟客户给的程序对应不上，是另外的校验码
+*** 澳特爱6901A
+    读了2个芯片，程序是错乱
+    flash型号为5E6014为2.6Vflash，需要对LVD低电复位做2.6V
+    还有关机，改成进低功耗形式。
+
+* 20190426
+** 起华FF216-6936A
+   开关DAC有杂音，振荣在看
+** 起华B218-6916A
+   带功放的中控耳机，改好给客户了
+** 华炬芯692X
+   播放flac的某首歌会卡顿，公版2.6.1正常
+** 瑞荣达690X
+   有些安卓手机打开sco链路后，会导致BLE断开
+   690X的音箱和AI版本都会
+   692X会有优化，但是无法避免
+   靠业务去解释了
+
+* 20190425
+** 华瑞微692X
+   BLE主从通信，写了个流程给客户了
+** 科普豪691X
+   小米MAX1，在耳机端回拨电话，会导致手机断连。
+   库打印多了LMP_REMOVE_ESCO_LINK_REQ命令导致，具体原因未知
+   珠海测试部，MAX3没有问题。
+** 联巨兴692X
+   录音文件中间有文件删除掉，会导致录音文件排序有问题
+   建议客户将录音文件序号记VM，然后以路径形式去播歌。
+
+* 20190424
+** 6936充电
+*** 充满后
+    耗充电仓150uA-200uA，耗耳机20uA左右
+    正常关机后功耗是1uA-5uA之间
+*** 充满硬件判断
+    充满电流档，是比如你设置充满电压是4.2V，一开始我们是恒流充电，接近充满电压，
+    硬件会自动转成恒压，恒压充电过程，充电电流会一直变小，
+    当充电电流接近这个充满电流，就认为充满了。
+    charge这个中断，是当充满电流接近设置值，就会一直起中断。
+*** LDOIN中断
+    ldoin那个中断，是用来检测插入和拔出的。小于0.6V，认为拔出，
+    大于1.3V，认为插入，这两种情况，都能起ldoin中断
+*** 最大电流档
+    BR18最大是300mA，但是没有测试过200mA以上的充电
+    可能会引起芯片过热。建议预留外部充电。
+*** 开机充电
+    开着机充电，是跑LDO模式的，不能进低功耗。
+    有这个要求的，建议不用内部充电。
+** 联巨兴6936A
+   播提示音会咋咋声，声道要设置对，没有启用的声道就有
+   左右耳的按键功能区分。
+   #+BEGIN_SRC C
+   if ((tws_api_get_role() == TWS_ROLE_MASTER)&&(u32)event->arg == KEY_EVENT_FROM_TWS)) {
+   }else{
+   }
+   #+END_SRC
+** 美师傅6936A
+   电量检测异常，烧录也会，原因未知
+   可以打印 get_vbg_trim(),正常为1
+   
+* 20190423
+** 也杨6936B
+   客户的驻极体mic头，改不了，换个其他的mic就OK
+   具体那种mic有啥特殊，未知
+** 中翔达6936B
+   17个问题，大部分要珠海解决，等明天新版本
+   
+* 20190422
+** 中翔达科迈通6904
+   出差1天
+   开机后从机打开可发现可连接后，被测试盒连接了
+   改成不可发现不可连接，几秒钟后，再打开可发现
+
+* 20190420
+** 也杨6936
+   升级一半死机，USB下载也跑不起来，要加-format vm
+   通话咋咋响，改了偏置没用，换用我们的mic就可以，客户回去换用mic验证。
+
+* 20190419
+** 中翔达6936A
+   几个问题，剩一个充电死机的，接打印一直测不到，处理中
+   主控由2个trim，VBG和VBAT
+   电量检测，用VBG的trim，vbg value 414
+   充电4.2V电压档，extern u16 get_vbat_trim()，15为没有trim，正常是8左右
+
+** 天罡微6936B
+   功耗60mA，是BTAVDD没有接到AVDD上导致，已OK
+   693X主控的AVDD和HPVDD是输入电压，电压有外围决定，可以由VDDIO/BTAVDD/TF_VDD供电
+   sdpg_config(1);设置芯片内部TF_VDD接到AVDD上，那板子就不用接线
+   6936B有绑定AVDD引脚出来,需要由板子决定，芯片内部就不能开sdpg_config(1);
+
+** 美师傅6936A
+   SCO切换问题用8K也不行，让客户等新版SDK，
+   （开机之后不松手再按2S进配对态，也就是不回连。不可发现，只可连接）功能，还没看
+
 * 20190418
 ** 普利金6921A
    linein下白噪声随音量变大而变大，公版SDK也这样
@@ -1727,6 +3781,7 @@
 
 * 20180912
 ** 中翔达6925D
+   在2.5的sdk上修改
    在FM模式下，插卡，功耗降不下来。
    重新初始化蓝牙，功耗才降下来。
    沈沛修改fm_lib.a即可，通用库。
@@ -1889,6 +3944,32 @@
    JL_Bluetooth的库
    setBleDataBlockSize()
    默认是20B，可以适当调大。
+   #+BEGIN_SRC java
+    protected int setBleDataBlockSize(final BluetoothDevice device, final int blockSize) {
+        final BluetoothGatt gatt = getDeviceGatt(device);
+        if (null == gatt) {
+            XLog.e(TAG, "--setBleDataBlockSize-- 11111");
+            return ErrorCode.SUB_ERR_BLE_NOT_CONNECTED;
+        }
+        CommonUtil.getMainHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    // 需要加上3个字节的数据包头部信息
+                    XLog.e(TAG, "--setBleDataBlockSize-- 22222");
+                    if (!gatt.requestMtu(blockSize + 3)) {
+                        XLog.e(TAG, "--setBleDataBlockSize-- 33333");
+                        onBleDataBlockChanged(device, WRITE_DATA_BLOCK_SIZE, ErrorCode.SUB_ERR_CHANGE_BLE_MTU);
+                    }
+                } else {
+                    XLog.e(TAG, "--setBleDataBlockSize-- 44444");
+                    onBleDataBlockChanged(device, WRITE_DATA_BLOCK_SIZE, ErrorCode.SUB_ERR_CHANGE_BLE_MTU);
+                }
+            }
+        });
+        return ErrorCode.ERR_NONE;
+    }
+   #+END_SRC
 ** 欣瑞声带BLE
    在传送notify的时候，会出现Fail。
    有可能是内存泄漏。
@@ -2445,7 +4526,7 @@
    le_server_module.c用于自定义gatt profile。
 
 * 20180606
-** 设置对耳播放声道
+** 690X设置对耳播放声道
    __set_soundtrack_compound(1);///主机播放左声道
    __set_soundtrack_compound(2);///主机播放右声道
 
@@ -4413,10 +6494,10 @@
 * 20170829
 ** 华炬芯6904A耳机
 *** 进power down死机问题
-PR1做充电唤醒，PR2做按键唤醒，同时开2个唤醒脚，
-会导致有些芯片出现进power down死机
+    PR1做充电唤醒，PR2做按键唤醒，同时开2个唤醒脚，
+    会导致有些芯片出现进power down死机
 *** 开机吱声
-振荣修改cpu_lib_ac690x.a解决
+    振荣修改cpu_lib_ac690x.a解决
 *** TODO low_pwr_deal函数在蓝牙没连接时会执行
 - State "TODO"       from ""           [2017-08-30 周三 18:54]
 但是公版SDK测试，不会执行到
