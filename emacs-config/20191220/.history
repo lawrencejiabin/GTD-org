@@ -1,0 +1,295 @@
+gtags.exe -v
+ls
+gtags.e
+cc
+gtags -v
+exit
+adb devices
+adb shell
+ll
+cd etc
+ls
+cd system
+cd bluetooth
+ll
+cat bt_stack.conf
+cd \d
+cd \d f:
+cd /d f:
+cd linux
+ll
+adb shell
+cd etc/bluetooth
+adb shell
+cd etc/bluetooth
+cat bt_stack.conf
+adb shell
+su
+sudo
+vi
+adb reboot
+adb shell
+cd etc/system
+cd etc/bluetooth
+ll
+adb root
+adb root
+adb remount
+ adb devices
+adb shell
+cd etc/bluetooth
+cat bt_statck.conf
+ll
+cat bt_stack.conf
+adb pull /etc/bluetooth/bt_stack.conf
+adb push bt_statck.conf /etc/bluetooth/
+adb push ./bt_statck.conf /etc/bluetooth/
+adb push f:\linux\bt_statck.conf /etc/bluetooth/
+adb push f:\linux\bt_stack.conf /etc/bluetooth/
+adb root
+adb push f:\linux\bt_stack.conf /etc/bluetooth/
+adb root
+adb root
+adb root
+adb root
+adb root
+adb root
+adb root
+adb shell
+su
+vi
+cd etc
+cd bluetooth
+ll
+vi
+vim
+adb root
+adb push f:\linux\bt_stack.conf /etc/bluetooth/
+adb shell
+su
+mount
+mount -o remount rootfs /
+mount
+adb push f:\linux\bt_stack.conf /etc/bluetooth/
+adb root
+adb push f:\linux\bt_stack.conf /etc/bluetooth
+adb shell
+cd etc
+ll
+chmod 777 bluetooth
+cd .
+ cd..
+cd ..
+chmod 777 /
+vi
+find
+cd /system/bin
+ll
+cd ..
+cd ..
+su
+mount
+cat /etc/bluetooth/bt_stack.conf
+ll /etc/bluetooth/
+ll
+cd mnt
+ll
+cd sdcard
+ll
+cd ..
+cd ..
+cd system
+ll
+cd ..
+drwxr-xr-x roolt     root              2015-02-06 02:38 usr
+drwxr-xr-x root     shell             2015-02-06 02:38 vendor
+drwxr-xr-x root     shell             2019-02-12 10:21 xbin
+root@R1C:/system # 
+ll
+cd sdcard
+ll
+cd system
+ll
+cd ..
+cd ..
+ll
+cd storage
+ll
+cd sdcard1
+ll
+cd ..
+cd ..
+ll
+cd sdcard
+ll
+exit
+adb push f:\linux\bt_stack.conf /sdcard
+adb push f:\linux\bt_stack.conf /sdcard
+adb shell
+cd sdcard
+ll
+cat bt_stack.conf
+cd /etc
+cd bluetooth
+ll
+mv bt_stack.conf bt_stack.conf.bak
+su
+mv bt_stack.conf bt_stack.conf.bak
+ll
+cp /sdcard/bt_stack.conf ./
+ll
+cat bt_stack.conf
+adb shell
+cd etc
+cd bluetooth
+ll
+cat bt_stack.conf
+su
+chmod 644 bt_stack.conf
+mount -o remount rootfs /
+mount
+chmod 644 bt_stack.conf
+cd ..
+cd ..
+cd ..
+cd etc
+cd bluetooth
+ll
+chmod 644 bt_stack.conf
+mount
+chmod 644 bt_stack.conf
+cat bt_stack.conf
+adb push f:\linux\bt_stack.conf /sdcard
+adb shell
+su
+mount
+cat /sdcard/bt_stack.conf
+cd etc/bluetooth
+ll
+rm bt_stack.conf
+mount
+mount -o remount rootfs /
+mount
+rm bt_stack.conf
+pwd
+remount
+mount -o remount ext4 /system
+mount -o remount ext4 /system
+adb remount
+adb root
+adb remount
+adb shell
+ll
+su
+mount -o remount ext4 /system
+mount -o remount  /system
+mount
+cd etc
+cd bluetooth
+ll
+rm bt_stack.conf
+ll
+cp /sdcard/bt_stack.conf ./
+ll
+cat bt_stack.conf
+chmod 644 bt_stack.conf
+ll
+cd /d f:\linux
+adb shell
+adb shell
+su
+cd etc/bluetooth
+ll
+cat bt_stack.conf
+cd ..
+cd ..
+ll
+cd sdcard
+ll
+ll
+adb shell
+cd adcard
+cd sdcard
+ll
+adb shell
+cat /etc/bluetooth/bt_stack.conf
+adb shell
+cat /etc/bluetooth/bt_stack.conf
+cat /etc/bluetooth/bt_stack.conf
+adb shell
+cat /etc/bluetooth/bt_stack.conf
+cd f:
+cd /d f:
+dor
+dir
+cd linux
+dir
+adb shell
+adb shell
+ls
+dmesg
+ls
+cd proc
+ls
+cd dev
+cd ..
+cd dev
+dir
+ls
+sudo rooot
+su rooot
+su 
+sudo
+adb shell
+sudo
+su
+su root
+sudo
+su root
+su root
+cd dev
+ls
+cd hid
+cd /proc
+ls
+cd bus
+ls
+cd input
+ls
+cd devices
+ll
+cat devices
+cd /dev
+ ls | grep raw
+ ls | grep raw
+ls | grep raw
+ls | grep "hid"
+cd uhis
+cd uhid
+cat uhid
+adb shell
+su root
+cd proc
+cd bus
+cd devices
+cat devices
+ls
+cd input
+cat devices
+cat devices
+cd ..
+cd ..
+cd ..
+cd devices
+cd dev
+ll | grep raw
+find
+cd devices
+cd /proc
+cd devices
+ls
+ll
+cat devices
+cd /dev/uhid
+cat /dev/uhid
+exit
