@@ -1,43 +1,43 @@
-#+TITLE:       The Standard C Library(C±ê×¼¿â)(study record)
-#+AUTHOR:      ÐÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+TITLE:       The Standard C Library(Cæ ‡å‡†åº“)(study record)
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    stdio.h C/C++ C
-#+LANGUAGE:    ANSI/ISO CÓïÑÔ±ê×¼ ¿âº¯Êý
+#+LANGUAGE:    ANSI/ISO Cè¯­è¨€æ ‡å‡† åº“å‡½æ•°
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 
-* ²é¿´ËùÓÐÄ£¿é
->>>help("modules")
->>>import sys
->>>sys.modules
+* æŸ¥çœ‹æ‰€æœ‰æ¨¡å—
+  >>>help("modules")
+  >>>import sys
+  >>>sys.modules
 
-* ²é¿´¶ÔÏóÄÚËùÓÐÊôÓÚ¼°·½·¨
->>>dir(sys)
+* æŸ¥çœ‹å¯¹è±¡å†…æ‰€æœ‰å±žäºŽåŠæ–¹æ³•
+  >>>dir(sys)
 
-* ²é¿´PythonÄÚÖÃº¯Êý
->>>import sys
->>>print dir(sys.modules['__builtin__'])
->>>dir(__builtins__)
+* æŸ¥çœ‹Pythonå†…ç½®å‡½æ•°
+  >>>import sys
+  >>>print dir(sys.modules['__builtin__'])
+  >>>dir(__builtins__)
 
-* ²é¿´Ä£¿éÖÐº¯ÊýÓÃ·¨
->>>import sys
->>>help(dict)
+* æŸ¥çœ‹æ¨¡å—ä¸­å‡½æ•°ç”¨æ³•
+  >>>import sys
+  >>>help(dict)
 
-* ²é¿´Êý¾Ý¶ÔÏóµÄÀàÐÍ
->>>a=[1,2,3]
->>>help(a)         # class list(object)
->>>help(a.append)
->>>help(123)       # class int(object)
+* æŸ¥çœ‹æ•°æ®å¯¹è±¡çš„ç±»åž‹
+  >>>a=[1,2,3]
+  >>>help(a)         # class list(object)
+  >>>help(a.append)
+  >>>help(123)       # class int(object)
 
-* ²é¿´¶ÔÏóÖ§³ÖµÄ·½·¨
->>>b={1:2,2:3}
->>> help(b)        # ¿É²é¿´ dict object Ö§³ÖµÄ·½·¨
+* æŸ¥çœ‹å¯¹è±¡æ”¯æŒçš„æ–¹æ³•
+  >>>b={1:2,2:3}
+  >>> help(b)        # å¯æŸ¥çœ‹ dict object æ”¯æŒçš„æ–¹æ³•
 
-* ²é¿´¶ÔÏóÀàÐÍ
->>>d=2
->>>type(d)
+* æŸ¥çœ‹å¯¹è±¡ç±»åž‹
+  >>>d=2
+  >>>type(d)
 
-* ²é¿´Ä£¿é×Ô¶¨ÒåµÄÀà
->>>help('unittest')     # help('module_name')
+* æŸ¥çœ‹æ¨¡å—è‡ªå®šä¹‰çš„ç±»
+  >>>help('unittest')     # help('module_name')

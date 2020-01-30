@@ -293,6 +293,7 @@ In *cvs-info*,come to use ~cvs-mode-status~,and use ~cvs-mode-commit~.
 
 * 改变文件编码
   1.查看当前buffer的编码：M-x describe-current-coding-system
+    gb18030
   2.列出所有编码：C-x <RET> r <TAB>
   3.以指定编码重读当前buffer：C-x <RET> r utf-8，（revert-buffer-with-coding-system）
   4.改变当前buffer的编码：C-x <RET> f utf-8，（set-buffer-file-coding-system）

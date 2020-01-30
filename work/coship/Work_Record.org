@@ -1,9 +1,9 @@
-#+TITLE:       ¹¤×÷¼ÇÂ¼¼°GTD
-#+AUTHOR:      ĞÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+TITLE:       å·¥ä½œè®°å½•åŠGTD
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
-#+LANGUAGE:    language for HTML, e.g. ¡®en¡¯ (org-export-default-language)
+#+LANGUAGE:    language for HTML, e.g. â€˜enâ€™ (org-export-default-language)
 #+TODO:        TODO
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
@@ -11,16 +11,16 @@
 
 
 
-* <2017-05-16 ÖÜ¶ş>
-** DONE(D@)3 hi3751µÄAndroid-SDK±àÒë£¬¼°mmcpµÄporting±àÒë¡£
-** TODO ipanelµÄ×ÊÁÏ¼°Í·ÎÄ¼ş»ñÈ¡¡£
-- State "TODO"       from ""           [2017-05-17 ÖÜÈı 09:23]
-** TODO ºÀ½ÜÏîÄ¿HLS²¥·ÅÊ§°Ü
-- State "TODO"       from ""           [2017-05-17 ÖÜÈı 09:26]
-** TODO ²ÉÓÃHiPlayer_V3.0.3.0¿âºó£¬±¾µØ²¥·ÅÒì³£
-- State "TODO"       from ""           [2017-05-17 ÖÜÈı 19:53]
+* <2017-05-16 å‘¨äºŒ>
+** DONE(D@)3 hi3751çš„Android-SDKç¼–è¯‘ï¼ŒåŠmmcpçš„portingç¼–è¯‘ã€‚
+** TODO ipanelçš„èµ„æ–™åŠå¤´æ–‡ä»¶è·å–ã€‚
+- State "TODO"       from ""           [2017-05-17 å‘¨ä¸‰ 09:23]
+** TODO è±ªæ°é¡¹ç›®HLSæ’­æ”¾å¤±è´¥
+- State "TODO"       from ""           [2017-05-17 å‘¨ä¸‰ 09:26]
+** TODO é‡‡ç”¨HiPlayer_V3.0.3.0åº“åï¼Œæœ¬åœ°æ’­æ”¾å¼‚å¸¸
+- State "TODO"       from ""           [2017-05-17 å‘¨ä¸‰ 19:53]
 
-* <2017-05-17 ÖÜÈı>
+* <2017-05-17 å‘¨ä¸‰>
 
 
 

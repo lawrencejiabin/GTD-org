@@ -1,31 +1,31 @@
-#+TITLE:       Platform(ÖÕ¶ËÖĞ¼ä¼şÆ½Ì¨)
-#+AUTHOR:      ĞÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+TITLE:       Platform(ç»ˆç«¯ä¸­é—´ä»¶å¹³å°)
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
-#+LANGUAGE:    language for HTML, e.g. ¡®en¡¯ (org-export-default-language)
+#+LANGUAGE:    language for HTML, e.g. â€˜enâ€™ (org-export-default-language)
 #+TODO:        TODO
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 
-* android APK°²×°ĞÅÏ¢
+* android APKå®‰è£…ä¿¡æ¯
 ** /data/system/packages.xml  
 com.ipanel.join.live.js 			--->iPanel_JiangsuLive_new_4K_CW2.apk
 com.ipanel.join.jiangsu.setting     --->iPanel_Settings.apk
 
 * logcat 
-** Çå³ı
+** æ¸…é™¤
 # logcat -c
-** grep ¹Ø¼ü×Ö
-# logcat | grep -E "¹Ø¼ü×Ö1|¹Ø¼ü×Ö2"
-** Ö¸¶¨TAG
+** grep å…³é”®å­—
+# logcat | grep -E "å…³é”®å­—1|å…³é”®å­—2"
+** æŒ‡å®šTAG
 # logcat -s TAG
-** ÖØ¶¨Ïòµ½ÎÄ¼ş
+** é‡å®šå‘åˆ°æ–‡ä»¶
 # logcat > /data/coship.log &
-** ÏÔÊ¾Ê±¼ä´Á
+** æ˜¾ç¤ºæ—¶é—´æˆ³
 # logcat -v time > /data/coship.log &
-** ÖØÒªTAG
+** é‡è¦TAG
 # logcat |grep AndroidRuntime 
 # logcat |grep PackageManager 
 # logcat |grep ActivityManager
@@ -41,13 +41,13 @@ com.ipanel.join.jiangsu.setting     --->iPanel_Settings.apk
 ** adb pull /data/system/packages.xml 			.
 ** adb uninstall com.ipanel.join.home.js
 ** adb kill-server
-** pushÕû¸öÎÄ¼ş¼Ğ
+** pushæ•´ä¸ªæ–‡ä»¶å¤¹
 # adb push ./system /system
-** pullÕû¸öÎÄ¼ş¼Ğ
+** pullæ•´ä¸ªæ–‡ä»¶å¤¹
 # adb pull /system ./system
 ** shell
 # adb shell
-** Ö´ĞĞÄ³¸öshellÃüÁî
+** æ‰§è¡ŒæŸä¸ªshellå‘½ä»¤
 # adb shell chmod 777 /system/etc/dtvlib_init.sh
 
 * am
@@ -59,59 +59,59 @@ com.ipanel.join.jiangsu.setting     --->iPanel_Settings.apk
 ** monkey -p  com.ipanel.join.network.js 1
 
 * dumpsys
-** Ö§³ÖËùÓĞÃüÁî
+** æ”¯æŒæ‰€æœ‰å‘½ä»¤
 # dumpsys | grep "DUMP OF SERVICE" 
-** ²é¿´°ïÖú
+** æŸ¥çœ‹å¸®åŠ©
 # dumpsys meminfo -h
-** ¹Ø¼üÃüÁî
+** å…³é”®å‘½ä»¤
 *** account
 *** activity
 *** battery
 *** cpuinfo
-*** diskstats ´ÅÅÌ
+*** diskstats ç£ç›˜
 *** meminfo
-*** package °²×°°üĞÅÏ¢
-****  °²×°°üĞÅÏ¢
+*** package å®‰è£…åŒ…ä¿¡æ¯
+****  å®‰è£…åŒ…ä¿¡æ¯
 # dumpsys package -h
 # dumpsys package <package.name>
-** statusbar ×´Ì¬À¸ĞÅÏ¢
-*** usagestats Ã¿¸ö½çÃæÆô¶¯Ê±¼ä 
-** surface²ã
+** statusbar çŠ¶æ€æ ä¿¡æ¯
+*** usagestats æ¯ä¸ªç•Œé¢å¯åŠ¨æ—¶é—´ 
+** surfaceå±‚
 # dumpsys SurfaceFlinger --list
-** ÕÒ³ö¹ã¸æÍ¨ÖªÄÇ¸öÓ¦ÓÃ
+** æ‰¾å‡ºå¹¿å‘Šé€šçŸ¥é‚£ä¸ªåº”ç”¨
 # dumpsys statusbar | grep notification=Notification
 
 * prop
 ** getprop
 ** setprop
-* ÖØĞÂ¹ÒÔØ·ÖÇø
+* é‡æ–°æŒ‚è½½åˆ†åŒº
 ** mount -o remount /system 
 
-* »ñÈ¡ºìÍâ
+* è·å–çº¢å¤–
 ** android_ir_user -D 
 ** getevent   
 
-* androidÏµÍ³Æô¶¯¹Ø±Õ
+* androidç³»ç»Ÿå¯åŠ¨å…³é—­
 ** sync
 ** stop
 ** start
 ** reboot
 
-* ÄÚºË´òÓ¡µÈ¼¶
+* å†…æ ¸æ‰“å°ç­‰çº§
 # echo 0 > /proc/sys/kernel/printk 
 # echo HI_VO=3 > /proc/msp/log   
 
-* ´òÓ¡¶ÑÕ»
-# debuggerd  ½ø³ÌºÅ
+* æ‰“å°å †æ ˆ
+# debuggerd  è¿›ç¨‹å·
 # cd /data/tombstones
 
-* ¼à¿Ø½ø³ÌÕ¼ÓÃÂÊ
+* ç›‘æ§è¿›ç¨‹å ç”¨ç‡
 ** top -t -m 5 -d 1
--t£ºÏÔÊ¾Ïß³Ì
+-tï¼šæ˜¾ç¤ºçº¿ç¨‹
 
-* ²é¿´¼Ä´æÆ÷¶¨Òå
-** ÉèÖÃ¼Ä´æÆ÷
+* æŸ¥çœ‹å¯„å­˜å™¨å®šä¹‰
+** è®¾ç½®å¯„å­˜å™¨
 # himm 0xF8A210C4      0x00000001
-** ²é¿´¼Ä´æÆ÷
+** æŸ¥çœ‹å¯„å­˜å™¨
 # himm 0xF8A210C4
 

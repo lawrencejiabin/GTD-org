@@ -1,15 +1,15 @@
-#+TITLE:       Linux Device Driver(linuxÉè±¸Çı¶¯³ÌĞò)(study record)
-#+AUTHOR:      ĞÁ¼Ñ±ó(lawrence)
-#+DATE:        [2017-02-13 ÖÜÒ» 16:31]
+#+TITLE:       Linux Device Driver(linuxè®¾å¤‡é©±åŠ¨ç¨‹åº)(study record)
+#+AUTHOR:      è¾›ä½³æ–Œ(lawrence)
+#+DATE:        [2017-02-13 å‘¨ä¸€ 16:31]
 #+EMAIL:       lawrencejiabin@163.com
 #+KEYWORDS:    C/C++ C Linux Driver
-#+LANGUAGE:    Linux Device Drivers Éè±¸Çı¶¯ ¿ò¼Ü Éè±¸Ê÷
+#+LANGUAGE:    Linux Device Drivers è®¾å¤‡é©±åŠ¨ æ¡†æ¶ è®¾å¤‡æ ‘
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 
-* ¸ÅÊö
-** ¸ÅÄî
+* æ¦‚è¿°
+** æ¦‚å¿µ
 
 * scull
 ** struct
