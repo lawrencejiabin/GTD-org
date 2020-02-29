@@ -128,9 +128,9 @@
 ** $ git reset HEAD <file>
    文件已经add到暂存区，还没提交到仓库中，可使用此命令撤销，暂存区的内容。
    不会改变本地文件的内容。
-** $ rm <file> ; git commit -m "";
+** $ git rm <file> ; git commit -m "";
    删除本地文件，再执行提交就可以了，就彻底从版本库中删掉了此文件。
-** $ rm <file> ; git checkout -- <file> ;
+** $ git rm <file> ; git checkout -- <file> ;
    删除本地文件，还没有commit，就可以用checkout，从仓库中恢复本地文件。
 
 * 分支
