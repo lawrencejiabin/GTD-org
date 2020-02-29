@@ -1,0 +1,170 @@
+#+TITLE:       Git use record
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2017-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    the page keywords, e.g. for the XHTML meta tag
+#+LANGUAGE:    language for HTML, e.g. ‘en’ (org-export-default-language)
+#+TODO:        TODO
+
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+
+
+* emacs安装
+  brew tap railwaycat/emacsmacport
+  brew install emacs-mac --with-spacemacs-icon
+  /usr/local/opt/emacs-mac -nw
+  /usr/local/opt/emacs-mac/Emacs.app
+  brew install ctags
+  brew install global
+
+* 版本选择
+  一直用emacs-plus.在默认的基础上打开了大量编译参数
+  brew tap d12frosted/emacs-plus
+  brew cask install emacs-plus
+  它也是 spacemacs 推荐的
+  待测试，未安装过
+
+* Homebrew
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+* git
+  git config --global http.postBuffer 524288000
+
+* aircrack-ng
+  /usr/local/Cellar/pcre/8.44
+  /usr/local/Cellar/sqlite/3.31.1
+  /usr/local/Cellar/aircrack-ng/1.6
+  MAC:50:de:06:bb:d8:4a
+  $ ifconfig |grep -i "50:de:06:bb:d8:4a" -A 4 -B 1
+  $ sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
+  $ sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff 6
+    当获取了信息后，可以使用 Ctrl-c 取消监听。
+  $ sudo aircrack-ng   /tmp/airportSniff8g0Oex.cap
+    aircrack-ng /tmp/airportSniff*
+  $ sudo aircrack-ng -w <密码文件> -b <BSSID>  <监听信息文件>
+    破解完成后， 程序会输出 "KEY FOUND! [xxxxxx]" [] 里的就是密码。
+    如果没破解出来，可以换个字典继续尝试破解。
+** 获取密码字典
+   可以去github上搜索密码字典,比如搜索 "爆破"。 
+   也可以直接从https://github.com/rootphantomer/Blasting_dictionary 中下载，进行尝试。
+** 获取所有可识别的wifi信息
+                            SSID BSSID             RSSI CHANNEL HT CC SECURITY (auth/unicast/group)
+                          611zzz 48:8a:d2:e2:ce:32 -79  12,-1   Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                             606 b0:95:8e:82:97:e5 -76  6,-1    Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                    Flower-home  d0:c7:c0:d4:f3:b2 -63  6,-1    Y  -- WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                       AI DESIGE 50:64:2b:0a:2d:9d -82  5       Y  CN WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP) 
+                     @PHICOMM_E4 2c:b2:1a:69:97:e6 -79  4       Y  CN WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP) 
+                   ChinaNet-vPbm f0:92:b4:a5:3e:61 -75  2       Y  -- WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP) 
+         Trojan/PSW.OnLineinvasi 08:1f:71:2b:0c:05 -73  1,+1    Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                             604 50:fa:84:89:8c:d8 -55  1,+1    Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                   Topway_8531F8 74:ff:4c:85:31:f8 -59  1       Y  -- WPA2(PSK/AES/AES) 
+                              HM dc:16:b2:64:8b:c0 -17  1       Y  CN WPA2(PSK/AES/AES) 
+                          611zzz 48:8a:d2:e2:ce:32 -77  12,-1   Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                    TP-LINK_CB63 48:7d:2e:79:cb:63 -75  11,-1   Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                         MI_WIFI 28:6c:07:08:d8:c3 -71  7       Y  CN WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP) 
+                    TP-LINK_3DE0 dc:fe:18:1a:3d:e0 -76  6,-1    Y  -- WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                       AI DESIGE 50:64:2b:0a:2d:9d -77  5       Y  CN WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP) 
+                          @Lucky b4:0f:3b:24:e2:11 -86  5,+1    Y  -- WPA(PSK/TKIP,AES/TKIP) WPA2(PSK/TKIP,AES/TKIP) 
+                             604 50:fa:84:89:8c:d8 -58  1,+1    Y  CN WPA(PSK/AES/AES) WPA2(PSK/AES/AES) 
+                   Topway_8531F8 74:ff:4c:85:31:f8 -64  1       Y  -- WPA2(PSK/AES/AES) 
+                              HM dc:16:b2:64:8b:c0 -17  1       Y  CN WPA2(PSK/AES/AES) 
+** sql
+   If you need to have sqlite first in your PATH run:
+   echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
+
+   For compilers to find sqlite you may need to set:
+   export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+   export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+   For pkg-config to find sqlite you may need to set:
+   export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
+
+* python
+** elpy
+    Configuration
+
+    Emacs.............: 26.3
+    Elpy..............: 1.32.0
+    Virtualenv........: None
+    Interactive Python: python 2.7.10 (/usr/bin/python)
+    RPC virtualenv....: rpc-venv (/Users/xinjiabin/.emacs.d/elpy/rpc-venv)
+    Python...........: python 3.7.6 (/Users/xinjiabin/.emacs.d/elpy/rpc-venv/bin/python)
+    Jedi.............: Not found (0.16.0 available)
+    Rope.............: Not found (0.16.0 available)
+    Autopep8.........: Not found (1.5 available)
+    Yapf.............: Not found (0.29.0 available)
+    Black............: Not found (19.10b0 available)
+    Syntax checker....: Not found (flake8)
+    
+    Warnings
+    
+    You have not activated a virtual env. While Elpy supports this, it is often a
+    good idea to work inside a virtual env. You can use M-x pyvenv-activate or M-x
+    pyvenv-workon to activate a virtual env.
+    
+    The directory ~/.local/bin/ is not in your PATH. As there is no active
+    virtualenv, installing Python packages locally will place executables in that
+    directory, so Emacs won't find them. If you are missing some commands, do add
+    this directory to your PATH -- and then do `elpy-rpc-restart'.
+    
+    The jedi package is not available. Completion and code navigation will not work.
+    
+    [Install jedi]
+    
+    The autopep8 package is not available. Commands using this will not work.
+    
+    [Install autopep8]
+    
+    The yapf package is not available. Commands using this will not work.
+    
+    [Install yapf]
+    
+    The black package is not available. Commands using this will not work.
+    
+    [Install black]
+
+    The configured syntax checker could not be found. Elpy uses this program to
+    provide syntax checks of your programs, so you might want to install one. Elpy
+    by default uses flake8.
+    
+    [Install flake8]
+    
+    Options
+
+    `Raised' text indicates buttons; type RET or click mouse-1 on a button to invoke
+    its action. Invoke [+] to expand a group, and [-] to collapse an expanded group.
+    Invoke the [Group], [Face], and [Option] buttons below to edit that item in
+    another window.
+    
+    [+]-- Group Elpy
+    [+]-- Group Python
+    [+]-- Group Virtual Environments (Pyvenv)
+    [+]-- Group Completion (Company)
+    [+]-- Group Call Signatures (ElDoc)
+    [+]-- Group Inline Errors (Flymake)
+    [+]-- Group Code folding (hideshow)
+    [+]-- Group Snippets (YASnippet)
+    [+]-- Group Directory Grep (rgrep)
+    [+]-- Group Search as You Type (ido)
+    [+]-- Group Django extension
+    [+]-- Group Autodoc extension
+
+* 终端命令行前缀
+  $sudo vim /etc/bashrc
+  PS1='\u@ \W\$ '
+
+  \u – Username
+  \h – Hostname
+  \w – Full path of the current working directory 
+  \W - relate path
+
+* 启动任何来源安装
+  安装文件提示已损坏，需要启动安全性与隐私->通用->任何来源
+  sudo spctl --master-disable
+
+* mac整屏截图
+  Command-Shift-3
+* 移动状态栏图标
+  同时按下Command，移动鼠标才有作用
+

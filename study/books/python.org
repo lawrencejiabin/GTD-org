@@ -1,43 +1,1134 @@
-#+TITLE:       The Standard C Library(C标准库)(study record)
+#+TITLE:       Python (www.liaoxuefeng.com study record)
 #+AUTHOR:      辛佳斌(lawrence)
-#+DATE:        [2017-02-13 周一 16:31]
+#+DATE:        [2020-02-13 周一 16:31]
 #+EMAIL:       lawrencejiabin@163.com
-#+KEYWORDS:    stdio.h C/C++ C
-#+LANGUAGE:    ANSI/ISO C语言标准 库函数
+#+KEYWORDS:    python
+#+LANGUAGE:    python
 
 #+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
 #+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
 
-* 查看所有模块
-  >>>help("modules")
-  >>>import sys
-  >>>sys.modules
 
-* 查看对象内所有属于及方法
-  >>>dir(sys)
+* 程序文件
+** 文件运行
+   建立.py后缀的文件，在终端以 $python3 test1.py运行文件。
+** 直接以文件运行
+   #!/usr/bin/env python3
+   chmod a+x test1.py
 
-* 查看Python内置函数
-  >>>import sys
-  >>>print dir(sys.modules['__builtin__'])
-  >>>dir(__builtins__)
+* 基础
+   以#开头的语句是注释
+   当语句以冒号:结尾时，缩进的语句视为代码块。
+   应该始终坚持使用4个空格的缩进。
+   Python程序是大小写敏感的
+** 字符串
+   字符串是以单引号'或双引号"括起来的任意文本
+   转义字符\可以转义很多字符，比如\n表示换行，\t表示制表符，
+   字符\本身也要转义，所以\\表示的字符就是\
+   允许用r''表示''内部的字符串默认不转义
+   '''三个冒号可以用作多行字符串
+** 布尔运算
+   一个布尔值只有True、False两种值
+   and运算是与运算
+   or运算是或运算
+   not运算是非运算
+** 空值
+   None不能理解为0，因为0是有意义的，
+   而None是一个特殊的空值。
+** 变量
+   变量名必须是大小写英文、数字和_的组合，且不能用数字开头
+   等号=是赋值语句，可以把任意数据类型赋值给变量，
+   同一个变量可以反复赋值，而且可以是不同类型的变量。
+   _这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。_
+   Python的浮点数也没有大小限制，
+   但是超出一定范围就直接表示为inf（无限大）
+** 常量
+   通常用全部大写的变量名表示常量
+** 除法
+   有两种除法，一种除法是/，结果是浮点数
+   还有一种除法是//，称为地板除，结果是整数
+** 字符编码
+   在计算机内存中，统一使用Unicode编码，
+   当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。
+   Python 3版本中，字符串是以Unicode编码的。
+   ord()函数获取字符的整数表示
+   chr()函数把编码转换为对应的字符
+   对bytes类型的数据用带b前缀的单引号或双引号表示
+   在bytes中，无法显示为ASCII字符的字节，用\x##显示
+   以Unicode表示的str通过encode()方法可以编码为指定的bytes
+   要把bytes变为str，就需要用decode()方法
+   len()函数计算的是str的字符数
+** 格式化
+   采用的格式化方式和C语言是一致的，用%实现
+   用%%来表示一个%
+   使用字符串的format()方法，它会用传入的参数依次替换字符串内的占位符{0}、{1}……，
+** 列表list
+   list是一种有序的集合，可以随时添加和删除其中的元素。
+   classmates = ['Michael', 'Bob', 'Tracy']
+   用len()函数可以获得list元素的个数
+   用索引来访问list中每一个位置的元素，记得索引是从0开始的
+   用-1做索引，直接获取最后一个元素，-2倒数第二，依次类推
+** 元组tuple
+   tuple一旦初始化就不能修改
+   括号()既可以表示tuple，又可以表示数学公式中的小括号，这就产生了歧义
+   因此，Python规定，这种情况下，按小括号进行计算，计算结果自然是1
+   所以，只有1个元素的tuple定义时必须加一个逗号,，来消除歧义
+   “可变的”tuple,其中有list的元素，那元素list里面的元素是可变的
+** 条件判断
+   if x: 只要x是非零数值、非空字符串、非空list等
+   input()返回的数据类型是str，str不能直接和整数比较
+   必须先把str转换成整数,Python提供了int()函数
+** 循环
+   Python的循环有两种，
+   for...in循环，依次把list或tuple中的每个元素迭代出来
+   range()函数可以生成一个整数序列，再通过list()函数可以转换为list
+   while循环，只要条件满足，就不断循环，条件不满足时退出循环
+** 字典dict
+   dict全称dictionary，在其他语言中也称为map，
+   使用键-值（key-value）存储，具有极快的查找速度
+   请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的。
+   _需要牢记的第一条就是dict的key必须是不可变对象。_
+*** 和list比较，dict有以下几个特点：
+    查找和插入的速度极快，不会随着key的增加而变慢；
+    需要占用大量的内存，内存浪费多。
+    而list相反：
+    查找和插入的时间随着元素的增加而增加；
+    占用空间小，浪费内存很少。
+    所以，dict是用空间来换取时间的一种方法
+** 集合set
+   set和dict类似，也是一组key的集合，但不存储value
+   要创建一个set，需要提供一个list作为输入集合
+   在set中，没有重复的key，重复元素在set中自动被过滤
+   add(key)方法可以添加元素到set中
+   remove(key)方法可以删除元素
+   交集 s1 & s2
+   并集 s1 | s2
+** 不可变对象
+   对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容
+   相反，这些方法会创建新的对象并返回，
+   这样，就保证了不可变对象本身永远是不可变的。
 
-* 查看模块中函数用法
-  >>>import sys
-  >>>help(dict)
+* 函数
+  https://docs.python.org/3/library/functions.html
+** 数据类型转换
+   int()
+   float()
+   str()
+   bool()
+   chr()
+   ord()
+** 函数别名
+   直接定义变量名，赋值为函数名
+** 数学函数
+   abs()
+   max()
+** 定义函数
+   可以在该文件的当前目录下启动Python解释器，
+   用from abstest import my_abs来导入my_abs()函数，
+   注意abstest是文件名(不含.py扩展名)
+*** 空函数
+   定义一个什么事也不做的空函数，可以用pass语句，
+   pass可以用来作为占位符
+   def nop():
+       pass
+   比如现在还没想好怎么写函数的代码，就可以先放一个pass，
+   让代码能运行起来。
+*** 参数检查
+    用内置函数isinstance()实现:
+    if not isinstance(x, (int, float)):
+        raise TypeError('bad operand type')
+*** 返回多个值
+    Python函数返回的仍然是单一值
+    返回值是一个tuple！但是，在语法上，返回一个tuple可以省略括号，
+    而多个变量可以同时接收一个tuple，按位置赋给对应的值
+*** 函数参数
+    默认参数，调用时可以不传参
+    def xin_default_para(x,y = 2):
+    一是必选参数在前，默认参数在后
+    二当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。
+    变化小的参数就可以作为默认参数
+    最大的好处是能降低调用函数的难度
+**** 默认参数的坑
+     _定义默认参数要牢记一点：默认参数必须指向不变对象！_
+     Python函数在定义的时候，默认参数L的值就被计算出来了，即[]，
+     因为默认参数L也是一个变量，它指向对象[]，每次调用该函数，如果改变了L的内容，
+     则下次调用时，默认参数的内容就变了，不再是函数定义时的[]了。
+*** 可变参数
+    定义可变参数和定义一个list或tuple参数相比，
+    仅仅在参数前面加了一个*号。
+    在函数内部，参数numbers接收到的是一个tuple，
+    因此，函数代码完全不变
+*** 关键字参数
+    关键字参数在函数内部自动组装为一个dict
+    **extra表示把extra外部这个dict的所有key-value,
+    用关键字参数传入到函数内的**kw参数，kw将获得一个dict，
+    注意函数内部kw获得的dict是extra的一份拷贝，
+    函数内对kw的改动不会影响到函数外的extra。
+*** 命名关键字参数
+    命名关键字参数需要一个特殊分隔符*，
+    *后面的参数被视为命名关键字参数。
+    def message(name,age,**other):
+    def message2(name,age,*,city):
+    def message3(name,age,*other,city):
+**** 位置参数和命名参数区分
+     如果缺少*，Python解释器将无法识别位置参数和命名关键字参数
+*** 参数组合
+    在Python中定义函数，
+    可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，
+    这5种参数都可以组合使用。但是请注意，
+    _参数定义的顺序必须是：_
+    _必选参数、默认参数、可变参数、命名关键字参数和关键字参数_
+    对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，
+    无论它的参数是如何定义的。
+    虽然可以组合多达5种参数，
+    但不要同时使用太多的组合，否则函数接口的可理解性很差。
+** 递归函数
+   一个函数在内部调用自身本身，这个函数就是递归函数
+   _使用递归函数需要注意防止栈溢出。_
+   在计算机中，函数调用是通过栈(stack)这种数据结构实现的，
+   每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。
+   由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。
+   _解决递归调用栈溢出的方法是通过尾递归优化。_
+   _尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式_
+   遗憾的是，大多数编程语言没有针对尾递归做优化，Python解释器也没有做优化.
+   Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题.
+* 高级特性
+** 切片
+   Python提供了切片（Slice）操作
+   同样支持倒数切片
+   list，tuple，string都是同一个操作方式
+** 迭代
+   在Python中，迭代是通过for ... in来完成的
+   for循环不仅可以用在list或tuple上，还可以作用在其他可迭代对象上。
+   默认情况下，dict迭代的是key。
+   如果要迭代value，可以用for value in d.values()，
+   如果要同时迭代key和value，可以用for k, v in d.items()。
+   判断一个对象是可迭代对象呢？
+   方法是通过collections模块的Iterable类型判断：
+   from collections import Iterable
+   isinstance('abc', Iterable)
+   Python内置的enumerate函数可以把一个list变成索引-元素对
+** 列表生成式
+   列表生成式即List Comprehensions，用来创建list的生成式
+*** OS模块
+    import os # 导入os模块
+    os.listdir('.') # os.listdir可以列出文件和目录
+** 生成器
+   可以在循环的过程中不断推算出后续的元素呢？
+   这样就不必创建完整的list，从而节省大量的空间。
+   在Python中，这种一边循环一边计算的机制，称为生成器：generator。
+   1.只要把一个列表生成式的[]改成()，就创建了一个generator：
+   通过next()函数获得generator的下一个返回值
+   generator保存的是算法，
+   计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误。
+   generator也是可迭代对象。
+*** 函数生成器
+    函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，
+    而是一个generator。
+    generator，在每次调用next()的时候执行，遇到yield语句返回，
+    再次执行时从上次返回的yield语句处继续执行
+** 迭代器
+   可以直接作用于for循环的对象统称为可迭代对象：Iterable
+   可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
+   生成器都是Iterator对象，
+   但list、dict、str虽然是Iterable，却不是Iterator。
+   把list、dict、str等Iterable变成Iterator可以使用iter()函数.
+*** 迭代器和可迭代对象的区别
+    Python的Iterator对象表示的是一个数据流，
+    Iterator对象可以被next()函数调用并不断返回下一个数据，
+    直到没有数据时抛出StopIteration错误。
+    可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，
+    只能不断通过next()函数实现按需计算下一个数据，
+    所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。
+* 函数式编程 Functional Programming
+  越低级的语言，越贴近计算机，抽象程度低，执行效率高，比如C语言；
+  越高级的语言，越贴近计算，抽象程度高，执行效率低，比如Lisp语言。
+  函数式编程就是一种抽象程度很高的编程范式.
+  纯粹的函数式编程语言写的函数没有变量,只要输入是确定的,输出就是确定的
+  这种纯函数我们称之为没有副作用。
+  普通函数内部的变量状态不确定，同样的输入，可能得到不同的输出，
+  这种函数是有副作用的。
+  _函数式编程:允许把函数本身作为参数传入另一个函数,还允许返回一个函数_
+  由于Python允许使用变量，因此，Python不是纯函数式编程语言。
+** 高阶函数 Higher-order function
+   函数名其实就是指向函数的变量！赋值过函数名变量后，要恢复原函数。
+   需要在import builtins模块中重新该函数
+   一个函数可以接收另一个函数作为参数，这种函数就称之为高阶函数。
+   Python内建了map()和reduce()函数
+*** map()
+    map()函数接收两个参数，一个是函数，一个是Iterable，
+    map将传入的函数依次作用到序列的每个元素，
+    并把结果作为新的Iterator返回,非Iterable。
+*** reduce()   
+    reduce把一个函数作用在一个序列[x1, x2, x3, ...]上，
+    这个函数必须接收两个参数，
+    reduce把结果继续和序列的下一个元素做累积计算
+    reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+*** filter()
+    用于过滤序列。
+    filter()把传入的函数依次作用于每个元素，
+    然后根据返回值是True还是False决定保留还是丢弃该元素。
+    注意到filter()函数返回的是一个Iterator，也就是一个惰性序列。
+*** sorted()
+    sorted()函数就可以对list进行排序：
+    还可以接收一个key函数来实现自定义的排序
+    key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。
+    字典和集合没有顺序，需要转换成元组或list
+** 返回函数
+   可以把函数作为结果值返回
+   内部函数可以引用外部函数的参数和局部变量，
+   当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，
+   这种称为闭包(Closure)的程序结构
+   _每次调用都会返回一个新的函数，即使传入相同的参数_
+   返回的函数并没有立刻执行，需要再度调用运行
+   _返回闭包时牢记一点:返回函数不要引用任何循环变量,或者后续会发生变化的变量_
+   返回一个函数时，牢记该函数并未执行，返回函数中不要引用任何可能会变化的变量。
+** 匿名函数
+   在Python中，对匿名函数提供了有限支持
+   关键字lambda表示匿名函数，冒号前面的x表示函数参数
+   匿名函数有个限制,只能有一个表达式,不用写return,返回值就是该表达式的结果。
+** 装饰器
+   函数对象有一个__name__属性，可以拿到函数的名字
+   在代码运行期间动态增加功能的方式，称之为"装饰器"(Decorator)。
+   借助Python的@语法，把decorator置于函数的定义处
+   把@log放到now()函数的定义处，相当于执行了语句：
+   now = log(now)
+   装饰器wrapper()函数的参数定义是(*args, **kw)，
+   因此，wrapper()函数可以接受任意参数的调用。
+   在wrapper()函数内，首先打印日志，再紧接着调用原始函数。
+   要自定义log的文本，需要使用3层嵌套，效果是这样的：
+   now = log('execute')(now)
+   不需要编写wrapper.__name__ = func.__name__这样的代码，
+   Python内置的functools.wraps就是干这个事的
+   只需记住在定义wrapper()的前面加上@functools.wraps(func)即可。
+   Python的decorator可以用函数实现，也可以用类实现。
+** 偏函数
+   functools.partial就是帮助我们创建一个偏函数的
+   作用就是，把一个函数的某些参数给固定住(也就是设置默认值)，
+   返回一个新的函数，调用这个新函数会更简单。
 
-* 查看数据对象的类型
-  >>>a=[1,2,3]
-  >>>help(a)         # class list(object)
-  >>>help(a.append)
-  >>>help(123)       # class int(object)
+* 模块
+  在Python中，一个.py文件就称之为一个模块(Module)
+  使用模块还可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中.
+  为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包(Package)
+  只要顶层的包名不与别人冲突，那所有模块都不会与别人冲突.
+  **每一个包目录下面都会有一个__init__.py的文件，这个文件是必须存在的**
+  文件__init__.py可以是空文件，也可以有Python代码.
+  因为__init__.py本身就是一个模块
+  可以有多级目录,组成多级层次的包结构,mycompany.web.www
+  自己创建模块时要注意命名，不能和Python自带的模块名称冲突
+  _任何模块代码的第一个字符串都被视为模块的文档注释_
+** 作用域
+   在Python中，是通过_前缀来实现的。
+   正常的函数和变量名是公开的（public），可以被直接引用
+   __xxx__这样的变量是特殊变量，可以被直接引用，但是有特殊用途
+   _xxx和__xxx这样的函数或变量是非公开的(private),不应该被直接引用
+   private函数和变量“不应该”被直接引用，而不是“不能”被直接引用，
+   是因为Python并没有一种方法可以完全限制访问private函数或变量
+   外部不需要引用的函数全部定义成private，
+   只有外部需要引用的函数才定义为public
+** 安装第三方模块
+   在Python中，安装第三方模块，是通过包管理工具pip完成的。
+   对应的pip命令是pip3
+   一般来说，第三方库都会在Python官方的pypi.python.org网站注册，
+   要安装一个第三方库，必须先知道该库的名称，可以在官网或者pypi上搜索
+   比如pip install Pillow
+   用pip一个一个安装费时费力，还需要考虑兼容性。
+   _推荐直接使用Anaconda，这是一个基于Python的数据处理和科学计算平台._
+   Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在sys模块的path变量
+   要添加自己的搜索目录，有两种方法：
+   一是直接修改sys.path，添加要搜索的目录：
+   >>> import sys
+   >>> sys.path.append('/Users/michael/my_py_scripts')
+   这种方法是在运行时修改，运行结束后失效。
+   第二种方法是设置环境变量PYTHONPATH，
+   该环境变量的内容会被自动添加到模块搜索路径中。
+   设置方式与设置Path环境变量类似
+* 面向对象编程
+  Object Oriented Programming，简称OOP
+  计算机程序的执行就是一系列消息在各个对象之间传递。
+  在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。
+  自定义的对象数据类型就是面向对象中的类(Class)的概念。
+  面向对象的设计思想是抽象出Class，根据Class创建Instance。
+** 类和实例
+   每个对象都拥有相同的方法，但各自的数据可能不同。
+   定义类是通过class关键字,后面紧接着是类名,类名通常是大写开头的单词，
+   紧接着是(object)，表示该类是从哪个类继承下来的,
+   如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类.
+   创建实例是通过类名+()实现的.
+   创建实例，必须绑定的属性强制填写进去。
+   通过定义一个特殊的__init__方法.
+   _特殊方法__init__前后分别有两个下划线！！！_
+   _注意到__init__方法的第一个参数永远是self，表示创建的实例本身_
+   在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self.
+   Python允许对实例变量绑定任何数据,定义不同属性变量,实例之间不同.
+** 访问限制
+   *让内部属性不被外部访问，可以把属性的名称前加上两个下划线__，
+   就变成了一个私有变量(private)，只有内部可以访问，外部不能访问.
+   *可以对参数做检查，避免传入无效的参数.
+   *变量名类似__xxx__，也就是以双下划线开头，并且以双下划线结尾的，
+   是特殊变量，外部可以直接访问的，不是private变量.
+   *以一个下划线开头的实例变量名,虽然我可以被访问，
+   但是请把我视为私有变量，不要随意访问。
+   *Python解释器对外把__name变量改成了_Student__name,
+   也就是_类名__变量名，不是实例名
+   不同版本的Python解释器可能会不同方法解释private变量
+   *Python本身没有任何机制阻止你干坏事，一切全靠自觉。
+   *内部的__name变量已经被Python解释器自动改成了_Student__name，
+   而外部代码给实例新增了一个__name变量
+** 继承和多态
+   *可以从某个现有的class继承，新的class称为子类(Subclass),
+   而被继承的class称为基类、父类或超类(Base class、Super class).
+   *最大的好处是子类获得了父类的全部功能.
+   *当子类和父类都存在相同的run()方法时,子类的run()覆盖了父类的run(),
+   在代码运行的时候,总是会调用子类的run().获得了继承的另一个好处:多态.
+   *一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类。
+   但是，反过来就不行.
+   *对于一个变量，我们只需要知道它是基类型，无需确切地知道它的子类型,
+   由运行时该对象的确切类型决定，
+   这就是多态真正的威力：调用方只管调用，不管细节，
+   *这就是著名的“开闭”原则：
+   对扩展开放：允许新增基类的子类；
+   对修改封闭：不需要修改依赖基类型的相关函数。
+*** 动态语言VS静态语言
+    *对于静态语言（例如Java）来说，如果需要传入基类型，
+    则传入的对象必须是基类型或者它的子类。(严格的继承体系)
+    *Python动态语言来说，则不一定需要传入基类型，
+    只需要保证传入的对象有一个相应的方法就可以了。
+    *这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，
+    一个对象只要“看起来像鸭子，走起路来像鸭子”,那它就可以被看做是鸭子。
+    *Python的“file-like object“就是一种鸭子类型。
+** 获取对象信息
+   判断对象类型，使用type()函数，返回对应的Class类型
+   判断一个对象是否是函数，可以使用types模块中定义的常量
+   types.FunctionType
+   types.BuiltinFunctionType
+   types.LambdaType
+   types.GeneratorType
+   要判断class的类型，可以使用isinstance()函数，
+   判断的是一个对象是否是该类型本身，或者位于该类型的父继承链上。
+   能用type()判断的基本类型也可以用isinstance()判断。
+   _总是优先使用isinstance()判断类型,可以将指定类型及其子类"一网打尽"_
+   *获得一个对象的所有属性和方法，可以使用dir()函数，
+   它返回一个包含字符串的list
+   例如:在len()函数内部，它自动去调用该对象的__len__()方法
+   *配合使用getattr()、setattr()以及hasattr()，
+   可以直接操作一个对象的状态
+** 实例属性和类属性
+   由于Python是动态语言，根据类创建的实例可以任意绑定属性
+   千万不要对实例属性和类属性使用相同的名字，
+   因为相同名称的实例属性将屏蔽掉类属性，
+   但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。
+   *没有实例属性时 class名.属性名 == 实例名.属性名
+   *有实例属性时  class名.属性名 == 类属性
+                实例名.属性名  == 实例属性
+   类属性属于类所有，所有实例共享一个属性。
+** 子类调用父类同名方法
+   Family.__init__(self,name,age)
+   super(Household,self).__init__(name,age)
+   Family是父类。Household是子类
 
-* 查看对象支持的方法
-  >>>b={1:2,2:3}
-  >>> help(b)        # 可查看 dict object 支持的方法
+* 面向对象高级编程
+** 动态绑定
+   给实例绑定方法Fu.set_num = types.MethodType(set_num,Fu)
+   对另一个实例是不起作用的。
+   为了给所有实例都绑定方法，可以给class绑定方法，
+   动态绑定允许我们在程序运行的过程中动态给class加上功能
+   Household.get_num = get_num
+   这在静态语言中很难实现.
+** 限制实例的属性,使用__slots__
+   Python允许在定义class的时候，定义一个特殊的__slots__变量，
+   来限制该class实例能添加的属性.
+   用__slots__定义的属性仅对当前类实例起作用,对继承的子类是不起作用的
+   子类实例允许定义的属性就是自身的__slots__加上父类的__slots__.
+** @property装饰器
+   Python内置的@property装饰器就是负责把一个方法变成属性调用的.
+   @property广泛应用在类的定义中，可以让调用者写出简短的代码，
+   同时保证对参数进行必要的检查.
+** 多重继承
+   *通过多重继承，一个子类就可以同时获得多个父类的所有功能。
+   *在设计类的继承关系时，通常，主线都是单一继承下来的，
+   但是，如果需要“混入”额外的功能，通过多重继承就可以实现，
+   这种设计通常称之为MixIn。
+   *只允许单一继承的语言(如Java，Java是通过实现接口)
+   不能使用MixIn的设计。
+** 定制类
+   Python的class中还有许多这样有特殊用途的函数，可以帮助我们定制类。
+   __str__()返回用户看到的字符串，
+   __repr__()返回程序开发者看到的字符串，也就是说，是为调试服务的。
+   偷懒的写法：__repr__=__str__
+   *类想被用于for ... in循环，就必须实现一个__iter__()方法，
+   该方法返回一个迭代对象(一般是self),Python的for循环就会不断调用
+   该迭代对象的__next__()方法拿到循环的下一个值，
+   直到遇到StopIteration错误时退出循环
+   *要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
+   而__setitem__()方法，把对象视作list或dict来对集合赋值,
+   还有一个__delitem__()方法，用于删除某个元素。
+   _这完全归功于动态语言的“鸭子类型”，不需要强制继承某个接口_
+   *写一个__getattr__()方法，动态返回一个属性
+   只有在没有找到属性的情况下，才调用__getattr__()
+   定义__getattr__()默认返回就是None。
+   要让class只响应特定的几个属性，约定要抛出AttributeError的错误
+   *任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用
+   对实例进行直接调用就好比对一个函数进行调用一样
+   这么一来，我们就模糊了对象和函数的界限
+   *判断一个对象是否能被调用，能被调用的对象就是一个Callable对象
+   通过callable()函数，判断一个对象是否是“可调用”对象
+   https://docs.python.org/3/reference/datamodel.html#special-method-names
+** 使用枚举类
+   枚举类型定义一个class类型，每个常量都是class的一个唯一实例。
+   Python提供了Enum类来实现这个功能
+   from enum import Enum, unique
+   @unique装饰器可以帮助我们检查保证没有重复值。
+   既可以用成员名称引用枚举常量，又可以直接根据value的值获得枚举常量。
+   Enum可以把一组相关常量定义在一个class中，且class不可变.
+   _class不可变，且无需定义class的实例，类成员即是枚举值_
+   而且成员可以直接比较。
+** 元类
+   type()函数可以查看一个类型或变量的类型
+   class的定义是运行时动态创建的，
+   而创建class的方法就是使用type()函数。
+   type()函数既可以返回一个对象的类型，又可以创建出新的类型.
+*** 要创建一个class对象，type()函数依次传入3个参数：
+    Hello = type('Hello', (object,), dict(hello=fn))
+    # 创建Hello class
+    class的名称；
+    继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；
+    class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。
+    Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，
+    然后调用type()函数创建出class。
+*** metaclass
+    先定义metaclass，就可以创建类，最后创建实例。
+    把类看成是metaclass创建出来的“实例”。
+    按照默认习惯，metaclass的类名总是以Metaclass结尾
+    传入关键字参数metaclass时，魔术就生效了，
+    它指示Python解释器在创建类时，要通过Metaclass.__new__()来创建
+    __new__()方法接收到的参数依次是：
+    1.当前准备创建的类的对象；
+    2.类的名字；
+    3.类继承的父类集合；
+    4.类的方法集合。
+*** ORM全称“Object Relational Mapping”，即对象-关系映射   
+    就是把关系数据库的一行映射为一个对象，也就是一个类对应一个表
+    #+BEGIN_SRC python
+    class Field(object):
+         def __init__(self, name, column_type):
+             self.name = name
+             self.column_type = column_type
+         
+         def __str__(self):
+             return '<%s:%s>' % (self.__class__.__name__, self.name)
 
-* 查看对象类型
-  >>>d=2
-  >>>type(d)
+    class StringField(Field):
+        def __init__(self, name):
+            super(StringField, self).__init__(name, 'varchar(100)')
 
-* 查看模块自定义的类
-  >>>help('unittest')     # help('module_name')
+    class IntegerField(Field):
+        def __init__(self, name):
+            super(IntegerField, self).__init__(name, 'bigint')
+
+    class ModelMetaclass(type):
+        def __new__(cls, name, bases, attrs):
+            if name=='Model':
+                return type.__new__(cls, name, bases, attrs)
+            print('Found model: %s' % name)
+            mappings = dict()
+            for k, v in attrs.items():
+                if isinstance(v, Field):
+                    print('Found mapping: %s ==> %s' % (k, v))
+                    mappings[k] = v
+            for k in mappings.keys():
+                attrs.pop(k)
+            attrs['__mappings__'] = mappings # 保存属性和列的映射关系
+            attrs['__table__'] = name # 假设表名和类名一致
+            return type.__new__(cls, name, bases, attrs)
+
+    class Model(dict, metaclass=ModelMetaclass):
+        def __init__(self, **kw):
+            super(Model, self).__init__(**kw)
+        
+        def __getattr__(self, key):
+            try:
+                return self[key]
+            except KeyError:
+                raise AttributeError(r"'Model' object has no attribute '%s'" % key)
+        
+        def __setattr__(self, key, value):
+            self[key] = value
+        
+        def save(self):
+            fields = []
+            params = []
+            args = []
+            for k, v in self.__mappings__.items():
+                fields.append(v.name)
+                params.append('?')
+                args.append(getattr(self, k, None))
+            sql = 'insert into %s (%s) values (%s)' % (self.__table__, ','.join(fields), ','.join(params))
+            print('SQL: %s' % sql)
+            print('ARGS: %s' % str(args))
+
+    class User(Model):
+        # 定义类的属性到列的映射：
+        id = IntegerField('id')
+        name = StringField('username')
+        email = StringField('email')
+        password = StringField('password')
+
+    # 创建一个实例：
+    u = User(id=12345, name='Michael', email='test@orm.org', password='my-pwd')
+    # 保存到数据库：
+    u.save()
+
+    输出如下
+    Found model: User
+    Found mapping: email ==> <StringField:email>
+    Found mapping: password ==> <StringField:password>
+    Found mapping: id ==> <IntegerField:uid>
+    Found mapping: name ==> <StringField:username>
+    SQL: insert into User (password,email,username,id) values (?,?,?,?)
+    ARGS: ['my-pwd', 'test@orm.org', 'Michael', 12345]
+    #+END_SRC
+
+* 错误、调试和测试
+  Python内置了一套异常处理机制，来帮助我们进行错误处理。
+  Python的pdb可以让我们以单步方式执行代码。
+** 错误处理
+   *C语言用错误码来表示是否出错十分不便，
+   因为函数本身应该返回的正常结果和错误码混在一起，
+   造成调用者必须用大量的代码来判断是否出错
+   *高级语言通常都内置了一套try...except...finally...错误处理机制
+   可以在except语句块后面加一个else...
+   *Python错误也是class，所有的错误类型都继承自BaseException,
+   所以在使用except时需要注意的是，
+   它不但捕获该类型的错误，还把其子类也“一网打尽”。
+   https://docs.python.org/3/library/exceptions.html#exception-hierarchy
+   https://www.cnblogs.com/beile/p/10789333.html
+   不需要在每个可能出错的地方去捕获错误，只要在合适的层次去捕获错误就可以了
+** 调用栈
+   如果错误没有被捕获，它就会一直往上抛，
+   最后被Python解释器捕获，打印一个错误信息，然后程序退出。
+   解读错误信息是定位错误的关键。
+   _出错的时候，一定要分析错误的调用栈信息，才能定位错误的位置。_
+** 记录错误
+   Python内置的logging模块可以非常容易地记录错误信息。
+   既然我们能捕获错误，就可以把错误堆栈打印出来，
+   然后分析错误原因，同时，让程序继续执行下去。
+   通过配置，logging还可以把错误记录到日志文件里，方便事后排查。
+   logging.exception(e)
+** 抛出错误
+   错误并不是凭空产生的，而是有意创建并抛出的。
+   可以定义一个错误的class，选择好继承关系，
+   然后，用raise语句抛出一个错误的实例
+   尽量使用Python内置的错误类型。
+   except ValueError as e:
+        print('ValueError!')
+        raise
+   捕获错误目的只是记录一下，便于后续追踪。
+   但是，由于当前函数不知道应该怎么处理该错误，
+   所以，最恰当的方式是继续往上抛，让顶层调用者去处理。
+   raise语句如果不带参数，就会把当前错误原样抛出，
+   还可以把一种类型的错误转化成另一种类型。
+** 调试
+   第一种方法用print()把可能有问题的变量打印出来看。 
+   用print()最大的坏处是将来还得删掉它。
+** 断言
+   凡是用print()来辅助查看的地方，都可以用断言(assert)来替代.
+   assert n != 0, 'n is zero!'
+   断言失败，assert语句本身就会抛出AssertionError.
+   启动Python解释器时可以用-O参数来关闭assert(英文大写字母O)
+   关闭后，可以把所有的assert语句当成pass来看。
+** logging
+   logging不会抛出错误，而且可以输出到文件
+   import logging
+   logging.basicConfig(level = logging.INFO)
+   logging.info('input:%d' % i)
+   logging.exception(e)
+   有debug < info < warning < error等几个级别，
+   当我们指定level=INFO时，logging.debug就不起作用了
+   logging的另一个好处是通过简单的配置，
+   一条语句可以 _同时输出_ 到不同的地方，比如console和文件
+** pdb
+   Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。
+   $ python -m pdb err.py
+   以参数-m pdb启动后:
+*** pdb命令
+    输入命令l来查看代码
+    输入命令n可以单步执行代码
+    输入命令 p 变量名 来查看变量
+    输入命令q结束调试
+*** pdb.set_trace()
+    只需要import pdb，
+    在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点
+    运行代码，程序会自动在pdb.set_trace()暂停并进入pdb调试环境，
+    可以用命令p查看变量，或者用命令c继续运行：
+** IDE
+   支持调试功能的IDE。目前比较好的Python IDE有：
+   Visual Studio Code：
+   https://code.visualstudio.com/ 需要安装Python插件。
+   PyCharm：http://www.jetbrains.com/pycharm/
+   另外，Eclipse加上pydev插件也可以调试Python程序。
+   _虽然用IDE调试起来比较方便,但是最后你会发现,logging才是终极武器_
+** 单元测试
+   单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。
+   *这种以测试为驱动的开发模式最大的好处就是
+   确保一个程序模块的行为符合我们设计的测试用例。
+   *需要引入Python自带的unittest模块。
+   从unittest.TestCase继承
+   *以test开头的方法就是测试方法，
+   不以test开头的方法不被认为是测试方法，测试的时候不会被执行。
+   *由于unittest.TestCase提供了很多内置的条件判断，
+   我们只需要调用这些方法就可以断言输出是否是我们所期望的。
+   最常用的断言就是assertEqual()：
+   另一种重要的断言就是期待抛出指定类型的Error
+*** 运行单元测试
+    1、unittest.main() 添加到py文件中
+    2、$ python -m unittest mydict_test
+    这是推荐的做法，因为这样可以一次批量运行很多单元测试，
+    并且，有很多工具可以自动来运行这些单元测试。
+*** setUp与tearDown
+    可以在单元测试中编写两个特殊的setUp()和tearDown()方法。
+    这两个方法会分别在每调用一个测试方法的前后分别被执行.
+*** 意义
+    单元测试可以有效地测试某个程序模块的行为,是未来重构代码的信心保证。
+    单元测试的测试用例要覆盖常用的输入组合、边界条件和异常。
+    单元测试代码要非常简单,如果代码太复杂,那么测试代码本身就可能有bug.
+    单元测试通过了并不意味着程序就没有bug了，但是不通过程序肯定有bug。
+** 文档测试
+   Python内置的"文档测试"(doctest)模块可以
+   直接提取注释中的代码并执行测试。
+   doctest严格按照Python交互式命令行的输入和输出
+   来判断测试结果是否正确。
+   只有测试异常的时候，可以用...表示中间一大段烦人的输出.
+   if __name__=='__main__':
+       import doctest
+       doctest.testmod()
+   当模块正常导入时，doctest不会被执行。
+   只有在命令行直接运行时，才执行doctest。
+   所以，不必担心doctest会在非测试环境下执行。
+* IO编程
+** Stream流
+   Input Stream就是数据从外面（磁盘、网络）流进内存，
+   Output Stream就是数据从内存流到外面去。
+   同步IO/异步IO
+   同步和异步的区别就在于是否等待IO执行的结果。
+   很明显，使用异步IO来编写程序性能会远远高于同步IO，
+   但是异步IO的缺点是编程模型复杂。
+   _使用with语句操作文件IO是个好习惯。_
+** 文件读写
+   现代操作系统不允许普通的程序直接操作磁盘，
+   所以，读写文件就是请求操作系统打开一个文件对象(通常称为文件描述符)，
+   然后，通过操作系统提供的接口从这个文件对象中读取数据（读文件），
+   或者把数据写入这个文件对象（写文件）。
+*** 字符模式定义
+    'r':open for reading (default)
+    'w':open for writing, truncating the file first
+    'x':open for exclusive creation, failing if the file already exists
+    'a':open for writing, appending to the end of the file if it exists
+    'b':binary mode
+    't':text mode (default)
+    '+':open for updating (reading and writing)
+*** 读文件
+    >>> f = open('/Users/michael/test.txt', 'r')
+    open()函数就会抛出一个IOError的错误。
+    >>> f.read()
+    可以一次读取文件的全部内容，
+    调用read(size)方法，每次最多读取size个字节的内容
+    调用readline()可以每次读取一行内容，
+    调用readlines()一次读取所有内容并按行返回list。
+    >>> f.close()
+    关闭文件
+**** with语句
+     Python引入了with语句来自动帮我们调用close()方法：
+     with open('/path/to/file', 'r') as f:
+         print(f.read())
+     这和前面的try ... finally是一样的，但是代码更佳简洁，
+     并且不必调用f.close()方法。
+*** file-like Object
+    file-like Object不要求从特定类继承，只要写个read()方法就行。
+    除了file外，还可以是内存的字节流，网络流，自定义流等等
+    就可以被open()打开了
+*** 二进制文件
+    默认都是读取文本文件，并且是UTF-8编码的文本文件。
+    要读取二进制文件，比如图片、视频等等，用'rb'模式打开文件即可
+    >>> f = open('/Users/michael/test.jpg', 'rb')
+*** 字符编码
+    要读取非UTF-8编码的文本文件，需要给open()函数传入encoding参数。
+    >>>f= open('/Users/michael/gbk.txt','r',encoding='gbk')
+    遇到UnicodeDecodeError，可能夹杂了一些非法编码的字符。
+    open()函数还接收一个errors参数，表示如果遇到编码错误后如何处理。
+    最简单的方式是直接忽略：
+    >>> f = open('/Users/michael/gbk.txt', 'r', 
+                  encoding='gbk', errors='ignore')
+*** 写文件
+    >>> f = open('/Users/michael/test.txt', 'w')
+    >>> f = open('/Users/michael/test.txt', 'wb')
+    >>> f.write('Hello, world!')
+    可以传入'a'以追加（append）模式写入。
+    要写入特定编码的文本文件，传入encoding参数，
+    将字符串自动转换成指定编码。
+** StringIO和BytesIO
+*** StringIO
+    在内存中读写str。
+    from io import StringIO
+**** s.strip()
+     去除字符串末尾的'\n'，避免使用print换行2行
+*** BytesIO
+    要操作二进制数据，就需要使用BytesIO.
+    实现了在内存中读写bytes
+    from io import BytesIO
+*** read()和getvalue()的区别
+    f.seek(0)
+    f.read()
+    等同于f.getvalue()
+** 操作文件和目录
+*** OS模块
+    Python内置的os模块也可以直接调用操作系统提供的接口函数。
+    os.name # 操作系统类型
+    如果是posix，说明系统是Linux、Unix或Mac OS X，
+    如果是nt，就是Windows系统。
+    要获取详细的系统信息，可以调用uname()函数,在Windows上不提供.
+    os模块的某些函数是跟操作系统相关的。
+*** 环境变量
+    在操作系统中定义的环境变量，全部保存在os.environ这个变量中。
+    要获取某个环境变量的值，可以调用os.environ.get('key')
+*** 常用操作
+    操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中。
+    # 查看当前目录的绝对路径:
+    >>> os.path.abspath('.')
+    '/Users/michael'
+    # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+    >>> os.path.join('/Users/michael', 'testdir')
+    '/Users/michael/testdir'
+    # 然后创建一个目录:
+    >>> os.mkdir('/Users/michael/testdir')
+    # 删掉一个目录:
+    >>> os.rmdir('/Users/michael/testdir')
+    # 对文件重命名:
+    >>> os.rename('test.txt', 'test.py')
+    # 删掉文件:
+    >>> os.remove('test.py')
+    # 复制文件的函数居然在os模块中不存在！
+    shutil模块中找到很多实用函数，它们可以看做是os模块的补充。
+    shutil模块提供了copyfile()的函数
+    # 路径字符串操作，不要直接操作字符串
+    >>> os.path.split('/Users/michael/testdir/file.txt')
+    ('/Users/michael/testdir', 'file.txt')
+    >>> os.path.splitext('/path/to/file.txt')
+    ('/path/to/file', '.txt')
+    # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+    >>> os.path.join('/Users/michael', 'testdir')
+    '/Users/michael/testdir'
+    # 过滤目录出来
+    >> p = [x for x in os.listdir('.') if os.path.isdir(x)]
+** 序列化
+   把变量从内存中变成可存储或传输的过程称之为序列化。
+   在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening等等，都是一个意思。
+   把变量内容从序列化的对象重新读到内存里称之为反序列化,即unpickling.
+   Python语言特定的序列化模块是pickle,
+   如果要把序列化搞得更通用、更符合Web标准，就可以使用json模块。
+*** pickle
+   Python提供了pickle模块来实现序列化.
+   *Pickle的问题和所有其他编程语言特有的序列化问题一样，
+   就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，
+   因此,只能用Pickle保存那些不重要的数据,不能成功地反序列化也没关系。
+   pickle.dumps()方法把任意对象序列化成一个bytes，
+   然后，就可以把这个bytes写入文件。
+   或者用另一个方法pickle.dump()直接把对象序列化后
+   写入一个file-like Object。
+   读取时，可以先把内容读到一个bytes，
+   然后用pickle.loads()方法反序列化出对象，
+   或用pickle.load()方法从一个file-like Object中直接反序列化出对象。
+*** JSON
+    要在不同的编程语言之间传递对象，就必须把对象序列化为标准格式，
+    比如XML，但更好的方法是序列化为JSON，
+    因为JSON表示出来就是一个字符串，可以被所有语言读取，
+    也可以方便地存储到磁盘或者通过网络传输。
+    JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面中读取。
+    JSON表示的对象就是标准的JavaScript语言的对象.
+    Python内置的json模块提供了Python对象到JSON格式的转换。
+    JSON标准规定JSON编码是UTF-8.
+    Python的dict对象可以直接序列化为JSON的{}
+    import json
+    json.dumps(d)
+    json.loads(j)
+*** JSON进阶
+    https://docs.python.org/3/library/json.html#json.dumps
+    可选参数default就是把任意一个对象变成一个可序列为JSON的对象。
+    手动定义对象和dict的转换关系函数
+    J = json.dumps(P,default = People2dict)
+    p = json.loads(J,object_hook=Dict2People)
+    通常class的实例都有一个__dict__属性，
+    它就是一个dict，用来存储实例变量。
+
+* 进程和线程
+** 概念
+   真正的并行执行多任务只能在多核CPU上实现。
+   对于操作系统来说，一个任务就是一个进程(Process).
+   在一个进程内部，要同时干多件事，就需要同时运行多个“子任务”，
+   我们把进程内的这些“子任务”称为线程(Thread)。
+   多任务的实现有3种方式：
+   1.多进程模式
+   2.多线程模式
+   3.多进程+多线程模式
+   同时执行多个任务通常任务之间并不是没有关联的,而是需要相互通信和协调.
+   Python既支持多进程，又支持多线程.
+   线程是最小的执行单元，而进程由至少一个线程组成。
+** 多进程
+   Python的os模块封装了常见的系统调用，
+   其中就包括fork，可以在Python程序中轻松创建子进程
+   pid = os.fork()
+   os.getpid(),os.getppid()
+   在Windows下没有fork()无法使用
+*** multiprocessing模块就是跨平台版本的多进程模块。
+    提供了一个Process类来代表一个进程对象
+    from multiprocessing import Process
+    def child_run(name):
+      print('child process(%s) is %s' % (os.getpid(),name))
+    p = Process(target=child_run,args=('test',))# 为啥加个,
+    p.start()
+    p.join()
+    join()可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
+*** Pool
+    要启动大量的子进程，可以用进程池的方式批量创建子进程。
+    p = Pool(4)
+    p.apply_async(long_time_task,args=(i,))
+    p.close()
+    p.join()
+    对Pool对象调用join()方法会等待所有子进程执行完毕，
+    调用join()之前必须先调用close()，
+    调用close()之后就不能继续添加新的Process了.
+    Pool有意设计的限制,
+    对于4核CPU,task 4要等待前面某个task完成后才开始执行.
+    由于Pool的默认大小是CPU的核数.
+*** 子进程
+    subprocess模块可以让我们启动一个子进程，然后控制其输入和输出。
+    import subprocess
+    r = subprocess.call(['nslookup','www.python.org'])
+    p = subprocess.Popen(['nslookup'],stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output,r = p.communicate(b'set q=mx\npython.org\nexit\n')
+*** 进程间通信
+    Python的multiprocessing模块包装了底层的机制，
+    提供了Queue、Pipes等多种方式来交换数据。
+    from multiprocessing import Queue
+    q = Queue()
+    q.put(x)
+    x = q.get(True)
+    pw = Process(target=write,args=[q,])
+    pr = Process(target=read,args=[q,])
+    pw.start()
+    pr.start()
+    pw.join()
+    pr.terminate()
+    由于Windows没有fork调用，
+    因此multiprocessing需要“模拟”出fork的效果，
+    父进程所有Python对象都必须通过pickle序列化再传到子进程去。
+** 多线程
+   线程是操作系统直接支持的执行单元.
+   Python的线程是真正的Posix Thread，而不是模拟出来的线程。
+   Python的标准库提供了两个模块：_thread和threading，
+   _thread是低级模块，threading是高级模块，对_thread进行了封装。
+   绝大多数情况下，我们只需要使用threading这个高级模块。
+   threading模块有个current_thread()函数，返回当前线程的实例。
+   t = threading.Thread(target=loop,name='LoopThread')
+   t.start()
+   t.join()
+*** Lock
+    *多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，
+    而多线程中，所有变量都由所有线程共享，
+    所以，任何一个变量都可以被任何一个线程修改。
+    *需要给变量上锁，每个变量由于锁只有一个，
+    无论多少线程，同一时刻最多只有一个线程持有该锁，
+    所以，不会造成修改的冲突。
+    *获得锁的线程用完后一定要释放锁，
+    否则那些苦苦等待锁的线程将永远等待下去，成为死线程。
+    所以我们用try...finally来确保锁一定会被释放。
+    *由于可以存在多个锁，不同的线程持有不同的锁，
+    并试图获取对方持有的锁时，可能会造成死锁，导致多个线程全部挂起，
+    既不能执行，也无法结束，只能靠操作系统强制终止。
+    lock = threading.Lock()
+    lock.acquire()
+    lock.release()
+*** 多核CPU    
+    *Python的线程虽然是真正的线程，但解释器执行代码时，
+    有一个GIL锁：Global Interpreter Lock，
+    任何Python线程执行前，必须先获得GIL锁，
+    每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。
+    这个GIL全局锁实际上把所有线程的执行代码都给上了锁，
+    所以，多线程在Python中只能交替执行，
+    即使100个线程跑在100核CPU上，也只能用到1个核。
+    *Python虽然不能利用多线程实现多核任务，
+    但可以通过多进程实现多核任务。
+    多个Python进程有各自独立的GIL锁，互不影响。
+    *python是无法进行多线程并发的
+** ThreadLocal
+   多线程使用局部变量也有问题，就是在函数调用的时候，传递起来很麻烦。
+   ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
+   一个ThreadLocal变量虽然是全局变量，
+   但每个线程都只能读写自己线程的独立副本，互不干扰。
+   local_var = threading.local()
+   people = local_var.people
+   local_var.people = name
+   可以把local_var看成全局变量，但每个属性如local_school.people
+   都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，
+   ThreadLocal内部会处理。
+** 进程 vs 线程
+   要实现多任务，通常我们会设计Master-Worker模式.
+   多任务环境下，通常是一个Master，多个Worker.
+   多进程模式最大的优点就是稳定性高,Master进程只负责分配任务,挂掉的概率低.
+   多进程模式的缺点是创建进程的代价大.
+   多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个进程崩溃，
+   因为所有线程共享进程的内存。
+   为了缓解这个问题,现在又有多进程+多线程的混合模式。
+*** 计算密集型 vs IO密集型
+    要最高效地利用CPU,计算密集型任务同时进行的数量应当等于CPU的核心数.
+    对于计算密集型任务，最好用C语言编写。
+    对于IO密集型任务，任务越多，CPU效率越高.
+    对于IO密集型任务，最合适的语言就是开发效率最高(代码量最少)的语言,
+    脚本语言是首选，C语言最差
+*** 异步IO
+    充分利用操作系统提供的异步IO支持，
+    就可以用单进程单线程模型来执行多任务，
+    这种全新的模型称为事件驱动模型.
+    用异步IO编程模型来实现多任务是一个主要的趋势。
+    对应到Python语言，单线程的异步编程模型称为协程.
+** 分布式进程
+   https://www.liaoxuefeng.com/wiki/1016959663602400/1017631559645600
+   在Thread和Process中，应当优选Process，因为Process更稳定，
+   而且，Process可以分布到多台机器上，
+   而Thread最多只能分布到同一台机器的多个CPU上。
+   multiprocessing模块不但支持多进程，
+   其中managers子模块还支持把多进程分布到多台机器上。
+   from multiprocessing.managers import BaseManager
+   在分布式多进程环境下，添加到任务的Queue
+   不可以直接对原始的task_queue进行操作。
+   必须通过manager.get_task_queue()获得的Queue接口添加。
+   Queue之所以能通过网络访问，就是通过QueueManager实现的。
+   由于QueueManager管理的不止一个Queue，
+   所以，要给每个Queue的网络调用接口起个名字。
+   注意Queue的作用是用来传递任务和接收结果，
+   每个任务的描述数据量要尽量小。
+   file:/Users/xinjiabin/1xin/programme/python/test_master.py
+   file:/Users/xinjiabin/1xin/programme/python/test_worker.py
+
+* 正则表达式
+  正则表达式是一种用来匹配字符串的强有力的武器。
+  设计思想是用一种描述性的语言来给字符串定义一个规则.
+  re模块，包含所有正则表达式的功能。
+  由于Python的字符串本身也用\转义，
+** 规则
+   \d可以匹配一个数字
+   \w可以匹配一个字母或数字
+   .可以匹配任意字符 
+   *表示任意个字符（包括0个）
+   +表示至少一个字符
+   ?表示0个或1个字符
+   {n}表示n个字符
+   {n,m}表示n-m个字符
+   \s可以匹配一个空格（也包括Tab等空白符）
+   A|B可以匹配A或B
+   ^表示行的开头
+   $表示行的结束
+   [0-9a-zA-Z\_]可以匹配一个数字、字母或者下划线
+   [0-9a-zA-Z\_]+可以匹配至少由一个数字、字母或者下划线组成的字符串
+   [a-zA-Z\_][0-9a-zA-Z\_]*可以匹配由字母或下划线开头，
+         后接任意个由一个数字、字母或者下划线组成的字符串
+   [a-zA-Z\_][0-9a-zA-Z\_]{0, 19}
+         更精确地限制了变量的长度是1-20个字符
+   '-'是特殊字符，在正则表达式中，要用'\'转义，再由于python也用\转义
+   所以要匹配'-'，要用'\\-'
+** re模块
+   由于Python的字符串本身也用\转义，
+   强烈建议使用Python的r前缀，就不用考虑转义的问题了
+** 切分字符串
+   re.split(r'[\s\,\;]+', 'a,b;c,;d  e'))
+   按照正则表达式，切割字符
+** 分组
+   提取子串的强大功能。用()表示的就是要提取的分组(Group)。
+   在Match对象上用group(),groups()方法提取出子串来
+** 贪婪匹配
+   正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符
+   加个?就可以让\d+采用非贪婪匹配(也就是尽可能少匹配数字)
+** 编译
+   re模块内部会用编译后的正则表达式去匹配字符串。
+   出于效率的考虑，我们可以预编译该正则表达式，
+   接下来重复使用时就不需要编译这个步骤了，直接匹配。
+   编译后生成Regular Expression对象
+
+* 常用内建模块
+** datetime
+   Python处理日期和时间的标准库.
+   datetime模块还包含一个datetime类
+   计算机存储的当前时间是以timestamp表示的，
+   因为全球各地的计算机在任意时刻的timestamp都是完全相同的.
+   注意Python的timestamp是一个浮点数.小数位表示毫秒数.
+   # 某些编程语言(Java和JavaScript)的timestamp使用整数表示毫秒数，
+   # 这种情况只需要把timestamp除以1000就得到Python的浮点表示方法。
+   把str转换为datetime。转换方法是通过datetime.strptime()实现
+   https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+   timedelta用于对datetime进行时间加减运算
+*** 时区转换
+    一个datetime类型有一个时区属性tzinfo，但是默认为None。
+    timezone生成tzinfo属性
+    dt_utc.astimezone(timezone(timedelta(hours=8)))
+    利用带时区的datetime,通过astimezone()方法,可以转换到任意时区。
+    datetime表示的时间需要时区信息才能确定一个特定的时间，
+    否则只能视为本地时间.
+    要存储datetime，最佳方法是将其转换为timestamp再存储.
+** collections
+   Python内建的一个集合模块，提供了许多有用的集合类。
+*** namedtuple
+    namedtuple是一个函数，它用来创建一个自定义的tuple对象，
+    并且规定了tuple元素的个数，
+    并可以用属性而不是索引来引用tuple的某个元素。
+    Point = namedtuple('point', ['x', 'y'])
+*** deque
+    deque是为了高效实现插入和删除操作的双向列表，适合用于队列和栈.
+*** defaultdict
+    如果希望key不存在时，返回一个默认值，就可以用defaultdict.
+    defaultdict的其他行为跟dict是完全一样的。
+    
+
+
+
+
+
+
+
+
+
+
+
+
+* 查看
+** 查看所有模块
+   >>>help("modules")
+   >>>import sys
+   >>>sys.modules
+** 查看对象内所有属于及方法
+   >>>dir(sys)
+** 查看Python内置函数
+   >>>import sys
+   >>>print dir(sys.modules['__builtin__'])
+   >>>dir(__builtins__)
+** 查看模块中函数用法
+   >>>import sys
+   >>>help(dict)
+** 查看数据对象的类型
+   >>>a=[1,2,3]
+   >>>help(a)         # class list(object)
+   >>>help(a.append)
+   >>>help(123)       # class int(object)
+** 查看对象支持的方法
+   >>>b={1:2,2:3}
+   >>> help(b)        # 可查看 dict object 支持的方法
+** 查看对象类型
+   >>>d=2
+   >>>type(d)
+** 查看模块自定义的类
+   >>>help('unittest')     # help('module_name')
+
+* 技巧
+
+* bug
+
