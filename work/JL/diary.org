@@ -974,6 +974,14 @@
 * 20191024
 ** 新时代692X
    BLE做主机获取RSSI，珠海在V2.6.3改了个库给客户测试了
+   typedef struct {
+       u8   event_type;
+       u8   address_type;
+       u8   address[6];
+       s8   rssi;///u8 reserve;
+       u8   length;
+       u8   data[1];
+   } adv_report_t;
 ** 汇杰芯692X
    发射器带混响，发射出去无混响效果
    调整ladc的中断函数流程，客户测试可以
@@ -1853,6 +1861,7 @@
 * 20190522
 ** 嘉兴科美692X
    频谱死机，和VM冲突
+   中断计算频谱时，要加入    if (0 == get_vm_statu())
    automute高频吱吱声，改成VCM_RSEL_1,delay_2ms(400);///70
 
 * 20190521
@@ -6477,8 +6486,6 @@
     对charge_full_deal();函数的执行，进行计数5次以上，才能执行
 ** 汉欣诺6901车机
 *** 蓝牙获取电话本出现死机和乱码
-*** TODO 获取手机拨打电话出去的号码
-     - State "TODO"       from ""           [2017-09-04 周一 19:24]
 
 * 20170831
 ** 笔记本电脑win8win10蓝牙连不上
