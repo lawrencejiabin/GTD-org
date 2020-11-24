@@ -4000,7 +4000,7 @@
    修改长按4s功能。
 ** 起华FF202  
    出了一个版本可以测试，没有加入音量同步。
-** 华钜芯690X电话本
+** 690X电话本
    phonebook_packet_handler回调函数有个type，里面有类型的区分。0是电话号码，1是拨出号码。2是来电，3是未接来电
    void __set_phone_history_call_num(u8 num);可以设置获取通话记录的条数
    USER_CTRL_PBAP_READ_PART命令获取通话记录条数
