@@ -4920,7 +4920,7 @@
 * 20180411
 ** 69系列连接BLE获取MAC地址
    在连接成功有buffer反馈，16字节。
-	 前面2byte是handle，接着1byte的role，1byte的addr_type，然后就是6byte的peer_addr。
+   前面2byte是handle，接着1byte的role，1byte的addr_type，然后就是6byte的peer_addr。
    手机蓝牙MAC地址可以改的，EDR和BLE的地址是不一样的。
 * 20180410
 ** 宇恒69AI
