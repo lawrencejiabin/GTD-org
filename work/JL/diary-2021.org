@@ -13,7 +13,58 @@
 
 
 
+* 20210318
+** 联巨兴951
+   用IO控制功放mute
+   开关盖输出高5s后拉低
+** 四博6969
+   音箱的SDK，ac696n_soundbox_sdk_v1.2.2，添加63的APP_OTA流程
+
+* 20210317
+** 文晟智能6369C
+   生产10K多，出现几十个蓝牙搜不到，或者蓝牙延时大
+   客户程序是030版本的，对这些芯片确实存在这些问题
+   用080的又是正常的
+   协助客户升级SDK，但030版本的问题未知
+** 春苗695X
+   获取当前设备的总容量
+   #+BEGIN_SRC c
+   u32 get_cur_dev_total_capacity(void)
+   {
+   	struct __dev *dev = NULL;
+       u32 capacity = 0, block_size = 0;
+       /* dev = dev_manager_find_last(0); */
+       if(dev_manager_check_by_logo("sd1")){
+           dev = dev_open("sd1", NULL);
+       }
+       if(dev != NULL){
+           dev_ioctl(dev, IOCTL_GET_BLOCK_SIZE, (u32)&block_size);
+           dev_ioctl(dev, IOCTL_GET_CAPACITY, (u32)&capacity);
+           dev_close(dev);
+       }
+       r_printf("%s[%d %d]", __func__, capacity, block_size);
+       r_printf("%s[%d KB / %d MB / %d GB]", __func__, capacity/2, capacity/2/1024, capacity/2/1024/1024);
+       return capacity/2;
+   }
+   #+END_SRC
+   代码超1M后，链接报错
+   #define CONFIG_FLASH_SIZE       (2 * 1024 * 1024)
+
 * 20210316
+** 生产事故报告
+   珠海出正式报告，需要签名才能发出
+   发给张源后，由张源发给客户代理
+   工程这边不发这些东西给客户。
+** 632X功耗
+   动态功耗和637接近，静态功耗优于631
+** 天浪mesh
+   080的SDK开了gatt,scan遥控器包会丢包
+   #define MESH_SCAN_INTERVAL_MS 7//10
+   #define MESH_SCAN_WINDOW_MS   4//10
+   尽量让 window < interval
+** 科普豪695X
+   独立录音mic，同时mic的声音输出到DAC
+   添加LADC到DAC的流程，容易引起啸叫
 
 * 20210315
 ** BLE低功耗唤醒
@@ -298,6 +349,7 @@
 ** 佳琪6954C
    APP对接中
 * 20210118
+  出差1天
 ** 63验证
    6369F，PWM5到底是哪个口
    仿真，调试，烧录，升级方式

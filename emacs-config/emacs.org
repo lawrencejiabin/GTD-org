@@ -90,3 +90,6 @@
   m-x flush-lines 
   ^$
 
+* 文件格式转为Unix格式
+  C-x RET f （修改编码） unix RET （选择编码） C-x C-s (存盘）
+

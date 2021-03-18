@@ -84,6 +84,8 @@
     从远程的origin仓库的master分支下载代码到本地的master
 *** git diff origin/master
     对比和本地的master的不同
+    git diff master..test
+    git diff master...test
 *** git merge origin/master
     合并到本地上，
     如果本地有修改的文件，远程没更新，不会替换本地已修改的文件
