@@ -83,7 +83,6 @@
 * python
 ** elpy
     Configuration
-
     Emacs.............: 26.3
     Elpy..............: 1.32.0
     Virtualenv........: None
@@ -95,48 +94,32 @@
     Autopep8.........: Not found (1.5 available)
     Yapf.............: Not found (0.29.0 available)
     Black............: Not found (19.10b0 available)
-    Syntax checker....: Not found (flake8)
-    
+    Syntax checker....: Not found (flake8)    
     Warnings
-    
     You have not activated a virtual env. While Elpy supports this, it is often a
     good idea to work inside a virtual env. You can use M-x pyvenv-activate or M-x
-    pyvenv-workon to activate a virtual env.
-    
+    pyvenv-workon to activate a virtual env.    
     The directory ~/.local/bin/ is not in your PATH. As there is no active
     virtualenv, installing Python packages locally will place executables in that
     directory, so Emacs won't find them. If you are missing some commands, do add
-    this directory to your PATH -- and then do `elpy-rpc-restart'.
-    
-    The jedi package is not available. Completion and code navigation will not work.
-    
+    this directory to your PATH -- and then do `elpy-rpc-restart'.    
+    The jedi package is not available. Completion and code navigation will not work.    
     [Install jedi]
-    
-    The autopep8 package is not available. Commands using this will not work.
-    
+    The autopep8 package is not available. Commands using this will not work.    
     [Install autopep8]
-    
-    The yapf package is not available. Commands using this will not work.
-    
+    The yapf package is not available. Commands using this will not work.    
     [Install yapf]
-    
-    The black package is not available. Commands using this will not work.
-    
+    The black package is not available. Commands using this will not work.    
     [Install black]
-
     The configured syntax checker could not be found. Elpy uses this program to
     provide syntax checks of your programs, so you might want to install one. Elpy
-    by default uses flake8.
-    
+    by default uses flake8.    
     [Install flake8]
-    
     Options
-
     `Raised' text indicates buttons; type RET or click mouse-1 on a button to invoke
     its action. Invoke [+] to expand a group, and [-] to collapse an expanded group.
     Invoke the [Group], [Face], and [Option] buttons below to edit that item in
     another window.
-    
     [+]-- Group Elpy
     [+]-- Group Python
     [+]-- Group Virtual Environments (Pyvenv)
@@ -149,6 +132,13 @@
     [+]-- Group Search as You Type (ido)
     [+]-- Group Django extension
     [+]-- Group Autodoc extension
+
+** Anaconda3
+   安装完conda后，进入终端显示(base) 
+   通过配置auto_activate_base关闭自动进入conda基础环境： 
+   conda config --set auto_activate_base false 
+   想要重新开启就设为true就行了 
+   conda config --set auto_activate_base true
 
 * 终端命令行前缀
   $sudo vim /etc/bashrc
@@ -167,4 +157,112 @@
   Command-Shift-3
 * 移动状态栏图标
   同时按下Command，移动鼠标才有作用
+* 剪切
+  选择文件后，
+  快捷键“command＋c”:复制
+  “command＋v”：粘贴
+  “command＋option（alt）＋v”：剪切
+* 文件的隐藏属性
+  chflags hidden ~/路径/文件夹名
+  chflags nohidden ~/路径/文件夹名
+  chflags nohidden /Volumes/ex_amuse/Actress/1/a
+  访达快捷键：shift+cmmand+.
 
+* 访问GitHub慢
+  $ sudo vim /etc/hosts
+  # Github
+  151.101.185.194 github.global.ssl.fastly.net
+  192.30.253.112 github.com 
+  151.101.112.133 assets-cdn.github.com 
+  151.101.184.133 assets-cdn.github.com 
+  185.199.108.153 documentcloud.github.com 
+  192.30.253.118 gist.github.com
+  185.199.108.153 help.github.com 
+  192.30.253.120 nodeload.github.com 
+  151.101.112.133 raw.github.com 
+  23.21.63.56 status.github.com 
+  192.30.253.1668 training.github.com 
+  192.30.253.112 www.github.com 
+  151.101.13.194 github.global.ssl.fastly.net 
+  151.101.12.133 avatars0.githubusercontent.com 
+  151.101.112.133 avatars1.githubusercontent.com
+  $ dscacheutil -flushcache
+* 虚拟机
+** Parallels Desktop
+   一定要开Parallels Toolbox安装镜像系统
+*** win7
+    安装win7，一定要装旗舰版，全功能安装，可以访问Mac文件夹
+*** Ubuntu
+    
+* Qemu
+  奇怪下载失败，还能构建成功。
+  https://download.qemu.org/qemu-4.2.0.tar.xz
+  ./configure --prefix=/usr/local/Cellar/qemu/4.2.0 --cc=clang --host-cc=clang -- 命令行不完整
+  make V=1 install
+  /usr/local/Cellar/qemu/4.2.0/bin/
+
+* docker
+** linux-0.11-lab
+   $ lsof -i:6080 查看端口号,方便杀掉进程
+   $ tools/docker/run linux-0.11-lab
+   不能手动重启容器，手动重启可能导致密码不匹配,请尝试:
+   $ tools/docker/clean linux-0.11-lab
+   $ tools/docker/rerun linux-0.11-lab
+   在VNC的网页上启动Lab终端输入
+   $ make start-hd
+*** docker启动信息
+   http://localhost:6080/?u=7827c9&p=ltmk4n&autoconnect=1
+   LOG: Container ID: 32e67846f64d Container Name: linux-0.11-lab-15629
+   LOG: User: ubuntu ,Password: cnrp4w ,VNC Password: ltmk4n ,Viewonly Password: p3hrqm
+   Lab: linux-0.11-lab-15629, User: ubuntu
+   *VNC (Normal): http://192.168.43.87:6080/?u=7827c9&p=ltmk4n
+   *VNC   (View): http://192.168.43.87:6080/?r=7827c9p3hrqm
+   *SSH    (Web): http://192.168.43.87:4433/?ssh=ssh://ubuntu:cnrp4w@172.17.0.3:22
+   LOG: Released to: /Users/xinjiabin/1xin/programme/Linux/cloud-lab/releasings/index.html
+   LOG: Labs online: http://192.168.43.87:6080/labs/index.html
+   Please login with:
+   User: 7827c9
+   Password: ltmk4n (Normal)
+   Password: p3hrqm (View)
+   file:/Users/xinjiabin/Library/Containers/com.docker.docker/Data/vms/0/data
+*** docker镜像启动后，打开vnc提示连接失败
+    不能手动重启容器，手动重启可能导致密码不匹配
+    tools/docker/clean linux-0.11-lab
+    tools/docker/rerun linux-0.11-lab
+* 文件批量转码
+  mkdir 1
+  find *.java -exec sh -c "iconv -f GB2312 -t UTF8 {} > 1/{}" \;
+  find * -exec sh -c "iconv -f GB2312 -t UTF8 {} > utf8/{}" \;
+* 文件编码
+  C-x ret r 以指定编码重读文件
+* Beyond Compare破解方式
+  1.进入Beyond Compare应用程序MacOS目录下(/Applications/Beyond Compare.app/Contents/MacOS)
+  2.将主启动程序BCompare重命名为BCompare.real
+  3.在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看
+  创建BCompare文件命令如下：
+  在这个脚本里面写如下代码，第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序。
+  #!/bin/bash
+  rm "/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat"
+  "`dirname "$0"`"/BCompare.real $@
+
+  4.给新建的文件BCompare，授权文件执行权限
+  chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare
+  这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。
+
+* MacOs系统升级
+  https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12
+* Mac储存空间
+** 2021-01-17
+   文稿：25.8GB，APP：9.6GB，音乐创作：2.4GB，系统：11.1GB，其他：16.9GB，剩余：55GB
+** 2021-01-17
+   文稿：25.8GB，APP：9.6GB，音乐创作：2.4GB，系统：11.1GB，其他：21.5GB，剩余：50GB
+   重启后，剩余变成54GB
+** 2021-02-21
+   文稿：39.0GB，APP：9.7GB，音乐创作：2.4GB，系统：11.1GB，其他：17.6GB，剩余：40.78GB
+
+* C语言编译
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include
+
+* 访达
+  option + left/right  展开所有文件夹

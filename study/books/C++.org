@@ -1,0 +1,31 @@
+#+TITLE:       C/C++ (study record)
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2020-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    c C C++
+#+LANGUAGE:    c C C++
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+
+
+* gcc
+** gcc -v
+   Configured with: 
+   --prefix=/Library/Developer/CommandLineTools/usr 
+   --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/c++/4.2.1
+   Apple LLVM version 10.0.1 (clang-1001.0.46.4)
+   Target: x86_64-apple-darwin18.7.0
+   Thread model: posix
+   InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+* g++   
+
+* Learn C on the Mac
+
+
+
+
+
+
+

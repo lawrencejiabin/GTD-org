@@ -1087,18 +1087,157 @@
 *** defaultdict
     如果希望key不存在时，返回一个默认值，就可以用defaultdict.
     defaultdict的其他行为跟dict是完全一样的。
-    
+*** OrderedDict
+    要保持Key的顺序，可以用OrderedDict.
+    Key会按照插入的顺序排列
+    可以实现一个FIFO的dict,当容量超出限制时,先删除最早添加的Key.
+*** ChainMap
+    把一组dict串起来并组成一个逻辑上的dict.
+    查找的时候,会按照顺序在内部的dict依次查找.
+*** Counter
+    一个简单的计数器
+** base64
+   用64个字符来表示任意二进制数据的方法
+   Base64编码会把3字节的二进制数据编码为4字节的文本数据,长度增加33%.
+   Base64是一种通过查表的编码方法，不能用于加密.
+   适用于小段内容的编码，比如数字证书签名、Cookie的内容等。
+   Base64是一种任意二进制到文本字符串的编码方法，
+   常用于在URL、Cookie、网页中传输少量二进制数据。
+** struct
+   struct模块来解决bytes和其他二进制数据类型的转换。
+   pack函数把任意数据类型变成bytes:struct.pack('>I', 10240099)
+   '>I'的意思是：
+   >表示字节顺序是big-endian，也就是网络序，I表示4字节无符号整数。
+   unpack把bytes变成相应的数据类型:
+   struct.unpack('>IH', b'\xf0\xf0\xf0\xf0\x80\x80')
+   '>IH'的说明是：
+   后面的bytes依次变为I：4字节无符号整数，H：2字节无符号整数。
+   https://docs.python.org/3/library/struct.html#format-characters
+** hashlib
+   hashlib提供了常见的摘要算法，如MD5，SHA1等等。
+   摘要算法又称哈希算法、散列算法。它通过一个函数，
+   把任意长度的数据转换为一个长度固定的数据串(通常用16进制的字符串表示).
+   对原始数据做一个bit的修改，都会导致计算出的摘要完全不同。
+   应用场景：
+   正确的保存口令的方式是不存储用户的明文口令，而是存储用户口令的摘要。
+   要注意摘要算法不是加密算法，不能用于加密(因为无法通过摘要反推明文),
+   只能用于防篡改，
+   但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。
+** hmac
+   Hmac算法：Keyed-Hashing for Message Authentication。
+   它通过一个标准算法，在计算哈希的过程中，把key混入计算过程中。
+   采用Hmac替代我们自己的salt算法，可以使程序算法更标准化，也更安全。
+   需要注意key和message都是bytes类型,str类型需要首先编码为bytes.
+   同一个message，只要key不一样，摘要就不一样。
+** itertools
+   提供了非常有用的用于操作迭代对象的函数。
+   count()自然数序列
+   cycle()会把传入的一个序列无限重复下去
+   repeat()把第一个元素无限重复下去，第二个参数就可以限定重复次数
+   无限序列只有在for迭代时才会无限地迭代下去。
+   通过takewhile()等函数根据条件判断来截取出一个有限的序列。
+   chain()可以把一组迭代对象串联起来
+   groupby()把迭代器中相邻的重复元素挑出来放在一起
+   itertools模块提供的全部是处理迭代功能的函数,它们的返回值不是list,
+   而是Iterator，只有用for循环迭代的时候才真正计算。
+** contextlib
+   Python的with语句允许我们非常方便地使用资源,而不必担心资源没有关闭.
+   实际上，任何对象，只要正确实现了上下文管理，就可以用于with语句。
+   实现上下文管理是通过__enter__和__exit__这两个方法实现的。
+   就可以把自己写的资源对象用于with语句.
+   @contextmanager这个decorator接受一个generator，
+   用yield语句把with ... as var把变量输出出去,来简化上下文管理.
+   如果对象没有实现上下文，就不能把它用于with语句，
+   可以用closing()来把该对象变为上下文对象，即可用with语句。
+   @contextlib还有一些其他decorator，便于我们编写更简洁的代码。
+** urllib
+   提供了一系列用于操作URL的功能。
+   urllib提供的功能就是利用程序去执行各种HTTP请求。
+   如果要模拟浏览器完成特定功能，需要把请求伪装成浏览器。
+   伪装的方法是先监控浏览器发出的请求，再根据浏览器的请求头来伪装，
+   User-Agent头就是用来标识浏览器的。
+*** Get
+    request模块可以非常方便地抓取URL内容，
+    也就是发送一个GET请求到指定的页面，然后返回HTTP的响应.
+    通过往Request对象添加HTTP头，我们就可以把请求伪装成浏览器。
+*** Post
+    以POST发送一个请求，只需要把参数data以bytes形式传入。
+*** Handler
+    通过一个Proxy去访问网站，我们需要利用ProxyHandler来处理.
+** XML
+   操作XML有两种方法：DOM和SAX。
+   DOM会把整个XML读入内存，解析为树，因此占用内存大，解析慢，
+   优点是可以任意遍历树的节点。
+   SAX是流模式，边读边解析，占用内存小，解析快，
+   缺点是我们需要自己处理事件。
+   正常情况下，优先考虑SAX，因为DOM实在太占内存。
+   需要生成的XML结构,最简单也是最有效的生成XML的方法是拼接字符串.
+   要生成复杂的XML呢？建议你不要用XML，改成JSON。
+** HTMLParser
+   HTML本质上是XML的子集，但是HTML的语法没有XML那么严格。
+   from html.parser import HTMLParser
+   from html.entities import name2codepoint
+   特殊字符有两种，一种是英文表示的&nbsp;，一种是数字表示的&#1234;。
+   这两种字符都可以通过Parser解析出来。
+* 第三方模块
+  所有的第三方模块都会在PyPI - the Python Package Index上注册.
+  只要找到对应的模块名字，即可用pip安装。
+  强烈推荐安装Anaconda,包含数十个常用的第三方模块就已经就绪。
+** Pillow
+  $ pip3 install pillow
+** requests
 
 
 
+* virtualenv
+  所有第三方的包都会被pip安装到Python3的site-packages目录下。
+  某种情况下，每个应用可能需要各自拥有一套“独立”的Python运行环境。
+  virtualenv就是用来为一个应用创建一套“隔离”的Python运行环境。
+  原理很简单，就是把系统Python复制一份到virtualenv的环境，
+  用命令source venv/bin/activate进入一个virtualenv环境时，
+  virtualenv会修改相关环境变量，
+  让命令python和pip均指向当前的virtualenv环境。
+  解决了不同应用间多版本的冲突问题。
+** 步骤
+*** 建应用目录
+   $ mkdir myproject
+   $ cd myproject/
+   $
+*** 建独立的应用环境venv
+   $ virtualenv --no-site-packages venv
+     Using base prefix '/usr/local/.../Python.framework/Versions/3.4'
+     New python executable in venv/bin/python3.4
+     Also creating executable in venv/bin/python
+     Installing setuptools, pip, wheel...done.
+*** 从系统环境切换进应用环境venv
+   $ source venv/bin/activate
+   (venv)$
+   (venv)$ pip install jinja2
+           Successfully installed jinja2-2.7.3
+   (venv)$ python myapp.py
+*** 退出venv并回到系统环境
+   (venv)$ deactivate 
+   $ 
+
+* 图形界面
+  支持多种图形界面的第三方库，包括：Tk、wxWidgets、Qt、GTK等等。
+  但是Python自带的库是支持Tk的Tkinter，使用Tkinter，
+  无需安装任何包，就可以直接使用。
+  Tkinter封装了访问Tk的接口；
+  Tk是一个图形库，支持多个操作系统，使用Tcl语言开发；
+  Tk会调用操作系统提供的本地GUI接口，完成最终的GUI。
 
 
 
+* 网络编程
 
 
+* vars()
+  返回对象object的属性和属性值的字典对象。
 
-
-
+* pythonic的编程习惯
+** print("if:", 1 if 3 in [1, 2] else 0)
+   
 
 * 查看
 ** 查看所有模块
