@@ -1,0 +1,31 @@
+#+TITLE:       Linux Kernel
+#+AUTHOR:      辛佳斌(lawrence)
+#+DATE:        [2020-02-13 周一 16:31]
+#+EMAIL:       lawrencejiabin@163.com
+#+KEYWORDS:    linux kernel
+#+LANGUAGE:    c makefile
+
+#+SEQ_TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+SEQ_TODO: TODO(T!) | DONE(D@)3  CANCELED(C@/!)  
+
+
+* 笔记
+** 最好循序渐进地从1.0版本开始直到最新的正在开发的奇数编号的版本
+
+* Intel
+  堆栈段寄存器SS
+  堆栈指针esp
+  cs代码段寄存器
+  ds数据段寄存器
+  es扩展段寄存器,目的地址段寄存器
+
+* Linux-0.11
+  
+* Qemu 模拟器
+
+* GDB和KGDB
+  
+* bootloader
+  
+  
+
