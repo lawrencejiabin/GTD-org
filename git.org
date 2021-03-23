@@ -212,3 +212,18 @@
     恢复的同时把stash内容也删除了。
 
 * 忽略文件.gitignore
+* git cmd
+** .gitconfig
+   [credential]
+   helper = manager
+   改为
+   [credential]
+   helper = store
+** git config --list
+** git config --global core.autocrlf false
+   为true时，Git会将你add的所有文件视为文本文件，将结尾的CRLF转换为LF，而checkout时会再将文件的LF格式转为CRLF格式。
+   为false时，line endings不做任何改变，文本文件保持其原来的样子。
+   为input时，add时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows操作系统不建议设置此值。
+
+
+
